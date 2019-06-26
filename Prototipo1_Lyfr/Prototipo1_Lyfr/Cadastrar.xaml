@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototipo1_Lyfr.Cadastrar">
+    <ScrollView>
+        <AbsoluteLayout BackgroundColor="#eedbba">
+            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.2,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry Placeholder="Nome" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.2,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
+
+            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry Placeholder="CPF" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
+            
+            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.6,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry Placeholder="Email" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.6,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
+
+            <BoxView BackgroundColor="#387780" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.8,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry Placeholder="Senha" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.8,0.75,0.09" AbsoluteLayout.LayoutFlags="All" IsPassword="True" TextColor="White"/>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0.82,1,0.1" AbsoluteLayout.LayoutFlags="All" Spacing="10">
+                <Button Text="        Cadastrar        " HorizontalOptions="Center" BackgroundColor="#387780" TextColor="White" CornerRadius="10"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>
