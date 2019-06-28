@@ -15,6 +15,14 @@ namespace Prototipo1_Lyfr
         public Cadastrar()
         {
             InitializeComponent();
+
         }
+
+        protected override bool OnBackButtonPressed(){
+            App.Current.MainPage = new Login();
+            return true;
+        }
+        
+        
     }
 }

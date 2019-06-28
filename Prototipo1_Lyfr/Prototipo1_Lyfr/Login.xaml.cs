@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr
 {
-    public partial class MainPage : ContentPage
+    public partial class Login : ContentPage
     {
-        public MainPage()
+        public Login()
         {
             InitializeComponent();
         }
@@ -19,14 +19,14 @@ namespace Prototipo1_Lyfr
             var a = sender as ContentPage;
             if (a.Width > a.Height)
             {
-                bxv1.HeightRequest = bxv1.Height * 2.5;
-                bxv2.HeightRequest = bxv2.Height * 2.5;
+                bxv1.HeightRequest = bxv1.Height * 3.5;
+                bxv2.HeightRequest = bxv2.Height * 3.5;
             }
         }
 
-        private void ChamarPagCadastrar(object sender, EventArgs e)
+        private async void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new Cadastrar());
+            App.Current.MainPage = new Cadastrar();
         }
     }
 }

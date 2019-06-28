@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototipo1_Lyfr.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor_App">#eedbba</Color>
+            <Color x:Key="BackgroundColor_BoxView">White</Color>
+            <Color x:Key="BackgroundColor_Contraste_App">#436477</Color>
+            <Color x:Key="TextColor_App">#436477</Color>
+            
+            <Style x:Key="Style_Label" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+            </Style>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
