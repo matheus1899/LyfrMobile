@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Prototipo1_Lyfr.Home" BackgroundColor="{DynamicResource BackgroundColor_App}" SizeChanged="ContentPage_SizeChanged">
+    <ContentView>
+        
+    <ScrollView>
+        <StackLayout Spacing="10" Padding="5">
+            <Label TextColor="{DynamicResource TextColor_App}" Text="Recomendados para você" HorizontalOptions="Start" FontSize="Large" Margin="30,25,0,10" FontAttributes="Bold"/>
+            <CollectionView x:Name="lista" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="1" ColumnSpacing="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="125"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding Source_imagem}" WidthRequest="90" HeightRequest="150"/>
+                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Nome}" TextColor="{DynamicResource TextColor_App}"
+                                    VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="{DynamicResource BackgroundColor_BoxView}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label TextColor="{DynamicResource TextColor_App}" Text="Continue lendo" HorizontalOptions="Start" FontSize="Large" Margin="30,10,0,15" FontAttributes="Bold"/>
+            <CollectionView x:Name="lista2" HeightRequest="200">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="1" ColumnSpacing="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="125"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding Source_imagem}" WidthRequest="90" HeightRequest="150"/>
+                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding Nome}" TextColor="{DynamicResource TextColor_App}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="{DynamicResource BackgroundColor_BoxView}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+    </ContentView>
+</ContentPage>

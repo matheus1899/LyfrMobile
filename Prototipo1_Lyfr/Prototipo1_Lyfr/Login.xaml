@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Prototipo1_Lyfr"
-             x:Class="Prototipo1_Lyfr.Login" SizeChanged="ContentPage_SizeChanged" >
+             x:Class="Prototipo1_Lyfr.Login" SizeChanged="ContentPage_SizeChanged">
     <ScrollView>
         <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}">
             <StackLayout AbsoluteLayout.LayoutBounds="0,0.05,1,0.08" AbsoluteLayout.LayoutFlags="All">
@@ -25,7 +25,7 @@
                          WidthRequest="27" HeightRequest="27" Aspect="AspectFit" BackgroundColor="Transparent"/>
             <StackLayout AbsoluteLayout.LayoutBounds="0,0.82,1,0.1" AbsoluteLayout.LayoutFlags="All" Spacing="10">
                 <Button Text="     Login     " HorizontalOptions="Center" BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" TextColor="White" 
-                        CornerRadius="10"/>
+                        CornerRadius="10" Clicked="Logar_Clicked"/>
                 <Label Text="Cadastrar" TextColor="{DynamicResource TextColor_App}" HorizontalOptions="Center" 
                        Style="{DynamicResource Style_Label}">
                     <Label.GestureRecognizers>

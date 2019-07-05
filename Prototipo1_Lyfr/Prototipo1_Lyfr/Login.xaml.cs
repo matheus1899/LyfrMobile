@@ -24,9 +24,14 @@ namespace Prototipo1_Lyfr
             }
         }
 
-        private async void ChamarPagCadastrar(object sender, EventArgs e)
+        private void ChamarPagCadastrar(object sender, EventArgs e)
         {
             App.Current.MainPage = new Cadastrar();
+        }
+
+        private void Logar_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new MainPage());
         }
     }
 }

@@ -1,22 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Prototipo1_Lyfr.Cadastrar">
+             x:Class="Prototipo1_Lyfr.Cadastrar"
+             SizeChanged="ContentPage_SizeChanged" Appearing="ContentPage_Appearing">
     <ScrollView>
-        <AbsoluteLayout BackgroundColor="#eedbba">
-            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.2,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry Placeholder="Nome" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.2,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
+        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}">
+            <Label Text="Nome" AbsoluteLayout.LayoutBounds="0.5,0.15,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl1" />
+            <BoxView x:Name="bxv1" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
+                     AbsoluteLayout.LayoutBounds="0.5,0.2,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry x:Name="ent1" AbsoluteLayout.LayoutBounds="0.5,0.2,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}"/>
 
-            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry Placeholder="CPF" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
+            <!--<Label Text="CPF" AbsoluteLayout.LayoutBounds="0.5,0.34,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl2"/>
+            <BoxView x:Name="bxv2" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
+                     AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry x:Name="ent2" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Keyboard="Numeric" MaxLength="11"/>-->
 
-            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.6,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry Placeholder="Email" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.6,0.75,0.09" AbsoluteLayout.LayoutFlags="All" TextColor="White"/>
-
-            <BoxView BackgroundColor="#436477" CornerRadius="20" AbsoluteLayout.LayoutBounds="0.5,0.8,0.85,0.13" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry Placeholder="Senha" PlaceholderColor="White" AbsoluteLayout.LayoutBounds="0.5,0.8,0.75,0.09" AbsoluteLayout.LayoutFlags="All" IsPassword="True" TextColor="White"/>
-            <StackLayout AbsoluteLayout.LayoutBounds="0,0.9,1,0.1" AbsoluteLayout.LayoutFlags="All" Spacing="10">
-                <Button Text="     Cadastrar / Prosseguir     " HorizontalOptions="Center" BackgroundColor="#387780" TextColor="White" CornerRadius="10"/>
+            <Label Text="Sobrenome" AbsoluteLayout.LayoutBounds="0.5,0.34,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl3"/>
+            <BoxView x:Name="bxv3" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
+                     AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry x:Name="ent3" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Keyboard="Email"/>
+            
+            <Label Text="Senha" AbsoluteLayout.LayoutBounds="0.5,0.523,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl4"/>
+            <BoxView x:Name="bxv4" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
+                     AbsoluteLayout.LayoutBounds="0.5,0.6,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
+            <Entry x:Name="ent4" AbsoluteLayout.LayoutBounds="0.5,0.6,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
+                   TextColor="{DynamicResource TextColor_App}" IsPassword="True"/>
+            
+            <StackLayout x:Name="stack_cad" Spacing="15" Margin="10">
+                <StackLayout Orientation="Horizontal" Spacing="20" Padding="5">
+                    <Button x:Name="btn_gratis" Text="Grátis    |   Com anúncios" Clicked="btn_gratis_Clicked" Style="{DynamicResource Style_Button_Ativo}" HorizontalOptions="CenterAndExpand"/>
+                    <Button x:Name="btn_pago" Text="R$ 4,99   |   Leia à Vontade" Clicked="btn_pago_Clicked" Style="{DynamicResource Style_Button_Desativo}" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="     Cadastrar     " HorizontalOptions="Center" BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                            TextColor="White" CornerRadius="10" Clicked="cadastrar_Clicked"/>
+                </StackLayout>
             </StackLayout>
         </AbsoluteLayout>
     </ScrollView>

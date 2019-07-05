@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:Prototipo1_Lyfr"
+            x:Class="Prototipo1_Lyfr.Introducao" >
+    <ContentPage>
+        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}" >
+            <Label Text="Bem-Vindo ao" FontFamily="Arial" FontSize="34" AbsoluteLayout.LayoutBounds="0.5,0.3" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Label Text="Lyfr" FontFamily="Arial" FontSize="68" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0.5,0.4" 
+                   d:AbsoluteLayout.LayoutFlags="PositionProportional" Margin="0,20,0,0"/>
+            <Label Text="Seu aplicativo de leitura.&#10;Quando e onde quiser" AbsoluteLayout.LayoutBounds="0.5,0.64"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" HorizontalTextAlignment="Center" FontSize="Large" Margin="0,15,0,0"/>
+            <Label Text="Pular" FontAttributes="Bold" FontSize="Medium" Margin="15" FontFamily="Arial" AbsoluteLayout.LayoutBounds="1,0" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChamarPagCadastrar" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="»  »  »" AbsoluteLayout.LayoutBounds="0.5,0.82" AbsoluteLayout.LayoutFlags="PositionProportional" FontSize="40"/>
+        </AbsoluteLayout>
+    </ContentPage>
+    <ContentPage>
+        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}" >
+            <Label Text="Pular" FontAttributes="Bold" FontSize="Medium" Margin="15" FontFamily="Arial" AbsoluteLayout.LayoutBounds="1,0" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChamarPagCadastrar" NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            
+            <Label Text="Acesse sua conta agora &#10;e leia a vontade, de graça"  AbsoluteLayout.LayoutBounds="0.5,0.5,1,0.1" 
+                   AbsoluteLayout.LayoutFlags="All" FontSize="24" HorizontalTextAlignment="Center"/>
+        </AbsoluteLayout>
+    </ContentPage>
+    <ContentPage BackgroundColor="{DynamicResource BackgroundColor_App}">
+        <StackLayout Orientation="Vertical">
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="25">
+                <Label Text="Lyfr" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="68" FontFamily="Arial"/>
+            </StackLayout>
+            <StackLayout Padding="35" Orientation="Vertical" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <!--<Button  BackgroundColor="RoyalBlue" Text="   conectar usando facebook   "
+                     TextColor="White" HorizontalOptions="CenterAndExpand"/>-->
+                <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" Text="      cadastrar      "
+                     TextColor="White" HorizontalOptions="Fill" Clicked="ChamarPagCadastrar"/>
+                <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" Text="      entrar      "
+                     TextColor="White" HorizontalOptions="Fill" FontSize="Default" Clicked="ChamarPagLogin"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>

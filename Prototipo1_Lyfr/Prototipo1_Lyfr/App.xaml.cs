@@ -10,13 +10,12 @@ namespace Prototipo1_Lyfr
         public App()
         {
             InitializeComponent();
-
-            MainPage = new Login();
+            MainPage = new Introducao();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+
         }
 
         protected override void OnSleep()
