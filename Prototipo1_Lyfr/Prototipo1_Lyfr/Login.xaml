@@ -4,48 +4,96 @@
              xmlns:local="clr-namespace:Prototipo1_Lyfr"
              x:Class="Prototipo1_Lyfr.Login" SizeChanged="ContentPage_SizeChanged">
     <ScrollView>
-        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}">
-
-            <StackLayout AbsoluteLayout.LayoutBounds="0,0.05,1,0.08" AbsoluteLayout.LayoutFlags="All">
-                <Label Text="Lyfr" 
+        <StackLayout BackgroundColor="{DynamicResource BackgroundColor_App}"
+                     Orientation="Vertical">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text=" Lyfr "
                        FontAttributes="Bold" 
                        FontSize="60" 
-                       HorizontalOptions="CenterAndExpand"
-                       FontFamily="Arial" 
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       FontFamily="Arial"
+                       HeightRequest="80"
                        TextColor="{DynamicResource TextColor_App}"/>
             </StackLayout>
-            <Label Text="E-mail" 
-                   AbsoluteLayout.LayoutBounds="0.5,0.335,0.75,0.06" 
-                   AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" 
-                   Style="{DynamicResource Style_Label}"/>
-            <BoxView x:Name="bxv1" 
-                     BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                     CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.091" 
-                     AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent1" 
-                   AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.07" 
-                   AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}"/>
-            <Label Text="Senha" AbsoluteLayout.LayoutBounds="0.5,0.53,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}"  Style="{DynamicResource Style_Label}"/>
-            <BoxView x:Name="bxv2" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.6,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent2" AbsoluteLayout.LayoutBounds="0.4,0.6,0.7,0.07" AbsoluteLayout.LayoutFlags="All" IsPassword="True" 
-                   TextColor="{DynamicResource TextColor_App}"/>
-            <ImageButton Source="eye.png" AbsoluteLayout.LayoutBounds="0.9,0.6" AbsoluteLayout.LayoutFlags="PositionProportional" 
-                         WidthRequest="27" HeightRequest="27" Aspect="AspectFit" BackgroundColor="Transparent"/>
-            <StackLayout AbsoluteLayout.LayoutBounds="0,0.82,1,0.1" AbsoluteLayout.LayoutFlags="All" Spacing="10">
-                <Button Text="     Login     " HorizontalOptions="Center" BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" TextColor="White" 
-                        CornerRadius="10" Clicked="Logar_Clicked"/>
-                <Label Text="Cadastrar" TextColor="{DynamicResource TextColor_App}" HorizontalOptions="Center" 
-                       Style="{DynamicResource Style_Label}">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
+                    <Label Text="E-mail"
+                           FontSize="Medium"
+                           TextColor="{DynamicResource TextColor_App}" 
+                           Style="{DynamicResource Style_Label}" 
+                           Margin="15,0,0,0"/>
+                    <Frame Visual="Material"
+                           BackgroundColor="{DynamicResource BackgroundColor_BoxView}"
+                           CornerRadius="9"
+                           HeightRequest="18"
+                           HasShadow="False">
+                        <StackLayout Padding="0,-15,0,15">
+                            <Entry x:Name="ent1"
+                                   TextColor="{DynamicResource TextColor_App}"
+                                   BackgroundColor="RoyalBlue"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
+                    <Label Text="Senha"
+                           TextColor="{DynamicResource TextColor_App}"
+                           
+                           Style="{DynamicResource Style_Label}" 
+                           Margin="15,0,0,0"/>
+                    <Frame Visual="Material"
+                           BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
+                           CornerRadius="9"
+                           HeightRequest="18"
+                           HasShadow="False">
+                        <StackLayout Orientation="Horizontal" 
+                                     Spacing="5" 
+                                     VerticalOptions="FillAndExpand" 
+                                     HorizontalOptions="FillAndExpand" 
+                                     Margin="0,-15,0,-15">
+                            <Entry x:Name="ent2"
+                                   IsPassword="True" 
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="{DynamicResource TextColor_App}"
+                                   BackgroundColor="RoyalBlue"/>
+                            <ImageButton Source="eye.png"
+                                         WidthRequest="50" 
+                                         HeightRequest="50" 
+                                         Aspect="AspectFill"
+                                         HorizontalOptions="End"
+                                         BackgroundColor="Blue"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
+                <Button Text="          Login          " 
+                        HorizontalOptions="Center" 
+                        BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                        TextColor="White" 
+                        CornerRadius="10" 
+                        Clicked="Logar_Clicked"/>
+                <StackLayout HorizontalOptions="Center" 
+                             Orientation="Horizontal" 
+                             Spacing="15">
+                    <Label Text="Lembrar senha?" 
+                           FontSize="16" 
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource TextColor_App}"/>
+                    <Switch  BackgroundColor="LightGray" 
+                             VerticalOptions="Center" 
+                             OnColor="Aqua"/>
+                </StackLayout>
+                <Label Text="CADASTRAR" 
+                       TextColor="{DynamicResource TextColor_App}" 
+                       HorizontalOptions="Center" 
+                       Style="{DynamicResource Style_Label}" Margin="0,5,0,0">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ChamarPagCadastrar" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Tapped="ChamarPagCadastrar" 
+                                              NumberOfTapsRequired="1"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-        </AbsoluteLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

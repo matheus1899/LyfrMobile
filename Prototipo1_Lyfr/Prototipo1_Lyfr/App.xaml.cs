@@ -12,7 +12,6 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             MainPage = new Introducao();
-            HotReloader.Current.Start(this);
         }
 
         protected override void OnStart()

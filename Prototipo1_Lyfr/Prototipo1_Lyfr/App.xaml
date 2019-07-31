@@ -32,19 +32,6 @@
                 <Setter Property="BorderColor" Value="{DynamicResource BackgroundColor_App2}"/>
                 <Setter Property="BorderWidth" Value="3"/>
             </Style>
-            <Style x:Key="Style_Stack_Cad" TargetType="StackLayout">
-                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.74,1,0.1"/>
-                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
-            </Style>
-            <Style x:Key="Style_Stack_Cad2" TargetType="StackLayout">
-                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.74,0.6,0.1"/>
-                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
-            </Style>
-
-            <Style x:Key="Style_Stack_List_1" TargetType="StackLayout">
-                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0,0.4,0.5"/>
-                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
-            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

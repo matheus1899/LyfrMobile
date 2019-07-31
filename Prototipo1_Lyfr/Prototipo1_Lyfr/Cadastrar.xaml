@@ -2,47 +2,92 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototipo1_Lyfr.Cadastrar"
-             SizeChanged="ContentPage_SizeChanged" Appearing="ContentPage_Appearing">
+             BackgroundColor="{DynamicResource BackgroundColor_App}">
     <ScrollView>
-        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}">
-            <Label Text="Nome" AbsoluteLayout.LayoutBounds="0.5,0.15,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl1" />
-            <BoxView x:Name="bxv1" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.2,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent1" AbsoluteLayout.LayoutBounds="0.5,0.2,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}"/>
+        <StackLayout VerticalOptions="CenterAndExpand" Spacing="25">
+            <Label Text="Lyfr"
+                   FontSize="70" 
+                   TextColor="{DynamicResource TextColor_App}" 
+                   FontFamily="Arial" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"/>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Nome"
+                       FontSize="Medium"
+                       Margin="35,0,0,0"
+                       TextColor="{DynamicResource TextColor_App}"
+                       Style="{DynamicResource Style_Label}" 
+                       x:Name="lbl1"/>
+                <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
+                       Margin="15,0,15,0">
+                    <StackLayout Padding="-10">
+                        <Entry x:Name="ent1" 
+                           TextColor="{DynamicResource TextColor_App}" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Label Text="E-m@il"
+                       Margin="35,0,0,0"
+                       FontSize="Medium"
+                       TextColor="{DynamicResource TextColor_App}"
+                       Style="{DynamicResource Style_Label}"
+                       x:Name="lbl3"/>
+                <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
+                       Margin="15,0,15,0">
+                    <StackLayout Padding="-10">
+                        <Entry x:Name="ent3"
+                           TextColor="{DynamicResource TextColor_App}" 
+                           Keyboard="Email"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Senha"
+                   Margin="35,0,0,0"
+                   FontSize="Medium"
+                   TextColor="{DynamicResource TextColor_App}" 
+                   Style="{DynamicResource Style_Label}" 
+                   x:Name="lbl4"/>
+                <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
+                   Margin="15,0,15,0">
+                    <StackLayout Padding="-10">
+                        <Entry x:Name="ent4" 
+                           TextColor="{DynamicResource TextColor_App}" 
+                           IsPassword="True"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
 
-            <!--<Label Text="CPF" AbsoluteLayout.LayoutBounds="0.5,0.34,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl2"/>
-            <BoxView x:Name="bxv2" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent2" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Keyboard="Numeric" MaxLength="11"/>-->
-
-            <Label Text="Sobrenome" AbsoluteLayout.LayoutBounds="0.5,0.34,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl3"/>
-            <BoxView x:Name="bxv3" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.4,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent3" AbsoluteLayout.LayoutBounds="0.5,0.4,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Keyboard="Email"/>
-            
-            <Label Text="Senha" AbsoluteLayout.LayoutBounds="0.5,0.523,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl4"/>
-            <BoxView x:Name="bxv4" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
-                     AbsoluteLayout.LayoutBounds="0.5,0.6,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
-            <Entry x:Name="ent4" AbsoluteLayout.LayoutBounds="0.5,0.6,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" IsPassword="True"/>
-            
-            <StackLayout x:Name="stack_cad" Spacing="15" Margin="10">
-                <StackLayout Orientation="Horizontal" Spacing="20" Padding="5">
-                    <Button x:Name="btn_gratis" Text="Grátis    |   Com anúncios" Clicked="btn_gratis_Clicked" Style="{DynamicResource Style_Button_Ativo}" HorizontalOptions="CenterAndExpand"/>
-                    <Button x:Name="btn_pago" Text="R$ 4,99   |   Leia à Vontade" Clicked="btn_pago_Clicked" Style="{DynamicResource Style_Button_Desativo}" HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="lbl_aviso" 
+                       Text="Senha fraca. &#10;Minimo de oito caracteres sendo um caracter especial(@#$%&*|-_/*-+) &#10;e uma letra maiúscula" 
+                       TextColor="Red"
+                       FontSize="Micro" MaxLines="3"/>
+            <StackLayout Margin="0,20,0,0"
+                         Spacing="15"
+                         HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                <StackLayout Orientation="Horizontal" 
+                             Spacing="25">
+                    <Button x:Name="btn_gratis" 
+                            Text="Grátis &#10; Com anúncios " 
+                            Clicked="btn_gratis_Clicked" 
+                            Style="{DynamicResource Style_Button_Ativo}" 
+                            HorizontalOptions="StartAndExpand"/>
+                    <Button x:Name="btn_pago" 
+                            Text="R$ 4,99 &#10; Leia à Vontade " 
+                            Clicked="btn_pago_Clicked"
+                            Style="{DynamicResource Style_Button_Desativo}" 
+                            HorizontalOptions="End"/>
                 </StackLayout>
-                <StackLayout>
-                    <Button Text="     Cadastrar     " HorizontalOptions="Center" BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                            TextColor="White" CornerRadius="10" Clicked="cadastrar_Clicked"/>
+                <StackLayout Orientation="Horizontal">
+                    <BoxView HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"/>
+                    <Button Text="  Cadastrar  " 
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                            TextColor="White" CornerRadius="3" Clicked="cadastrar_Clicked"/>
+                    <BoxView HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"/>
                 </StackLayout>
             </StackLayout>
-        </AbsoluteLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
