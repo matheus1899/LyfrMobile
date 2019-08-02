@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
-    <PackageReference Include="Xamarin.HotReload" Version="1.4.15" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.618610" />
+    <PackageReference Include="Xamarin.HotReload" Version="1.4.19" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,11 +7,11 @@ namespace Prototipo1_Lyfr
 {
     public partial class App : Application
     {
-        [Obsolete]
         public App()
         {
             InitializeComponent();
-            MainPage = new Introducao();
+            HotReloader.Current.Run(this);
+            MainPage = new NavigationPage(new Introducao());
         }
 
         protected override void OnStart()
@@ -21,12 +21,11 @@ namespace Prototipo1_Lyfr
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+
         }
     }
 }

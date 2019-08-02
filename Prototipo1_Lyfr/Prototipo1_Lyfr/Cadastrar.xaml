@@ -19,24 +19,28 @@
                        Style="{DynamicResource Style_Label}" 
                        x:Name="lbl1"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                       Margin="15,0,15,0">
+                       Margin="15,0,15,0"
+                       HasShadow="True"
+                       CornerRadius="9">
                     <StackLayout Padding="-10">
-                        <Entry x:Name="ent1" 
+                        <Entry x:Name="ent_Nome_Usuario" 
                            TextColor="{DynamicResource TextColor_App}" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Vertical">
-                <Label Text="E-m@il"
+                <Label Text="E-mail"
                        Margin="35,0,0,0"
                        FontSize="Medium"
                        TextColor="{DynamicResource TextColor_App}"
                        Style="{DynamicResource Style_Label}"
                        x:Name="lbl3"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                       Margin="15,0,15,0">
+                       Margin="15,0,15,0"
+                       HasShadow="True"
+                       CornerRadius="9">
                     <StackLayout Padding="-10">
-                        <Entry x:Name="ent3"
+                        <Entry x:Name="ent_Email_Usuario"
                            TextColor="{DynamicResource TextColor_App}" 
                            Keyboard="Email"/>
                     </StackLayout>
@@ -50,19 +54,34 @@
                    Style="{DynamicResource Style_Label}" 
                    x:Name="lbl4"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                   Margin="15,0,15,0">
-                    <StackLayout Padding="-10">
-                        <Entry x:Name="ent4" 
-                           TextColor="{DynamicResource TextColor_App}" 
-                           IsPassword="True"/>
+                   Margin="15,0,15,0"
+                       HasShadow="True"
+                       CornerRadius="9">
+                    <StackLayout Orientation="Horizontal" 
+                                 Spacing="5" 
+                                 VerticalOptions="FillAndExpand" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 Margin="0,-15,0,-15">
+                        <Entry x:Name="ent_Senha_Usuario"
+                               IsPassword="True" 
+                               HorizontalOptions="FillAndExpand"
+                               TextColor="{DynamicResource TextColor_App}"/>
+                        <ImageButton Source="eye.png"
+                                     WidthRequest="30" 
+                                     HeightRequest="25" 
+                                     Aspect="AspectFit"
+                                     HorizontalOptions="End"
+                                     Clicked="ibtn_SenhaOuNao_Clicked"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
 
-                <Label x:Name="lbl_aviso" 
-                       Text="Senha fraca. &#10;Minimo de oito caracteres sendo um caracter especial(@#$%&*|-_/*-+) &#10;e uma letra maiúscula" 
-                       TextColor="Red"
-                       FontSize="Micro" MaxLines="3"/>
+            <Label x:Name="lbl_aviso" 
+                   Text="Senha fraca. Minimo de oito &#10;caracteres sendo um caracter especial(...) &#10;e uma letra maiúscula" 
+                   TextColor="{DynamicResource TextColor_Alert}"
+                   FontSize="Medium" 
+                   HorizontalTextAlignment="Center"
+                   MaxLines="3" Margin="-10,0,-10,-20"/>
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"
                          HorizontalOptions="CenterAndExpand" VerticalOptions="End">
@@ -79,12 +98,14 @@
                             Style="{DynamicResource Style_Button_Desativo}" 
                             HorizontalOptions="End"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <BoxView HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"/>
-                    <Button Text="  Cadastrar  " 
-                            HorizontalOptions="FillAndExpand" 
-                            BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                            TextColor="White" CornerRadius="3" Clicked="cadastrar_Clicked"/>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,3">
+                   
+                        <BoxView HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"/>
+                        
+                        <Button Text="  Cadastrar  " 
+                                HorizontalOptions="FillAndExpand" 
+                                BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                                TextColor="White" CornerRadius="3" Clicked="cadastrar_Clicked"/>
                     <BoxView HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"/>
                 </StackLayout>
             </StackLayout>

@@ -14,17 +14,7 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
         }
 
-        private void ContentPage_SizeChanged(object sender, EventArgs e)
-        {
-            var a = sender as ContentPage;
-            if (a.Width > a.Height)
-            {
-                //bxv1.HeightRequest = bxv1.Height * 3.5;
-                //bxv2.HeightRequest = bxv2.Height * 3.5;
-            }
-        }
-
-        private void ChamarPagCadastrar(object sender, EventArgs e)
+        private void ChamarPageCadastrar(object sender, EventArgs e)
         {
             App.Current.MainPage = new Cadastrar();
         }
@@ -32,6 +22,16 @@ namespace Prototipo1_Lyfr
         private void Logar_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new MainPage());
+        }
+
+        private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
+        {
+            switch_LembrarSenha.IsToggled = !switch_LembrarSenha.IsToggled;
+        }
+
+        private void ibtn_SenhaOuNao_Clicked(object sender, EventArgs e)
+        {
+            ent_Senha.IsPassword = !ent_Senha.IsPassword;
         }
     }
 }

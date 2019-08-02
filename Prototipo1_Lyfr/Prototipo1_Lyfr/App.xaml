@@ -11,6 +11,7 @@
             <Color x:Key="BackgroundColor_Contraste_App2">#496d82</Color>
             <Color x:Key="TextColor_App">#436477</Color>
             <Color x:Key="TextColor_App2">#f7e3c1</Color>
+            <Color x:Key="TextColor_Alert">Red</Color>
 
             <Style x:Key="Style_Label" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold"/>
@@ -32,7 +33,6 @@
                 <Setter Property="BorderColor" Value="{DynamicResource BackgroundColor_App2}"/>
                 <Setter Property="BorderWidth" Value="3"/>
             </Style>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>
