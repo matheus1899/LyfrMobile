@@ -15,16 +15,18 @@ namespace Prototipo1_Lyfr
         public Introducao()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Cadastrar();
+            Navigation.PushAsync(new Cadastrar());
         }
 
         private void ChamarPagLogin(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Login();
+            Navigation.PushAsync(new Login());
+
         }
     }
 }

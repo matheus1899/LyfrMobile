@@ -14,24 +14,19 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
         }
 
-        private void ContentPage_SizeChanged(object sender, EventArgs e)
-        {
-            var a = sender as ContentPage;
-            if (a.Width > a.Height)
-            {
-                //bxv1.HeightRequest = bxv1.Height * 3.5;
-                //bxv2.HeightRequest = bxv2.Height * 3.5;
-            }
-        }
-
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Cadastrar();
+            Navigation.PushAsync(new Cadastrar());
         }
 
         private void Logar_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new MainPage());
+            Navigation.PushAsync(new NavigationPage(new MainPage()));
+        }
+
+        private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,22 +19,24 @@
                        Style="{DynamicResource Style_Label}" 
                        x:Name="lbl1"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                       Margin="15,0,15,0">
+                       Margin="15,0,15,0"
+                       HasShadow="False">
                     <StackLayout Padding="-10">
-                        <Entry x:Name="ent1" 
+                        <Entry x:Name="ent1"
                            TextColor="{DynamicResource TextColor_App}" />
                     </StackLayout>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Vertical">
-                <Label Text="E-m@il"
+                <Label Text="E-mail"
                        Margin="35,0,0,0"
                        FontSize="Medium"
                        TextColor="{DynamicResource TextColor_App}"
                        Style="{DynamicResource Style_Label}"
                        x:Name="lbl3"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                       Margin="15,0,15,0">
+                       Margin="15,0,15,0"
+                       HasShadow="True">
                     <StackLayout Padding="-10">
                         <Entry x:Name="ent3"
                            TextColor="{DynamicResource TextColor_App}" 
@@ -50,7 +52,8 @@
                    Style="{DynamicResource Style_Label}" 
                    x:Name="lbl4"/>
                 <Frame BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                   Margin="15,0,15,0">
+                       Margin="15,0,15,0"
+                       HasShadow="True">
                     <StackLayout Padding="-10">
                         <Entry x:Name="ent4" 
                            TextColor="{DynamicResource TextColor_App}" 
@@ -58,11 +61,13 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-
-                <Label x:Name="lbl_aviso" 
-                       Text="Senha fraca. &#10;Minimo de oito caracteres sendo um caracter especial(@#$%&*|-_/*-+) &#10;e uma letra maiúscula" 
-                       TextColor="Red"
-                       FontSize="Micro" MaxLines="3"/>
+            <Label x:Name="lbl_aviso" 
+                   Text="Senha fraca. &#10;Minimo de oito caracteres sendo um caracter especial(...) &#10;e uma letra maiúscula"
+                   TextColor="#eedbba"
+                   FontSize="Small"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,-10,0,-10"
+                   MaxLines="3"/>
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"
                          HorizontalOptions="CenterAndExpand" VerticalOptions="End">
@@ -72,19 +77,22 @@
                             Text="Grátis &#10; Com anúncios " 
                             Clicked="btn_gratis_Clicked" 
                             Style="{DynamicResource Style_Button_Ativo}" 
-                            HorizontalOptions="StartAndExpand"/>
+                            HorizontalOptions="FillAndExpand"/>
                     <Button x:Name="btn_pago" 
                             Text="R$ 4,99 &#10; Leia à Vontade " 
                             Clicked="btn_pago_Clicked"
                             Style="{DynamicResource Style_Button_Desativo}" 
-                            HorizontalOptions="End"/>
+                            HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <BoxView HorizontalOptions="StartAndExpand" BackgroundColor="Transparent"/>
                     <Button Text="  Cadastrar  " 
                             HorizontalOptions="FillAndExpand" 
                             BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                            TextColor="White" CornerRadius="3" Clicked="cadastrar_Clicked"/>
+                            TextColor="White" 
+                            CornerRadius="3" 
+                            Margin="0,0,0,20"
+                            Clicked="cadastrar_Clicked"/>
                     <BoxView HorizontalOptions="EndAndExpand" BackgroundColor="Transparent"/>
                 </StackLayout>
             </StackLayout>

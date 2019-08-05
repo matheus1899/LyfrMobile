@@ -2,20 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Prototipo1_Lyfr"
-             x:Class="Prototipo1_Lyfr.Login" SizeChanged="ContentPage_SizeChanged">
+             x:Class="Prototipo1_Lyfr.Login">
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource BackgroundColor_App}"
                      Orientation="Vertical">
+            <!--Titulo-->
             <StackLayout VerticalOptions="CenterAndExpand">
-                <Label Text=" Lyfr "
+                <Label Text="Lyfr" 
                        FontAttributes="Bold" 
                        FontSize="60" 
                        HorizontalOptions="FillAndExpand"
                        HorizontalTextAlignment="Center"
                        FontFamily="Arial"
                        HeightRequest="80"
+                       StyleClass="class"
                        TextColor="{DynamicResource TextColor_App}"/>
             </StackLayout>
+            <!--Email-->
             <StackLayout VerticalOptions="CenterAndExpand">
                 <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
                     <Label Text="E-mail"
@@ -30,15 +33,14 @@
                            HasShadow="False">
                         <StackLayout Padding="0,-15,0,15">
                             <Entry x:Name="ent1"
-                                   TextColor="{DynamicResource TextColor_App}"
-                                   BackgroundColor="RoyalBlue"/>
+                                   TextColor="{DynamicResource TextColor_App}"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
+                <!--Senha-->
                 <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
                     <Label Text="Senha"
                            TextColor="{DynamicResource TextColor_App}"
-                           
                            Style="{DynamicResource Style_Label}" 
                            Margin="15,0,0,0"/>
                     <Frame Visual="Material"
@@ -47,53 +49,71 @@
                            HeightRequest="18"
                            HasShadow="False">
                         <StackLayout Orientation="Horizontal" 
-                                     Spacing="5" 
+                                     Spacing="7" 
                                      VerticalOptions="FillAndExpand" 
                                      HorizontalOptions="FillAndExpand" 
                                      Margin="0,-15,0,-15">
                             <Entry x:Name="ent2"
                                    IsPassword="True" 
                                    HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource TextColor_App}"
-                                   BackgroundColor="RoyalBlue"/>
+                                   TextColor="{DynamicResource TextColor_App}"/>
                             <ImageButton Source="eye.png"
-                                         WidthRequest="50" 
-                                         HeightRequest="50" 
-                                         Aspect="AspectFill"
-                                         HorizontalOptions="End"
-                                         BackgroundColor="Blue"/>
+                                         WidthRequest="30" 
+                                         HeightRequest="25"
+                                         Aspect="AspectFit"
+                                         HorizontalOptions="End"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,0">
-                <Button Text="          Login          " 
-                        HorizontalOptions="Center" 
+            <StackLayout Orientation="Vertical">
+                <!--Esqueci minha senha-->
+            <Label Text="Esqueci minha senha" 
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="Small"
+                       TextDecorations="Underline"
+                       IsEnabled="False"
+                       TextColor="{DynamicResource TextColor_App}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
+                                              NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <!--Lembrar senha?-->
+            <StackLayout HorizontalOptions="Center" 
+                                    Orientation="Horizontal"
+                                    Margin="10">
+                <CheckBox Color="{DynamicResource TextColor_App}" />
+                <Label Text="Lembrar senha?" 
+                               FontSize="16" 
+                               VerticalOptions="Center"
+                               TextColor="{DynamicResource TextColor_App}"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="0" Spacing="10">
+            <StackLayout Orientation="Horizontal">
+                <!--Botão de Login-->
+                <BoxView HorizontalOptions="FillAndExpand"/>
+                <Button Text="Login" 
+                        HorizontalOptions="FillAndExpand" 
                         BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
                         TextColor="White" 
-                        CornerRadius="10" 
+                        CornerRadius="5" 
                         Clicked="Logar_Clicked"/>
-                <StackLayout HorizontalOptions="Center" 
-                             Orientation="Horizontal" 
-                             Spacing="15">
-                    <Label Text="Lembrar senha?" 
-                           FontSize="16" 
-                           VerticalOptions="Center"
-                           TextColor="{DynamicResource TextColor_App}"/>
-                    <Switch  BackgroundColor="LightGray" 
-                             VerticalOptions="Center" 
-                             OnColor="Aqua"/>
-                </StackLayout>
-                <Label Text="CADASTRAR" 
-                       TextColor="{DynamicResource TextColor_App}" 
-                       HorizontalOptions="Center" 
-                       Style="{DynamicResource Style_Label}" Margin="0,5,0,0">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ChamarPagCadastrar" 
-                                              NumberOfTapsRequired="1"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                <BoxView HorizontalOptions="FillAndExpand"/>
             </StackLayout>
+            <!--Botão de Login-->
+            <Label Text="CADASTRAR" 
+                   TextColor="{DynamicResource TextColor_App}" 
+                   HorizontalOptions="Center"
+                   Style="{DynamicResource Style_Label}" 
+                   Margin="0,5,0,5">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChamarPagCadastrar" 
+                                                    NumberOfTapsRequired="1"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -11,9 +11,11 @@ namespace Prototipo1_Lyfr
     {
         List<Modelo.Livro> lista_livros = new List<Modelo.Livro>();
         List<Modelo.Livro> lista_livros2 = new List<Modelo.Livro>();
+
         public Home()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             lista_livros.Add(new Modelo.Livro { Nome = "Noturno", Source_imagem = "https://images-na.ssl-images-amazon.com/images/I/51rU3nLQ%2BFL.jpg" });
             lista_livros.Add(new Modelo.Livro { Nome = "Dom Casmurro", Source_imagem = "https://blog.poemese.com/wp-content/uploads/2016/06/principais-obras-de-machado-de-assis-dom-casmurro-211x300.jpg" });
             lista_livros.Add(new Modelo.Livro { Nome = "A Queda", Source_imagem = "https://http2.mlstatic.com/livro-a-queda-guillermo-del-toro-trilogia-da-escurido-D_NQ_NP_844805-MLB29047464498_122018-F.jpg" });
@@ -47,11 +49,9 @@ namespace Prototipo1_Lyfr
             //}
         }
 
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string Nome_livro = (e.CurrentSelection.FirstOrDefault() as Modelo.Livro).Nome;
-            //Modelo.Livro livro_selecionado = lista_livros.First(j => j.Nome == Nome_livro);
-            //Navigation.PushAsync(new NavigationPage(new Leitor(livro_selecionado.Url, livro_selecionado.Nome)));
+            await Navigation.PushAsync(new Leitor());
 
         }
         private async void CollectionView2_SelectionChanged(object sender, SelectionChangedEventArgs e)
