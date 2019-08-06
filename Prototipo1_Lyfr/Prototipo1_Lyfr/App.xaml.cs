@@ -12,7 +12,7 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             HotReloader.Current.Run(this);
-            MainPage = new NavigationPage(new Introducao());
+            MainPage = new Introducao();
 
         }
 

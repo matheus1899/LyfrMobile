@@ -28,7 +28,7 @@
                            Margin="15,0,0,0"/>
                     <Frame Visual="Material"
                            BackgroundColor="{DynamicResource BackgroundColor_BoxView}"
-                           CornerRadius="9"
+                           CornerRadius="30"
                            HeightRequest="18"
                            HasShadow="False">
                         <StackLayout Padding="0,-15,0,15">
@@ -45,7 +45,7 @@
                            Margin="15,0,0,0"/>
                     <Frame Visual="Material"
                            BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                           CornerRadius="9"
+                           CornerRadius="30"
                            HeightRequest="18"
                            HasShadow="False">
                         <StackLayout Orientation="Horizontal" 

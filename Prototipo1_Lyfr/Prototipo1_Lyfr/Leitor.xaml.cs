@@ -13,20 +13,26 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
         }
 
-        private async void Left_Direction_Swiped(object sender, SwipedEventArgs e)
+        private void Left_Direction_Swiped(object sender, SwipedEventArgs e)
         {
-            HtmlWebViewSource html = new HtmlWebViewSource();
-            html.Html = "<p>Teste 1</p>";
+            var caminho = new UrlWebViewSource
+            {
+                Url = "/storage/emulated/0/Download/teste.html"
+            };
+
+            web.Source = caminho.Url;
             web.Reload();
-            web.Source=html;
         }
 
-        private async void Right_Direction_Swiped(object sender, SwipedEventArgs e)
+        private void Right_Direction_Swiped(object sender, SwipedEventArgs e)
         {
-            HtmlWebViewSource html2 = new HtmlWebViewSource();
-            html2.Html = "<p>Teste 2</p>";
+            var caminho = new UrlWebViewSource
+            {
+                Url = "/storage/emulated/0/Download/teste2.html"
+            };
+
+            web.Source = caminho.Url;
             web.Reload();
-            web.Source = html2;
         }
     }
 }

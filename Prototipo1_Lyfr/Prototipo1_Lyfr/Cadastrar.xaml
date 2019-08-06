@@ -55,7 +55,7 @@
                        Margin="15,0,15,0"
                        HasShadow="True">
                     <StackLayout Padding="-10">
-                        <Entry x:Name="ent4" 
+                        <Entry x:Name="ent_Senha_Usuario" 
                            TextColor="{DynamicResource TextColor_App}" 
                            IsPassword="True"/>
                     </StackLayout>

@@ -21,7 +21,7 @@
                                    HorizontalOptions="FillAndExpand" 
                                    FontSize="Medium"
                                    FontAttributes="Bold"/>
-                            <Label Text="MAIS" 
+                            <Label Text="MAIS"
                                    FontSize="Medium"
                                    TextColor="{DynamicResource TextColor_App}" 
                                    FontAttributes="Bold"/>
