@@ -43,9 +43,11 @@ namespace Prototipo1_Lyfr
             return;
         }
 
-        private void ibtn_SenhaOuNao_Clicked(object sender, EventArgs e)
+
+        private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
+
         }
     }
 }

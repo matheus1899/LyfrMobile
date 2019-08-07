@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:local="clr-namespace:Prototipo1_Lyfr"
-            x:Class="Prototipo1_Lyfr.Introducao">
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:local="clr-namespace:Prototipo1_Lyfr"
+              x:Class="Prototipo1_Lyfr.Introducao">
     <ContentPage>
         <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}" >
             <Label Text="Bem-Vindo ao" FontFamily="Arial" FontSize="34" AbsoluteLayout.LayoutBounds="0.5,0.3" 
@@ -67,7 +67,7 @@
                     <BoxView BackgroundColor="Transparent" 
                              HorizontalOptions="FillAndExpand"/>
                     <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                             Text="sair"
+                             Text="entrar"
                              TextColor="White" 
                              HorizontalOptions="FillAndExpand" 
                              FontSize="Default" 

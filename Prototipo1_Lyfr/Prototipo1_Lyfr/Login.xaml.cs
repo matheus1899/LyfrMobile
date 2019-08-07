@@ -29,6 +29,10 @@ namespace Prototipo1_Lyfr
             App.Current.MainPage = new MainPage();
         }
 
+        private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
+        {
+            return;
+        }
         private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
         {
             return;

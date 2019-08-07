@@ -1,8 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Prototipo1_Lyfr"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
              x:Class="Prototipo1_Lyfr.Login">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
+                <Setter Property="Margin" Value="15,0,0,0"/>
+            </Style>
+            <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ScrollView>
         <StackLayout BackgroundColor="{DynamicResource BackgroundColor_App}"
                      Orientation="Vertical">
@@ -21,33 +41,18 @@
             <!--Email-->
             <StackLayout VerticalOptions="CenterAndExpand">
                 <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
-                    <Label Text="E-mail"
-                           FontSize="Medium"
-                           TextColor="{DynamicResource TextColor_App}" 
-                           Style="{DynamicResource Style_Label}" 
-                           Margin="15,0,0,0"/>
-                    <Frame Visual="Material"
-                           BackgroundColor="{DynamicResource BackgroundColor_BoxView}"
-                           CornerRadius="30"
-                           HeightRequest="18"
-                           HasShadow="False">
+                    <Label Text="E-mail" Style="{x:StaticResource Lbl_Titulo_Entry}"/>
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
                         <StackLayout Padding="0,-15,0,15">
                             <Entry x:Name="ent1"
                                    TextColor="{DynamicResource TextColor_App}"/>
                         </StackLayout>
-                    </Frame>
+                    </controls:NewFrame>
                 </StackLayout>
                 <!--Senha-->
                 <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
-                    <Label Text="Senha"
-                           TextColor="{DynamicResource TextColor_App}"
-                           Style="{DynamicResource Style_Label}" 
-                           Margin="15,0,0,0"/>
-                    <Frame Visual="Material"
-                           BackgroundColor="{DynamicResource BackgroundColor_BoxView}" 
-                           CornerRadius="30"
-                           HeightRequest="18"
-                           HasShadow="False">
+                    <Label Text="Senha" Style="{x:StaticResource Lbl_Titulo_Entry}"/>
+                    <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
                         <StackLayout Orientation="Horizontal" 
                                      Spacing="7" 
                                      VerticalOptions="FillAndExpand" 
@@ -56,14 +61,16 @@
                             <Entry x:Name="ent2"
                                    IsPassword="True" 
                                    HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource TextColor_App}"/>
+                                   TextColor="{DynamicResource TextColor_App2}"/>
                             <ImageButton Source="eye.png"
                                          WidthRequest="30" 
                                          HeightRequest="25"
                                          Aspect="AspectFit"
+                                         BackgroundColor="Transparent"
+                                         Clicked="Esconde_Exibe_Senha_Clicked"
                                          HorizontalOptions="End"/>
                         </StackLayout>
-                    </Frame>
+                    </controls:NewFrame>
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Vertical">
