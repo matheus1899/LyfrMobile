@@ -43,9 +43,27 @@
                 <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
                     <Label Text="E-mail" Style="{x:StaticResource Lbl_Titulo_Entry}"/>
                     <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
-                        <StackLayout Padding="0,-15,0,15">
-                            <Entry x:Name="ent1"
-                                   TextColor="{DynamicResource TextColor_App}"/>
+                        <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
+                            <Entry x:Name="ent_Email_Usuario"
+                                   Keyboard="Email"
+                                   TextColor="{DynamicResource TextColor_App}"
+                                   TextChanged="EntryEmail_TextChanged"
+                                   Focused="EntryEmail_Focused"
+                                   Unfocused="EntryEmail_Unfocused"
+                                   HorizontalOptions="FillAndExpand"/>
+                            <Label Text=" X " 
+                                   x:Name="Lbl_X_Email" 
+                                   TextColor="Gray"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End" 
+                                   Margin="5,0,5,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </StackLayout>
                     </controls:NewFrame>
                 </StackLayout>
@@ -57,11 +75,27 @@
                                      Spacing="7" 
                                      VerticalOptions="FillAndExpand" 
                                      HorizontalOptions="FillAndExpand" 
-                                     Margin="0,-15,0,-15">
-                            <Entry x:Name="ent2"
+                                     Margin="0,-13,0,-13">
+                            <Entry x:Name="ent_Senha_Usuario"
                                    IsPassword="True" 
                                    HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource TextColor_App2}"/>
+                                   TextChanged="EntrySenha_TextChanged"
+                                   Focused="EntrySenha_Focused"
+                                   Unfocused="EntrySenha_Unfocused"
+                                   TextColor="{DynamicResource TextColor_App}"/>
+                            <Label Text=" X " 
+                                   x:Name="Lbl_X_Senha" 
+                                   TextColor="Gray"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End" 
+                                   Margin="5,0,7,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                             <ImageButton Source="eye.png"
                                          WidthRequest="30" 
                                          HeightRequest="25"

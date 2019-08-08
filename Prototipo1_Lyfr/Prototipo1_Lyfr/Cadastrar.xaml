@@ -41,21 +41,60 @@
                        Style="{x:StaticResource Lbl_Titulo_Entry}"
                        x:Name="lbl1"/>
                 <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}">
+                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                 Orientation="Horizontal" 
+                                 Padding="0,-10,0,-10">
                         <Entry x:Name="ent_Nome_Usuario"
+                               TextChanged="EntryNome_TextChanged"
+                               HorizontalOptions="FillAndExpand"
+                               Focused="EntryNome_Focused"
+                               Unfocused="EntryNome_Unfocused"
                                TextColor="{DynamicResource TextColor_App}" />
+                        <Label Text=" X " 
+                               x:Name="Lbl_X_Nome" 
+                               TextColor="Gray"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="End" 
+                               Margin="0,0,5,0"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="FillAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Nome" 
+                                                      NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </controls:NewFrame>
             </StackLayout>
-            <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+            <StackLayout Orientation="Vertical" 
+                         BackgroundColor="Transparent">
                 <Label Text="E-mail"
                        Style="{x:StaticResource Lbl_Titulo_Entry}"
                        x:Name="lbl3"/>
                 <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}">
+                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                 Orientation="Horizontal" Padding="0,-10,0,-10">
                         <Entry x:Name="ent_Email_Usuario"
-                           TextColor="{DynamicResource TextColor_App}" 
-                           Keyboard="Email"/>
+                               TextColor="{DynamicResource TextColor_App}" 
+                               TextChanged="EntryEmail_TextChanged"
+                               HorizontalOptions="FillAndExpand"
+                               Focused="EntryEmail_Focused"
+                               Unfocused="EntryEmail_Unfocused"
+                               Keyboard="Email"/>
+                        <Label Text=" X " 
+                               x:Name="Lbl_X_Email" 
+                               TextColor="Gray"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="End" 
+                               Margin="0,0,5,0"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="FillAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                 </controls:NewFrame>
             </StackLayout>
@@ -68,9 +107,24 @@
                         <Entry x:Name="ent_Senha_Usuario" 
                                TextColor="{DynamicResource TextColor_App}" 
                                IsPassword="True"
+                               Focused="EntrySenha_Focused"
+                               Unfocused="EntrySenha_Unfocused"
+                               TextChanged="EntrySenha_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                Margin="0,-5,0,-25"/>
+                        <Label Text=" X " 
+                               x:Name="Lbl_X_Senha" 
+                               TextColor="Gray"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="Center"
+                               Margin="5,10,5,-10"
+                               VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <ImageButton Source="eye.png"
                                      WidthRequest="35" 
                                      HeightRequest="30"

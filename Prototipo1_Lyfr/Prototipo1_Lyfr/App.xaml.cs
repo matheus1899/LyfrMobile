@@ -11,6 +11,7 @@ namespace Prototipo1_Lyfr
         public App()
         {
             InitializeComponent();
+            HotReloader.Current.Run(this);
             MainPage = new Introducao();
 
         }
