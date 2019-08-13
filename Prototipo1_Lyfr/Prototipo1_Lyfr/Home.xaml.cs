@@ -42,14 +42,10 @@ namespace Prototipo1_Lyfr
             return false;
         }
 
-        private void ContentPage_SizeChanged(object sender, EventArgs e)
-        {
-        }
 
         private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await Navigation.PushAsync(new Leitor());
-            App.Current.MainPage = new Leitor();
 
         }
         private async void CollectionView2_SelectionChanged(object sender, SelectionChangedEventArgs e)

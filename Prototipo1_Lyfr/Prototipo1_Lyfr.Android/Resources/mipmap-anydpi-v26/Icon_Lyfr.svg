@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="297mm" height="210mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 29700 21000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#373435;stroke-width:17.64}
+    .fil0 {fill:none}
+    .fil1 {fill:#201E1E}
+   ]]>
+  </style>
+    <clipPath id="id0">
+     <path d="M7002 18348l0 -15696 15696 0 0 15696 -15696 0zm15687 -15688l-7848 0c-4161,0 -7565,3240 -7830,7334l0 -7334 7830 0c4334,0 7848,3514 7848,7848l0 -7848zm-15678 8362l0 7318 7339 0c-3935,-244 -7085,-3386 -7339,-7318zm8322 7318l7356 0 0 -7832c0,4169 -3251,7578 -7356,7832z"/>
+    </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1471195862672">
+   <g style="clip-path:url(#id0)">
+    <image x="7002" y="2652" width="15695" height="15695" xlink:href="Icon_Lyfr_Images\Icon_Lyfr_ImgID1.png"/>
+   </g>
+   <circle class="fil0" cx="14850" cy="10500" r="7848"/>
+  </g>
+  <path class="fil1 str0" d="M14150 2652c-4334,0 -7848,3514 -7848,7848 0,4334 3514,7848 7848,7848 4334,0 7848,-3514 7848,-7848 0,-4334 -3514,-7848 -7848,-7848zm774 3903c-284,16 -491,47 -620,94 -130,48 -219,138 -266,272 -47,134 -71,350 -71,650l0 5525c0,220 16,382 47,484 32,102 87,171 166,207 78,35 208,53 389,53l390 0c433,-10 772,-312 1104,-555 204,-149 303,-279 483,-476 372,-407 596,-744 700,-1295l5 -22 271 0c-23,284 -35,646 -35,1087 0,850 27,1551 83,2102 -536,-23 -1438,-35 -2705,-35 -1843,0 -3221,12 -4135,35l0 -236c252,-16 435,-47 550,-94 114,-48 191,-138 230,-272 39,-134 59,-350 59,-650l0 -5858c0,-300 -22,-516 -65,-650 -43,-134 -120,-224 -230,-272 -110,-47 -292,-78 -544,-94l0 -236c449,23 1150,35 2103,35 906,0 1602,-12 2091,-35l0 236z"/>
+ </g>
+</svg>

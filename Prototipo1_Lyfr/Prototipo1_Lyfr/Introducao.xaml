@@ -1,72 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                xmlns:local="clr-namespace:Prototipo1_Lyfr"
-                BackgroundImageSource="https://i.pinimg.com/originals/27/a2/8d/27a28d2ad11ab79abd9e8ce5d18ff2ee.jpg"
-                x:Class="Prototipo1_Lyfr.Introducao">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Prototipo1_Lyfr"
+             xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
+             x:Class="Prototipo1_Lyfr.Introducao">
     <StackLayout>
-        <StackLayout HorizontalOptions="FillAndExpand" Padding="10" BackgroundColor="Blue">
-            <Label Text="Lyfr" FontSize="65" TextColor="{DynamicResource TextColor_App}" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontFamily="Times New Roman"/>
+        <StackLayout HorizontalOptions="FillAndExpand" 
+                     Padding="10" 
+                     BackgroundColor="Blue">
+            <Label Text="Lyfr" 
+                   FontSize="65" 
+                   TextColor="{DynamicResource TextColor_App}" 
+                   HorizontalOptions="CenterAndExpand" 
+                   FontAttributes="Bold" 
+                   FontFamily="Times New Roman"/>
         </StackLayout>
-        <CarouselView x:Name="_Carousel" HorizontalOptions="FillAndExpand">
-            <CarouselView.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Left" Swiped="Left_Swiped"/>
-                <SwipeGestureRecognizer Direction="Right" Swiped="Right_Swiped"/>
-            </CarouselView.GestureRecognizers>
-            <CarouselView.ItemsLayout>
-                <GridItemsLayout Orientation="Horizontal" SnapPointsAlignment="Center" SnapPointsType="Mandatory"/>
-            </CarouselView.ItemsLayout>
-            <CarouselView.ItemTemplate>
+        <cardview:CarouselView x:Name="Carousel">
+            <cardview:CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Grid BackgroundColor="Transparent">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        <BoxView BackgroundColor="Red" 
-                                 Grid.Row="0" 
-                                 Grid.Column="0" 
-                                 HorizontalOptions="FillAndExpand"/>
-                        <Label Text="{Binding Nome}" 
-                               Grid.Row="0" 
-                               Grid.Column="1" 
-                               HorizontalOptions="FillAndExpand" 
-                               VerticalOptions="FillAndExpand"
-                               VerticalTextAlignment="Center"
-                               MaxLines="3"
-                               BackgroundColor="Aquamarine"
-                               FontSize="25"
-                               TextColor="White"
-                               FontAttributes="Bold"/>
-                        <BoxView BackgroundColor="Red" 
-                                 Grid.Row="0" 
-                                 Grid.Column="2" 
-                                 HorizontalOptions="FillAndExpand"/>
-                    </Grid>
+                    <Label 
+                        Text="{Binding Nome}"
+                        TextColor="DarkRed" 
+                        FontSize="50"
+                        HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        BackgroundColor="RoyalBlue"/>
                 </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor="Aqua" Spacing="10">
-            <BoxView BackgroundColor="RoyalBlue" WidthRequest="15" HeightRequest="15" CornerRadius="7.5"/>
-            <BoxView BackgroundColor="RoyalBlue" WidthRequest="15" HeightRequest="15" CornerRadius="7.5"/>
-            <BoxView BackgroundColor="RoyalBlue" WidthRequest="15" HeightRequest="15" CornerRadius="7.5"/>
-        </StackLayout>
+            </cardview:CarouselView.ItemTemplate>
+            <controls:IndicatorsControl BackgroundColor="Black"/>
+        </cardview:CarouselView>
+
         <StackLayout Padding="15"
-                         Orientation="Vertical" >
-            <!--<StackLayout Orientation="Horizontal">
-                <BoxView HorizontalOptions="FillAndExpand" />
-                <Button  BackgroundColor="RoyalBlue" Text="conectar usando facebook"
-                     TextColor="White" HorizontalOptions="CenterAndExpand"/>
-                <BoxView HorizontalOptions="FillAndExpand" />
-            </StackLayout>-->
+                     Orientation="Vertical" >
             <StackLayout Orientation="Horizontal" 
-                             HorizontalOptions="FillAndExpand">
+                         HorizontalOptions="FillAndExpand">
                 <BoxView HorizontalOptions="FillAndExpand"/>
                 <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
                              Text="cadastrar"

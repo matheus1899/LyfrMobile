@@ -7,12 +7,6 @@
              x:Class="Prototipo1_Lyfr.Leitor">
     
     <ContentPage.Content>
-        
-        <WebView x:Name="web" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <WebView.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Left" Swiped="Left_Direction_Swiped"/>
-                <SwipeGestureRecognizer Direction="Right" Swiped="Right_Direction_Swiped"/>
-            </WebView.GestureRecognizers>
-        </WebView>
+
     </ContentPage.Content>
 </ContentPage>

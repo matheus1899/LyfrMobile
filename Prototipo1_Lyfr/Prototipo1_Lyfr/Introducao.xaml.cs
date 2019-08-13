@@ -21,24 +21,23 @@ namespace Prototipo1_Lyfr
                 InitializeComponent();
                 List<Models.Livro> lista = new List<Models.Livro>();
                 lista.Add(new Models.Livro { Nome = "bfhadbahbfj" });
-                lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbfjhbfdak" });
+                lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbfjk" });
                 lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbhbfdajk" });
-                _Carousel.ItemsSource = lista;
+                Carousel.ItemsSource = lista;
             }
             catch (Exception ex)
             {
-
                 Debug.WriteLine("Erro -> " + ex.Message);
             }
         }
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Cadastrar();
+            App.Current.MainPage = new NavigationPage(new Cadastrar());
         }
 
         private void ChamarPagLogin(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Login();
+            App.Current.MainPage = new NavigationPage( new Login());
 
         }
 
