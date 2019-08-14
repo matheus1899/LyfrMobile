@@ -34,16 +34,14 @@ namespace Prototipo1_Lyfr
         {
             App.Current.MainPage = new MainPage();
         }
-
         private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
         }
         private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
         {
-            return;
+            App.Current.MainPage = new EsqueceuSenha();
         }
-
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
             var a = sender as Entry;
@@ -74,7 +72,6 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Senha.IsVisible = false;
             }
         }
-
         private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
         {
             ent_Email_Usuario.Text = string.Empty;
@@ -83,7 +80,6 @@ namespace Prototipo1_Lyfr
         {
             ent_Senha_Usuario.Text = string.Empty;
         }
-
         private void EntryEmail_Focused(object sender, FocusEventArgs e)
         {
             if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
@@ -122,7 +118,6 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Senha.IsVisible = false;
             }
         }
-
         private void EntryEmail_Unfocused(object sender, FocusEventArgs e)
         {
             Lbl_X_Email.IsEnabled = false;

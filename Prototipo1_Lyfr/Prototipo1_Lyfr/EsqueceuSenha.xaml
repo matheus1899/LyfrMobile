@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             x:Class="Prototipo1_Lyfr.EsqueceuSenha"
+             BackgroundColor="{DynamicResource BackgroundColor_App}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
+                <Setter Property="Margin" Value="15,0,0,0"/>
+            </Style>
+            <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView BackgroundColor="Red" Grid.Row="0" Grid.Column="0"/>
+            <BoxView BackgroundColor="Blue" Grid.Row="0" Grid.Column="1"/>
+            <BoxView BackgroundColor="Yellow" Grid.Row="0" Grid.Column="2"/>
+            <BoxView BackgroundColor="Green" Grid.Row="0" Grid.Column="3"/>
+            <BoxView BackgroundColor="Indigo" Grid.Row="0" Grid.Column="4"/>
+
+            <BoxView BackgroundColor="Red" Grid.Row="3" Grid.Column="0"/>
+            <BoxView BackgroundColor="Blue" Grid.Row="3" Grid.Column="1"/>
+            <BoxView BackgroundColor="Yellow" Grid.Row="3" Grid.Column="2"/>
+            <BoxView BackgroundColor="Green" Grid.Row="3" Grid.Column="3"/>
+            <BoxView BackgroundColor="Indigo" Grid.Row="3" Grid.Column="4"/>
+            
+            <Label Text="Digite seu email" 
+                   TextColor="{DynamicResource TextColor_App}" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="1"
+                   BackgroundColor="Brown"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"/>
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                         Grid.Row="2" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="5" 
+                         HorizontalOptions="FillAndExpand" 
+                         BackgroundColor="CadetBlue" 
+                         Margin="20,-10,20,0">
+                <Label Text="E-mail" 
+                           Style="{StaticResource Lbl_Titulo_Entry}"/>
+                <controls:NewFrame Style="{StaticResource Frame_This_Page}">
+                    <StackLayout Padding="0,-13,0,-13" 
+                                     Orientation="Horizontal">
+                        <Entry x:Name="ent_Email_Usuario"
+                                   Keyboard="Email"
+                                   TextColor="{DynamicResource TextColor_App}"
+                                   TextChanged="EntryEmail_TextChanged"
+                                   Focused="EntryEmail_Focused"
+                                   Unfocused="EntryEmail_Unfocused"
+                                   HorizontalOptions="FillAndExpand"/>
+                        <Label Text=" X " 
+                                   x:Name="Lbl_X_Email" 
+                                   TextColor="Gray"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End" 
+                                   Margin="5,0,5,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
+                                                          NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </controls:NewFrame>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

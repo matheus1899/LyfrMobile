@@ -109,12 +109,11 @@
             </StackLayout>
             <StackLayout Orientation="Vertical">
                 <!--Esqueci minha senha-->
-            <Label Text="Esqueci minha senha" 
-                       HorizontalOptions="CenterAndExpand"
-                       FontSize="Small"
-                       TextDecorations="Underline"
-                       IsEnabled="False"
-                       TextColor="{DynamicResource TextColor_App}">
+            <Label Text="Esqueci minha senha!" 
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Small"
+                   TextDecorations="Underline"
+                   TextColor="{DynamicResource TextColor_App}">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
                                               NumberOfTapsRequired="1"/>
