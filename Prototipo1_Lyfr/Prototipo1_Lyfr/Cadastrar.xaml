@@ -283,7 +283,7 @@
                             TextColor="White" 
                             CornerRadius="3" 
                             Margin="0,0,0,20"
-                            Clicked="cadastrar_Clicked"/>
+                            Clicked="Cadastrar_Clicked"/>
                     <BoxView HorizontalOptions="FillAndExpand" 
                              BackgroundColor="Transparent"/>
                 </StackLayout>

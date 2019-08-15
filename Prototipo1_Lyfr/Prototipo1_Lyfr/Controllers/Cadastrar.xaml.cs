@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prototipo1_Lyfr.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,10 +42,24 @@ namespace Prototipo1_Lyfr
             btn_pago.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_gratis.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
         }
-        private void cadastrar_Clicked(object sender, EventArgs e)
+
+        private void Cadastrar_Clicked(object sender, EventArgs e)
         {
-            return;
+            var cliente = new Cliente()
+            {
+                Nome = ent_Nome_Usuario.Text,
+                Senha = ent_Senha_Usuario.Text,
+                Email = ent_Email_Usuario.Text,
+                Cep = ent_CEP_Usuario.Text,
+                Cidade = null,
+                Estado = null,
+                Numero = null,
+                DataNasc = DataPicker_Nascimento.ToString(),
+                Cpf = ent_CPF_Usuario.Text,
+                Telefone = ent_Telefone_Usuario.Text
+            };
         }
+
         private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
