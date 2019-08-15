@@ -24,6 +24,7 @@ namespace Prototipo1_Lyfr
                 lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbfjk" });
                 lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbhbfdajk" });
                 Carousel.ItemsSource = lista;
+                NavigationPage.SetHasNavigationBar(this, false);
             }
             catch (Exception ex)
             {
@@ -32,23 +33,11 @@ namespace Prototipo1_Lyfr
         }
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new Cadastrar());
+            Navigation.PushAsync(new Cadastrar());
         }
-
         private void ChamarPagLogin(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage( new Login());
-
-        }
-
-        private void Left_Swiped(object sender, SwipedEventArgs e)
-        {
-
-        }
-
-        private void Right_Swiped(object sender, SwipedEventArgs e)
-        {
-            
+            Navigation.PushAsync(new Login());
         }
     }
 }

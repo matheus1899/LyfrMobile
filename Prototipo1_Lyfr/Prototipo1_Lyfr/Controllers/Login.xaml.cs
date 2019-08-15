@@ -14,6 +14,7 @@ namespace Prototipo1_Lyfr
             try
             {
                 InitializeComponent();
+                NavigationPage.SetHasNavigationBar(this, false);
             }catch(Exception ex)
             {
                 DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");

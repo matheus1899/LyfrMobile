@@ -65,7 +65,7 @@ namespace Prototipo1_Lyfr
         }
         protected override bool OnBackButtonPressed()
         {
-            App.Current.MainPage = new Login();
+            Navigation.PopAsync();
             return base.OnBackButtonPressed();
         }
 

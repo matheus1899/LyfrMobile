@@ -8,6 +8,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Util;
+using Android.Widget;
 using System;
 
 namespace Prototipo1_Lyfr.Droid

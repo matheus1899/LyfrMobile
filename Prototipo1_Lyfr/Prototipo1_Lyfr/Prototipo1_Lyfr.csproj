@@ -28,8 +28,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Update="Controllers\Cadastrar.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\EsqueceuSenha.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Historico.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Home.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Introducao.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Leitor.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Lobby.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\Login.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Controllers\MainPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -55,5 +79,9 @@
     <EmbeddedResource Update="MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>

@@ -14,11 +14,11 @@
             <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
                 <Setter Property="Visual" Value="Material"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
-                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="CornerRadius" Value="7"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="HeightRequest" Value="18"/>
-                <Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>
+                <!--<Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>-->
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -41,7 +41,6 @@
             <!--Email-->
             <StackLayout VerticalOptions="CenterAndExpand">
                 <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
-                    <Label Text="E-mail" Style="{x:StaticResource Lbl_Titulo_Entry}"/>
                     <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
                         <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
                             <Entry x:Name="ent_Email_Usuario"
@@ -49,6 +48,7 @@
                                    TextColor="{DynamicResource TextColor_App}"
                                    TextChanged="EntryEmail_TextChanged"
                                    Focused="EntryEmail_Focused"
+                                   Placeholder="Email"
                                    Unfocused="EntryEmail_Unfocused"
                                    HorizontalOptions="FillAndExpand"/>
                             <Label Text=" X " 
@@ -69,7 +69,6 @@
                 </StackLayout>
                 <!--Senha-->
                 <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
-                    <Label Text="Senha" Style="{x:StaticResource Lbl_Titulo_Entry}"/>
                     <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
                         <StackLayout Orientation="Horizontal" 
                                      Spacing="7" 
@@ -82,6 +81,7 @@
                                    TextChanged="EntrySenha_TextChanged"
                                    Focused="EntrySenha_Focused"
                                    Unfocused="EntrySenha_Unfocused"
+                                   Placeholder="Senha"
                                    TextColor="{DynamicResource TextColor_App}"/>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Senha" 
