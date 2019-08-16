@@ -6,7 +6,4 @@
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Leitor">
     
-    <ContentPage.Content>
-
-    </ContentPage.Content>
 </ContentPage>
