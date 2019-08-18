@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +12,6 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
             HotReloader.Current.Run(this);
             MainPage = new NavigationPage(new Introducao());
-
         }
 
         protected override void OnStart()

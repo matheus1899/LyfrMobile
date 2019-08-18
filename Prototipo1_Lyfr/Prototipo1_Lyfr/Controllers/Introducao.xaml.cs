@@ -14,22 +14,16 @@ namespace Prototipo1_Lyfr
 
     public partial class Introducao : ContentPage
     {
+        List<Models.Livro> lista = new List<Models.Livro>();
         public Introducao()
         {
-            try
-            {
-                InitializeComponent();
-                List<Models.Livro> lista = new List<Models.Livro>();
-                lista.Add(new Models.Livro { Nome = "bfhadbahbfj" });
-                lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbfjk" });
-                lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbhbfdajk" });
-                Carousel.ItemsSource = lista;
-                NavigationPage.SetHasNavigationBar(this, false);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Erro -> " + ex.Message);
-            }
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            lista.Add(new Models.Livro { Nome = "bfhadbahbfj" });
+            lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbfjk" });
+            lista.Add(new Models.Livro { Nome = "bfhadbahbfjhadbhbfdajk" });
+            Carousel.ItemsSource = lista;
+           
         }
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {

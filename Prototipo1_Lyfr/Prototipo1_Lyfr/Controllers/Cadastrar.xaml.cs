@@ -1,9 +1,4 @@
-﻿using Prototipo1_Lyfr.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,52 +13,75 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
         }
+
         protected override void OnAppearing()
         {
-            DataPicker_Nascimento.MaximumDate = DateTime.Now;
             base.OnAppearing();
         }
-
         protected override bool OnBackButtonPressed(){
-            
             return true;
         }
-        private void btn_gratis_Clicked(object sender, EventArgs e)
+
+        private async void btn_gratis_Clicked(object sender, EventArgs e)
         {
-            pago = false;
-            gratis = true;
+            btn_gratis.IsEnabled = false;
+            btn_pago.IsEnabled = false;
+            btn_Cadastrar.IsEnabled = false;
+            pago = !pago;
+            gratis = !gratis;
             btn_gratis.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_pago.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
+            await Stack_Ent_CPF.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_CPF.IsVisible = false;
+            await Stack_Ent_CEP.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_CEP.IsVisible = false;
+            await Stack_Ent_Tele.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_Tele.IsVisible = false;
+            await Stack_Ent_DataNasc.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_DataNasc.IsVisible = false;
+
+            btn_gratis.IsEnabled = true;
+            btn_pago.IsEnabled = true;
+            btn_Cadastrar.IsEnabled = true;
         }
-        private void btn_pago_Clicked(object sender, EventArgs e)
+        private async void btn_pago_Clicked(object sender, EventArgs e)
         {
-            pago = true;
-            gratis = false;
+            btn_gratis.IsEnabled = false;
+            btn_pago.IsEnabled = false;
+            btn_Cadastrar.IsEnabled = false;
+
+            pago = !pago;
+            gratis = !gratis;
             btn_pago.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_gratis.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
-        }
 
+            await Stack_Ent_CPF.TranslateTo(1500, 0,50, Easing.Linear);
+            await Stack_Ent_CEP.TranslateTo(1500, 0, 50, Easing.Linear);
+            await Stack_Ent_Tele.TranslateTo(1500, 0, 50, Easing.Linear);
+            await Stack_Ent_DataNasc.TranslateTo(1500, 0, 50, Easing.Linear);
+
+            Stack_Ent_CPF.IsVisible = true;
+            await Stack_Ent_CPF.TranslateTo(0, 0, 500, Easing.Linear);
+            Stack_Ent_CEP.IsVisible = true;
+            await Stack_Ent_CEP.TranslateTo(0, 0, 500, Easing.Linear);
+            Stack_Ent_Tele.IsVisible = true;
+            await Stack_Ent_Tele.TranslateTo(0, 0, 500, Easing.Linear);
+            Stack_Ent_DataNasc.IsVisible = true;
+            await Stack_Ent_DataNasc.TranslateTo(0, 0, 500, Easing.Linear);
+
+            btn_gratis.IsEnabled = true;
+            btn_pago.IsEnabled = true;
+            btn_Cadastrar.IsEnabled = true;
+        }
         private void Cadastrar_Clicked(object sender, EventArgs e)
         {
-            var cliente = new Cliente()
-            {
-                Nome = ent_Nome_Usuario.Text,
-                Senha = ent_Senha_Usuario.Text,
-                Email = ent_Email_Usuario.Text,
-                Cep = ent_CEP_Usuario.Text,
-                Cidade = null,
-                Estado = null,
-                Numero = null,
-                DataNasc = DataPicker_Nascimento.ToString(),
-                Cpf = ent_CPF_Usuario.Text,
-                Telefone = ent_Telefone_Usuario.Text
-            };
+            return;
         }
-
-        private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
+        private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
-
+            await btn_Img_Eye.ScaleTo(1.2,100,Easing.SpringIn);
+            await btn_Img_Eye.ScaleTo(1,100,Easing.BounceIn);
         }
         private void Lbl_Apagar_Entry_Nome(object sender, EventArgs e)
         {
@@ -192,8 +210,6 @@ namespace Prototipo1_Lyfr
             Lbl_X_Senha.IsEnabled = false;
             Lbl_X_Senha.IsVisible = false;
         }
-
-
         private void EntryCEP_Focused(object sender, FocusEventArgs e)
         {
             if (string.IsNullOrEmpty(ent_CEP_Usuario.Text))
@@ -237,7 +253,6 @@ namespace Prototipo1_Lyfr
         {
             ent_CEP_Usuario.Text = string.Empty;
         }
-
         private void EntryTelefone_Focused(object sender, FocusEventArgs e)
         {
             if (string.IsNullOrEmpty(ent_Telefone_Usuario.Text))
@@ -281,7 +296,6 @@ namespace Prototipo1_Lyfr
         {
             ent_Telefone_Usuario.Text = string.Empty;
         }
-
         private void EntryCPF_Focused(object sender, FocusEventArgs e)
         {
             if (string.IsNullOrEmpty(ent_CPF_Usuario.Text))
@@ -301,13 +315,11 @@ namespace Prototipo1_Lyfr
                 Lbl_X_CPF.IsVisible = false;
             }
         }
-
         private void EntryCPF_Unfocused(object sender, FocusEventArgs e)
         {
             Lbl_X_CPF.IsEnabled = false;
             Lbl_X_CPF.IsVisible = false;
         }
-
         private void EntryCPF_TextChanged(object sender, TextChangedEventArgs e)
         {
             var a = sender as Entry;
@@ -323,7 +335,6 @@ namespace Prototipo1_Lyfr
                 Lbl_X_CPF.IsVisible = false;
             }
         }
-
         private void Lbl_Apagar_Entry_CPF(object sender, EventArgs e)
         {
             ent_CPF_Usuario.Text = string.Empty;

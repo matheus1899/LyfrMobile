@@ -29,27 +29,81 @@
     
     
     <ScrollView>
-        <StackLayout VerticalOptions="CenterAndExpand" Spacing="15">
-            <Label Text="Lyfr"
-                   FontSize="70" 
-                   TextColor="{DynamicResource TextColor_App}" 
-                   FontFamily="Arial" 
-                   HorizontalOptions="Center" 
-                   FontAttributes="Bold"/>
-            <!-- Nome -->
-            <StackLayout Orientation="Vertical">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+        <StackLayout VerticalOptions="FillAndExpand">
+            <!--<StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="FillAndExpand" 
+                         Margin="70,20,70,0" Spacing="35">
+                <controls:NewFrame BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
+                    <StackLayout Padding="0,-20,0,-20">
+                        <Label Text="1" TextColor="White" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </controls:NewFrame>
+                <StackLayout HeightRequest="1" BackgroundColor="#436477" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                <controls:NewFrame BackgroundColor="{DynamicResource BackgroundColor_App}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
+                    <StackLayout Padding="0,-20,0,-20">
+                        <Label Text="2" TextColor="{DynamicResource TextColor_App}" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </controls:NewFrame>
+            </StackLayout>-->
+            <Grid VerticalOptions="Center" 
+                  x:Name="Grid_"
+                  RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                    <ColumnDefinition Width="1.428*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Row 0 -->
+                
+                
+                <!-- Logo -->
+                <!-- Row 1 -->
+                <Image Source="Logo_Lyfr.png" 
+                       Aspect="AspectFit" 
+                       Grid.Row="1" 
+                       HeightRequest="110"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="3"/>
+                <!-- Row 2 -->
+                <!-- Nome -->
+                <!-- Row 3 -->
+                <StackLayout Orientation="Vertical" 
+                             x:Name="Stack_Ent_Nome" 
+                             Grid.Row="3" 
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" 
                                  Padding="0,-16,0,-16">
-                        <Entry x:Name="ent_Nome_Usuario"
+                            <Entry x:Name="ent_Nome_Usuario"
                                TextChanged="EntryNome_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                Focused="EntryNome_Focused"
                                Placeholder="Nome"
                                Unfocused="EntryNome_Unfocused"
                                TextColor="{DynamicResource TextColor_App}" />
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_Nome" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -58,21 +112,25 @@
                                Margin="0,0,5,0"
                                VerticalTextAlignment="Center"
                                VerticalOptions="FillAndExpand">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Nome" 
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Nome" 
                                                       NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- Email -->
-            <StackLayout Orientation="Vertical" 
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- Email -->
+                <!-- Row 4 -->
+                <StackLayout Orientation="Vertical" 
+                             Grid.Row="4" 
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="7"
                          BackgroundColor="Transparent">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" Padding="0,-16,0,-16">
-                        <Entry x:Name="ent_Email_Usuario"
+                            <Entry x:Name="ent_Email_Usuario"
                                TextColor="{DynamicResource TextColor_App}" 
                                TextChanged="EntryEmail_TextChanged"
                                HorizontalOptions="FillAndExpand"
@@ -80,7 +138,7 @@
                                Placeholder="Email"
                                Unfocused="EntryEmail_Unfocused"
                                Keyboard="Email"/>
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_Email" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -89,18 +147,23 @@
                                Margin="0,0,5,0"
                                VerticalTextAlignment="Center"
                                VerticalOptions="FillAndExpand">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- Senha -->
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" Orientation="Horizontal" Spacing="7">
-                        <Entry x:Name="ent_Senha_Usuario" 
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- Senha -->
+                <!-- Row 5 -->
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center" 
+                             Grid.Row="5" 
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" Orientation="Horizontal" Spacing="7">
+                            <Entry x:Name="ent_Senha_Usuario" 
                                TextColor="{DynamicResource TextColor_App}" 
                                IsPassword="True"
                                Focused="EntrySenha_Focused"
@@ -110,7 +173,7 @@
                                VerticalOptions="FillAndExpand"
                                Placeholder="Senha"
                                Margin="-5,-5,0,-25"/>
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_Senha" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -118,11 +181,12 @@
                                HorizontalOptions="Center"
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <ImageButton Source="eye.png"
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                     x:Name="btn_Img_Eye"
                                      WidthRequest="35" 
                                      HeightRequest="30"
                                      Margin="0,-5,-7,-25"
@@ -130,16 +194,23 @@
                                      BackgroundColor="Transparent"
                                      Clicked="Esconde_Exibe_Senha_Clicked"
                                      HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- CPF-->
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- CPF -->
+                <!-- Row 6 -->
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center" 
+                             x:Name="Stack_Ent_CPF"
+                             Grid.Row="6" 
+                             Grid.Column="0"
+                             IsVisible="False"
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" 
                                  Spacing="7">
-                        <Entry x:Name="ent_CPF_Usuario" 
+                            <Entry x:Name="ent_CPF_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
                                Focused="EntryCPF_Focused"
                                Unfocused="EntryCPF_Unfocused"
@@ -150,7 +221,7 @@
                                MaxLength="11"
                                Keyboard="Numeric"
                                Margin="0,-5,0,-25"/>
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_CPF" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -158,21 +229,28 @@
                                HorizontalOptions="Center"
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CPF" 
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CPF" 
                                                       NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- CEP-->
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- CEP-->
+                <!-- Row 7 -->
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center" 
+                             x:Name="Stack_Ent_CEP" 
+                             Grid.Row="7" 
+                             Grid.Column="0" 
+                             IsVisible="False"
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" 
                                  Spacing="7">
-                        <Entry x:Name="ent_CEP_Usuario" 
+                            <Entry x:Name="ent_CEP_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
                                Focused="EntryCEP_Focused"
                                Unfocused="EntryCEP_Unfocused"
@@ -184,7 +262,7 @@
                                
                                MaxLength="8"
                                Margin="0,-5,0,-25"/>
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_CEP" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -192,21 +270,28 @@
                                HorizontalOptions="Center"
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CEP" 
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CEP" 
                                                       NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- Telefone -->
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- Telefone -->
+                <!-- Row 8 -->
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center" 
+                             x:Name="Stack_Ent_Tele" 
+                             Grid.Row="8" 
+                             Grid.Column="0" 
+                             IsVisible="False"
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" 
                                  Spacing="7">
-                        <Entry x:Name="ent_Telefone_Usuario" 
+                            <Entry x:Name="ent_Telefone_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
                                Focused="EntryTelefone_Focused"
                                Unfocused="EntryTelefone_Unfocused"
@@ -216,7 +301,7 @@
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                Margin="0,-5,0,-25"/>
-                        <Label Text=" X " 
+                            <Label Text=" X " 
                                x:Name="Lbl_X_Telefone" 
                                TextColor="Gray"
                                IsEnabled="False"
@@ -224,43 +309,53 @@
                                HorizontalOptions="Center"
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Telefone" 
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Telefone" 
                                                       NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            <!-- Data Nascimento-->
-            <StackLayout Orientation="Vertical" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                    <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+                <!-- Data Nascimento-->
+                <!-- Row 9 -->
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="Center" 
+                             x:Name="Stack_Ent_DataNasc" 
+                             Grid.Row="9" 
+                             Grid.Column="0" 
+                             IsVisible="False"                             
+                             Grid.ColumnSpan="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                  Orientation="Horizontal" 
                                  Padding="0,-16,0,-16"
                                  Spacing="7">
-                        <DatePicker MinimumDate="01/01/1940" 
+                            <DatePicker MinimumDate="01/01/1940" 
                                     Visual="Material"
                                     TextColor="{DynamicResource TextColor_App}"
                                     x:Name="DataPicker_Nascimento" 
                                     HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>
-            
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+            </Grid>
 
             <Label x:Name="lbl_aviso" 
                    Text="Senha fraca. Minimo de oito caracteres&#10; sendo um caracter especial(...) &#10;e uma letra maiúscula"
                    TextColor="Red"
                    FontSize="Small"
                    HorizontalTextAlignment="Center"
-                   Margin="0,-5,0,-20"
+                   Margin="0,15,0,-20"
                    MaxLines="3"/>
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"
-                         HorizontalOptions="CenterAndExpand" VerticalOptions="End">
+                         HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="End">
+                <!-- Buttons Plano -->
                 <StackLayout Orientation="Horizontal" 
-                             Spacing="25"
+                             Margin="0,15,0,0"
+                             Spacing="20"
                              HorizontalOptions="CenterAndExpand">
                     <Button x:Name="btn_gratis" 
                             Text="Grátis &#10; Com anúncios " 
@@ -273,11 +368,13 @@
                             Style="{DynamicResource Style_Button_Desativo}" 
                             HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
+                <!-- Button Cadastrar -->
                 <StackLayout Orientation="Horizontal" 
                              HorizontalOptions="FillAndExpand">
                     <BoxView HorizontalOptions="FillAndExpand" 
                              BackgroundColor="Transparent"/>
                     <Button Text="  Cadastrar  " 
+                            x:Name="btn_Cadastrar"
                             HorizontalOptions="FillAndExpand" 
                             BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
                             TextColor="White" 

@@ -13,7 +13,7 @@ using System;
 
 namespace Prototipo1_Lyfr.Droid
 {
-    [Activity(Label = "Lyfr", Icon = "@mipmap/icon", RoundIcon ="@mipmap/icon",  Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Lyfr", Icon = "@mipmap/icon", RoundIcon ="@mipmap/icon",  Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private const BuildVersionCodes m = BuildVersionCodes.M;
