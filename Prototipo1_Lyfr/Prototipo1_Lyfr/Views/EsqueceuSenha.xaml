@@ -17,11 +17,11 @@
             <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
                 <Setter Property="Visual" Value="Material"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
-                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="CornerRadius" Value="18"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="HeightRequest" Value="18"/>
-                <Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>
+                <!--<Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>-->
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -62,12 +62,11 @@
                    BackgroundColor="Brown"
                    Grid.Column="1"
                    Grid.ColumnSpan="3"/>
-            <StackLayout VerticalOptions="CenterAndExpand" 
+        <StackLayout VerticalOptions="CenterAndExpand" 
                          Grid.Row="2" 
                          Grid.Column="0" 
                          Grid.ColumnSpan="5" 
                          HorizontalOptions="FillAndExpand" 
-                         BackgroundColor="CadetBlue" 
                          Margin="20,-10,20,0">
                 <Label Text="E-mail" 
                            Style="{StaticResource Lbl_Titulo_Entry}"/>
@@ -97,6 +96,45 @@
                         </Label>
                     </StackLayout>
                 </controls:NewFrame>
+                <Button BackgroundColor="#436477" Text="Enviar codigo de verficação" CornerRadius="10" Margin="10" TextColor="White"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="RoyalBlue" IsVisible="False">
+                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    
+                </StackLayout>
             </StackLayout>
         </Grid>
 

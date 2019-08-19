@@ -8,7 +8,6 @@ namespace Prototipo1_Lyfr
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
-        private bool gratis = true;
         public Cadastrar(){
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
@@ -29,7 +28,6 @@ namespace Prototipo1_Lyfr
             btn_pago.IsEnabled = false;
             btn_Cadastrar.IsEnabled = false;
             pago = !pago;
-            gratis = !gratis;
             btn_gratis.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_pago.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
             await Stack_Ent_CPF.TranslateTo(1500, 0, 450, Easing.Linear);
@@ -56,7 +54,6 @@ namespace Prototipo1_Lyfr
             btn_Cadastrar.IsEnabled = false;
 
             pago = !pago;
-            gratis = !gratis;
             btn_pago.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_gratis.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
 
