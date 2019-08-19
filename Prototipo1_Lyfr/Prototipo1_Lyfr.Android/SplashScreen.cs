@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Prototipo1_Lyfr.Droid
 {
-    [Activity(Theme= "@style/MyTheme.Splash", MainLauncher=true,NoHistory =true)]
+    [Activity(Theme= "@style/MyTheme.Splash", MainLauncher=true,NoHistory =true, ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait) ]
     public class SplashScreen : Activity
     {
         static readonly string TAG = "X:" + typeof(SplashScreen).Name;
@@ -40,7 +40,7 @@ namespace Prototipo1_Lyfr.Droid
         {
             Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
 
-            await Task.Delay(3000);
+            await Task.Delay(5000);
 
             Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));

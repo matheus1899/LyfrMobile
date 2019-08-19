@@ -19,6 +19,7 @@ namespace Prototipo1_Lyfr
             base.OnAppearing();
         }
         protected override bool OnBackButtonPressed(){
+            Navigation.PushAsync(new Login());
             return true;
         }
 
@@ -39,6 +40,10 @@ namespace Prototipo1_Lyfr
             Stack_Ent_Tele.IsVisible = false;
             await Stack_Ent_DataNasc.TranslateTo(1500, 0, 450, Easing.Linear);
             Stack_Ent_DataNasc.IsVisible = false;
+            await Stack_Ent_Rua_Numero.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_Rua_Numero.IsVisible = false;
+            await Stack_Ent_Cidade_Estado.TranslateTo(1500, 0, 450, Easing.Linear);
+            Stack_Ent_Cidade_Estado.IsVisible = false;
 
             btn_gratis.IsEnabled = true;
             btn_pago.IsEnabled = true;
@@ -59,15 +64,21 @@ namespace Prototipo1_Lyfr
             await Stack_Ent_CEP.TranslateTo(1500, 0, 50, Easing.Linear);
             await Stack_Ent_Tele.TranslateTo(1500, 0, 50, Easing.Linear);
             await Stack_Ent_DataNasc.TranslateTo(1500, 0, 50, Easing.Linear);
+            await Stack_Ent_Rua_Numero.TranslateTo(1500, 0, 50, Easing.Linear);
+            await Stack_Ent_Cidade_Estado.TranslateTo(1500, 0, 50, Easing.Linear);
 
             Stack_Ent_CPF.IsVisible = true;
-            await Stack_Ent_CPF.TranslateTo(0, 0, 500, Easing.Linear);
+            await Stack_Ent_CPF.TranslateTo(0, 0, 350, Easing.Linear);
             Stack_Ent_CEP.IsVisible = true;
-            await Stack_Ent_CEP.TranslateTo(0, 0, 500, Easing.Linear);
+            await Stack_Ent_CEP.TranslateTo(0, 0, 350, Easing.Linear);
             Stack_Ent_Tele.IsVisible = true;
-            await Stack_Ent_Tele.TranslateTo(0, 0, 500, Easing.Linear);
+            await Stack_Ent_Tele.TranslateTo(0, 0, 350, Easing.Linear);
             Stack_Ent_DataNasc.IsVisible = true;
-            await Stack_Ent_DataNasc.TranslateTo(0, 0, 500, Easing.Linear);
+            await Stack_Ent_DataNasc.TranslateTo(0, 0, 350, Easing.Linear);
+            Stack_Ent_Rua_Numero.IsVisible = true;
+            await Stack_Ent_Rua_Numero.TranslateTo(0, 0, 350, Easing.Linear);
+            Stack_Ent_Cidade_Estado.IsVisible = true;
+            await Stack_Ent_Cidade_Estado.TranslateTo(0, 0, 350, Easing.Linear);
 
             btn_gratis.IsEnabled = true;
             btn_pago.IsEnabled = true;
@@ -338,6 +349,187 @@ namespace Prototipo1_Lyfr
         private void Lbl_Apagar_Entry_CPF(object sender, EventArgs e)
         {
             ent_CPF_Usuario.Text = string.Empty;
+        }
+
+        //---------------------------------------------------
+        private void EntryRua_Focused(object sender, FocusEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ent_Rua_Usuario.Text))
+            {
+                Lbl_X_Rua.IsEnabled = false;
+                Lbl_X_Rua.IsVisible = false;
+                return;
+            }
+            if (ent_Rua_Usuario.Text.Length > 0)
+            {
+                Lbl_X_Rua.IsEnabled = true;
+                Lbl_X_Rua.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Rua.IsEnabled = false;
+                Lbl_X_Rua.IsVisible = false;
+            }
+        }
+        private void EntryRua_Unfocused(object sender, FocusEventArgs e)
+        {
+            Lbl_X_Rua.IsEnabled = false;
+            Lbl_X_Rua.IsVisible = false;
+        }
+        private void EntryRua_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var a = sender as Entry;
+            int lenght = a.Text.Length;
+            if (lenght > 0)
+            {
+                Lbl_X_Rua.IsEnabled = true;
+                Lbl_X_Rua.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Rua.IsEnabled = false;
+                Lbl_X_Rua.IsVisible = false;
+            }
+        }
+        private void Lbl_Apagar_Entry_Rua(object sender, EventArgs e)
+        {
+            ent_Rua_Usuario.Text = string.Empty;
+        }
+
+        //------------------------------------------
+
+        private void EntryNumero_Focused(object sender, FocusEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ent_Numero_Usuario.Text))
+            {
+                Lbl_X_Numero.IsEnabled = false;
+                Lbl_X_Numero.IsVisible = false;
+                return;
+            }
+            if (ent_Numero_Usuario.Text.Length > 0)
+            {
+                Lbl_X_Numero.IsEnabled = true;
+                Lbl_X_Numero.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Numero.IsEnabled = false;
+                Lbl_X_Numero.IsVisible = false;
+            }
+        }
+        private void EntryNumero_Unfocused(object sender, FocusEventArgs e)
+        {
+            Lbl_X_Numero.IsEnabled = false;
+            Lbl_X_Numero.IsVisible = false;
+        }
+        private void EntryNumero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var a = sender as Entry;
+            int lenght = a.Text.Length;
+            if (lenght > 0)
+            {
+                Lbl_X_Numero.IsEnabled = true;
+                Lbl_X_Numero.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Numero.IsEnabled = false;
+                Lbl_X_Numero.IsVisible = false;
+            }
+        }
+        private void Lbl_Apagar_Entry_Numero(object sender, EventArgs e)
+        {
+            ent_Numero_Usuario.Text = string.Empty;
+        }
+
+        //--------------------------------------------------
+
+        private void EntryCidade_Focused(object sender, FocusEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ent_Cidade_Usuario.Text))
+            {
+                Lbl_X_Cidade.IsEnabled = false;
+                Lbl_X_Cidade.IsVisible = false;
+                return;
+            }
+            if (ent_Cidade_Usuario.Text.Length > 0)
+            {
+                Lbl_X_Cidade.IsEnabled = true;
+                Lbl_X_Cidade.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Cidade.IsEnabled = false;
+                Lbl_X_Cidade.IsVisible = false;
+            }
+        }
+        private void EntryCidade_Unfocused(object sender, FocusEventArgs e)
+        {
+            Lbl_X_Cidade.IsEnabled = false;
+            Lbl_X_Cidade.IsVisible = false;
+        }
+        private void EntryCidade_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var a = sender as Entry;
+            int lenght = a.Text.Length;
+            if (lenght > 0)
+            {
+                Lbl_X_Cidade.IsEnabled = true;
+                Lbl_X_Cidade.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Cidade.IsEnabled = false;
+                Lbl_X_Cidade.IsVisible = false;
+            }
+        }
+        private void Lbl_Apagar_Entry_Cidade(object sender, EventArgs e)
+        {
+            ent_Cidade_Usuario.Text = string.Empty;
+        }
+        //--------------------------------------------------
+        private void EntryEstado_Focused(object sender, FocusEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ent_Estado_Usuario.Text))
+            {
+                Lbl_X_Estado.IsEnabled = false;
+                Lbl_X_Estado.IsVisible = false;
+                return;
+            }
+            if (ent_Estado_Usuario.Text.Length > 0)
+            {
+                Lbl_X_Estado.IsEnabled = true;
+                Lbl_X_Estado.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Estado.IsEnabled = false;
+                Lbl_X_Estado.IsVisible = false;
+            }
+        }
+        private void EntryEstado_Unfocused(object sender, FocusEventArgs e)
+        {
+            Lbl_X_Estado.IsEnabled = false;
+            Lbl_X_Estado.IsVisible = false;
+        }
+        private void EntryEstado_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var a = sender as Entry;
+            int lenght = a.Text.Length;
+            if (lenght > 0)
+            {
+                Lbl_X_Estado.IsEnabled = true;
+                Lbl_X_Estado.IsVisible = true;
+            }
+            else
+            {
+                Lbl_X_Estado.IsEnabled = false;
+                Lbl_X_Estado.IsVisible = false;
+            }
+        }
+        private void Lbl_Apagar_Entry_Estado(object sender, EventArgs e)
+        {
+            ent_Estado_Usuario.Text = string.Empty;
         }
     }
 }
