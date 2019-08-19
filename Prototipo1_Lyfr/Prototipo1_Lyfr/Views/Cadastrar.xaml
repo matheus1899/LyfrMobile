@@ -63,6 +63,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.428*"/>
@@ -338,6 +340,121 @@
                                     HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
                     </controls:NewFrame>
+                </StackLayout>
+                <!-- Endereco -->
+                <!-- Row 10 -->
+                <StackLayout Orientation="Vertical" 
+                             Grid.Row="10" 
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="7"
+                         BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0">
+                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" 
+                                           HorizontalOptions="FillAndExpand">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Orientation="Horizontal" 
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Rua_Usuario"
+                                       TextColor="{DynamicResource TextColor_App}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Rua" 
+                                       Keyboard="Default"/>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Rua" 
+                                       TextColor="Gray"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End"
+                                       Margin="0,0,5,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" 
+                                           HorizontalOptions="End"
+                                           Margin="0,0,20,0">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         Orientation="Horizontal" 
+                                         HorizontalOptions="End"
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Numero_Usuario"
+                                       TextColor="{DynamicResource TextColor_App}" 
+                                       HorizontalOptions="FillAndExpand"
+                               
+                               Placeholder="Número"
+                               Keyboard="Default"/>
+                                <Label Text=" X " 
+                               x:Name="Lbl_X_Numero" 
+                               TextColor="Gray"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="End" 
+                               Margin="0,0,5,0"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="FillAndExpand">
+
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Cidade - Estado -->
+                <!-- Row 11 -->
+                <StackLayout Orientation="Vertical" 
+                             Grid.Row="11" 
+                             Grid.Column="0" 
+                             Grid.ColumnSpan="7"
+                         BackgroundColor="Transparent">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}"
+                                           HorizontalOptions="FillAndExpand" Margin="15,0,10,0">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         
+                                            Orientation="Horizontal" Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Cidade_Usuario"
+                                       TextColor="{DynamicResource TextColor_App}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Cidade"
+                                       Keyboard="Default"/>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Cidade" 
+                                       TextColor="Gray"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End"
+                                       Margin="0,0,5,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" 
+                                           HorizontalOptions="Fill">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Orientation="Horizontal" 
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Estado_Usuario"
+                                       TextColor="{DynamicResource TextColor_App}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Estado"
+                                       Keyboard="Default"/>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Estado" 
+                                       TextColor="Gray"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End" 
+                                       Margin="0,0,5,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
                 </StackLayout>
             </Grid>
 
