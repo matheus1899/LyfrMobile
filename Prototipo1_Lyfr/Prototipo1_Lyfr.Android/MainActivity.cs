@@ -1,14 +1,9 @@
-﻿
-using Android;
+﻿using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V4.App;
-using Android.Support.V4.Content;
 using Android.Util;
-using Android.Widget;
 using System;
 
 namespace Prototipo1_Lyfr.Droid
