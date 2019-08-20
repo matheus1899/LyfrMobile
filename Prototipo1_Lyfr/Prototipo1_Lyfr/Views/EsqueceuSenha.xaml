@@ -25,41 +25,32 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Content>
 
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <BoxView BackgroundColor="Red" Grid.Row="0" Grid.Column="0"/>
-            <BoxView BackgroundColor="Blue" Grid.Row="0" Grid.Column="1"/>
-            <BoxView BackgroundColor="Yellow" Grid.Row="0" Grid.Column="2"/>
-            <BoxView BackgroundColor="Green" Grid.Row="0" Grid.Column="3"/>
-            <BoxView BackgroundColor="Indigo" Grid.Row="0" Grid.Column="4"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
 
-            <BoxView BackgroundColor="Red" Grid.Row="3" Grid.Column="0"/>
-            <BoxView BackgroundColor="Blue" Grid.Row="3" Grid.Column="1"/>
-            <BoxView BackgroundColor="Yellow" Grid.Row="3" Grid.Column="2"/>
-            <BoxView BackgroundColor="Green" Grid.Row="3" Grid.Column="3"/>
-            <BoxView BackgroundColor="Indigo" Grid.Row="3" Grid.Column="4"/>
-            
-            <Label Text="Digite seu email" 
+        <Image Source="Logo_Lyfr.png" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="40,20,40,0"/>
+
+        <Label Text="Digite seu email" 
                    TextColor="{DynamicResource TextColor_App}" 
                    HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
                    FontSize="30"
                    Grid.Row="1"
-                   BackgroundColor="Brown"
+                   BackgroundColor="Transparent"
                    Grid.Column="1"
                    Grid.ColumnSpan="3"/>
         <StackLayout VerticalOptions="CenterAndExpand" 
@@ -68,75 +59,86 @@
                          Grid.ColumnSpan="5" 
                          HorizontalOptions="FillAndExpand" 
                          Margin="20,-10,20,0">
-                <Label Text="E-mail" 
-                           Style="{StaticResource Lbl_Titulo_Entry}"/>
-                <controls:NewFrame Style="{StaticResource Frame_This_Page}">
-                    <StackLayout Padding="0,-13,0,-13" 
-                                     Orientation="Horizontal">
-                        <Entry x:Name="ent_Email_Usuario"
-                                   Keyboard="Email"
-                                   TextColor="{DynamicResource TextColor_App}"
-                                   TextChanged="EntryEmail_TextChanged"
-                                   Focused="EntryEmail_Focused"
-                                   Unfocused="EntryEmail_Unfocused"
-                                   HorizontalOptions="FillAndExpand"/>
-                        <Label Text=" X " 
-                                   x:Name="Lbl_X_Email" 
-                                   TextColor="Gray"
-                                   IsEnabled="False"
-                                   IsVisible="False"
-                                   HorizontalOptions="End" 
-                                   Margin="5,0,5,0"
-                                   VerticalTextAlignment="Center"
-                                   VerticalOptions="FillAndExpand">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
-                                                          NumberOfTapsRequired="1"/>
-                            </Label.GestureRecognizers>
-                        </Label>
+            <Label Text="E-mail"
+                   x:Name="Lbl_Email"
+                   Style="{StaticResource Lbl_Titulo_Entry}"/>
+            <controls:NewFrame Style="{StaticResource Frame_This_Page}" 
+                                   x:Name="Frame_Ent_Email">
+                <StackLayout Padding="0,-13,0,-13" 
+                             Orientation="Horizontal">
+                    <Entry x:Name="ent_Email_Usuario"
+                            Keyboard="Email"
+                            TextColor="{DynamicResource TextColor_App}"
+                            TextChanged="EntryEmail_TextChanged"
+                            Focused="EntryEmail_Focused"
+                            Unfocused="EntryEmail_Unfocused"
+                            HorizontalOptions="FillAndExpand"/>
+                    <Label Text=" X " 
+                            x:Name="Lbl_X_Email" 
+                            TextColor="Gray"
+                            IsEnabled="False"
+                            IsVisible="False"
+                            HorizontalOptions="End" 
+                            Margin="5,0,5,0"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="FillAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
+                                                  NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </controls:NewFrame>
+            <StackLayout Orientation="Horizontal" 
+                             x:Name="Stack_Codigo_Verificacao" 
+                             HorizontalOptions="FillAndExpand" 
+                             BackgroundColor="RoyalBlue" 
+                             IsVisible="False">
+                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
-                <Button BackgroundColor="#436477" Text="Enviar codigo de verficação" CornerRadius="10" Margin="10" TextColor="White"/>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="RoyalBlue" IsVisible="False">
-                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
-                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
                                     HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
-                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                    </StackLayout>
+                </controls:NewFrame>
+                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
                                     HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
-                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                    </StackLayout>
+                </controls:NewFrame>
+                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
                                     HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
-                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
+                    </StackLayout>
+                </controls:NewFrame>
+                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
                                     HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                    <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
-                        <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                            <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
-                                    Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                    
-                </StackLayout>
-            </StackLayout>
-        </Grid>
+                    </StackLayout>
+                </controls:NewFrame>
 
-    </ContentPage.Content>
+            </StackLayout>
+            <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                        Clicked="BtnEnviaCodigo_Clicked"
+                        Text="enviar codigo de verficação" 
+                        CornerRadius="10" 
+                        Margin="10" 
+                        TextColor="White"/>
+
+            
+        </StackLayout>
+    </Grid>
 </ContentPage>

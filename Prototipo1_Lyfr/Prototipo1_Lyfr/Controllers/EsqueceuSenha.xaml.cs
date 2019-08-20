@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Util;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +10,14 @@ namespace Prototipo1_Lyfr
     {
         public EsqueceuSenha()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception e)
+            {
+                Log.WriteLine(LogPriority.Error, "ERRO -> ", e.Message.ToString());
+            }
         }
         private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
         {
@@ -58,12 +66,18 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = true;
             }
         }
+        private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
+        {
+            await Frame_Ent_Email.FadeTo(0,200,Easing.Linear);
+            Frame_Ent_Email.IsVisible = true;
+            await Stack_Codigo_Verificacao.FadeTo(0, 0, Easing.Linear);
+            Stack_Codigo_Verificacao.IsVisible = true;
+            await Stack_Codigo_Verificacao.FadeTo(1,500,Easing.Linear);
+        }
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopAsync();
             return base.OnBackButtonPressed();
         }
-
-
     }
 }

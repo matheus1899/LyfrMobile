@@ -99,11 +99,11 @@
                                  Orientation="Horizontal" 
                                  Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Nome_Usuario"
-                               TextChanged="EntryNome_TextChanged"
+                               TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
-                               Focused="EntryNome_Focused"
+                               Focused="Entry_Focused"
                                Placeholder="Nome"
-                               Unfocused="EntryNome_Unfocused"
+                               Unfocused="Entry_Unfocused"
                                TextColor="{DynamicResource TextColor_App}" />
                             <Label Text=" X " 
                                x:Name="Lbl_X_Nome" 
@@ -115,7 +115,7 @@
                                VerticalTextAlignment="Center"
                                VerticalOptions="FillAndExpand">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Nome" 
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
@@ -134,23 +134,23 @@
                                  Orientation="Horizontal" Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Email_Usuario"
                                TextColor="{DynamicResource TextColor_App}" 
-                               TextChanged="EntryEmail_TextChanged"
+                               TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
-                               Focused="EntryEmail_Focused"
+                               Focused="Entry_Focused"
                                Placeholder="Email"
-                               Unfocused="EntryEmail_Unfocused"
+                               Unfocused="Entry_Unfocused"
                                Keyboard="Email"/>
                             <Label Text=" X " 
-                               x:Name="Lbl_X_Email" 
-                               TextColor="Gray"
-                               IsEnabled="False"
-                               IsVisible="False"
-                               HorizontalOptions="End" 
-                               Margin="0,0,5,0"
-                               VerticalTextAlignment="Center"
-                               VerticalOptions="FillAndExpand">
+                                   x:Name="Lbl_X_Email" 
+                                   TextColor="Gray"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End" 
+                                   Margin="0,0,5,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
                         </StackLayout>
@@ -168,9 +168,9 @@
                             <Entry x:Name="ent_Senha_Usuario" 
                                TextColor="{DynamicResource TextColor_App}" 
                                IsPassword="True"
-                               Focused="EntrySenha_Focused"
-                               Unfocused="EntrySenha_Unfocused"
-                               TextChanged="EntrySenha_TextChanged"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
+                               TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                Placeholder="Senha"
@@ -184,7 +184,7 @@
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <ImageButton Source="eye.png"
@@ -214,9 +214,9 @@
                                  Spacing="7">
                             <Entry x:Name="ent_CPF_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
-                               Focused="EntryCPF_Focused"
-                               Unfocused="EntryCPF_Unfocused"
-                               TextChanged="EntryCPF_TextChanged"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
+                               TextChanged="Entry_TextChanged"
                                Placeholder="CPF"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
@@ -232,7 +232,7 @@
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CPF" 
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
@@ -254,9 +254,9 @@
                                  Spacing="7">
                             <Entry x:Name="ent_CEP_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
-                               Focused="EntryCEP_Focused"
-                               Unfocused="EntryCEP_Unfocused"
-                               TextChanged="EntryCEP_TextChanged"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
+                               TextChanged="Entry_TextChanged"
                                Placeholder="CEP"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
@@ -273,7 +273,7 @@
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_CEP" 
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
@@ -295,9 +295,9 @@
                                  Spacing="7">
                             <Entry x:Name="ent_Telefone_Usuario" 
                                TextColor="{DynamicResource TextColor_App}"
-                               Focused="EntryTelefone_Focused"
-                               Unfocused="EntryTelefone_Unfocused"
-                               TextChanged="EntryTelefone_TextChanged"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
+                               TextChanged="Entry_TextChanged"
                                Placeholder="Telefone"
                                Keyboard="Telephone"
                                HorizontalOptions="FillAndExpand"
@@ -312,7 +312,7 @@
                                Margin="5,10,5,-10"
                                VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Telefone" 
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
@@ -362,9 +362,9 @@
                                 <Entry x:Name="ent_Rua_Usuario"
                                        TextColor="{DynamicResource TextColor_App}" 
                                        HorizontalOptions="FillAndExpand"
-                                       Focused="EntryRua_Focused"
-                                       Unfocused="EntryRua_Unfocused"
-                                       TextChanged="EntryRua_TextChanged"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
                                        Placeholder="Rua" 
                                        Keyboard="Default"/>
                                 <Label Text=" X " 
@@ -377,7 +377,7 @@
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Rua" 
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                     </Label.GestureRecognizers>
                                 </Label>
@@ -391,9 +391,9 @@
                                          HorizontalOptions="End"
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Numero_Usuario"
-                                       Focused="EntryNumero_Focused"
-                                       Unfocused="EntryNumero_Unfocused"
-                                       TextChanged="EntryNumero_TextChanged"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
                                        TextColor="{DynamicResource TextColor_App}" 
                                        HorizontalOptions="FillAndExpand"                               
                                         Placeholder="Número"
@@ -408,7 +408,7 @@
                                         VerticalTextAlignment="Center"
                                         VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Numero" 
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                     </Label.GestureRecognizers>
 
@@ -434,9 +434,9 @@
                                          Orientation="Horizontal" 
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Cidade_Usuario"
-                                       Focused="EntryCidade_Focused"
-                                       Unfocused="EntryCidade_Unfocused"
-                                       TextChanged="EntryCidade_TextChanged"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
                                        TextColor="{DynamicResource TextColor_App}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Cidade"
@@ -451,7 +451,7 @@
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Cidade" 
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                     </Label.GestureRecognizers>
                                 </Label>
@@ -464,9 +464,9 @@
                                          Orientation="Horizontal" 
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Estado_Usuario"
-                                       Focused="EntryEstado_Focused"
-                                       Unfocused="EntryEstado_Unfocused"
-                                       TextChanged="EntryEstado_TextChanged"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
                                        TextColor="{DynamicResource TextColor_App}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Estado"
@@ -481,7 +481,7 @@
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Estado" 
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
                                     </Label.GestureRecognizers>
                                 </Label>

@@ -33,7 +33,7 @@ namespace Prototipo1_Lyfr.Droid
         {
             Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
 
-            await Task.Delay(5000);
+            await Task.Delay(1000);
 
             Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));
