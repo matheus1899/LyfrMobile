@@ -38,19 +38,35 @@ namespace Prototipo1_Lyfr
             btn_gratis.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
             btn_pago.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
 
-            Task.Run(() => {
-                for(int i = 4; i <= 9; i++) {
-                    //Grid_.Children[i].TranslateTo(1500, 0, 150, Easing.Linear);
-                    Task.Run(()=> {
-                        int n = 0;
-                        while (n <= 1500)
-                        {
-                            Grid_.Children[i].TranslationX = n++;
-                        }
-                    });
-                        //Device.BeginInvokeOnMainThread(()=> { Grid_.Children[i].IsVisible = false; });
-                }
+            Task.Run(async () => {
+                await Stack_Ent_CPF.TranslateTo(1500, 0, 350, Easing.Linear);
             });
+            Task.Run(async () => {
+                await Stack_Ent_CEP.TranslateTo(1500, 0, 350, Easing.Linear);
+            });
+            Task.Run(async () =>
+            {
+                await Stack_Ent_Tele.TranslateTo(1500, 0, 350, Easing.Linear);
+            });
+            Task.Run(async () =>
+            {
+                await Stack_Ent_DataNasc.TranslateTo(1500, 0, 350, Easing.Linear);
+            });
+            Task.Run(async () =>
+            {
+                await Stack_Ent_Rua_Numero.TranslateTo(1500, 0, 350, Easing.Linear);
+            });
+            Task.Run(async () =>
+            {
+                await Stack_Ent_Cidade_Estado.TranslateTo(1500, 0, 350, Easing.Linear);
+            });
+
+            Stack_Ent_CPF.IsVisible = false;
+            Stack_Ent_CEP.IsVisible = false;
+            Stack_Ent_Tele.IsVisible = false;
+            Stack_Ent_DataNasc.IsVisible = false;
+            Stack_Ent_Rua_Numero.IsVisible = false;
+            Stack_Ent_Cidade_Estado.IsVisible = false;
 
             btn_gratis.IsEnabled = true;
             btn_pago.IsEnabled = true;
@@ -171,6 +187,5 @@ namespace Prototipo1_Lyfr
             c.IsEnabled = false;
             c.IsVisible = false;
         }
-        
     }
 }

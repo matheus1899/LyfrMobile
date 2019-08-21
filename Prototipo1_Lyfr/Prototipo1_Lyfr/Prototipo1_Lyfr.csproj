@@ -30,34 +30,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controllers\Cadastrar.xaml.cs">
+    <Compile Update="Views\Cadastrar.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\EsqueceuSenha.xaml.cs">
+    <Compile Update="Views\EsqueciSenha.xaml.cs">
+      <DependentUpon>EsqueciSenha.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Historico.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Historico.xaml.cs">
+    <Compile Update="Views\Home.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Home.xaml.cs">
+    <Compile Update="Views\Introducao.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Introducao.xaml.cs">
+    <Compile Update="Views\Leitor.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Leitor.xaml.cs">
+    <Compile Update="Views\Lobby.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Lobby.xaml.cs">
+    <Compile Update="Views\Login.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\Login.xaml.cs">
+    <Compile Update="Views\MainPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Controllers\MainPage.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-    <Compile Update="Controllers\Perfil.xaml.cs">
+    <Compile Update="Views\Perfil.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
   </ItemGroup>

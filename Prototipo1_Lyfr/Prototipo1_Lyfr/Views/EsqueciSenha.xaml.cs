@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EsqueceuSenha : ContentPage
+    public partial class EsqueciSenha : ContentPage
     {
-        public EsqueceuSenha()
+        public EsqueciSenha()
         {
             try
             {
