@@ -37,7 +37,7 @@ namespace Prototipo1_Lyfr
         }
         private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage = new EsqueceuSenha();
+            App.Current.MainPage = new EsqueciSenha();
         }
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {

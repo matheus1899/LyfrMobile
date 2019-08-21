@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform;
+﻿using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.Controls
 {
@@ -14,6 +11,7 @@ namespace Prototipo1_Lyfr.Controls
             get { return (double)GetValue(BorderWidthProperty); }
             set { SetValue(BorderWidthProperty, value); }
         }
+
         bool IBorderElement.IsBorderWidthSet() => IsSet(BorderWidthProperty);
     }
 }

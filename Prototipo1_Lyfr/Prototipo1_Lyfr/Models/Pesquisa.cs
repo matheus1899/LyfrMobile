@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Prototipo1_Lyfr.Models
+﻿namespace Prototipo1_Lyfr.Models
 {
     public class Pesquisa
     {

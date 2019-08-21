@@ -83,7 +83,7 @@ namespace Prototipo1_Lyfr
             btn_gratis.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
             if (pago)
             {
-
+                
                 Stack_Ent_CPF.IsVisible = true;
                 Stack_Ent_CEP.IsVisible = true;
                 Stack_Ent_Tele.IsVisible = true;

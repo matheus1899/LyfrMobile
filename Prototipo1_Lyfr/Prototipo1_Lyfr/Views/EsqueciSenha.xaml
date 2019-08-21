@@ -17,7 +17,7 @@
             <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
                 <Setter Property="Visual" Value="Material"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
-                <Setter Property="CornerRadius" Value="18"/>
+                <Setter Property="CornerRadius" Value="7"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="HeightRequest" Value="18"/>
                 <!--<Setter Property="BorderWidth" Value="0.5"/>
@@ -42,9 +42,12 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="Logo_Lyfr.png" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="40,20,40,0"/>
+        <Image Source="Logo_Lyfr.png" 
+               Grid.Row="0" Grid.Column="1" 
+               Grid.ColumnSpan="3" Margin="40,20,40,0"/>
 
         <Label Text="Digite seu email" 
+               x:Name="Lbl_DigiteEmail"
                    TextColor="{DynamicResource TextColor_App}" 
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -59,85 +62,107 @@
                          Grid.ColumnSpan="5" 
                          HorizontalOptions="FillAndExpand" 
                          Margin="20,-10,20,0">
-            <Label Text="E-mail"
-                   x:Name="Lbl_Email"
+            <StackLayout x:Name="Stack">
+                <Label Text="E-mail"
+                   x:Name="Lbl_SubHeaderFrame"
                    Style="{StaticResource Lbl_Titulo_Entry}"/>
-            <controls:NewFrame Style="{StaticResource Frame_This_Page}" 
+                <controls:NewFrame Style="{StaticResource Frame_This_Page}" 
                                    x:Name="Frame_Ent_Email">
-                <StackLayout Padding="0,-13,0,-13" 
+                    <StackLayout Padding="0,-13,0,-13" 
                              Orientation="Horizontal">
-                    <Entry x:Name="ent_Email_Usuario"
+                        <Entry x:Name="ent_Email_Usuario"
                             Keyboard="Email"
                             TextColor="{DynamicResource TextColor_App}"
                             TextChanged="EntryEmail_TextChanged"
                             Focused="EntryEmail_Focused"
                             Unfocused="EntryEmail_Unfocused"
                             HorizontalOptions="FillAndExpand"/>
-                    <Label Text=" X " 
-                            x:Name="Lbl_X_Email" 
-                            TextColor="Gray"
-                            IsEnabled="False"
-                            IsVisible="False"
-                            HorizontalOptions="End" 
-                            Margin="5,0,5,0"
-                            VerticalTextAlignment="Center"
-                            VerticalOptions="FillAndExpand">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
+                        <Label Text=" X " 
+                               x:Name="Lbl_X_Email"
+                               TextColor="Gray"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="End" 
+                                Margin="5,0,5,0"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="FillAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
                                                   NumberOfTapsRequired="1"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                </StackLayout>
-            </controls:NewFrame>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </controls:NewFrame>
+            </StackLayout>
             <StackLayout Orientation="Horizontal" 
                              x:Name="Stack_Codigo_Verificacao" 
                              HorizontalOptions="FillAndExpand" 
-                             BackgroundColor="RoyalBlue" 
                              IsVisible="False">
                 <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo1_TextChanged"
+                                    HorizontalOptions="FillAndExpand" x:Name="ent_Codigo1"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
                 <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo2_TextChanged"
+                                    HorizontalOptions="FillAndExpand" x:Name="ent_Codigo2"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
                 <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo3_TextChanged"
+                                    HorizontalOptions="FillAndExpand"  x:Name="ent_Codigo3"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
                 <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo4_TextChanged"
+                                    HorizontalOptions="FillAndExpand" x:Name="ent_Codigo4"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
                 <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
-                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" 
-                                    HorizontalOptions="FillAndExpand" BackgroundColor="Aqua" 
+                        <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo5_TextChanged"
+                                    HorizontalOptions="FillAndExpand" x:Name="ent_Codigo5"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
 
             </StackLayout>
-            <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+            <StackLayout Orientation="Vertical">
+
+                <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}"
                         Clicked="BtnEnviaCodigo_Clicked"
-                        Text="enviar codigo de verficação" 
+                        x:Name="BtnEnviaCodigo"
+                        Text="enviar nova senha" 
                         CornerRadius="10" 
                         Margin="10" 
                         TextColor="White"/>
-
+                <Label Text="4:59" 
+                       x:Name="Lbl_Tempo"
+                       HorizontalOptions="FillAndExpand" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="Large" 
+                       Margin="0,25,0,0" 
+                       TextColor="#EEDBAA"/>
+                <!--<StackLayout Orientation="Horizontal">
+                    <BoxView HorizontalOptions="Start" />
+                    <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                            TextColor="White" 
+                            x:Name="btn_ReenviaCodigo"
+                            IsVisible="False"
+                            Text="Reenviar codigo" 
+                            HorizontalOptions="FillAndExpand"
+                            CornerRadius="7"/>
+                    <BoxView HorizontalOptions="End"/>
+                </StackLayout>-->
+            </StackLayout>
             
         </StackLayout>
     </Grid>
