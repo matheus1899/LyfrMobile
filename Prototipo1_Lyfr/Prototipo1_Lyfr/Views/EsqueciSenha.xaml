@@ -6,22 +6,22 @@
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
              x:Class="Prototipo1_Lyfr.EsqueciSenha"
-             BackgroundColor="{DynamicResource BackgroundColor_App}">
+             BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
                 <Setter Property="Margin" Value="15,0,0,0"/>
             </Style>
             <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
                 <Setter Property="Visual" Value="Material"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
                 <Setter Property="CornerRadius" Value="7"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="HeightRequest" Value="18"/>
                 <!--<Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>-->
+                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>-->
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -48,7 +48,7 @@
 
         <Label Text="Digite seu email" 
                x:Name="Lbl_DigiteEmail"
-                   TextColor="{DynamicResource TextColor_App}" 
+                   TextColor="{DynamicResource Secondary_Color}" 
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -72,7 +72,7 @@
                              Orientation="Horizontal">
                         <Entry x:Name="ent_Email_Usuario"
                             Keyboard="Email"
-                            TextColor="{DynamicResource TextColor_App}"
+                            TextColor="{DynamicResource Secondary_Color}"
                             TextChanged="EntryEmail_TextChanged"
                             Focused="EntryEmail_Focused"
                             Unfocused="EntryEmail_Unfocused"

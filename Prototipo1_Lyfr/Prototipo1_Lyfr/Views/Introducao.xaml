@@ -6,59 +6,61 @@
              xmlns:local="clr-namespace:Prototipo1_Lyfr"
              xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
              xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
-             x:Class="Prototipo1_Lyfr.Introducao">
-    <StackLayout>
-        <StackLayout HorizontalOptions="FillAndExpand" 
-                     Padding="10" 
-                     BackgroundColor="Blue">
-            <Label Text="Lyfr" 
-                   FontSize="65" 
-                   TextColor="{DynamicResource TextColor_App}" 
-                   HorizontalOptions="CenterAndExpand" 
-                   FontAttributes="Bold" 
-                   FontFamily="Times New Roman"/>
-        </StackLayout>
-        <cardview:CarouselView x:Name="Carousel">
+             x:Class="Prototipo1_Lyfr.Introducao"
+             BackgroundColor="{DynamicResource Primary_Color}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="Logo_Lyfr.png" 
+               Grid.Row="0" 
+               BackgroundColor="Red"
+               Aspect="AspectFit"
+               Grid.Column="2"
+               Grid.ColumnSpan="3"/>
+        <cardview:CarouselView x:Name="Carousel" 
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="7"
+                               HorizontalOptions="FillAndExpand" 
+                               VerticalOptions="FillAndExpand">
             <cardview:CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Label 
-                        Text="{Binding Nome}"
-                        TextColor="DarkRed" 
-                        FontSize="50"
-                        HorizontalOptions="FillAndExpand" 
-                        VerticalOptions="FillAndExpand"
-                        VerticalTextAlignment="Center"
-                        HorizontalTextAlignment="Center"
-                        BackgroundColor="RoyalBlue"/>
                 </DataTemplate>
             </cardview:CarouselView.ItemTemplate>
             <controls:IndicatorsControl BackgroundColor="Black"/>
         </cardview:CarouselView>
 
-        <StackLayout Padding="15"
+        <StackLayout Padding="25,15,25,15"
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="7"
                      Orientation="Vertical" >
-            <StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="FillAndExpand">
-                <BoxView HorizontalOptions="FillAndExpand"/>
-                <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                             Text="cadastrar"
-                             TextColor="White" 
-                             HorizontalOptions="FillAndExpand" 
-                             Clicked="ChamarPagCadastrar"/>
-                <BoxView HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" 
-                             HorizontalOptions="FillAndExpand">
-                <BoxView HorizontalOptions="FillAndExpand"/>
-                <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
-                        Text="entrar"
-                        TextColor="White" 
-                        HorizontalOptions="FillAndExpand" 
-                        FontSize="Default" 
-                        Clicked="ChamarPagLogin"/>
-                <BoxView HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
+            <Button  BackgroundColor="{DynamicResource Secondary_Color}" 
+                     Text="cadastrar"
+                     CornerRadius="3"
+                     TextColor="White" 
+                     HorizontalOptions="FillAndExpand" 
+                     Clicked="ChamarPagCadastrar"/>
+            <Button  BackgroundColor="{DynamicResource Secondary_Color}" 
+                     Text="entrar"
+                     CornerRadius="3"
+                     TextColor="White" 
+                     HorizontalOptions="FillAndExpand" 
+                     FontSize="Default" 
+                     Clicked="ChamarPagLogin"/>
         </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>
     

@@ -3,27 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototipo1_Lyfr.Cadastrar"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
-             BackgroundColor="{DynamicResource BackgroundColor_App}">
+             BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="StackLayout" x:Key="Filho_Frame">
                 <Setter Property="Padding" Value="7,-10,7,10"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="7"/>
             </Style>
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="Margin" Value="35,0,0,0"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
             </Style>
-            <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
+            <Style TargetType="controls:NewFrame" x:Key="Frame_Pai">
                 <Setter Property="CornerRadius" Value="7"/>
                 <Setter Property="Visual" Value="Material"/>
                 <Setter Property="HeightRequest" Value="18"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="Margin" Value="15,0,15,0"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
                 <!--<Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>-->
+                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>-->
             </Style>
+
+            <Style x:Key="Style_Button_Ativo" TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource Primary_Color}"/>
+                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="CornerRadius" Value="2"/>
+                <Setter Property="BorderWidth" Value="3"/>
+            </Style>
+
+            <Style x:Key="Style_Button_Desativo" TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Primary_Color}"/>
+                <Setter Property="CornerRadius" Value="2"/>
+                <Setter Property="BorderWidth" Value="1.5"/>
+            </Style>
+            
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -41,9 +60,9 @@
                     </StackLayout>
                 </controls:NewFrame>
                 <StackLayout HeightRequest="1" BackgroundColor="#436477" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
-                <controls:NewFrame BackgroundColor="{DynamicResource BackgroundColor_App}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
+                <controls:NewFrame BackgroundColor="{DynamicResource Primary_Color}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
                     <StackLayout Padding="0,-20,0,-20">
-                        <Label Text="2" TextColor="{DynamicResource TextColor_App}" 
+                        <Label Text="2" TextColor="{DynamicResource Secondary_Color}" 
                                FontAttributes="Bold"
                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
@@ -94,17 +113,16 @@
                              Grid.Row="3" 
                              Grid.Column="0" 
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" 
-                                 Padding="0,-16,0,-16">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}"
+                                     Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Nome_Usuario"
                                TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                Focused="Entry_Focused"
                                Placeholder="Nome"
                                Unfocused="Entry_Unfocused"
-                               TextColor="{DynamicResource TextColor_App}" />
+                               TextColor="{DynamicResource Secondary_Color}" />
                             <Label Text=" X " 
                                x:Name="Lbl_X_Nome" 
                                TextColor="Gray"
@@ -128,12 +146,12 @@
                              Grid.Row="4" 
                              Grid.Column="0" 
                              Grid.ColumnSpan="7"
-                         BackgroundColor="Transparent">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
+                             BackgroundColor="Transparent">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" Padding="0,-16,0,-16">
+                                     Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Email_Usuario"
-                               TextColor="{DynamicResource TextColor_App}" 
+                               TextColor="{DynamicResource Secondary_Color}" 
                                TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                Focused="Entry_Focused"
@@ -163,10 +181,10 @@
                              Grid.Row="5" 
                              Grid.Column="0" 
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" Orientation="Horizontal" Spacing="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
                             <Entry x:Name="ent_Senha_Usuario" 
-                               TextColor="{DynamicResource TextColor_App}" 
+                               TextColor="{DynamicResource Secondary_Color}" 
                                IsPassword="True"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
@@ -208,12 +226,10 @@
                              Grid.Column="0"
                              IsVisible="False"
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" 
-                                 Spacing="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
                             <Entry x:Name="ent_CPF_Usuario" 
-                               TextColor="{DynamicResource TextColor_App}"
+                               TextColor="{DynamicResource Secondary_Color}"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                                TextChanged="Entry_TextChanged"
@@ -248,12 +264,10 @@
                              Grid.Column="0" 
                              IsVisible="False"
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" 
-                                 Spacing="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}">
                             <Entry x:Name="ent_CEP_Usuario" 
-                               TextColor="{DynamicResource TextColor_App}"
+                               TextColor="{DynamicResource Secondary_Color}"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                                TextChanged="Entry_TextChanged"
@@ -289,12 +303,10 @@
                              Grid.Column="0" 
                              IsVisible="False"
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" 
-                                 Spacing="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}">
                             <Entry x:Name="ent_Telefone_Usuario" 
-                               TextColor="{DynamicResource TextColor_App}"
+                               TextColor="{DynamicResource Secondary_Color}"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                                TextChanged="Entry_TextChanged"
@@ -328,14 +340,12 @@
                              Grid.Column="0" 
                              IsVisible="False"                             
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                 Orientation="Horizontal" 
-                                 Padding="0,-16,0,-16"
-                                 Spacing="7">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}"
+                                     Padding="0,-16,0,-16">
                             <DatePicker MinimumDate="01/01/1940" 
                                     Visual="Material"
-                                    TextColor="{DynamicResource TextColor_App}"
+                                    TextColor="{DynamicResource Secondary_Color}"
                                     x:Name="DataPicker_Nascimento" 
                                     HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
@@ -353,14 +363,14 @@
                     <StackLayout Orientation="Horizontal" 
                                  HorizontalOptions="FillAndExpand" 
                                  Margin="0">
-                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" 
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}" 
+                                           Margin="15,0,0,0"
                                            HorizontalOptions="FillAndExpand">
                             <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                          HorizontalOptions="FillAndExpand"
-                                         Orientation="Horizontal" 
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Rua_Usuario"
-                                       TextColor="{DynamicResource TextColor_App}" 
+                                       TextColor="{DynamicResource Secondary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
@@ -373,7 +383,7 @@
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End"
-                                       Margin="0,0,5,0"
+                                       Margin="0"
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
@@ -383,7 +393,7 @@
                                 </Label>
                             </StackLayout>
                         </controls:NewFrame>
-                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" 
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}" 
                                            HorizontalOptions="End"
                                            Margin="0,0,15,0">
                             <StackLayout Style="{x:StaticResource Filho_Frame}" 
@@ -394,7 +404,7 @@
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource TextColor_App}" 
+                                       TextColor="{DynamicResource Secondary_Color}" 
                                        HorizontalOptions="FillAndExpand"                               
                                         Placeholder="Número"
                                         Keyboard="Default"/>
@@ -404,7 +414,7 @@
                                        IsEnabled="False"
                                         IsVisible="False"
                                         HorizontalOptions="End" 
-                                        Margin="0,0,5,0"
+                                        Margin="-5,0,0,0"
                                         VerticalTextAlignment="Center"
                                         VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
@@ -427,17 +437,16 @@
                              IsVisible="False"
                              BackgroundColor="Transparent">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}"
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}"
                                            HorizontalOptions="FillAndExpand" 
-                                           Margin="15,0,10,0">
-                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
-                                         Orientation="Horizontal" 
+                                           Margin="15,0,0,0">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}"  
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Cidade_Usuario"
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource TextColor_App}" 
+                                       TextColor="{DynamicResource Secondary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Cidade"
                                        Keyboard="Default"/>
@@ -447,29 +456,29 @@
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End"
-                                       Margin="0,0,5,0"
+                                       Margin="0,0,0,0"
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
-                                                      NumberOfTapsRequired="1"/>
+                                                              NumberOfTapsRequired="1"/>
                                     </Label.GestureRecognizers>
                                 </Label>
                             </StackLayout>
                         </controls:NewFrame>
-                        <controls:NewFrame Style="{x:StaticResource Frame_This_Page}"
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}"
+                                           Margin="0,0,15,0"
                                            HorizontalOptions="Fill">
                             <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                          HorizontalOptions="FillAndExpand"
-                                         Orientation="Horizontal" 
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Estado_Usuario"
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource TextColor_App}" 
+                                       TextColor="{DynamicResource Secondary_Color}" 
                                        HorizontalOptions="FillAndExpand"
-                                       Placeholder="Estado"
+                                       Placeholder="Estado  "
                                        Keyboard="Default"/>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Estado" 
@@ -477,7 +486,7 @@
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End" 
-                                       Margin="0,0,5,0"
+                                       Margin="-5,0,0,0"
                                        VerticalTextAlignment="Center"
                                        VerticalOptions="FillAndExpand">
                                     <Label.GestureRecognizers>
@@ -526,7 +535,7 @@
                     <Button Text="  Cadastrar  " 
                             x:Name="btn_Cadastrar"
                             HorizontalOptions="FillAndExpand" 
-                            BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                            BackgroundColor="{DynamicResource Secondary_Color}" 
                             TextColor="White" 
                             CornerRadius="3" 
                             Margin="0,0,0,20"

@@ -33,6 +33,9 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +72,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlHelpers\NewEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +95,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ControlHelpers\" />
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />

@@ -4,14 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Perfil"
-             BackgroundColor="{DynamicResource BackgroundColor_App}">
+             BackgroundColor="{DynamicResource Primary_Color}">
 
-    <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor_App}">
+    <AbsoluteLayout BackgroundColor="{DynamicResource Primary_Color}">
         <Label Text="Nome" AbsoluteLayout.LayoutBounds="0.5,0.15,0.75,0.06" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Style="{DynamicResource Style_Label}" x:Name="lbl1" />
-        <BoxView x:Name="bxv1" BackgroundColor="{DynamicResource BackgroundColor_BoxView}" CornerRadius="9" 
+                   TextColor="{DynamicResource Secondary_Color}" Style="{DynamicResource Style_Label}" x:Name="lbl1" />
+        <BoxView x:Name="bxv1" BackgroundColor="{DynamicResource Tertiary_Color}" CornerRadius="9" 
                      AbsoluteLayout.LayoutBounds="0.5,0.2,0.85,0.091" AbsoluteLayout.LayoutFlags="All"/>
         <Label x:Name="lbl2" AbsoluteLayout.LayoutBounds="0.5,0.2,0.75,0.07" AbsoluteLayout.LayoutFlags="All" 
-                   TextColor="{DynamicResource TextColor_App}" Text="Maria de Jesus"/>
+                   TextColor="{DynamicResource Secondary_Color}" Text="Maria de Jesus"/>
     </AbsoluteLayout>
 </ContentPage>

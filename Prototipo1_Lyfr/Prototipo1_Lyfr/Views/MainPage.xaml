@@ -9,7 +9,7 @@
         <ContentPage Title="Menu" Padding="0">
             <ContentPage.Content>
                 <StackLayout>
-                    <Grid BackgroundColor="{DynamicResource BackgroundColor_App}">
+                    <Grid BackgroundColor="{DynamicResource Primary_Color}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="25"/>
                             <ColumnDefinition Width="50"/>
@@ -26,13 +26,13 @@
                             <ViewCell Tapped="Home_Tapped">
                                 <StackLayout Padding="15,10">
                                     <Label Text="Home" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" 
-                                        TextColor="{DynamicResource TextColor_App}"/>
+                                        TextColor="{DynamicResource Secondary_Color}"/>
                                 </StackLayout>
                             </ViewCell>
                             <ViewCell Tapped="Historico_Tapped">
                                 <StackLayout Padding="15,10">
                                     <Label Text="Histórico" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" 
-                                        TextColor="{DynamicResource TextColor_App}"/>
+                                        TextColor="{DynamicResource Secondary_Color}"/>
                                 </StackLayout>
                             </ViewCell>
                         </TableSection>

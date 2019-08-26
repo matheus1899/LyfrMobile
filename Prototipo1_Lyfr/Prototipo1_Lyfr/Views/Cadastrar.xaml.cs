@@ -9,15 +9,17 @@ namespace Prototipo1_Lyfr
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
+        double width;
         public Cadastrar(){
             InitializeComponent();
+            width = this.Width;
             NavigationPage.SetHasNavigationBar(this, false);
-            Grid_.Children[4].TranslationX = 1500;
-            Grid_.Children[5].TranslationX = 1500;
-            Grid_.Children[6].TranslationX = 1500;
-            Grid_.Children[7].TranslationX = 1500;
-            Grid_.Children[8].TranslationX = 1500;
-            Grid_.Children[9].TranslationX = 1500;
+            Grid_.Children[4].TranslationX = 1700;
+            Grid_.Children[5].TranslationX = 1700;
+            Grid_.Children[6].TranslationX = 1700;
+            Grid_.Children[7].TranslationX = 1700;
+            Grid_.Children[8].TranslationX = 1700;
+            Grid_.Children[9].TranslationX = 1700;
         }
 
         protected override void OnAppearing()
@@ -29,61 +31,49 @@ namespace Prototipo1_Lyfr
             return true;
         }
 
-        private void btn_gratis_Clicked(object sender, EventArgs e)
+        private async void btn_gratis_Clicked(object sender, EventArgs e)
         {
-            btn_gratis.IsEnabled = false;
-            btn_pago.IsEnabled = false;
-            btn_Cadastrar.IsEnabled = false;
-            pago = !pago;
-            btn_gratis.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
-            btn_pago.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
+            pago = false;
 
-            Task.Run(async () => {
-                await Stack_Ent_CPF.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
-            Task.Run(async () => {
-                await Stack_Ent_CEP.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
-            Task.Run(async () =>
+            if (pago==false)
             {
-                await Stack_Ent_Tele.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
-            Task.Run(async () =>
-            {
-                await Stack_Ent_DataNasc.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
-            Task.Run(async () =>
-            {
-                await Stack_Ent_Rua_Numero.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
-            Task.Run(async () =>
-            {
-                await Stack_Ent_Cidade_Estado.TranslateTo(1500, 0, 350, Easing.Linear);
-            });
+                btn_gratis.IsEnabled = false;
+                btn_pago.IsEnabled = false;
+                btn_Cadastrar.IsEnabled = false;
+                btn_pago.Style = this.Resources["Style_Button_Desativo"] as Style;
+                btn_gratis.Style = this.Resources["Style_Button_Ativo"] as Style;
+                //Task.Run(async () => {
+                await Stack_Ent_CPF.TranslateTo(1700, 0, 150, Easing.Linear);
+                await Stack_Ent_CEP.TranslateTo(1700, 0, 150, Easing.Linear);
+                await Stack_Ent_Tele.TranslateTo(1700, 0, 150, Easing.Linear);
+                await Stack_Ent_DataNasc.TranslateTo(1700, 0, 150, Easing.Linear);
+                await Stack_Ent_Rua_Numero.TranslateTo(1700, 0, 150, Easing.Linear);
+                await Stack_Ent_Cidade_Estado.TranslateTo(1700, 0, 150, Easing.Linear);
+                //});
+                Stack_Ent_CPF.IsVisible = false;
+                Stack_Ent_CEP.IsVisible = false;
+                Stack_Ent_Tele.IsVisible = false;
+                Stack_Ent_DataNasc.IsVisible = false;
+                Stack_Ent_Rua_Numero.IsVisible = false;
+                Stack_Ent_Cidade_Estado.IsVisible = false;
+                btn_gratis.IsEnabled = true;
+                btn_pago.IsEnabled = true;
+                btn_Cadastrar.IsEnabled = true;
+            }
 
-            Stack_Ent_CPF.IsVisible = false;
-            Stack_Ent_CEP.IsVisible = false;
-            Stack_Ent_Tele.IsVisible = false;
-            Stack_Ent_DataNasc.IsVisible = false;
-            Stack_Ent_Rua_Numero.IsVisible = false;
-            Stack_Ent_Cidade_Estado.IsVisible = false;
 
-            btn_gratis.IsEnabled = true;
-            btn_pago.IsEnabled = true;
-            btn_Cadastrar.IsEnabled = true;
         }
         private void btn_pago_Clicked(object sender, EventArgs e)
         {
-            btn_gratis.IsEnabled = false;
-            btn_pago.IsEnabled = false;
-            btn_Cadastrar.IsEnabled = false;
+            pago = true;
 
-            pago = !pago;
-            btn_pago.Style = Application.Current.Resources["Style_Button_Ativo"] as Style;
-            btn_gratis.Style = Application.Current.Resources["Style_Button_Desativo"] as Style;
-            if (pago)
+            if (pago==true)
             {
-                
+                btn_gratis.IsEnabled = false;
+                btn_pago.IsEnabled = false;
+                btn_Cadastrar.IsEnabled = false;
+                btn_pago.Style = this.Resources["Style_Button_Ativo"] as Style;
+                btn_gratis.Style = this.Resources["Style_Button_Desativo"] as Style;
                 Stack_Ent_CPF.IsVisible = true;
                 Stack_Ent_CEP.IsVisible = true;
                 Stack_Ent_Tele.IsVisible = true;
@@ -92,31 +82,17 @@ namespace Prototipo1_Lyfr
                 Stack_Ent_Cidade_Estado.IsVisible = true;
 
                 Task.Run(async()=> {
-                    await Stack_Ent_CPF.TranslateTo(0, 0, 350, Easing.Linear);
+                    await Stack_Ent_CPF.TranslateTo(0, 0, 150, Easing.Linear);
+                    await Stack_Ent_CEP.TranslateTo(0, 0, 150, Easing.Linear);
+                    await Stack_Ent_Tele.TranslateTo(0, 0, 150, Easing.Linear);
+                    await Stack_Ent_DataNasc.TranslateTo(0, 0, 150, Easing.Linear);
+                    await Stack_Ent_Rua_Numero.TranslateTo(0, 0, 150, Easing.Linear);
+                    await Stack_Ent_Cidade_Estado.TranslateTo(0, 0, 150, Easing.Linear);
                 });
-                Task.Run(async () => {
-                    await Stack_Ent_CEP.TranslateTo(0, 0, 350, Easing.Linear);
-                });
-                Task.Run(async () =>
-                {
-                    await Stack_Ent_Tele.TranslateTo(0, 0, 350, Easing.Linear);
-                });
-                Task.Run(async () =>
-                {
-                    await Stack_Ent_DataNasc.TranslateTo(0, 0, 350, Easing.Linear);
-                });
-                Task.Run(async () =>
-                {
-                    await Stack_Ent_Rua_Numero.TranslateTo(0, 0, 350, Easing.Linear);
-                });
-                Task.Run(async () =>
-                {
-                    await Stack_Ent_Cidade_Estado.TranslateTo(0, 0, 350, Easing.Linear);
-                });
+                btn_gratis.IsEnabled = true;
+                btn_pago.IsEnabled = true;
+                btn_Cadastrar.IsEnabled = true;
             }
-            btn_gratis.IsEnabled = true;
-            btn_pago.IsEnabled = true;
-            btn_Cadastrar.IsEnabled = true;
         }
         private void Cadastrar_Clicked(object sender, EventArgs e)
         {

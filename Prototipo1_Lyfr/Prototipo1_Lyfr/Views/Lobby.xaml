@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Lobby" 
-             BackgroundColor="{DynamicResource BackgroundColor_App}">
+             BackgroundColor="{DynamicResource Primary_Color}">
     
     <StackLayout Orientation="Vertical">
         <StackLayout VerticalOptions="CenterAndExpand" Padding="25">
@@ -15,9 +15,9 @@
         <StackLayout Padding="35" Orientation="Vertical" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
             <!--<Button  BackgroundColor="RoyalBlue" Text="   conectar usando facebook   "
                      TextColor="White" HorizontalOptions="CenterAndExpand"/>-->
-            <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" Text="      cadastrar      "
+            <Button  BackgroundColor="{DynamicResource Secondary_Color}" Text="      cadastrar      "
                      TextColor="White" HorizontalOptions="Fill"/>
-            <Button  BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" Text="      entrar      "
+            <Button  BackgroundColor="{DynamicResource Secondary_Color}" Text="      entrar      "
                      TextColor="White" HorizontalOptions="Fill" FontSize="Default"/>
         </StackLayout>
     </StackLayout>

@@ -2,7 +2,7 @@
 
 namespace Prototipo1_Lyfr.Controls
 {
-    public class NewEntry:Entry
+    public class NewEntry : Entry
     {
     }
 }

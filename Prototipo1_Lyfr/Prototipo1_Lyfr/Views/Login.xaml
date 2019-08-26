@@ -8,23 +8,23 @@
 
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
                 <Setter Property="Margin" Value="15,0,0,0"/>
             </Style>
             <Style TargetType="controls:NewFrame" x:Key="Frame_This_Page">
                 <Setter Property="Visual" Value="Material"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_BoxView}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
                 <Setter Property="CornerRadius" Value="7"/>
                 <Setter Property="HasShadow" Value="True"/>
                 <Setter Property="HeightRequest" Value="18"/>
                 <!--<Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor_App}"/>-->
+                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>-->
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ScrollView>
-        <StackLayout BackgroundColor="{DynamicResource BackgroundColor_App}"
+        <StackLayout BackgroundColor="{DynamicResource Primary_Color}"
                      Orientation="Vertical">
             <!--Titulo-->
             <StackLayout VerticalOptions="CenterAndExpand">
@@ -36,7 +36,7 @@
                        FontFamily="Arial"
                        HeightRequest="80"
                        StyleClass="class"
-                       TextColor="{DynamicResource TextColor_App}"/>
+                       TextColor="{DynamicResource Secondary_Color}"/>
             </StackLayout>
             <!--Email-->
             <StackLayout VerticalOptions="CenterAndExpand">
@@ -45,7 +45,7 @@
                         <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
                             <Entry x:Name="ent_Email_Usuario"
                                    Keyboard="Email"
-                                   TextColor="{DynamicResource TextColor_App}"
+                                   TextColor="{DynamicResource Secondary_Color}"
                                    TextChanged="EntryEmail_TextChanged"
                                    Focused="EntryEmail_Focused"
                                    Placeholder="Email"
@@ -82,7 +82,7 @@
                                    Focused="EntrySenha_Focused"
                                    Unfocused="EntrySenha_Unfocused"
                                    Placeholder="Senha"
-                                   TextColor="{DynamicResource TextColor_App}"/>
+                                   TextColor="{DynamicResource Secondary_Color}"/>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Senha" 
                                    TextColor="Gray"
@@ -113,7 +113,7 @@
                    HorizontalOptions="CenterAndExpand"
                    FontSize="Small"
                    TextDecorations="Underline"
-                   TextColor="{DynamicResource TextColor_App}">
+                   TextColor="{DynamicResource Secondary_Color}">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
                                               NumberOfTapsRequired="1"/>
@@ -123,11 +123,11 @@
             <StackLayout HorizontalOptions="Center" 
                                     Orientation="Horizontal"
                                     Margin="10">
-                <CheckBox Color="{DynamicResource TextColor_App}" />
+                <CheckBox Color="{DynamicResource Secondary_Color}" />
                 <Label Text="Lembrar senha?" 
                                FontSize="16" 
                                VerticalOptions="Center"
-                               TextColor="{DynamicResource TextColor_App}"/>
+                               TextColor="{DynamicResource Secondary_Color}"/>
             </StackLayout>
         </StackLayout>
         <StackLayout VerticalOptions="CenterAndExpand" Margin="0" Spacing="10">
@@ -144,7 +144,7 @@
             </StackLayout>
             <!--Botão de Login-->
             <Label Text="CADASTRAR" 
-                   TextColor="{DynamicResource TextColor_App}" 
+                   TextColor="{DynamicResource Secondary_Color}" 
                    HorizontalOptions="Center"
                    Style="{DynamicResource Style_Label}" 
                    Margin="0,5,0,5">

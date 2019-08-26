@@ -4,34 +4,16 @@
              x:Class="Prototipo1_Lyfr.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="BackgroundColor_App">#eedbba</Color>
-            <Color x:Key="BackgroundColor_App2">#e3ceaa</Color>
-            <Color x:Key="BackgroundColor_BoxView">White</Color>
-            <Color x:Key="BackgroundColor_Contraste_App">#436477</Color>
-            <Color x:Key="BackgroundColor_Contraste_App2">#496d82</Color>
-            <Color x:Key="TextColor_App">#436477</Color>
-            <Color x:Key="TextColor_App2">#f7e3c1</Color>
+
             <Color x:Key="TextColor_Alert">Red</Color>
+            <Color x:Key="Primary_Color">#EEDBAA</Color>
+            <Color x:Key="Secondary_Color">#436477</Color>
+            <Color x:Key="Tertiary_Color">#FFFFFF</Color>
 
             <Style x:Key="Style_Label" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="FontFamily" Value="Arial"/>
-            </Style>
-            <Style x:Key="Style_Button_Ativo" TargetType="Button">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor_App2}"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_Contraste_App}"/>
-                <Setter Property="CornerRadius" Value="2"/>
-                <Setter Property="BorderColor" Value="{DynamicResource BackgroundColor_Contraste_App2}"/>
-                <Setter Property="BorderWidth" Value="3"/>
-            </Style>
-
-            <Style x:Key="Style_Button_Desativo" TargetType="Button">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor_App}"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor_App2}"/>
-                <Setter Property="CornerRadius" Value="2"/>
-                <Setter Property="BorderColor" Value="{DynamicResource BackgroundColor_App2}"/>
-                <Setter Property="BorderWidth" Value="3"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
