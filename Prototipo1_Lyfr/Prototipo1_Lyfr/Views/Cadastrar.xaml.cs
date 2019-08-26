@@ -33,14 +33,14 @@ namespace Prototipo1_Lyfr
                 TargetType = typeof(Label)
             };
             StateGroup.States.Add(CreateState("Invalido", "\uf023", Color.Red));
-            StateGroup.States.Add(CreateState("Válido", "\uf023", Color.Green));
+            StateGroup.States.Add(CreateState("Valido", "\uf023", Color.Green));
 
             VisualStateManager.SetVisualStateGroups(lbl_aviso, new VisualStateGroupList { StateGroup });
         }
         static VisualState CreateState(string nameState, string text, Color color)
         {
             var textSetter = new Setter {Value=text, Property=Label.TextProperty };
-            var colorSetter = new Setter { Value = color, Property = Label.TextColorProperty };
+            var colorSetter = new Setter { Value=color, Property = Label.TextColorProperty };
 
             return new VisualState
             {
@@ -205,7 +205,7 @@ namespace Prototipo1_Lyfr
             }
 
 
-            if (ValidaSenha(ent.Text)) { 
+            if (ValidaSenha(ent.Text)==true) { 
                 VisualStateManager.GoToState(lbl_aviso, "Valido");
                    
             }else{
@@ -224,13 +224,14 @@ namespace Prototipo1_Lyfr
                 return false;
             }
 
-            if (Regex.IsMatch(senha,"@#!%&=")==true)
+            if (Regex.IsMatch(senha, "@") ==true)
             {
                 _Especial = true;
             }
-            if (Regex.IsMatch(senha, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") == true)
+            if (Regex.IsMatch(senha, @"\b[A-Z]\w*\b") == true)
             {
                 _Maiusculo = true;
+
             }
 
             if (_Maiusculo == true && _Especial == true)

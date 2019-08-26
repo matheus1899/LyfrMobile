@@ -500,9 +500,8 @@
                 </StackLayout>
             </Grid>
             <!-- Label de Aviso -->
-            <Label x:Name="lbl_aviso" 
-                   TextColor="Red"
-                   FontSize="Medium"
+            <Label x:Name="lbl_aviso"
+                   FontSize="Large"
                    HorizontalTextAlignment="Center"
                    Margin="0,15,0,-20"
                    MaxLines="3">
