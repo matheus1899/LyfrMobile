@@ -136,7 +136,7 @@
                 <BoxView HorizontalOptions="FillAndExpand"/>
                 <Button Text="Login" 
                         HorizontalOptions="FillAndExpand" 
-                        BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 
+                        BackgroundColor="{DynamicResource Secondary_Color}" 
                         TextColor="White" 
                         CornerRadius="5" 
                         Clicked="Logar_Clicked"/>

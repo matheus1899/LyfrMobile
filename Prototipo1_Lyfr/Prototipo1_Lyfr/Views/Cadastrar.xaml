@@ -184,15 +184,15 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}" >
                             <Entry x:Name="ent_Senha_Usuario" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               IsPassword="True"
-                               Focused="Entry_Focused"
-                               Unfocused="Entry_Unfocused"
-                               TextChanged="Entry_TextChanged"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               Placeholder="Senha"
-                               Margin="-5,-5,0,-25"/>
+                                   TextColor="{DynamicResource Secondary_Color}" 
+                                   IsPassword="True"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Entry_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Senha"
+                                   Margin="-5,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_Senha" 
                                TextColor="Gray"
@@ -306,15 +306,15 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}">
                             <Entry x:Name="ent_Telefone_Usuario" 
-                               TextColor="{DynamicResource Secondary_Color}"
-                               Focused="Entry_Focused"
-                               Unfocused="Entry_Unfocused"
-                               TextChanged="Entry_TextChanged"
-                               Placeholder="Telefone"
-                               Keyboard="Telephone"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               Margin="0,-5,0,-25"/>
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Entry_Unfocused"
+                                   TextChanged="Entry_TextChanged"
+                                   Placeholder="Telefone"
+                                   Keyboard="Telephone"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Margin="0,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_Telefone" 
                                TextColor="Gray"
@@ -499,14 +499,18 @@
                     </StackLayout>
                 </StackLayout>
             </Grid>
-
+            <!-- Label de Aviso -->
             <Label x:Name="lbl_aviso" 
-                   Text="Senha fraca. Minimo de oito caracteres&#10; sendo um caracter especial(...) &#10;e uma letra maiúscula"
                    TextColor="Red"
-                   FontSize="Small"
+                   FontSize="Medium"
                    HorizontalTextAlignment="Center"
                    Margin="0,15,0,-20"
-                   MaxLines="3"/>
+                   MaxLines="3">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String" 
+                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free-Solid-900"/>
+                </Label.FontFamily>
+            </Label>
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"
                          HorizontalOptions="CenterAndExpand" 

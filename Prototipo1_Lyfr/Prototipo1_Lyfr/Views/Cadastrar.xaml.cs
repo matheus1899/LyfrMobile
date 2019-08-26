@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Prototipo1_Lyfr
 {
@@ -25,6 +26,28 @@ namespace Prototipo1_Lyfr
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            var StateGroup = new VisualStateGroup
+            {
+                Name = "StateForcaSenha",
+                TargetType = typeof(Label)
+            };
+            StateGroup.States.Add(CreateState("Invalido", "\uf023", Color.Red));
+            StateGroup.States.Add(CreateState("Válido", "\uf023", Color.Green));
+
+            VisualStateManager.SetVisualStateGroups(lbl_aviso, new VisualStateGroupList { StateGroup });
+        }
+        static VisualState CreateState(string nameState, string text, Color color)
+        {
+            var textSetter = new Setter {Value=text, Property=Label.TextProperty };
+            var colorSetter = new Setter { Value = color, Property = Label.TextColorProperty };
+
+            return new VisualState
+            {
+                Name = nameState,
+                TargetType = typeof(Label),
+                Setters = { textSetter, colorSetter }
+            };
         }
         protected override bool OnBackButtonPressed(){
             Navigation.PushAsync(new Login());
@@ -162,6 +185,62 @@ namespace Prototipo1_Lyfr
 
             c.IsEnabled = false;
             c.IsVisible = false;
+        }
+        private void Senha_Ent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var ent = sender as Entry;
+            var stc = ent.Parent as StackLayout;
+            var lbl = stc.Children[1] as Label;
+
+            int lenght = ent.Text.Length;
+            if (lenght > 0)
+            {
+                lbl.IsEnabled = true;
+                lbl.IsVisible = true;
+            }
+            else
+            {
+                lbl.IsEnabled = false;
+                lbl.IsVisible = false;
+            }
+
+
+            if (ValidaSenha(ent.Text)) { 
+                VisualStateManager.GoToState(lbl_aviso, "Valido");
+                   
+            }else{
+                VisualStateManager.GoToState(lbl_aviso, "Invalido");
+            }
+        }
+
+
+        private bool ValidaSenha(string senha)
+        {
+            bool _Maiusculo = false;
+            bool _Especial = false;
+
+            if(string.IsNullOrEmpty(senha) || string.IsNullOrWhiteSpace(senha))
+            {
+                return false;
+            }
+
+            if (Regex.IsMatch(senha,"@#!%&=")==true)
+            {
+                _Especial = true;
+            }
+            if (Regex.IsMatch(senha, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") == true)
+            {
+                _Maiusculo = true;
+            }
+
+            if (_Maiusculo == true && _Especial == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
