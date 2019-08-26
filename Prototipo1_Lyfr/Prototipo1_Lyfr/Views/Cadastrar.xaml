@@ -72,8 +72,8 @@
                   x:Name="Grid_"
                   RowSpacing="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="15"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="15"/>
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -95,16 +95,16 @@
                     <ColumnDefinition Width="1.428*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Row 0 -->
-                
-                
-                <!-- Logo -->
-                <!-- Row 1 -->
                 <Image Source="Logo_Lyfr.png" 
                        Aspect="AspectFit" 
-                       Grid.Row="1" 
+                       Grid.Row="0" 
                        HeightRequest="110"
                        Grid.Column="2"
                        Grid.ColumnSpan="3"/>
+                
+                <!-- Row 1 -->
+                <ActivityIndicator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7"
+                                   Color="{DynamicResource Secondary_Color}" IsVisible="False" IsRunning="False" x:Name="ai"/>
                 <!-- Row 2 -->
                 <!-- Nome -->
                 <!-- Row 3 -->

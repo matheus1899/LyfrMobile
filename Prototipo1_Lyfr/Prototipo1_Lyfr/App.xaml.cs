@@ -3,6 +3,7 @@ using Xamarin.Forms.Xaml;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Prototipo1_Lyfr.Conexao;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Prototipo1_Lyfr
@@ -13,6 +14,10 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             HotReloader.Current.Run(this);
+
+            GerarToken gerarToken = new GerarToken();
+            gerarToken.ChecharCache();
+
             MainPage = new NavigationPage(new Introducao());
         }
 

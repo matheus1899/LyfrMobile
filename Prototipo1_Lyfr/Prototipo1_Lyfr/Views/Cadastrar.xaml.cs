@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.Conexao;
 
 namespace Prototipo1_Lyfr
 {
@@ -10,7 +12,9 @@ namespace Prototipo1_Lyfr
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
+        char plano;
         double width;
+
         public Cadastrar(){
             InitializeComponent();
             width = this.Width;
@@ -117,10 +121,61 @@ namespace Prototipo1_Lyfr
                 btn_Cadastrar.IsEnabled = true;
             }
         }
-        private void Cadastrar_Clicked(object sender, EventArgs e)
+
+        private async void Cadastrar_Clicked(object sender, EventArgs e)
         {
-            return;
-        }
+            ai.IsVisible = true;
+            ai.IsRunning = true;
+
+
+            if (pago == true)
+            {
+                plano = char.Parse("P");
+            }
+            else
+            {
+                plano = char.Parse("G");
+            }
+
+            Cliente cliente = new Cliente()
+            {
+                Nome = ent_Nome_Usuario.Text,
+                Email = ent_Email_Usuario.Text,
+                Senha = ent_Senha_Usuario.Text,
+                Cep = ent_CEP_Usuario.Text,
+                Rua = ent_Rua_Usuario.Text,
+                Numero = ent_Numero_Usuario.Text,
+                Cidade = ent_Cidade_Usuario.Text,
+                Estado = ent_Estado_Usuario.Text,
+                Telefone = ent_Telefone_Usuario.Text,
+                Cpf = ent_CPF_Usuario.Text,
+                DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
+                Plano = plano
+                //Sexo = char.Parse(sexo.Text)
+            };
+
+            var conexao = new Conexao.Classes.ConexaoAPI();
+            GerarToken gerarToken = new GerarToken();
+
+            try
+            {
+                gerarToken.ChecharCache();
+
+                var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
+
+                await DisplayAlert("Lyfr", result, "OK");
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Lyfr", ex.Message, "OK");
+            }
+
+            ai.IsVisible = false;
+            ai.IsRunning = false;
+        
+    }
+
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
