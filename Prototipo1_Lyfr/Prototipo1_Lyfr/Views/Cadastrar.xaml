@@ -46,7 +46,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
             <!--<StackLayout Orientation="Horizontal" 
@@ -72,7 +71,7 @@
                   x:Name="Grid_"
                   RowSpacing="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="auto"/>
@@ -95,8 +94,12 @@
                     <ColumnDefinition Width="1.428*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Row 0 -->
-                
-                
+
+                <ActivityIndicator Color="{DynamicResource Secondary_Color}" 
+                                   IsRunning="False"  
+                                   IsVisible="True" 
+                                   Grid.Row="0"
+                                   Grid.Column="0" Grid.ColumnSpan="7"/>
                 <!-- Logo -->
                 <!-- Row 1 -->
                 <Image Source="Logo_Lyfr.png" 
@@ -117,21 +120,21 @@
                         <StackLayout Style="{x:StaticResource Filho_Frame}"
                                      Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Nome_Usuario"
-                               TextChanged="Entry_TextChanged"
-                               HorizontalOptions="FillAndExpand"
-                               Focused="Entry_Focused"
-                               Placeholder="Nome"
-                               Unfocused="Entry_Unfocused"
-                               TextColor="{DynamicResource Secondary_Color}" />
+                                   TextChanged="Entry_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   Focused="Entry_Focused"
+                                   Placeholder="Nome"
+                                   Unfocused="Entry_Unfocused"
+                                   TextColor="{DynamicResource Secondary_Color}" />
                             <Label Text=" X " 
-                               x:Name="Lbl_X_Nome" 
-                               TextColor="Gray"
-                               IsEnabled="False"
-                               IsVisible="False"
-                               HorizontalOptions="End"
-                               Margin="0,0,5,0"
-                               VerticalTextAlignment="Center"
-                               VerticalOptions="FillAndExpand">
+                                   x:Name="Lbl_X_Nome" 
+                                   TextColor="Gray"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,5,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
@@ -502,6 +505,7 @@
             <!-- Label de Aviso -->
             <Label x:Name="lbl_aviso"
                    FontSize="Large"
+                   TextColor="Red"
                    HorizontalTextAlignment="Center"
                    Margin="0,15,0,-20"
                    MaxLines="3">
