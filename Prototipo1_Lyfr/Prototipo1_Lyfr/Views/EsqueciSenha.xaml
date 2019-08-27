@@ -98,35 +98,35 @@
                              x:Name="Stack_Codigo_Verificacao" 
                              HorizontalOptions="FillAndExpand" 
                              IsVisible="False">
-                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                <controls:NewFrame BackgroundColor="{DynamicResource TertiaryColor}" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
                         <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo1_TextChanged"
                                     HorizontalOptions="FillAndExpand" x:Name="ent_Codigo1"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
-                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                <controls:NewFrame BackgroundColor="{DynamicResource TertiaryColor}" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
                         <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo2_TextChanged"
                                     HorizontalOptions="FillAndExpand" x:Name="ent_Codigo2"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
-                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                <controls:NewFrame BackgroundColor="{DynamicResource TertiaryColor}" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
                         <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo3_TextChanged"
                                     HorizontalOptions="FillAndExpand"  x:Name="ent_Codigo3"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
-                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                <controls:NewFrame BackgroundColor="{DynamicResource TertiaryColor}" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
                         <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo4_TextChanged"
                                     HorizontalOptions="FillAndExpand" x:Name="ent_Codigo4"
                                     Keyboard="Numeric" VerticalOptions="FillAndExpand"/>
                     </StackLayout>
                 </controls:NewFrame>
-                <controls:NewFrame BackgroundColor="White" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                <controls:NewFrame BackgroundColor="{DynamicResource TertiaryColor}" HasShadow="True" HorizontalOptions="FillAndExpand" CornerRadius="10">
                     <StackLayout Padding="-15" VerticalOptions="FillAndExpand">
                         <Entry  HorizontalTextAlignment="Center" MaxLength="1" TextChanged="Ent_Codigo5_TextChanged"
                                     HorizontalOptions="FillAndExpand" x:Name="ent_Codigo5"
@@ -137,20 +137,20 @@
             </StackLayout>
             <StackLayout Orientation="Vertical">
 
-                <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}"
+                <Button BackgroundColor="{DynamicResource Secondary_Color}"
                         Clicked="BtnEnviaCodigo_Clicked"
                         x:Name="BtnEnviaCodigo"
                         Text="enviar nova senha" 
                         CornerRadius="10" 
                         Margin="10" 
-                        TextColor="White"/>
+                        TextColor="{DynamicResource Primary_Color}"/>
                 <Label Text="4:59" 
                        x:Name="Lbl_Tempo"
                        HorizontalOptions="FillAndExpand" 
                        HorizontalTextAlignment="Center" 
                        FontSize="Large" 
                        Margin="0,25,0,0" 
-                       TextColor="#EEDBAA"/>
+                       TextColor="{DynamicResource Primary_Color}"/>
                 <!--<StackLayout Orientation="Horizontal">
                     <BoxView HorizontalOptions="Start" />
                     <Button BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" 

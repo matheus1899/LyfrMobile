@@ -1,6 +1,7 @@
 ﻿using Prototipo1_Lyfr.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,28 +11,38 @@ namespace Prototipo1_Lyfr
 
     public partial class Introducao : ContentPage
     {
-        List<View> lista = new List<View>();
-
-        public Introducao()
-        {
+        List<Texto> lista = new List<Texto>();
+        Lazy<Stopwatch> sw = new Lazy<Stopwatch>();
+        public Introducao(){
+            sw.Value.Start();
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            var a = new TesteView();
-            a.BackgroundColor =  Color.Red;
-            var b = new TesteView();
-            b.BackgroundColor = Color.Yellow;
-            var c = new TesteView();
-            c.BackgroundColor = Color.RoyalBlue;
-
-
+            lista.Add(new Texto { TextoIntro = "Bem vindo ao seu aplicativo de leitura" });
+            lista.Add(new Texto { TextoIntro = "Lyfr tem um acervo de contendo cerca de \n500 livros e aumentando..." });
+            lista.Add(new Texto { TextoIntro = "Aproveite o seu livro, onde e \nquando quiser, gratuitamente" });
+            Carousel.ItemsSource = lista;
+            sw.Value.Stop();
+            Debug.WriteLine("Introducao -> "+sw.Value.ElapsedMilliseconds.ToString());
         }
-        private void ChamarPagCadastrar(object sender, EventArgs e)
-        {
+        private void ChamarPagCadastrar(object sender, EventArgs e){
+            btn_Cadastrar.IsEnabled = false;
+            btn_Entrar.IsEnabled = false;
             Navigation.PushAsync(new Cadastrar());
         }
-        private void ChamarPagLogin(object sender, EventArgs e)
-        {
+        private void ChamarPagLogin(object sender, EventArgs e){
+            btn_Cadastrar.IsEnabled = false;
+            btn_Entrar.IsEnabled = false;
             Navigation.PushAsync(new Login());
+        }
+
+        private void ContentPage_SizeChanged(object sender, EventArgs e)
+        {
+            if(this.Width>this.Height) {
+                VisualStateManager.GoToState(stc_Buttons, "Landscape");
+            }
+            else{
+                VisualStateManager.GoToState(stc_Buttons, "Portrait");
+            }
         }
     }
 }

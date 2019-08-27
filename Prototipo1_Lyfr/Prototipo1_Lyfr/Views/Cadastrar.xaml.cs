@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Prototipo1_Lyfr
 {
@@ -50,7 +51,15 @@ namespace Prototipo1_Lyfr
             };
         }
         protected override bool OnBackButtonPressed(){
-            Navigation.PushAsync(new Login());
+            try
+            {
+                Navigation.PushAsync(new Login());
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Erro -> "+ex.Message);
+                Navigation.PopAsync();
+            }
             return true;
         }
 

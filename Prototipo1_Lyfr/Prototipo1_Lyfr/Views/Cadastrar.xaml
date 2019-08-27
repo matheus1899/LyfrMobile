@@ -539,7 +539,7 @@
                             x:Name="btn_Cadastrar"
                             HorizontalOptions="FillAndExpand" 
                             BackgroundColor="{DynamicResource Secondary_Color}" 
-                            TextColor="White" 
+                            TextColor="{DynamicResource Primary_Color}" 
                             CornerRadius="3" 
                             Margin="0,0,0,20"
                             Clicked="Cadastrar_Clicked"/>
