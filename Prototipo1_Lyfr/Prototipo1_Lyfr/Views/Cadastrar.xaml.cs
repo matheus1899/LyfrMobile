@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Conexao.Classes;
+using Prototipo1_Lyfr.Controls;
 
 namespace Prototipo1_Lyfr
 {
@@ -19,12 +21,12 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
             width = this.Width;
             NavigationPage.SetHasNavigationBar(this, false);
-            Grid_.Children[4].TranslationX = 1700;
             Grid_.Children[5].TranslationX = 1700;
             Grid_.Children[6].TranslationX = 1700;
             Grid_.Children[7].TranslationX = 1700;
             Grid_.Children[8].TranslationX = 1700;
             Grid_.Children[9].TranslationX = 1700;
+            Grid_.Children[10].TranslationX = 1700;
         }
 
         protected override void OnAppearing()
@@ -141,7 +143,7 @@ namespace Prototipo1_Lyfr
             {
                 Nome = ent_Nome_Usuario.Text,
                 Email = ent_Email_Usuario.Text,
-                Senha = ent_Senha_Usuario.Text,
+                Senha = Criptografia.Encrypt(ent_Senha_Usuario.Text),
                 Cep = ent_CEP_Usuario.Text,
                 Rua = ent_Rua_Usuario.Text,
                 Numero = ent_Numero_Usuario.Text,
@@ -150,8 +152,8 @@ namespace Prototipo1_Lyfr
                 Telefone = ent_Telefone_Usuario.Text,
                 Cpf = ent_CPF_Usuario.Text,
                 DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
-                Plano = plano
-                //Sexo = char.Parse(sexo.Text)
+                Plano = plano,
+                Sexo = char.Parse("O")
             };
 
             var conexao = new Conexao.Classes.ConexaoAPI();
@@ -162,13 +164,16 @@ namespace Prototipo1_Lyfr
                 gerarToken.ChecharCache();
 
                 var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
+                MostrarMensagem.Mostrar(result);
 
-                await DisplayAlert("Lyfr", result, "OK");
-
+                if(result == "Cliente cadastrado com sucesso!")
+                {
+                    await Email.EnviarEmail(ent_Email_Usuario.Text, ent_Nome_Usuario.Text, "Seja bem-vindo," + ent_Nome_Usuario.Text + "ao nosso aplicativo");
+                }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Lyfr", ex.Message, "OK");
+                MostrarMensagem.Mostrar(ex.Message);
             }
 
             ai.IsVisible = false;

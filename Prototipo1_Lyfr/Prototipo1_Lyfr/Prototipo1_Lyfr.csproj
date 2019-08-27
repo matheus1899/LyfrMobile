@@ -22,6 +22,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.258-beta" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
+    <PackageReference Include="Xamarin.Forms.BehaviorValidationPack" Version="1.0.2" />
     <PackageReference Include="Xamarin.HotReload" Version="1.4.19" />
   </ItemGroup>
 

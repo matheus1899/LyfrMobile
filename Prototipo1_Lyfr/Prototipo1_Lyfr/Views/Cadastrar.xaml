@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototipo1_Lyfr.Cadastrar"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             
              BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -315,6 +317,9 @@
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
                                    Margin="0,-5,0,-25"/>
+                            <!--<Entry.Behaviors>
+                                <controls:PhoneNumberValidatorBehavior />
+                            </Entry.Behaviors>-->
                             <Label Text=" X " 
                                x:Name="Lbl_X_Telefone" 
                                TextColor="Gray"

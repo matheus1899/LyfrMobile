@@ -1,4 +1,4 @@
-﻿using Android.Util;
+﻿
 using Prototipo1_Lyfr.Controls;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Prototipo1_Lyfr
             }
             catch (Exception e)
             {
-                Log.WriteLine(LogPriority.Error, "ERRO -> ", e.Message.ToString());
+                //Log.WriteLine(LogPriority.Error, "ERRO -> ", e.Message.ToString());
             }
         }
         private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
