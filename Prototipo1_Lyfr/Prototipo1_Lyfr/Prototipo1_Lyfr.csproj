@@ -19,8 +19,10 @@
     <PackageReference Include="CardsView" Version="2.1.7" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.1.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.1.1" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.258-beta" />
+    <PackageReference Include="WindowsBase" Version="4.6.1055" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.618606" />
     <PackageReference Include="Xamarin.Forms.BehaviorValidationPack" Version="1.0.2" />
     <PackageReference Include="Xamarin.HotReload" Version="1.4.19" />

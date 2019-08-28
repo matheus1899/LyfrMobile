@@ -2,9 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototipo1_Lyfr.Cadastrar"
-             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
-             
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack" 
              BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -159,7 +158,11 @@
                                Focused="Entry_Focused"
                                Placeholder="Email"
                                Unfocused="Entry_Unfocused"
-                               Keyboard="Email"/>
+                               Keyboard="Email">
+                               <Entry.Behaviors>
+                                    <behaviorPack:EmailValidationBehavior />
+                               </Entry.Behaviors>
+                            </Entry>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Email" 
                                    TextColor="Gray"
@@ -194,7 +197,11 @@
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
                                    Placeholder="Senha"
-                                   Margin="-5,-5,0,-25"/>
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                            </Entry>
                             <Label Text=" X " 
                                x:Name="Lbl_X_Senha" 
                                TextColor="Gray"
@@ -238,9 +245,14 @@
                                Placeholder="CPF"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
-                               MaxLength="11"
+                               MaxLength="14"
                                Keyboard="Numeric"
-                               Margin="0,-5,0,-25"/>
+                               Margin="0,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:CPFValidationBehavior />
+                                    <behaviorPack:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                                </Entry.Behaviors>
+                            </Entry>
                             <Label Text=" X " 
                                x:Name="Lbl_X_CPF" 
                                TextColor="Gray"
@@ -277,9 +289,13 @@
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                Keyboard="Numeric"
-                               
-                               MaxLength="8"
-                               Margin="0,-5,0,-25"/>
+                               MaxLength="9"
+                               Margin="0,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:CEPValidationBehavior />
+                                    <behaviorPack:MaskedBehavior Mask="XXXXX-XXX" />
+                                </Entry.Behaviors>
+                            </Entry>
                             <Label Text=" X " 
                                x:Name="Lbl_X_CEP" 
                                TextColor="Gray"
@@ -316,10 +332,12 @@
                                    Keyboard="Telephone"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Margin="0,-5,0,-25"/>
-                            <!--<Entry.Behaviors>
-                                <controls:PhoneNumberValidatorBehavior />
-                            </Entry.Behaviors>-->
+                                   Margin="0,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:MaskedBehavior Mask="(XX)XXXX-XXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            
                             <Label Text=" X " 
                                x:Name="Lbl_X_Telefone" 
                                TextColor="Gray"
@@ -484,7 +502,11 @@
                                        TextColor="{DynamicResource Secondary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Estado  "
-                                       Keyboard="Default"/>
+                                       Keyboard="Default">
+                                    <Entry.Behaviors>
+                                        <behaviorPack:MaxLengthValidationBehavior  MaxLength="2"/>
+                                    </Entry.Behaviors>
+                                </Entry>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Estado" 
                                        TextColor="Gray"

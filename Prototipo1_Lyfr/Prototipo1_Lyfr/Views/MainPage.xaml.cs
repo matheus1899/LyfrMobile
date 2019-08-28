@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prototipo1_Lyfr.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,7 +8,7 @@ namespace Prototipo1_Lyfr
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : MasterDetailPage
     {
-        public MainPage()
+        public MainPage(Cliente cliente)
         {
             InitializeComponent();
             Detail = new Home();

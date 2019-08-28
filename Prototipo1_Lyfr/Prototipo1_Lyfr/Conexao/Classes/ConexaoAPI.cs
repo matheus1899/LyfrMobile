@@ -52,6 +52,41 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                 }
             }
         }
+
+        public async Task<Cliente> SelectOne(Cliente cliente, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var json = JsonConvert.SerializeObject(cliente);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Cliente/GetClienteByEmail/", content);
+
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Cliente user = JsonConvert.DeserializeObject<Cliente>(mensagem);
+                        return cliente;
+                    }
+
+                    if (mensagem == null)
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
     }
 }
 

@@ -1,17 +1,27 @@
-﻿using System;
+﻿using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Controls;
+using Prototipo1_Lyfr.Models;
+using System;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr
 {
     public partial class Login : ContentPage
     {
+        GerarToken gerarToken = new GerarToken();
+        Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
+
         public Login()
         {
             try
             {
                 InitializeComponent();
+
                 NavigationPage.SetHasNavigationBar(this, false);
-            }catch(Exception ex)
+                gerarToken.ChecharCache();
+            }
+
+            catch (Exception ex)
             {
                 DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");
             }
@@ -27,9 +37,26 @@ namespace Prototipo1_Lyfr
             App.Current.MainPage = new Cadastrar();
         }
 
-        private void Logar_Clicked(object sender, EventArgs e)
+        private async void Logar_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new MainPage();
+            gerarToken.ChecharCache();
+
+            Cliente cliente = new Cliente()
+            {
+                Email = ent_Email_Usuario.Text,
+                Senha = ent_Senha_Usuario.Text
+            };
+
+            try
+            {
+                var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                App.Current.MainPage = new MainPage(select);               
+            }
+            catch (Exception ex)
+            {
+                MostrarMensagem.Mostrar(ex.Message);
+            }
+            
         }
         private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
         {
