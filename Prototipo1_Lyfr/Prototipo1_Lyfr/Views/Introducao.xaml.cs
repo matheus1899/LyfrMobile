@@ -22,8 +22,16 @@ namespace Prototipo1_Lyfr
             lista.Add(new Texto { TextoIntro = "Aproveite o seu livro, onde e \nquando quiser, gratuitamente" });
             Carousel.ItemsSource = lista;
             sw.Value.Stop();
-            Debug.WriteLine("Introducao -> "+sw.Value.ElapsedMilliseconds.ToString());
+            Debug.WriteLine("Introducao -> " + sw.Value.ElapsedMilliseconds.ToString());
         }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            btn_Cadastrar.IsEnabled = true;
+            btn_Entrar.IsEnabled = true;
+        }
+
+
         private void ChamarPagCadastrar(object sender, EventArgs e){
             btn_Cadastrar.IsEnabled = false;
             btn_Entrar.IsEnabled = false;

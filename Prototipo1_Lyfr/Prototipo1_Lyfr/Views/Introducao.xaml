@@ -36,10 +36,11 @@
                     Grid.Row="1"
                     Grid.Column="0"
                     Grid.ColumnSpan="7">
-        <BoxView BackgroundColor="Indigo" 
-                    HorizontalOptions="FillAndExpand" 
-                    VerticalOptions="FillAndExpand"/>
-
+            <Label Text="Header" FontSize="Header"/>
+            <Label Text="Title" FontSize="Title"/>
+            <Label Text="Body" FontSize="Body"/>
+            <Label Text="Large" FontSize="Large"/>
+            <Label Text="Caption" FontSize="Caption"/>
         </StackLayout>-->
         <cardview:CarouselView x:Name="Carousel" 
                             Grid.Row="1"
@@ -55,7 +56,7 @@
                                  VerticalOptions="FillAndExpand"/>
                         <Label Text="{Binding TextoIntro}" 
                                 TextColor="{DynamicResource Secondary_Color}" 
-                                FontSize="Title" 
+                                FontSize="Title"
                                 FontAttributes="Bold" 
                                 VerticalTextAlignment="Center" 
                                 HorizontalOptions="FillAndExpand"
@@ -79,12 +80,14 @@
                 <VisualStateGroup>
                     <VisualState Name="Portrait" >
                         <VisualState.Setters>
-                            <Setter Property="Orientation" Value="Vertical"/>
+                            <Setter Property="Orientation" 
+                                    Value="Vertical"/>
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState Name="Landscape" >
                         <VisualState.Setters>
-                            <Setter Property="Orientation" Value="Horizontal"/>
+                            <Setter Property="Orientation" 
+                                    Value="Horizontal"/>
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

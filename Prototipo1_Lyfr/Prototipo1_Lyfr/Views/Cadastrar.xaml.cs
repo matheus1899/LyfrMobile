@@ -34,7 +34,7 @@ namespace Prototipo1_Lyfr
                 TargetType = typeof(Label)
             };
             StateGroup.States.Add(CreateState("Invalido", "\uf023", Color.Red));
-            StateGroup.States.Add(CreateState("Valido", "\uf023", Color.Green));
+            StateGroup.States.Add(CreateState("Valido", "\uf023", Color.ForestGreen));
 
             VisualStateManager.SetVisualStateGroups(lbl_aviso, new VisualStateGroupList { StateGroup });
         }

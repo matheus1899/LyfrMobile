@@ -109,6 +109,9 @@
                        Grid.Column="2"
                        Grid.ColumnSpan="3"/>
                 <!-- Row 2 -->
+                <!-- null -->
+                
+                
                 <!-- Nome -->
                 <!-- Row 3 -->
                 <StackLayout Orientation="Vertical" 
@@ -125,7 +128,7 @@
                                    Focused="Entry_Focused"
                                    Placeholder="Nome"
                                    Unfocused="Entry_Unfocused"
-                                   TextColor="{DynamicResource Secondary_Color}" />
+                                   TextColor="{DynamicResource Secondary_Color}"/>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Nome" 
                                    TextColor="Gray"
@@ -514,11 +517,11 @@
                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free-Solid-900"/>
                 </Label.FontFamily>
             </Label>
+            <!-- Buttons Plano -->
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"
                          HorizontalOptions="CenterAndExpand" 
                          VerticalOptions="End">
-                <!-- Buttons Plano -->
                 <StackLayout Orientation="Horizontal" 
                              Margin="0,15,0,0"
                              Spacing="20"
