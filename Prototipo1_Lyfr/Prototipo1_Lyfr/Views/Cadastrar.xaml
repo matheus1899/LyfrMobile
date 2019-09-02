@@ -198,7 +198,7 @@
                                    TextColor="{DynamicResource DefaultTextColor}" 
                                    IsPassword="True"
                                    Focused="Entry_Focused"
-                                   Unfocused="Entry_Unfocused"
+                                   Unfocused="Senha_Ent_Unfocused"
                                    TextChanged="Senha_Ent_TextChanged"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
@@ -231,6 +231,26 @@
                                      HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </controls:NewFrame>
+                    <!--Label de Aviso-->
+                    <Label x:Name="lbl_aviso"
+                           FontSize="Small"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#be1212"
+                           Margin="0"
+                           MaxLines="2"
+                           IsVisible="False">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Minimo de" />
+                                <Span Text=" 8 caracteres" TextColor="Red"/>
+                                <Span Text=", sendo"/>
+                                <Span Text="&#10;"/>
+                                <Span Text=" 1 especial" TextColor="Red"/>
+                                <Span Text=" e "/>
+                                <Span Text="1 letra maiúscula" TextColor="Red"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
                 <!-- CPF -->
                 <!-- Row 6 -->
@@ -541,18 +561,7 @@
                     </StackLayout>
                 </StackLayout>
             </Grid>
-            <!-- Label de Aviso -->
-            <Label x:Name="lbl_aviso"
-                   FontSize="Large"
-                   TextColor="Red"
-                   HorizontalTextAlignment="Center"
-                   Margin="0,15,0,-20"
-                   MaxLines="3">
-                <Label.FontFamily>
-                    <OnPlatform x:TypeArguments="x:String" 
-                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free-Solid-900"/>
-                </Label.FontFamily>
-            </Label>
+            
             <!-- Buttons Plano -->
             <StackLayout Margin="0,20,0,0"
                          Spacing="15"

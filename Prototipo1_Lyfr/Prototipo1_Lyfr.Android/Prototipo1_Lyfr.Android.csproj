@@ -116,9 +116,6 @@
     <AndroidResource Include="Resources\drawable\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Logo_Lyfr.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\download_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cover_example.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\drawable\cover_example2.jpg" />
+    <AndroidResource Include="Resources\drawable\Logo_Lyfr.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

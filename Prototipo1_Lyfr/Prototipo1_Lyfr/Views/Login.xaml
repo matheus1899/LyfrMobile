@@ -175,7 +175,7 @@
                    Margin="0,5,0,5">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ChamarPagCadastrar" 
-                                                    NumberOfTapsRequired="1"/>
+                                          NumberOfTapsRequired="1"/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>

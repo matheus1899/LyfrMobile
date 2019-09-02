@@ -9,9 +9,7 @@
        x:Class="Prototipo1_Lyfr.Views.MainPage">
     <TabBar>
         <Shell.NavBarIsVisible>
-            <x:Boolean>
-                False
-            </x:Boolean>
+            <x:Boolean>True</x:Boolean>
         </Shell.NavBarIsVisible>
         <Shell.SearchHandler>
             <SearchHandler BackgroundColor="Red"/>
@@ -36,8 +34,6 @@
             <ShellContent ContentTemplate="{DataTemplate views:Perfil}"/>
         </Tab>
     </TabBar>
-
-    <FlyoutItem Title="Teste" FlyoutIcon="eye.png" Icon="user.png"/>
 
     <!--<views:Home IconImageSource="perfil_icon.png"/>
     <views:Perfil IconImageSource="perfil_icon.png"/>-->

@@ -25,16 +25,6 @@ namespace Prototipo1_Lyfr
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            var StateGroup = new VisualStateGroup
-            {
-                Name = "StateForcaSenha",
-                TargetType = typeof(Label)
-            };
-            StateGroup.States.Add(CreateState("Invalido", "\uf023", Color.Red));
-            StateGroup.States.Add(CreateState("Valido", "\uf023", Color.ForestGreen));
-
-            VisualStateManager.SetVisualStateGroups(lbl_aviso, new VisualStateGroupList { StateGroup });
         }
         static VisualState CreateState(string nameState, string text, Color color)
         {
@@ -192,6 +182,7 @@ namespace Prototipo1_Lyfr
             c.IsEnabled = false;
             c.IsVisible = false;
         }
+
         private void Senha_Ent_TextChanged(object sender, TextChangedEventArgs e)
         {
             var ent = sender as Entry;
@@ -203,22 +194,24 @@ namespace Prototipo1_Lyfr
             {
                 lbl.IsEnabled = true;
                 lbl.IsVisible = true;
+                lbl_aviso.IsVisible = true;
             }
             else
             {
                 lbl.IsEnabled = false;
                 lbl.IsVisible = false;
             }
-
-
-            if (ValidaSenha(ent.Text)==true) { 
-                VisualStateManager.GoToState(lbl_aviso, "Valido");
-                   
-            }else{
-                VisualStateManager.GoToState(lbl_aviso, "Invalido");
-            }
         }
+        private void Senha_Ent_Unfocused(object sender, FocusEventArgs e)
+        {
+            lbl_aviso.IsVisible = false;
+            var a = sender as Entry;
+            var b = a.Parent as StackLayout;
+            var c = b.Children[1] as Label;
 
+            c.IsEnabled = false;
+            c.IsVisible = false;
+        }
 
         private bool ValidaSenha(string senha)
         {

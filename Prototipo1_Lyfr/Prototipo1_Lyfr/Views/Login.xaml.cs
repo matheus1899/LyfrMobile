@@ -20,7 +20,6 @@ namespace Prototipo1_Lyfr
                 DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");
             }
         }
-
         protected override bool OnBackButtonPressed()
         {
             return base.OnBackButtonPressed();
@@ -44,6 +43,8 @@ namespace Prototipo1_Lyfr
         {
             Navigation.PushAsync(new EsqueciSenha());
         }
+
+
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
             var a = sender as Entry;
@@ -132,9 +133,7 @@ namespace Prototipo1_Lyfr
         }
         private void NewFrame_Focused(object sender, FocusEventArgs e)
         {
-            var a = sender as NewFrame;
-            IList<GestureElement> b = a.GetChildElements(Point.Zero);
-            Debug.WriteLine("Count -> "+b.Count);
+
         }
         private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
         {
