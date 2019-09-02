@@ -11,10 +11,8 @@ namespace Prototipo1_Lyfr
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
-        double width;
         public Cadastrar(){
             InitializeComponent();
-            width = this.Width;
             NavigationPage.SetHasNavigationBar(this, false);
             Grid_.Children[5].TranslationX = 1700;
             Grid_.Children[6].TranslationX = 1700;
@@ -136,7 +134,6 @@ namespace Prototipo1_Lyfr
             await btn_Img_Eye.ScaleTo(1.3,100,Easing.SpringIn);
             await btn_Img_Eye.ScaleTo(1,100,Easing.BounceIn);
         }
-        
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {
             var a = sender as Label;

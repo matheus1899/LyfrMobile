@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
              x:Class="Prototipo1_Lyfr.Login" BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -46,7 +47,7 @@
         <Image Source="Logo_Lyfr.png" Aspect="AspectFit" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" />
         <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7">
             <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
+                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" Focused="NewFrame_Focused">
                     <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
                         <Entry x:Name="ent_Email_Usuario"
                                    Keyboard="Email"
@@ -55,16 +56,20 @@
                                    Focused="EntryEmail_Focused"
                                    Placeholder="Email"
                                    Unfocused="EntryEmail_Unfocused"
-                                   HorizontalOptions="FillAndExpand"/>
+                                   HorizontalOptions="FillAndExpand">
+                            <Entry.Effects>
+                                <ef:FocusEffect/>
+                            </Entry.Effects>
+                        </Entry>
                         <Label Text=" X " 
-                                   x:Name="Lbl_X_Email" 
-                                   TextColor="{DynamicResource Quartenary_Color}"
-                                   IsEnabled="False"
-                                   IsVisible="False"
-                                   HorizontalOptions="End" 
-                                   Margin="5,0,5,0"
-                                   VerticalTextAlignment="Center"
-                                   VerticalOptions="FillAndExpand">
+                                x:Name="Lbl_X_Email" 
+                                TextColor="{DynamicResource Quartenary_Color}"
+                                IsEnabled="False"
+                                IsVisible="False"
+                                HorizontalOptions="End" 
+                                Margin="5,0,5,0"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
                             </Label.GestureRecognizers>
@@ -74,31 +79,36 @@
             </StackLayout>
             <!--Senha-->
             <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
-                <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
+                <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}" Focused="NewFrame_Focused">
                     <StackLayout Orientation="Horizontal" 
-                                     Spacing="7" 
-                                     VerticalOptions="FillAndExpand" 
-                                     HorizontalOptions="FillAndExpand" 
-                                     Margin="0,-13,0,-13">
+                                 Spacing="7" 
+                                 VerticalOptions="FillAndExpand" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 Margin="0,-13,0,-13">
                         <Entry x:Name="ent_Senha_Usuario"
-                                   IsPassword="True" 
-                                   HorizontalOptions="FillAndExpand"
-                                   TextChanged="EntrySenha_TextChanged"
-                                   Focused="EntrySenha_Focused"
-                                   Unfocused="EntrySenha_Unfocused"
-                                   Placeholder="Senha"
-                                   TextColor="{DynamicResource Quartenary_Color}"/>
+                               IsPassword="True" 
+                               HorizontalOptions="FillAndExpand"
+                               TextChanged="EntrySenha_TextChanged"
+                               Focused="EntrySenha_Focused"
+                               Unfocused="EntrySenha_Unfocused"
+                               Placeholder="Senha"
+                               TextColor="{DynamicResource Quartenary_Color}">
+                            <Entry.Effects>
+                                <ef:FocusEffect/>
+                            </Entry.Effects>
+                        </Entry>
                         <Label Text=" X " 
-                                   x:Name="Lbl_X_Senha" 
-                                   TextColor="{DynamicResource Quartenary_Color}"
-                                   IsEnabled="False"
-                                   IsVisible="False"
-                                   HorizontalOptions="End" 
-                                   Margin="5,0,7,0"
-                                   VerticalTextAlignment="Center"
-                                   VerticalOptions="FillAndExpand">
+                               x:Name="Lbl_X_Senha" 
+                               TextColor="{DynamicResource Quartenary_Color}"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="End" 
+                               Margin="5,0,7,0"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="FillAndExpand">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" 
+                                                      NumberOfTapsRequired="1"/>
                             </Label.GestureRecognizers>
                         </Label>
                         <ImageButton Source="eye.png"
@@ -112,7 +122,10 @@
                 </controls:NewFrame>
             </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="7">
+        <StackLayout Orientation="Vertical" 
+                     Grid.Row="2" 
+                     Grid.Column="0" 
+                     Grid.ColumnSpan="7">
             <!--Esqueci minha senha-->
             <Label Text="Esqueci minha senha!" 
                    HorizontalOptions="CenterAndExpand"
@@ -122,18 +135,24 @@
                    TextColor="{DynamicResource Secondary_Color}">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
-                                              NumberOfTapsRequired="1"/>
+                                          NumberOfTapsRequired="1"/>
                 </Label.GestureRecognizers>
             </Label>
             <!--Lembrar senha?-->
             <StackLayout HorizontalOptions="Center" 
                                     Orientation="Horizontal"
                                     Margin="10">
-                <CheckBox Color="{DynamicResource Secondary_Color}" />
+                <CheckBox Color="{DynamicResource Secondary_Color}" 
+                          x:Name="cbx_LembrarSenha" />
                 <Label Text="Lembrar senha?" 
-                               FontSize="16" 
-                               VerticalOptions="Center"
-                               TextColor="{DynamicResource Secondary_Color}"/>
+                        FontSize="16" 
+                        VerticalOptions="Center"
+                        TextColor="{DynamicResource Secondary_Color}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="lbl_LembrarSenha_Tapped" 
+                                              NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </StackLayout>
         <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7"  Margin="0" Spacing="10" >

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Prototipo1_Lyfr.Controls;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr
@@ -11,7 +14,8 @@ namespace Prototipo1_Lyfr
             {
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");
             }
@@ -21,12 +25,10 @@ namespace Prototipo1_Lyfr
         {
             return base.OnBackButtonPressed();
         }
-
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Cadastrar());
         }
-
         private void Logar_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new Views.MainPage();
@@ -127,6 +129,16 @@ namespace Prototipo1_Lyfr
         {
             Lbl_X_Senha.IsEnabled = false;
             Lbl_X_Senha.IsVisible = false;
+        }
+        private void NewFrame_Focused(object sender, FocusEventArgs e)
+        {
+            var a = sender as NewFrame;
+            IList<GestureElement> b = a.GetChildElements(Point.Zero);
+            Debug.WriteLine("Count -> "+b.Count);
+        }
+        private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
+        {
+            cbx_LembrarSenha.IsChecked = !cbx_LembrarSenha.IsChecked;
         }
     }
 }

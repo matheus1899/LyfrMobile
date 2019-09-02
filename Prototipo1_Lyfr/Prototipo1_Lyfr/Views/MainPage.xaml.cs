@@ -10,11 +10,9 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
         }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
         }
     }
 }
