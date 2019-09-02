@@ -31,7 +31,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
         }
 
         //Metódo para mandar o e-mail de maneira assíncrona
-        public static Task EnviarEmail(string email, string nome, string texto)
+        public static Task EnviarEmail(string email, string assunto, string texto)
         {
             return Task.Run(() =>
             {
@@ -44,7 +44,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     //Manda do email do aplicativo para o e-mail fornecido na entry
                     mail.From = new MailAddress("contato.Lyfr@gmail.com");
                     mail.To.Add(email);
-                    mail.Subject = nome;
+                    mail.Subject = assunto;
                     //Manda o código aleatório para o e-mail do usuário
                     mail.Body = texto;
 

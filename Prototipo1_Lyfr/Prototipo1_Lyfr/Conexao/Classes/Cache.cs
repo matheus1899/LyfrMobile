@@ -15,13 +15,19 @@ namespace Prototipo1_Lyfr.ConexaoAPI
             string caminho = dep.ObterCaminho("bancoCache.sqlite");
             _conexao = new SQLiteConnection(caminho);
             _conexao.CreateTable<TokenCache>();
+            _conexao.CreateTable<PesquisaCache>();
         }
 
-        public void Inserir(TokenCache tokenCache)
+        public void InserirTokenCache(TokenCache tokenCache)
         {
             _conexao.DeleteAll<TokenCache>();
             //Inserindo informações no banco
             _conexao.Insert(tokenCache);
+        }
+
+        public void InserirPesquisaCache(PesquisaCache pesquisaCache)
+        {
+            _conexao.Insert(pesquisaCache);
         }
 
         public TokenCache GetTokenCache()

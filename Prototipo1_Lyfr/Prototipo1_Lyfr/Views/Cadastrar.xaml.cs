@@ -33,16 +33,6 @@ namespace Prototipo1_Lyfr
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            var StateGroup = new VisualStateGroup
-            {
-                Name = "StateForcaSenha",
-                TargetType = typeof(Label)
-            };
-            StateGroup.States.Add(CreateState("Invalido", "\uf023", Color.Red));
-            StateGroup.States.Add(CreateState("Válido", "\uf023", Color.Green));
-
-            VisualStateManager.SetVisualStateGroups(lbl_aviso, new VisualStateGroupList { StateGroup });
         }
         static VisualState CreateState(string nameState, string text, Color color)
         {
@@ -148,14 +138,14 @@ namespace Prototipo1_Lyfr
 
                 Cliente cliente = new Cliente()
                 {
-                    Nome = ent_Nome_Usuario.Text,
-                    Email = ent_Email_Usuario.Text,
-                    Senha = ent_Senha_Usuario.Text,
+                    Nome = ent_Nome_Usuario.Text.Trim(),
+                    Email = ent_Email_Usuario.Text.Trim(),
+                    Senha = ent_Senha_Usuario.Text.Trim(),
                     Cep = ent_CEP_Usuario.Text,
-                    Rua = ent_Rua_Usuario.Text,
-                    Numero = ent_Numero_Usuario.Text,
-                    Cidade = ent_Cidade_Usuario.Text,
-                    Estado = ent_Estado_Usuario.Text,
+                    Rua = ent_Rua_Usuario.Text.Trim(),
+                    Numero = ent_Numero_Usuario.Text.Trim(),
+                    Cidade = ent_Cidade_Usuario.Text.Trim(),
+                    Estado = ent_Estado_Usuario.Text.Trim(),
                     Telefone = ent_Telefone_Usuario.Text,
                     Cpf = ent_CPF_Usuario.Text,
                     DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
@@ -177,14 +167,16 @@ namespace Prototipo1_Lyfr
                     {
                         await Email.EnviarEmail(ent_Email_Usuario.Text, ent_Nome_Usuario.Text, "Seja bem-vindo," + ent_Nome_Usuario.Text + "ao nosso aplicativo");
                     }
+
+                    ai.IsVisible = false;
+                    ai.IsRunning = false;
                 }
+
                 catch (Exception ex)
                 {
                     MostrarMensagem.Mostrar(ex.Message);
                 }
 
-                ai.IsVisible = false;
-                ai.IsRunning = false;
             }
         }
 

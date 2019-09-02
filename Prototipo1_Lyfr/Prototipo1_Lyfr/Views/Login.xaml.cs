@@ -18,7 +18,6 @@ namespace Prototipo1_Lyfr
                 InitializeComponent();
 
                 NavigationPage.SetHasNavigationBar(this, false);
-                gerarToken.ChecharCache();
             }
 
             catch (Exception ex)
@@ -38,20 +37,32 @@ namespace Prototipo1_Lyfr
         }
 
         private async void Logar_Clicked(object sender, EventArgs e)
-        {
-            gerarToken.ChecharCache();
-
-            Cliente cliente = new Cliente()
-            {
-                Email = ent_Email_Usuario.Text,
-                Senha = ent_Senha_Usuario.Text
-            };
-
+        { 
             try
             {
-                var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                App.Current.MainPage = new MainPage(select);               
+                gerarToken.ChecharCache();
+
+                if(string.IsNullOrWhiteSpace(ent_Email_Usuario.Text))
+                {
+                    MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
+                }
+                else if (string.IsNullOrWhiteSpace(ent_Senha_Usuario.Text))
+                {
+                    MostrarMensagem.Mostrar("Preencha o campo da senha!");
+                }
+                else
+                {
+                    Cliente cliente = new Cliente()
+                    {
+                        Email = ent_Email_Usuario.Text,
+                        Senha = ent_Senha_Usuario.Text
+                    };
+
+                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                    App.Current.MainPage = new MainPage(select);               
+                }
             }
+
             catch (Exception ex)
             {
                 MostrarMensagem.Mostrar(ex.Message);

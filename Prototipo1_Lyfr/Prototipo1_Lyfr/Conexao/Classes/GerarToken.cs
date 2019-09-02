@@ -66,7 +66,7 @@ namespace Prototipo1_Lyfr.Conexao
                 HoraExpiracao = token.HoraExpiracao
             };
 
-            cache.Inserir(tokenCache);
+            cache.InserirTokenCache(tokenCache);
         }
 
 
