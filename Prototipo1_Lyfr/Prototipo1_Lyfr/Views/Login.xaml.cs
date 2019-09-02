@@ -24,20 +24,23 @@ namespace Prototipo1_Lyfr
 
         private void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            App.Current.MainPage = new Cadastrar();
+            Navigation.PushAsync(new Cadastrar());
         }
 
         private void Logar_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new MainPage();
+            App.Current.MainPage = new Views.MainPage();
         }
-        private void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
+        private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
         {
+            var a = sender as ImageButton;
+            await a.ScaleTo(1.3, 100, Easing.SpringIn);
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
+            await a.ScaleTo(1, 100, Easing.BounceIn);
         }
         private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage = new EsqueciSenha();
+            Navigation.PushAsync(new EsqueciSenha());
         }
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {

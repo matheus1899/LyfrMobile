@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Prototipo1_Lyfr
+namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Lobby : ContentPage
+    public partial class Downloads : ContentPage
     {
-        public Lobby()
+        public Downloads()
         {
             InitializeComponent();
         }

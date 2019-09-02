@@ -4,28 +4,58 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Prototipo1_Lyfr.Home" 
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
+             x:Class="Prototipo1_Lyfr.Views.Home" 
              BackgroundColor="{DynamicResource Primary_Color}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image" x:Key="Style_ImageLivro">
+                <Setter Property="Source" Value="{Binding Source_imagem}"/>
+                <Setter Property="WidthRequest" Value="90"/>
+                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Grid.Row" Value="0"/>
+                <Setter Property="Grid.Column" Value="0"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Style_LabelLivro">
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="Text" Value="{Binding Nome}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="WidthRequest" Value="88"/>
+                <Setter Property="MaxLines" Value="2"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentView>
         <ScrollView>
-            <StackLayout Spacing="10" Padding="5">
+            <StackLayout Spacing="10" 
+                         Padding="5">
                 <Frame Visual="Material" 
                        HasShadow="True" 
                        BackgroundColor="{DynamicResource Primary_Color}">
                     <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label TextColor="{DynamicResource Secondary_Color}"
-                                   Text="Recomendados para você" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   FontSize="Medium"
-                                   FontAttributes="Bold"/>
-                            <Label Text="MAIS"
-                                   FontSize="Medium"
-                                   TextColor="{DynamicResource Secondary_Color}" 
-                                   FontAttributes="Bold"/>
-                        </StackLayout>
+                        <Label TextColor="{DynamicResource Secondary_Color}"
+                                Text="Recomendados para você"
+                                HorizontalOptions="FillAndExpand" 
+                                FontSize="Medium"
+                                FontAttributes="Bold"/>
                         <CollectionView x:Name="lista"
-                                        HeightRequest="200" 
+                                        ItemsSource="{Binding LivrosRecomendados}"
+                                        HeightRequest="200"
                                         SelectionMode="Single"
                                         SelectionChanged="CollectionView_SelectionChanged" >
                             <CollectionView.ItemsLayout>
@@ -43,26 +73,10 @@
                                             <RowDefinition Height="155" />
                                             <RowDefinition Height="55"/>
                                         </Grid.RowDefinitions>
-                                        <Image Grid.Column="0"
-                                               Grid.Row="0"
-                                               Source="{Binding Source_imagem}"
-                                               WidthRequest="90"
-                                               HeightRequest="150"
-                                               VerticalOptions="CenterAndExpand"/>
-                                        <Label Grid.Column="0"
-                                               Grid.Row="1"
-                                               Text="{Binding Nome}"
-                                               TextColor="{DynamicResource Secondary_Color}"
-                                               VerticalTextAlignment="Start"
-                                               HorizontalTextAlignment="Start"
-                                                HorizontalOptions="CenterAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                WidthRequest="88"
-                                                BackgroundColor="Transparent"
-                                                FontAttributes="Bold"
-                                                FontSize="Small"
-                                                MaxLines="2"
-                                                LineBreakMode="TailTruncation"/>
+                                        <Image Style="{DynamicResource Style_ImageLivro}"/>
+                                        <Label Style="{DynamicResource Style_LabelLivro}"
+                                               MaxLines="2" 
+                                               LineBreakMode="TailTruncation"/>
                                     </Grid>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
@@ -73,20 +87,14 @@
                        HasShadow="True" 
                        BackgroundColor="{DynamicResource Primary_Color}">
                     <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label TextColor="{DynamicResource Secondary_Color}" 
-                                   Text="Continue lendo"
-                                   HorizontalOptions="FillAndExpand"
-                                   FontSize="Medium" 
-                                   FontAttributes="Bold"/>
-                            <Label Text="MAIS" 
-                                   FontSize="Medium"
-                                   TextColor="{DynamicResource Secondary_Color}" 
-                                   FontAttributes="Bold"/>
-                        </StackLayout>
-
+                        <Label TextColor="{DynamicResource Secondary_Color}" 
+                            Text="Continue lendo"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="Medium" 
+                            FontAttributes="Bold"/>
                         <CollectionView x:Name="lista2" 
                                         HeightRequest="200" 
+                                        ItemsSource="{Binding ContinueLendo}"
                                         SelectionMode="Single" 
                                         SelectionChanged="CollectionView2_SelectionChanged">
                             <CollectionView.ItemsLayout>
@@ -103,28 +111,11 @@
                                             <RowDefinition Height="155" />
                                             <RowDefinition Height="55"/>
                                         </Grid.RowDefinitions>
-                                        <Image Grid.Column="0" 
-                                               Grid.Row="0" 
-                                               Source="{Binding Source_imagem}" 
-                                               WidthRequest="90" 
-                                               HeightRequest="150"
-                                               VerticalOptions="CenterAndExpand"/>
-                                        <Label Grid.Column="0"
-                                                Grid.Row="1"
-                                                Text="{Binding Nome}"
-                                                TextColor="{DynamicResource Secondary_Color}"
-                                                VerticalTextAlignment="Start"
-                                                HorizontalTextAlignment="Start"
-                                                HorizontalOptions="CenterAndExpand"
-                                                VerticalOptions="FillAndExpand"
-                                                WidthRequest="88"
-                                                BackgroundColor="Transparent"
-                                                FontAttributes="Bold"
-                                                FontSize="Small"
-                                                MaxLines="2"
-                                                LineBreakMode="TailTruncation"/>
+                                        <Image Style="{DynamicResource Style_ImageLivro}"/>
+                                        <Label Style="{DynamicResource Style_LabelLivro}" 
+                                               MaxLines="2" 
+                                               LineBreakMode="TailTruncation"/>
                                     </Grid>
-                                    <!--</Frame>-->
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>

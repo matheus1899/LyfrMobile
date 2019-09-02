@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
-             x:Class="Prototipo1_Lyfr.Login">
+             x:Class="Prototipo1_Lyfr.Login" BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -22,97 +22,103 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <ScrollView>
-        <StackLayout BackgroundColor="{DynamicResource Primary_Color}"
-                     Orientation="Vertical">
-            <!--Titulo-->
-            <StackLayout VerticalOptions="CenterAndExpand">
-                <Label Text="Lyfr" 
-                       FontAttributes="Bold" 
-                       FontSize="60" 
-                       HorizontalOptions="FillAndExpand"
-                       HorizontalTextAlignment="Center"
-                       FontFamily="Arial"
-                       HeightRequest="80"
-                       StyleClass="class"
-                       TextColor="{DynamicResource Secondary_Color}"/>
-            </StackLayout>
-            <!--Email-->
-            <StackLayout VerticalOptions="CenterAndExpand">
-                <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
-                    <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
-                        <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
-                            <Entry x:Name="ent_Email_Usuario"
+
+
+    <Grid HorizontalOptions="FillAndExpand" 
+          VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+            <ColumnDefinition Width="1.428*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Logo_Lyfr.png" Aspect="AspectFit" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" />
+        <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7">
+            <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
+                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" >
+                    <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
+                        <Entry x:Name="ent_Email_Usuario"
                                    Keyboard="Email"
-                                   TextColor="{DynamicResource Secondary_Color}"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    TextChanged="EntryEmail_TextChanged"
                                    Focused="EntryEmail_Focused"
                                    Placeholder="Email"
                                    Unfocused="EntryEmail_Unfocused"
                                    HorizontalOptions="FillAndExpand"/>
-                            <Label Text=" X " 
+                        <Label Text=" X " 
                                    x:Name="Lbl_X_Email" 
-                                   TextColor="Gray"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    IsEnabled="False"
                                    IsVisible="False"
                                    HorizontalOptions="End" 
                                    Margin="5,0,5,0"
                                    VerticalTextAlignment="Center"
                                    VerticalOptions="FillAndExpand">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </StackLayout>
-                    </controls:NewFrame>
-                </StackLayout>
-                <!--Senha-->
-                <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
-                    <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
-                        <StackLayout Orientation="Horizontal" 
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </controls:NewFrame>
+            </StackLayout>
+            <!--Senha-->
+            <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
+                <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
+                    <StackLayout Orientation="Horizontal" 
                                      Spacing="7" 
                                      VerticalOptions="FillAndExpand" 
                                      HorizontalOptions="FillAndExpand" 
                                      Margin="0,-13,0,-13">
-                            <Entry x:Name="ent_Senha_Usuario"
+                        <Entry x:Name="ent_Senha_Usuario"
                                    IsPassword="True" 
                                    HorizontalOptions="FillAndExpand"
                                    TextChanged="EntrySenha_TextChanged"
                                    Focused="EntrySenha_Focused"
                                    Unfocused="EntrySenha_Unfocused"
                                    Placeholder="Senha"
-                                   TextColor="{DynamicResource Secondary_Color}"/>
-                            <Label Text=" X " 
+                                   TextColor="{DynamicResource Quartenary_Color}"/>
+                        <Label Text=" X " 
                                    x:Name="Lbl_X_Senha" 
-                                   TextColor="Gray"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    IsEnabled="False"
                                    IsVisible="False"
                                    HorizontalOptions="End" 
                                    Margin="5,0,7,0"
                                    VerticalTextAlignment="Center"
                                    VerticalOptions="FillAndExpand">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
-                                </Label.GestureRecognizers>
-                            </Label>
-                            <ImageButton Source="eye.png"
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Senha" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <ImageButton Source="eye.png"
                                          WidthRequest="30" 
                                          HeightRequest="25"
                                          Aspect="AspectFit"
                                          BackgroundColor="Transparent"
                                          Clicked="Esconde_Exibe_Senha_Clicked"
                                          HorizontalOptions="End"/>
-                        </StackLayout>
-                    </controls:NewFrame>
-                </StackLayout>
+                    </StackLayout>
+                </controls:NewFrame>
             </StackLayout>
-            <StackLayout Orientation="Vertical">
-                <!--Esqueci minha senha-->
+        </StackLayout>
+        <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="7">
+            <!--Esqueci minha senha-->
             <Label Text="Esqueci minha senha!" 
                    HorizontalOptions="CenterAndExpand"
                    FontSize="Small"
                    TextDecorations="Underline"
+                   Margin="0,10,0,0"
                    TextColor="{DynamicResource Secondary_Color}">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
@@ -130,7 +136,7 @@
                                TextColor="{DynamicResource Secondary_Color}"/>
             </StackLayout>
         </StackLayout>
-        <StackLayout VerticalOptions="CenterAndExpand" Margin="0" Spacing="10">
+        <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7"  Margin="0" Spacing="10" >
             <StackLayout Orientation="Horizontal">
                 <!--Botão de Login-->
                 <BoxView HorizontalOptions="FillAndExpand"/>
@@ -154,6 +160,5 @@
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
-        </StackLayout>
-    </ScrollView>
+    </Grid>
 </ContentPage>

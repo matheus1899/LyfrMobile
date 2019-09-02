@@ -14,7 +14,7 @@
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="Margin" Value="35,0,0,0"/>
-                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Quartenary_Color}"/>
             </Style>
             <Style TargetType="controls:NewFrame" x:Key="Frame_Pai">
                 <Setter Property="CornerRadius" Value="7"/>
@@ -24,20 +24,20 @@
                 <Setter Property="Margin" Value="15,0,15,0"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
                 <!--<Setter Property="BorderWidth" Value="0.5"/>
-                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>-->
+                <Setter Property="BorderColor" Value="{DynamicResource Quartenary_Color}"/>-->
             </Style>
 
             <Style x:Key="Style_Button_Ativo" TargetType="Button">
                 <Setter Property="TextColor" Value="{DynamicResource Primary_Color}"/>
-                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>
-                <Setter Property="BackgroundColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="BorderColor" Value="{DynamicResource Quartenary_Color}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Quartenary_Color}"/>
                 <Setter Property="CornerRadius" Value="2"/>
                 <Setter Property="BorderWidth" Value="3"/>
             </Style>
 
             <Style x:Key="Style_Button_Desativo" TargetType="Button">
-                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
-                <Setter Property="BorderColor" Value="{DynamicResource Secondary_Color}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Quartenary_Color}"/>
+                <Setter Property="BorderColor" Value="{DynamicResource Quartenary_Color}"/>
                 <Setter Property="BackgroundColor" Value="{DynamicResource Primary_Color}"/>
                 <Setter Property="CornerRadius" Value="2"/>
                 <Setter Property="BorderWidth" Value="1.5"/>
@@ -61,7 +61,7 @@
                 <StackLayout HeightRequest="1" BackgroundColor="#436477" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                 <controls:NewFrame BackgroundColor="{DynamicResource Primary_Color}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
                     <StackLayout Padding="0,-20,0,-20">
-                        <Label Text="2" TextColor="{DynamicResource Secondary_Color}" 
+                        <Label Text="2" TextColor="{DynamicResource Quartenary_Color}" 
                                FontAttributes="Bold"
                                HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
@@ -95,7 +95,7 @@
                 </Grid.ColumnDefinitions>
                 <!-- Row 0 -->
 
-                <ActivityIndicator Color="{DynamicResource Secondary_Color}" 
+                <ActivityIndicator Color="{DynamicResource Quartenary_Color}" 
                                    IsRunning="False"  
                                    IsVisible="True" 
                                    Grid.Row="0"
@@ -128,10 +128,10 @@
                                    Focused="Entry_Focused"
                                    Placeholder="Nome"
                                    Unfocused="Entry_Unfocused"
-                                   TextColor="{DynamicResource Secondary_Color}"/>
+                                   TextColor="{DynamicResource Quartenary_Color}"/>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Nome" 
-                                   TextColor="Gray"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    IsEnabled="False"
                                    IsVisible="False"
                                    HorizontalOptions="End"
@@ -157,7 +157,7 @@
                         <StackLayout Style="{x:StaticResource Filho_Frame}" 
                                      Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Email_Usuario"
-                               TextColor="{DynamicResource Secondary_Color}" 
+                               TextColor="{DynamicResource Quartenary_Color}" 
                                TextChanged="Entry_TextChanged"
                                HorizontalOptions="FillAndExpand"
                                Focused="Entry_Focused"
@@ -166,7 +166,7 @@
                                Keyboard="Email"/>
                             <Label Text=" X " 
                                    x:Name="Lbl_X_Email" 
-                                   TextColor="Gray"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    IsEnabled="False"
                                    IsVisible="False"
                                    HorizontalOptions="End" 
@@ -190,7 +190,7 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}" >
                             <Entry x:Name="ent_Senha_Usuario" 
-                                   TextColor="{DynamicResource Secondary_Color}" 
+                                   TextColor="{DynamicResource Quartenary_Color}" 
                                    IsPassword="True"
                                    Focused="Entry_Focused"
                                    Unfocused="Entry_Unfocused"
@@ -201,7 +201,7 @@
                                    Margin="-5,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_Senha" 
-                               TextColor="Gray"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                IsEnabled="False"
                                IsVisible="False"
                                HorizontalOptions="Center"
@@ -235,7 +235,7 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}" >
                             <Entry x:Name="ent_CPF_Usuario" 
-                               TextColor="{DynamicResource Secondary_Color}"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                                TextChanged="Entry_TextChanged"
@@ -247,7 +247,7 @@
                                Margin="0,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_CPF" 
-                               TextColor="Gray"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                IsEnabled="False"
                                IsVisible="False"
                                HorizontalOptions="Center"
@@ -273,7 +273,7 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}">
                             <Entry x:Name="ent_CEP_Usuario" 
-                               TextColor="{DynamicResource Secondary_Color}"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                Focused="Entry_Focused"
                                Unfocused="Entry_Unfocused"
                                TextChanged="Entry_TextChanged"
@@ -286,7 +286,7 @@
                                Margin="0,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_CEP" 
-                               TextColor="Gray"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                IsEnabled="False"
                                IsVisible="False"
                                HorizontalOptions="Center"
@@ -312,7 +312,7 @@
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}">
                             <Entry x:Name="ent_Telefone_Usuario" 
-                                   TextColor="{DynamicResource Secondary_Color}"
+                                   TextColor="{DynamicResource Quartenary_Color}"
                                    Focused="Entry_Focused"
                                    Unfocused="Entry_Unfocused"
                                    TextChanged="Entry_TextChanged"
@@ -323,7 +323,7 @@
                                    Margin="0,-5,0,-25"/>
                             <Label Text=" X " 
                                x:Name="Lbl_X_Telefone" 
-                               TextColor="Gray"
+                               TextColor="{DynamicResource Quartenary_Color}"
                                IsEnabled="False"
                                IsVisible="False"
                                HorizontalOptions="Center"
@@ -351,7 +351,7 @@
                                      Padding="0,-16,0,-16">
                             <DatePicker MinimumDate="01/01/1940" 
                                     Visual="Material"
-                                    TextColor="{DynamicResource Secondary_Color}"
+                                    TextColor="{DynamicResource Quartenary_Color}"
                                     x:Name="DataPicker_Nascimento" 
                                     HorizontalOptions="FillAndExpand"/>
                         </StackLayout>
@@ -376,7 +376,7 @@
                                          HorizontalOptions="FillAndExpand"
                                          Padding="0,-16,0,-16">
                                 <Entry x:Name="ent_Rua_Usuario"
-                                       TextColor="{DynamicResource Secondary_Color}" 
+                                       TextColor="{DynamicResource Quartenary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
@@ -385,7 +385,7 @@
                                        Keyboard="Default"/>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Rua" 
-                                       TextColor="Gray"
+                                       TextColor="{DynamicResource Quartenary_Color}"
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End"
@@ -410,13 +410,13 @@
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource Secondary_Color}" 
+                                       TextColor="{DynamicResource Quartenary_Color}" 
                                        HorizontalOptions="FillAndExpand"                               
                                         Placeholder="Número"
                                         Keyboard="Default"/>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Numero" 
-                                       TextColor="Gray"
+                                       TextColor="{DynamicResource Quartenary_Color}"
                                        IsEnabled="False"
                                         IsVisible="False"
                                         HorizontalOptions="End" 
@@ -452,13 +452,13 @@
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource Secondary_Color}" 
+                                       TextColor="{DynamicResource Quartenary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Cidade"
                                        Keyboard="Default"/>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Cidade" 
-                                       TextColor="Gray"
+                                       TextColor="{DynamicResource Quartenary_Color}"
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End"
@@ -482,13 +482,13 @@
                                        Focused="Entry_Focused"
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
-                                       TextColor="{DynamicResource Secondary_Color}" 
+                                       TextColor="{DynamicResource Quartenary_Color}" 
                                        HorizontalOptions="FillAndExpand"
                                        Placeholder="Estado  "
                                        Keyboard="Default"/>
                                 <Label Text=" X " 
                                        x:Name="Lbl_X_Estado" 
-                                       TextColor="Gray"
+                                       TextColor="{DynamicResource Quartenary_Color}"
                                        IsEnabled="False"
                                        IsVisible="False"
                                        HorizontalOptions="End" 

@@ -10,8 +10,6 @@
             <Color x:Key="Secondary_Color">#436477</Color>
             <Color x:Key="Tertiary_Color">#FFFFFF</Color>
             <Color x:Key="Quartenary_Color">#436477</Color>
-            <!--<Color x:Key="Primary_Color">#436477</Color>
-            <Color x:Key="Secondary_Color">#EEDBAA</Color>-->
 
             <Style x:Key="Style_Label" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold"/>

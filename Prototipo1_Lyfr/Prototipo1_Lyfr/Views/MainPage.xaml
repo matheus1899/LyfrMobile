@@ -1,46 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Prototipo1_Lyfr.MainPage">
-    <MasterDetailPage.Master>
-        <ContentPage Title="Menu" Padding="0">
-            <ContentPage.Content>
-                <StackLayout>
-                    <Grid BackgroundColor="{DynamicResource Primary_Color}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="25"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="150"/>
-                            <RowDefinition Height="30"/>
-                        </Grid.RowDefinitions>
-                    </Grid>
-                    <ScrollView>
-                    <TableView Intent="Menu">
-                        <TableSection>
-                            <ViewCell Tapped="Home_Tapped">
-                                <StackLayout Padding="15,10">
-                                    <Label Text="Home" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" 
-                                        TextColor="{DynamicResource Secondary_Color}"/>
-                                </StackLayout>
-                            </ViewCell>
-                            <ViewCell Tapped="Historico_Tapped">
-                                <StackLayout Padding="15,10">
-                                    <Label Text="Histórico" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" 
-                                        TextColor="{DynamicResource Secondary_Color}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </TableSection>
-                    </TableView>
-                    </ScrollView>
-                </StackLayout>
-            </ContentPage.Content>
-        </ContentPage>
-    </MasterDetailPage.Master>
-    
-</MasterDetailPage>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:views="clr-namespace:Prototipo1_Lyfr.Views"
+       mc:Ignorable="d"
+       BackgroundColor="{DynamicResource Primary_Color}"
+       x:Class="Prototipo1_Lyfr.Views.MainPage">
+    <TabBar>
+        <Shell.NavBarIsVisible>
+            <x:Boolean>
+                False
+            </x:Boolean>
+        </Shell.NavBarIsVisible>
+        <Shell.SearchHandler>
+            <SearchHandler BackgroundColor="Red"/>
+        </Shell.SearchHandler>
+        <Shell.TabBarBackgroundColor>
+            <Color>#EEDBAA</Color>
+        </Shell.TabBarBackgroundColor>
+        <Shell.TabBarTitleColor>
+            <Color>#436477</Color>
+        </Shell.TabBarTitleColor>
+
+        <Tab Icon="download_icon.png"
+             Title="Downloads">
+            <ShellContent ContentTemplate="{DataTemplate views:Downloads}"/>
+        </Tab>
+        <Tab Icon="home_icon.png"
+             Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate views:Home}"/>
+        </Tab>
+        <Tab Icon="perfil_icon.png"
+             Title="Perfil">
+            <ShellContent ContentTemplate="{DataTemplate views:Perfil}"/>
+        </Tab>
+    </TabBar>
+
+    <FlyoutItem Title="Teste" FlyoutIcon="eye.png" Icon="user.png"/>
+
+    <!--<views:Home IconImageSource="perfil_icon.png"/>
+    <views:Perfil IconImageSource="perfil_icon.png"/>-->
+    <!--BarBackgroundColor="{DynamicResource Secondary_Color}"
+    BarTextColor="{DynamicResource Primary_Color}"-->
+    <!--<views:Downloads IconImageSource="download_icon.png"/>
+    <views:Home IconImageSource="home_icon.png"/>
+    <views:Perfil IconImageSource="perfil_icon.png"/>-->
+</Shell>
