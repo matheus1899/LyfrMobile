@@ -6,7 +6,7 @@
              x:Class="Prototipo1_Lyfr.Login" BackgroundColor="{DynamicResource Primary_Color}">
     <ContentPage.Resources>
         <ResourceDictionary>
-
+            <Color x:Key="DefaultTextColor">#436477</Color>
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
@@ -51,7 +51,7 @@
                     <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
                         <Entry x:Name="ent_Email_Usuario"
                                    Keyboard="Email"
-                                   TextColor="{DynamicResource Quartenary_Color}"
+                                   TextColor="{DynamicResource DefaultTextColor}"
                                    TextChanged="EntryEmail_TextChanged"
                                    Focused="EntryEmail_Focused"
                                    Placeholder="Email"
@@ -63,7 +63,7 @@
                         </Entry>
                         <Label Text=" X " 
                                 x:Name="Lbl_X_Email" 
-                                TextColor="{DynamicResource Quartenary_Color}"
+                                TextColor="{DynamicResource DefaultTextColor}"
                                 IsEnabled="False"
                                 IsVisible="False"
                                 HorizontalOptions="End" 
@@ -92,14 +92,14 @@
                                Focused="EntrySenha_Focused"
                                Unfocused="EntrySenha_Unfocused"
                                Placeholder="Senha"
-                               TextColor="{DynamicResource Quartenary_Color}">
+                               TextColor="{DynamicResource DefaultTextColor}">
                             <Entry.Effects>
                                 <ef:FocusEffect/>
                             </Entry.Effects>
                         </Entry>
                         <Label Text=" X " 
                                x:Name="Lbl_X_Senha" 
-                               TextColor="{DynamicResource Quartenary_Color}"
+                               TextColor="{DynamicResource DefaultTextColor}"
                                IsEnabled="False"
                                IsVisible="False"
                                HorizontalOptions="End" 
