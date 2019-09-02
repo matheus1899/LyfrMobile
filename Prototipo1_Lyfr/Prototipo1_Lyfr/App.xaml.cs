@@ -1,8 +1,9 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-//using Microsoft.AppCenter;
-//using Microsoft.AppCenter.Analytics;
-//using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Prototipo1_Lyfr.Conexao;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Prototipo1_Lyfr
@@ -13,12 +14,16 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             HotReloader.Current.Run(this);
-            MainPage = new NavigationPage(new Views.Introducao());
+
+            GerarToken gerarToken = new GerarToken();
+            gerarToken.ChecharCache();
+
+            MainPage = new NavigationPage(new Introducao());
         }
 
         protected override void OnStart()
         {
-            //AppCenter.Start("android=5af831f0-b735-4a30-a1ff-a33d62146c66;", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("android=5af831f0-b735-4a30-a1ff-a33d62146c66;", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

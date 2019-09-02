@@ -3,15 +3,20 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
-
+using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Conexao.Classes;
+using Prototipo1_Lyfr.Controls;
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
-        public Cadastrar(){
+        char plano;
+
+        public Cadastrar()
+        {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Grid_.Children[5].TranslationX = 1700;
@@ -26,36 +31,19 @@ namespace Prototipo1_Lyfr
         {
             base.OnAppearing();
         }
-        static VisualState CreateState(string nameState, string text, Color color)
-        {
-            var textSetter = new Setter {Value=text, Property=Label.TextProperty };
-            var colorSetter = new Setter { Value=color, Property = Label.TextColorProperty };
 
-            return new VisualState
-            {
-                Name = nameState,
-                TargetType = typeof(Label),
-                Setters = { textSetter, colorSetter }
-            };
-        }
+
         protected override bool OnBackButtonPressed(){
-            try
-            {
-                Navigation.PushAsync(new Login());
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Erro -> "+ex.Message);
-                Navigation.PopAsync();
-            }
+            Navigation.PushAsync(new Login());
             return true;
         }
 
         private async void btn_gratis_Clicked(object sender, EventArgs e)
         {
             pago = false;
+            plano = char.Parse("G");
 
-            if (pago==false)
+            if (pago == false)
             {
                 btn_gratis.IsEnabled = false;
                 btn_pago.IsEnabled = false;
@@ -86,8 +74,9 @@ namespace Prototipo1_Lyfr
         private void btn_pago_Clicked(object sender, EventArgs e)
         {
             pago = true;
+            plano = char.Parse("P");
 
-            if (pago==true)
+            if (pago == true)
             {
                 btn_gratis.IsEnabled = false;
                 btn_pago.IsEnabled = false;
@@ -101,7 +90,8 @@ namespace Prototipo1_Lyfr
                 Stack_Ent_Rua_Numero.IsVisible = true;
                 Stack_Ent_Cidade_Estado.IsVisible = true;
 
-                Task.Run(async()=> {
+                Task.Run(async () =>
+                {
                     await Stack_Ent_CPF.TranslateTo(0, 0, 150, Easing.Linear);
                     await Stack_Ent_CEP.TranslateTo(0, 0, 150, Easing.Linear);
                     await Stack_Ent_Tele.TranslateTo(0, 0, 150, Easing.Linear);
@@ -114,16 +104,73 @@ namespace Prototipo1_Lyfr
                 btn_Cadastrar.IsEnabled = true;
             }
         }
-        private void Cadastrar_Clicked(object sender, EventArgs e)
+
+        private async void Cadastrar_Clicked(object sender, EventArgs e)
         {
-            return;
+            if (string.IsNullOrEmpty(ent_Nome_Usuario.Text)) { MostrarMensagem.Mostrar("Prencha o campo do nome!"); }
+            else if (string.IsNullOrEmpty(ent_Email_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do e-mail!"); }
+            else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da senha!"); }
+            else if (string.IsNullOrEmpty(ent_CPF_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do CPF!"); }
+            else if (string.IsNullOrEmpty(ent_CEP_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do CEP!"); }
+            else if (string.IsNullOrEmpty(ent_Telefone_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do telefone!"); }
+            else if (string.IsNullOrEmpty(ent_Rua_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da rua!"); }
+            else if (string.IsNullOrEmpty(ent_Numero_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do número!"); }
+            else if (string.IsNullOrEmpty(ent_Cidade_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da ciade!"); }
+            else if (string.IsNullOrEmpty(ent_Estado_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do estado!"); }
+            else
+            {
+                ai.IsVisible = true;
+                ai.IsRunning = true;
+
+                Cliente cliente = new Cliente()
+                {
+                    Nome = ent_Nome_Usuario.Text,
+                    Email = ent_Email_Usuario.Text,
+                    Senha = ent_Senha_Usuario.Text,
+                    Cep = ent_CEP_Usuario.Text,
+                    Rua = ent_Rua_Usuario.Text,
+                    Numero = ent_Numero_Usuario.Text,
+                    Cidade = ent_Cidade_Usuario.Text,
+                    Estado = ent_Estado_Usuario.Text,
+                    Telefone = ent_Telefone_Usuario.Text,
+                    Cpf = ent_CPF_Usuario.Text,
+                    DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
+                    Plano = plano,
+                    Sexo = char.Parse("O")
+                };
+
+                var conexao = new Conexao.Classes.ConexaoAPI();
+                GerarToken gerarToken = new GerarToken();
+
+                try
+                {
+                    gerarToken.ChecharCache();
+
+                    var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
+                    MostrarMensagem.Mostrar(result);
+
+                    if (result == "Cliente cadastrado com sucesso!")
+                    {
+                        await Email.EnviarEmail(ent_Email_Usuario.Text, ent_Nome_Usuario.Text, "Seja bem-vindo," + ent_Nome_Usuario.Text + "ao nosso aplicativo");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
+
+                ai.IsVisible = false;
+                ai.IsRunning = false;
+            }
         }
+
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
-            await btn_Img_Eye.ScaleTo(1.3,100,Easing.SpringIn);
-            await btn_Img_Eye.ScaleTo(1,100,Easing.BounceIn);
+            await btn_Img_Eye.ScaleTo(1.3, 100, Easing.SpringIn);
+            await btn_Img_Eye.ScaleTo(1, 100, Easing.BounceIn);
         }
+
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {
             var a = sender as Label;
@@ -201,6 +248,9 @@ namespace Prototipo1_Lyfr
                 lbl.IsEnabled = false;
                 lbl.IsVisible = false;
             }
+
+
+            
         }
         private void Senha_Ent_Unfocused(object sender, FocusEventArgs e)
         {
@@ -218,12 +268,13 @@ namespace Prototipo1_Lyfr
             bool _Maiusculo = false;
             bool _Especial = false;
 
-            if(string.IsNullOrEmpty(senha) || string.IsNullOrWhiteSpace(senha))
+            if (string.IsNullOrEmpty(senha) || string.IsNullOrWhiteSpace(senha))
             {
                 return false;
             }
 
-            if (Regex.IsMatch(senha, "@") ==true)
+
+            if (Regex.IsMatch(senha,"@#!%&=")==true)
             {
                 _Especial = true;
             }

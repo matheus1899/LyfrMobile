@@ -51,12 +51,23 @@ namespace Prototipo1_Lyfr.Views
 
         private void ContentPage_SizeChanged(object sender, EventArgs e)
         {
-            if(this.Width>this.Height) {
+            Navigation.PushAsync(new Cadastrar());
+        }
+        private void ContentPage_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.Width > this.Height)
+            {
                 VisualStateManager.GoToState(stc_Buttons, "Landscape");
             }
-            else{
+            else
+            {
                 VisualStateManager.GoToState(stc_Buttons, "Portrait");
             }
         }
+        private void ChamarPagLogin(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Login());
+        }
+
     }
 }

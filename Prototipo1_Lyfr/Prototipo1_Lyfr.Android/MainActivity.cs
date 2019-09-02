@@ -1,10 +1,12 @@
 ﻿using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Util;
 using System;
+using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.Droid
 {
@@ -24,7 +26,10 @@ namespace Prototipo1_Lyfr.Droid
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            EsperarMensagem();
         }
+
         public bool IsStoragePermissionGranted()
         {
             if (Build.VERSION.SdkInt >= m)
@@ -46,6 +51,18 @@ namespace Prototipo1_Lyfr.Droid
                 Log.Verbose(TAG, "Permission is granted");
                 return true;
             }
+        }
+
+        void EsperarMensagem()
+        {
+            //Espera uma mensagem
+            MessagingCenter.Subscribe<string>(this, "Mensagem", message =>
+            {
+                //Inicia um broadcast junto com a mensagem
+                var intent = new Intent(this, typeof(MensagemReceiver));
+                intent.PutExtra("mensagem", message);
+                SendBroadcast(intent);
+            });
         }
     }
 }

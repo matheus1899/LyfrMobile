@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Prototipo1_Lyfr.Models;
+using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Prototipo1_Lyfr.Views
@@ -6,7 +8,7 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : Shell
     {
-        public MainPage()
+        public MainPage(Cliente cliente)
         {
             InitializeComponent();
         }
