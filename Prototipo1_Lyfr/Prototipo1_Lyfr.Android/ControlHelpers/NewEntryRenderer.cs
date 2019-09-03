@@ -21,23 +21,7 @@ namespace Prototipo1_Lyfr.Droid.ControlHelpers
 
             if (e.NewElement != null)
             {
-                //var gradient = new GradientDrawable();
-                //gradient.SetColor(Color.White);
-                //gradient.SetCornerRadius(60f);
-                //gradient.SetStroke(10, Color.DarkRed);
-                //Control.SetBackground(gradient);
-                //Control.SetHighlightColor(Color.Red);
-                //Control.SetTextColor(Color.Blue);
-                //Control.SetHintTextColor(Color.Indigo);
-                //Control.SetPadding(50,Control.PaddingTop,Control.PaddingRight, Control.PaddingBottom);
-                //Control.Background.SetColorFilter(Color.Transparent,PorterDuff.Mode.SrcAtop);
-                //Control.Background = null;
-                //var layoutParams = new MarginLayoutParams(Control.LayoutParameters);
-                //layoutParams.SetMargins(0, 0, 0, 0);
-                //LayoutParameters = layoutParams;
-                //Control.LayoutParameters = layoutParams;
-                //Control.SetPadding(0, 0, 0, 0);
-                //SetPadding(0, 0, 0, 0);
+                
             }
         }
     }

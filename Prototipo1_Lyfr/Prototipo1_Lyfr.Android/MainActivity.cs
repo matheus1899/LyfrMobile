@@ -15,18 +15,14 @@ namespace Prototipo1_Lyfr.Droid
     {
         private const BuildVersionCodes m = BuildVersionCodes.M;
         public string TAG { get; private set; }
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
-
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
-
             EsperarMensagem();
         }
 

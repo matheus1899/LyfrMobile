@@ -25,31 +25,20 @@
             <ColumnDefinition Width="1.428*"/>
             <ColumnDefinition Width="1.428*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Image Source="Logo_Lyfr.png" 
-                   Aspect="AspectFit"
-                   HorizontalOptions="FillAndExpand"
-                   Margin="-45,5,-45,0"
-                   Grid.Row="0"
-                   Grid.Column="3"/>
-        <!--<StackLayout HorizontalOptions="FillAndExpand" 
-                    VerticalOptions="FillAndExpand"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="7">
-            <Label Text="Header" FontSize="Header"/>
-            <Label Text="Title" FontSize="Title"/>
-            <Label Text="Body" FontSize="Body"/>
-            <Label Text="Large" FontSize="Large"/>
-            <Label Text="Caption" FontSize="Caption"/>
-        </StackLayout>-->
+               Aspect="AspectFit"
+               HorizontalOptions="FillAndExpand"
+               Margin="-45,5,-45,0"
+               Grid.Row="0"
+               Grid.Column="3"/>
         <cardview:CarouselView x:Name="Carousel" 
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="7"
-                            IsCyclical="False"
-                            HorizontalOptions="FillAndExpand" 
-                            VerticalOptions="FillAndExpand">
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="7"
+                               IsCyclical="False"
+                               HorizontalOptions="FillAndExpand" 
+                               VerticalOptions="FillAndExpand">
             <cardview:CarouselView.ItemTemplate>
                 <DataTemplate>
                     <pancake:PancakeView HorizontalOptions="FillAndExpand" 
@@ -60,13 +49,13 @@
                             <BoxView HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"/>
                             <Label Text="{Binding TextoIntro}" 
-                                    TextColor="{DynamicResource Secondary_Color}" 
-                                    FontSize="Title"
-                                    FontAttributes="Bold" 
-                                    VerticalTextAlignment="Center" 
-                                    HorizontalOptions="FillAndExpand"
-                                    HorizontalTextAlignment="Center"
-                                    MaxLines="4"/>
+                                   TextColor="{DynamicResource Secondary_Color}" 
+                                   FontSize="Title"
+                                   FontAttributes="Bold" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   MaxLines="4"/>
                             <BoxView HorizontalOptions="FillAndExpand" 
                                      VerticalOptions="FillAndExpand"/>
                         </StackLayout>

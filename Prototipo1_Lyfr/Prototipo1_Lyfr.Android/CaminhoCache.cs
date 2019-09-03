@@ -1,5 +1,4 @@
-﻿
-using Prototipo1_Lyfr.Conexao.Interfaces;
+﻿using Prototipo1_Lyfr.Conexao.Interfaces;
 using Prototipo1_Lyfr.Droid;
 using System.IO;
 using Xamarin.Forms;
