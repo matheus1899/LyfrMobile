@@ -1,45 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       xmlns:views="clr-namespace:Prototipo1_Lyfr.Views"
-       mc:Ignorable="d"
-       BackgroundColor="{DynamicResource Primary_Color}"
-       x:Class="Prototipo1_Lyfr.Views.MainPage">
-    <TabBar>
-        <Shell.NavBarIsVisible>
-            <x:Boolean>True</x:Boolean>
-        </Shell.NavBarIsVisible>
-        <Shell.SearchHandler>
-            <SearchHandler BackgroundColor="Red"/>
-        </Shell.SearchHandler>
-        <Shell.TabBarBackgroundColor>
-            <Color>#EEDBAA</Color>
-        </Shell.TabBarBackgroundColor>
-        <Shell.TabBarTitleColor>
-            <Color>#436477</Color>
-        </Shell.TabBarTitleColor>
-
-        <Tab Icon="download_icon.png"
-             Title="Downloads">
-            <ShellContent ContentTemplate="{DataTemplate views:Downloads}"/>
-        </Tab>
-        <Tab Icon="home_icon.png"
-             Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate views:Home}"/>
-        </Tab>
-        <Tab Icon="perfil_icon.png"
-             Title="Perfil">
-            <ShellContent ContentTemplate="{DataTemplate views:Perfil}"/>
-        </Tab>
-    </TabBar>
-
-    <!--<views:Home IconImageSource="perfil_icon.png"/>
-    <views:Perfil IconImageSource="perfil_icon.png"/>-->
-    <!--BarBackgroundColor="{DynamicResource Secondary_Color}"
-    BarTextColor="{DynamicResource Primary_Color}"-->
-    <!--<views:Downloads IconImageSource="download_icon.png"/>
-    <views:Home IconImageSource="home_icon.png"/>
-    <views:Perfil IconImageSource="perfil_icon.png"/>-->
-</Shell>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="{DynamicResource Tertiary_Color}"
+            xmlns:views="clr-namespace:Prototipo1_Lyfr.Views"
+            mc:Ignorable="d"
+            BackgroundColor="{DynamicResource Primary_Color}"
+            x:Class="Prototipo1_Lyfr.Views.MainPage">
+    <TabbedPage.Children>
+        <views:Downloads IconImageSource="download_icon.png" Title="Downloads"/>
+        <views:Home IconImageSource="home_icon.png" Title="Home"/>
+        <views:Perfil IconImageSource="perfil_icon.png" Title="Perfil"/>
+    </TabbedPage.Children>
+</TabbedPage>

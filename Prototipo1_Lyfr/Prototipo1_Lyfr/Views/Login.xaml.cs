@@ -48,7 +48,7 @@ namespace Prototipo1_Lyfr
             try
             {
                 var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                App.Current.MainPage = new MainPage(select);
+                App.Current.MainPage = new Views.MainPage(select);
             }
             catch (Exception ex)
             {

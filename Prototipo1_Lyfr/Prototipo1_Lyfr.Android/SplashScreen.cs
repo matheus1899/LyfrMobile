@@ -16,7 +16,13 @@ namespace Prototipo1_Lyfr.Droid
             base.OnCreate(savedInstanceState, persistentState);
             Log.Debug(TAG, "SplashActivity.OnCreate");
         }
-
+        void SimulateStartup()
+        {
+            //Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
+            //Task.Delay(500);
+            //Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
+            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+        }
         // Launches the startup task
         protected override void OnResume()
         {
@@ -29,14 +35,5 @@ namespace Prototipo1_Lyfr.Droid
         public override void OnBackPressed() { }
 
         // Simulates background work that happens behind the splash screen
-        void SimulateStartup()
-        {
-            //Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-
-            Task.Delay(500);
-
-            //Log.Debug(TAG, "Startup work is finished - starting MainActivity.");
-            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-        }
     }
 }
