@@ -14,9 +14,8 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             HotReloader.Current.Run(this);
-            //GerarToken gerarToken = new GerarToken();
-            //gerarToken.ChecharCache();
-            MainPage = new Views.MainPage();
+
+            MainPage = new Views.Introducao();
         }
         protected override void OnStart()
         {

@@ -15,8 +15,9 @@
         public string DataNasc { get; set; }
         public string Senha { get; set; }
         public string Telefone { get; set; }
+        public string DataDeCadastro { get; set; }
         public char Plano { get; set; }
-        public char Sexo { get; set; }
+       
     }
 
 }

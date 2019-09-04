@@ -46,25 +46,6 @@
     
     <ScrollView>
         <StackLayout VerticalOptions="FillAndExpand">
-            <!--<StackLayout Orientation="Horizontal" 
-                         HorizontalOptions="FillAndExpand" 
-                         Margin="70,20,70,0" Spacing="35">
-                <controls:NewFrame BackgroundColor="{DynamicResource BackgroundColor_Contraste_App}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
-                    <StackLayout Padding="0,-20,0,-20">
-                        <Label Text="1" TextColor="White" 
-                               FontAttributes="Bold" 
-                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </controls:NewFrame>
-                <StackLayout HeightRequest="1" BackgroundColor="#436477" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
-                <controls:NewFrame BackgroundColor="{DynamicResource Primary_Color}" CornerRadius="25" WidthRequest="7" HeightRequest="7" BorderColor="#436477">
-                    <StackLayout Padding="0,-20,0,-20">
-                        <Label Text="2" TextColor="{DynamicResource DefaultTextColor}" 
-                               FontAttributes="Bold"
-                               HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </controls:NewFrame>
-            </StackLayout>-->
             <Grid VerticalOptions="Center" 
                   x:Name="Grid_"
                   RowSpacing="5">
@@ -330,7 +311,7 @@
                                VerticalOptions="FillAndExpand"
                                Keyboard="Numeric"
                                
-                               MaxLength="8"
+                               MaxLength="9"
                                Margin="0,-5,0,-25">
                                 <Entry.Behaviors>
                                     <behaviorPack:CEPValidationBehavior />
@@ -381,7 +362,7 @@
                                     <ef:FocusEffect/>
                                 </Entry.Effects>
                             <Entry.Behaviors>
-                                    <behaviorPack:MaskedBehavior Mask="(XX)XXXX-XXXX" />
+                                    <behaviorPack:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
                                 </Entry.Behaviors>
                             </Entry>
                             <Label Text=" X " 

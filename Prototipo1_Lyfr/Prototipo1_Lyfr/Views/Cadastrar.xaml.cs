@@ -124,19 +124,19 @@ namespace Prototipo1_Lyfr
 
                 Cliente cliente = new Cliente()
                 {
-                    Nome = ent_Nome_Usuario.Text,
-                    Email = ent_Email_Usuario.Text,
-                    Senha = ent_Senha_Usuario.Text,
+                    Nome = ent_Nome_Usuario.Text.Trim(),
+                    Email = ent_Email_Usuario.Text.Trim(),
+                    Senha = ent_Senha_Usuario.Text.Trim(),
                     Cep = ent_CEP_Usuario.Text,
-                    Rua = ent_Rua_Usuario.Text,
-                    Numero = ent_Numero_Usuario.Text,
-                    Cidade = ent_Cidade_Usuario.Text,
+                    Rua = ent_Rua_Usuario.Text.Trim(),
+                    Numero = ent_Numero_Usuario.Text.Trim(),
+                    Cidade = ent_Cidade_Usuario.Text.Trim(),
                     Estado = ent_Estado_Usuario.Text,
                     Telefone = ent_Telefone_Usuario.Text,
                     Cpf = ent_CPF_Usuario.Text,
                     DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
-                    Plano = plano,
-                    Sexo = char.Parse("O")
+                    DataDeCadastro = DateTime.Now.ToString(),
+                    Plano = plano
                 };
 
                 var conexao = new Conexao.Classes.ConexaoAPI();
@@ -149,18 +149,13 @@ namespace Prototipo1_Lyfr
                     var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
 
-                    if (result == "Cliente cadastrado com sucesso!")
-                    {
-                        await Email.EnviarEmail(ent_Email_Usuario.Text, ent_Nome_Usuario.Text, "Seja bem-vindo," + ent_Nome_Usuario.Text + "ao nosso aplicativo");
-                    }
+                    ai.IsVisible = false;
+                    ai.IsRunning = false;
                 }
                 catch (Exception ex)
                 {
                     MostrarMensagem.Mostrar(ex.Message);
                 }
-
-                ai.IsVisible = false;
-                ai.IsRunning = false;
             }
         }
 

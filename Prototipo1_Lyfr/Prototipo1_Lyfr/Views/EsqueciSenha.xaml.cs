@@ -4,12 +4,15 @@ using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prototipo1_Lyfr.Conexao.Classes;
+using Prototipo1_Lyfr.Conexao;
 
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EsqueciSenha : ContentPage
     {
+
         public bool Codigo_Enviado = false;
         public EsqueciSenha()
         {
@@ -69,26 +72,23 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = true;
             }
         }
-        private void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
+
+        private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
         {
-            //if (Codigo_Enviado==false)
-            //{
-            //    await Frame_Ent_Email.FadeTo(0,200,Easing.Linear);
-            //    Frame_Ent_Email.IsVisible = false;
-            //    Lbl_DigiteEmail.TextColor = Color.FromHex("#EEDBAA");
-            //    BtnEnviaCodigo.Text = "confirmar código de verificação";
-            //    Lbl_SubHeaderFrame.Text = "Insira o código de verificação";
-            //    await Stack_Codigo_Verificacao.FadeTo(0, 0, Easing.Linear);
-            //    Stack_Codigo_Verificacao.IsVisible = true;
-            //    await Stack_Codigo_Verificacao.FadeTo(1,500,Easing.Linear);
-            //    Codigo_Enviado = true;
-            //}
-            //else
-            //{
-            //    Lbl_Tempo.TextColor = Color.FromHex("#436477");
-            //    btn_ReenviaCodigo.IsVisible = true;
-            //}
+            try
+            {
+                Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
+                GerarToken gerarToken = new GerarToken();
+
+                gerarToken.ChecharCache();
+                await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache());
+            }
+            catch (Exception ex)
+            {
+                MostrarMensagem.Mostrar(ex.Message);
+            }
         }
+
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopAsync();

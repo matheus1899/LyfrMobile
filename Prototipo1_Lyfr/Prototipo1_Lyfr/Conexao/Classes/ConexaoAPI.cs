@@ -87,6 +87,41 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                 }
             }
         }
+
+        public async Task<string> EnviarEmail(string email, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+                    StringContent content = new StringContent(email);
+
+                    HttpResponseMessage response = await client.PostAsync("Cliente/ForgotPassword", content);
+                    mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return mensagem;
+                    }
+
+                    if (mensagem != null)
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+
     }
 }
 

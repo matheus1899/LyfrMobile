@@ -39,23 +39,36 @@ namespace Prototipo1_Lyfr
         {
             gerarToken.ChecharCache();
 
-            Cliente cliente = new Cliente()
-            {
-                Email = ent_Email_Usuario.Text,
-                Senha = ent_Senha_Usuario.Text
-            };
-
             try
             {
-                var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                App.Current.MainPage = new Views.MainPage(select);
+                if (string.IsNullOrWhiteSpace(ent_Email_Usuario.Text))
+                {
+                    MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
+                }
+                else if (string.IsNullOrWhiteSpace(ent_Senha_Usuario.Text))
+                {
+                    MostrarMensagem.Mostrar("Preencha o campo da senha!");
+                }
+                else
+                {
+                    Cliente cliente = new Cliente()
+                    {
+                        Email = ent_Email_Usuario.Text,
+                        Senha = ent_Senha_Usuario.Text
+                    };
+
+                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                    App.Current.MainPage = new Views.MainPage(select);
+                }
             }
+
             catch (Exception ex)
             {
                 MostrarMensagem.Mostrar(ex.Message);
             }
 
         }
+
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
         {
             var a = sender as ImageButton;

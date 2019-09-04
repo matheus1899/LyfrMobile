@@ -83,7 +83,6 @@
   <ItemGroup>
     <Compile Include="CaminhoCache.cs" />
     <Compile Include="ControlHelpers\NewEntryRenderer.cs" />
-    <Compile Include="ControlHelpers\NewTabbedPageRenderer.cs" />
     <Compile Include="Effects\FocusEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemReceiver.cs" />
