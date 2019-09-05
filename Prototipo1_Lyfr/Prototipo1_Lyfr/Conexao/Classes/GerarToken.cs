@@ -33,7 +33,7 @@ namespace Prototipo1_Lyfr.Conexao
                     var json = JsonConvert.SerializeObject(user);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    HttpResponseMessage response = await client.PostAsync("Seguranca/LoginAPI", content);
+                    HttpResponseMessage response = await client.PostAsync("Seguranca/Login", content);
                     var response_json = await response.Content.ReadAsStringAsync();
 
                     if (response.IsSuccessStatusCode)

@@ -15,7 +15,7 @@ namespace Prototipo1_Lyfr
             InitializeComponent();
             HotReloader.Current.Run(this);
 
-            MainPage = new Views.Introducao();
+            MainPage = new NavigationPage(new Views.Introducao());
         }
         protected override void OnStart()
         {

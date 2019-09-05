@@ -96,7 +96,8 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                 {
                     client.BaseAddress = uri;
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-                    StringContent content = new StringContent(email);
+                    var json = JsonConvert.SerializeObject(email);
+                    StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync("Cliente/ForgotPassword", content);
                     mensagem = await response.Content.ReadAsStringAsync();

@@ -81,7 +81,8 @@ namespace Prototipo1_Lyfr
                 GerarToken gerarToken = new GerarToken();
 
                 gerarToken.ChecharCache();
-                await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache());
+                var result = await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache());
+                MostrarMensagem.Mostrar(result);
             }
             catch (Exception ex)
             {
