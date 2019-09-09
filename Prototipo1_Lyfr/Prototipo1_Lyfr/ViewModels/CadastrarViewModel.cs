@@ -4,9 +4,5 @@
     {
         private bool pago;
         private bool IsValid;
-        public CadastrarViewModel()
-        {
-
-        }
     }
 }

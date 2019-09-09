@@ -4,6 +4,7 @@ using Prototipo1_Lyfr.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr
@@ -41,13 +42,13 @@ namespace Prototipo1_Lyfr
 
             try
             {
-                if (string.IsNullOrWhiteSpace(ent_Email_Usuario.Text))
+                if (!IsValidEmail(ent_Email_Usuario.Text))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
+                    MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
                 }
-                else if (string.IsNullOrWhiteSpace(ent_Senha_Usuario.Text))
+                else if (!IsValidPassword(ent_Senha_Usuario.Text))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo da senha!");
+                    MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
                 }
                 else
                 {
@@ -80,8 +81,6 @@ namespace Prototipo1_Lyfr
         {
             Navigation.PushAsync(new EsqueciSenha());
         }
-
-
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
             var a = sender as Entry;
@@ -168,13 +167,50 @@ namespace Prototipo1_Lyfr
             Lbl_X_Senha.IsEnabled = false;
             Lbl_X_Senha.IsVisible = false;
         }
-        private void NewFrame_Focused(object sender, FocusEventArgs e)
-        {
-
-        }
         private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
         {
             cbx_LembrarSenha.IsChecked = !cbx_LembrarSenha.IsChecked;
+        }
+        private bool IsValidPassword(string password)
+        {
+            bool _Maiusculo = false;
+            bool _Especial = false;
+
+            if (string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password))
+            {
+                return false;
+            }
+            if (password.Length<8)
+            {
+                return false;
+            }
+            if (Regex.IsMatch(password, "@#!%&=") == true)
+            {
+                _Especial = true;
+            }
+            if (Regex.IsMatch(password, @"\b[A-Z]\w*\b") == true)
+            {
+                _Maiusculo = true;
+
+            }
+
+            if (_Maiusculo == true && _Especial == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool IsValidEmail(string email)
+        {
+            bool IsValid;
+            IsValid = Regex.IsMatch(email,
+                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50));
+            return IsValid;
         }
     }
 }

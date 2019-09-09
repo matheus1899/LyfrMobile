@@ -1,29 +1,21 @@
-﻿
-using Prototipo1_Lyfr.Controls;
+﻿using Prototipo1_Lyfr.Controls;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prototipo1_Lyfr.Conexao.Classes;
 using Prototipo1_Lyfr.Conexao;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EsqueciSenha : ContentPage
     {
-
-        public bool Codigo_Enviado = false;
+        //bool Codigo_Enviado = false;
         public EsqueciSenha()
         {
-            try
-            {
-                InitializeComponent();
-            }
-            catch (Exception e)
-            {
-                //Log.WriteLine(LogPriority.Error, "ERRO -> ", e.Message.ToString());
-            }
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
         private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
         {
@@ -72,83 +64,43 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = true;
             }
         }
-
         private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
         {
             try
             {
+                if (string.IsNullOrEmpty(ent_Email_Usuario.Text) || string.IsNullOrWhiteSpace(ent_Email_Usuario.Text))
+                {
+                    throw new ArgumentNullException();
+                }
+                if (!Regex.IsMatch(ent_Email_Usuario.Text, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                        @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50)))
+                {
+                    throw new FormatException();
+                }
                 Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
                 GerarToken gerarToken = new GerarToken();
-
+                string result=" ";
                 gerarToken.ChecharCache();
-                var result = await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache());
+                await Task.Run(async () => { result = await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache()); });
                 MostrarMensagem.Mostrar(result);
+            }
+            catch (ArgumentNullException)
+            {
+                MostrarMensagem.Mostrar("Preencha o campo para completar a solicitação");
+            }
+            catch (FormatException)
+            {
+                MostrarMensagem.Mostrar("Email inválido, por favor digite o seu email novamente");
             }
             catch (Exception ex)
             {
                 MostrarMensagem.Mostrar(ex.Message);
             }
         }
-
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopAsync();
             return base.OnBackButtonPressed();
-        }
-        private void Ent_Codigo1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.NewTextValue.Length>0)
-            {
-                ent_Codigo2.Focus();
-            }
-            else
-            {
-                ent_Codigo1.Unfocus();
-            }
-        }
-        private void Ent_Codigo2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.NewTextValue.Length > 0)
-            {
-                ent_Codigo3.Focus();
-            }
-            else
-            {
-                ent_Codigo1.Focus();
-            }
-        }
-        private void Ent_Codigo3_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.NewTextValue.Length > 0)
-            {
-                ent_Codigo4.Focus();
-            }
-            else
-            {
-                ent_Codigo2.Focus();
-            }
-        }
-        private void Ent_Codigo4_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.NewTextValue.Length > 0)
-            {
-                ent_Codigo5.Focus();
-            }
-            else
-            {
-                ent_Codigo3.Focus();
-            }
-        }
-        private void Ent_Codigo5_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.NewTextValue.Length > 0)
-            {
-                ent_Codigo5.Unfocus();
-            }
-            else
-            {
-                ent_Codigo4.Focus();
-            }
         }
     }
 }

@@ -107,16 +107,46 @@ namespace Prototipo1_Lyfr
 
         private async void Cadastrar_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ent_Nome_Usuario.Text)) { MostrarMensagem.Mostrar("Prencha o campo do nome!"); }
-            else if (string.IsNullOrEmpty(ent_Email_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do e-mail!"); }
-            else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da senha!"); }
-            else if (string.IsNullOrEmpty(ent_CPF_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do CPF!"); }
-            else if (string.IsNullOrEmpty(ent_CEP_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do CEP!"); }
-            else if (string.IsNullOrEmpty(ent_Telefone_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do telefone!"); }
-            else if (string.IsNullOrEmpty(ent_Rua_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da rua!"); }
-            else if (string.IsNullOrEmpty(ent_Numero_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do número!"); }
-            else if (string.IsNullOrEmpty(ent_Cidade_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo da ciade!"); }
-            else if (string.IsNullOrEmpty(ent_Estado_Usuario.Text)) { MostrarMensagem.Mostrar("Preencha o campo do estado!"); }
+            if (string.IsNullOrEmpty(ent_Nome_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Prencha o campo do nome!");
+            }
+            else if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
+            }
+            else if (!IsValidPassword(ent_Senha_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo da senha!");
+            }
+            else if (string.IsNullOrEmpty(ent_CPF_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do CPF!");
+            }
+            else if (string.IsNullOrEmpty(ent_CEP_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do CEP!");
+            }
+            else if (string.IsNullOrEmpty(ent_Telefone_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do telefone!");
+            }
+            else if (string.IsNullOrEmpty(ent_Rua_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo da rua!");
+            }
+            else if (string.IsNullOrEmpty(ent_Numero_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do número!");
+            }
+            else if (string.IsNullOrEmpty(ent_Cidade_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo da cidade!");
+            }
+            else if (string.IsNullOrEmpty(ent_Estado_Usuario.Text))
+            {
+                MostrarMensagem.Mostrar("Preencha o campo do estado!");
+            }
             else
             {
                 ai.IsVisible = true;
@@ -158,7 +188,6 @@ namespace Prototipo1_Lyfr
                 }
             }
         }
-
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
@@ -258,25 +287,27 @@ namespace Prototipo1_Lyfr
             c.IsVisible = false;
         }
 
-        private bool ValidaSenha(string senha)
+        private bool IsValidPassword(string password)
         {
             bool _Maiusculo = false;
             bool _Especial = false;
 
-            if (string.IsNullOrEmpty(senha) || string.IsNullOrWhiteSpace(senha))
+            if (string.IsNullOrEmpty(password) || string.IsNullOrWhiteSpace(password))
             {
                 return false;
             }
 
-
-            if (Regex.IsMatch(senha,"@#!%&=")==true)
+            if (password.Length<8)
+            {
+                return false;
+            }
+            if (Regex.IsMatch(password, "@#!%&=")==true)
             {
                 _Especial = true;
             }
-            if (Regex.IsMatch(senha, @"\b[A-Z]\w*\b") == true)
+            if (Regex.IsMatch(password, @"\b[A-Z]\w*\b") == true)
             {
                 _Maiusculo = true;
-
             }
 
             if (_Maiusculo == true && _Especial == true)

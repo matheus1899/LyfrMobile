@@ -82,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CaminhoCache.cs" />
-    <Compile Include="ControlHelpers\NewEntryRenderer.cs" />
     <Compile Include="Effects\FocusEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MensagemReceiver.cs" />
@@ -108,6 +107,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ControlHelpers\" />
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
