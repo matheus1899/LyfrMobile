@@ -44,7 +44,7 @@
                     <pancake:PancakeView HorizontalOptions="FillAndExpand" 
                                          HasShadow="True" 
                                          CornerRadius="4"
-                                         Elevation="2" Margin="30,0,30,10">
+                                         Elevation="-5" Margin="30,0,30,10">
                         <StackLayout Orientation="Horizontal">
                             <BoxView HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"/>
@@ -87,27 +87,27 @@
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Button  BackgroundColor="{DynamicResource Secondary_Color}" 
-                     x:Name="btn_Cadastrar"
-                     Text="cadastrar"
-                     CornerRadius="3"
-                     TextColor="{DynamicResource Primary_Color}" 
-                     HorizontalOptions="FillAndExpand" 
-                     Clicked="ChamarPagCadastrar"/>
+            <Button BackgroundColor="{DynamicResource Secondary_Color}" 
+                    x:Name="btn_Cadastrar"
+                    Text="cadastrar"
+                    CornerRadius="3"
+                    TextColor="{DynamicResource Primary_Color}" 
+                    HorizontalOptions="FillAndExpand" 
+                    Clicked="ChamarPagCadastrar"/>
             <Label Text="OU" 
                    VerticalTextAlignment="Center" 
                    HorizontalTextAlignment="Center" 
                    Margin="5" 
                    FontAttributes="Bold"
                    TextColor="{DynamicResource Secondary_Color}"/>
-            <Button  BackgroundColor="{DynamicResource Secondary_Color}" 
-                     x:Name="btn_Entrar"
-                     Text="entrar"
-                     CornerRadius="3"
-                     TextColor="{DynamicResource Primary_Color}" 
-                     HorizontalOptions="FillAndExpand" 
-                     FontSize="Default" 
-                     Clicked="ChamarPagLogin"/>
+            <Button BackgroundColor="{DynamicResource Secondary_Color}" 
+                    x:Name="btn_Entrar"
+                    Text="entrar"
+                    CornerRadius="3"
+                    TextColor="{DynamicResource Primary_Color}" 
+                    HorizontalOptions="FillAndExpand" 
+                    FontSize="Default" 
+                    Clicked="ChamarPagLogin"/>
         </StackLayout>
     </Grid>
 </ContentPage>

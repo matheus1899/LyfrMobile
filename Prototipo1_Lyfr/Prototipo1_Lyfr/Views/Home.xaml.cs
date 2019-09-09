@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,7 @@ namespace Prototipo1_Lyfr.Views
         }
         protected override bool OnBackButtonPressed()
         {
-            return true;
+            return false;
         }
         protected override void OnAppearing()
         {

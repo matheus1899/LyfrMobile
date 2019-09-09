@@ -3,7 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Util;
-
+using Color = Android.Graphics.Color;
 namespace Prototipo1_Lyfr.Droid
 {
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
@@ -14,6 +14,7 @@ namespace Prototipo1_Lyfr.Droid
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
             base.OnCreate(savedInstanceState, persistentState);
+            Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
             Log.Debug(TAG, "SplashActivity.OnCreate");
         }
         void SimulateStartup()

@@ -11,8 +11,8 @@ namespace Prototipo1_Lyfr
 {
     public partial class Login : ContentPage
     {
-        GerarToken gerarToken = new GerarToken();
-        Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
+        //GerarToken gerarToken = new GerarToken();
+        //Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
 
         public Login()
         {
@@ -21,7 +21,7 @@ namespace Prototipo1_Lyfr
                 InitializeComponent();
 
                 NavigationPage.SetHasNavigationBar(this, false);
-                gerarToken.ChecharCache();
+                //gerarToken.ChecharCache();
             } catch(Exception ex)
             {
                 DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");
@@ -38,35 +38,35 @@ namespace Prototipo1_Lyfr
 
         private async void Logar_Clicked(object sender, EventArgs e)
         {
-            gerarToken.ChecharCache();
+            //gerarToken.ChecharCache();
 
-            try
-            {
-                if (!IsValidEmail(ent_Email_Usuario.Text))
-                {
-                    MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
-                }
-                else if (!IsValidPassword(ent_Senha_Usuario.Text))
-                {
-                    MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
-                }
-                else
-                {
-                    Cliente cliente = new Cliente()
-                    {
-                        Email = ent_Email_Usuario.Text,
-                        Senha = ent_Senha_Usuario.Text
-                    };
+            //try
+            //{
+            //    if (!IsValidEmail(ent_Email_Usuario.Text))
+            //    {
+            //        MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
+            //    }
+            //    else if (!IsValidPassword(ent_Senha_Usuario.Text))
+            //    {
+            //        MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
+            //    }
+            //    else
+            //    {
+            //        Cliente cliente = new Cliente()
+            //        {
+            //            Email = ent_Email_Usuario.Text,
+            //            Senha = ent_Senha_Usuario.Text
+            //        };
 
-                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                    App.Current.MainPage = new Views.MainPage(select);
-                }
-            }
+            //        var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+            await Navigation.PushAsync(new Views.MainPage());
+            //    }
+            //}
 
-            catch (Exception ex)
-            {
-                MostrarMensagem.Mostrar(ex.Message);
-            }
+            //catch (Exception ex)
+            //{
+            //    MostrarMensagem.Mostrar(ex.Message);
+            //}
 
         }
 

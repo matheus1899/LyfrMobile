@@ -5,14 +5,14 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="{DynamicResource Tertiary_Color}"
+            BarBackgroundColor="{DynamicResource Primary_Color}"
             xmlns:views="clr-namespace:Prototipo1_Lyfr.Views"
             mc:Ignorable="d"
             BackgroundColor="{DynamicResource Primary_Color}"
             x:Class="Prototipo1_Lyfr.Views.MainPage">
     <TabbedPage.Children>
-        <views:Downloads IconImageSource="download_icon.png" Title="Downloads"/>
-        <views:Home IconImageSource="home_icon.png" Title="Home"/>
-        <views:Perfil IconImageSource="perfil_icon.png" Title="Perfil"/>
+        <views:Downloads IconImageSource="download_icon.png"/>
+        <views:Home IconImageSource="home_icon.png" />
+        <views:Perfil IconImageSource="perfil_icon.png"/>
     </TabbedPage.Children>
 </TabbedPage>

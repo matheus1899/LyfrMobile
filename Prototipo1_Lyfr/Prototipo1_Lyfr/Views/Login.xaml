@@ -47,7 +47,7 @@
         <Image Source="Logo_Lyfr.png" Aspect="AspectFit" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" />
         <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7">
             <StackLayout Margin="20,15,20,0" VerticalOptions="Center">
-                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}" Focused="NewFrame_Focused">
+                <controls:NewFrame Style="{x:StaticResource Frame_This_Page}">
                     <StackLayout Padding="0,-13,0,-13" Orientation="Horizontal">
                         <Entry x:Name="ent_Email_Usuario"
                                Keyboard="Email"
@@ -79,7 +79,7 @@
             </StackLayout>
             <!--Senha-->
             <StackLayout Margin="20,22,20,0" VerticalOptions="Center">
-                <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}" Focused="NewFrame_Focused">
+                <controls:NewFrame  Style="{x:StaticResource Frame_This_Page}">
                     <StackLayout Orientation="Horizontal" 
                                  Spacing="7" 
                                  VerticalOptions="FillAndExpand" 
