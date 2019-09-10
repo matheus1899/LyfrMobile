@@ -64,7 +64,18 @@ namespace Prototipo1_Lyfr.Droid
                 return true;
             }
         }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
 
+            uiOptions |= (int)SystemUiFlags.LowProfile;
+            uiOptions |= (int)SystemUiFlags.Fullscreen;
+            uiOptions |= (int)SystemUiFlags.HideNavigation;
+            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
+        }
         void EsperarMensagem()
         {
             //Espera uma mensagem

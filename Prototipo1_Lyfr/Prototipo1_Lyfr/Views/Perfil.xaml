@@ -4,14 +4,67 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Prototipo1_Lyfr.Views.Perfil"
-             BackgroundColor="{DynamicResource Primary_Color}">
+             BackgroundColor="{DynamicResource Secondary_Color}">
+    
+    
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   Text="Perfil Page"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+                <RowDefinition Height="*1"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+                <ColumnDefinition Width="*1"/>
+            </Grid.ColumnDefinitions>
+            <!-- |0|1|2|3|4|5|6|7|8|9| -->
+            <BoxView BackgroundColor="{DynamicResource Primary_Color}" 
+                     Grid.Row="3" 
+                     Grid.RowSpan="7" 
+                     Grid.Column="0" 
+                     Grid.ColumnSpan="10" 
+                     CornerRadius="50,50,0,0"/>
+            <BoxView BackgroundColor="Transparent" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Label Text="Matheus Tenorio Pereira dos Santos Santos Santos" 
+                   MaxLines="2"
+                   LineBreakMode="TailTruncation"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   BackgroundColor="Red"
+                   TextColor="{DynamicResource Secondary_Color}" 
+                   FontSize="Large"
+                   Grid.Column="3"
+                   Grid.ColumnSpan="4"
+                   Grid.Row="4"/>
+            
+                <Image Source="user.png" Visual="Material" 
+                       HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                       BackgroundColor="Gray"
+                       Grid.Row="4"
+                       Grid.Column="8"
+                       Aspect="AspectFit"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Util;
+using Android.Views;
 using Color = Android.Graphics.Color;
 namespace Prototipo1_Lyfr.Droid
 {
@@ -14,6 +15,14 @@ namespace Prototipo1_Lyfr.Droid
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
             base.OnCreate(savedInstanceState, persistentState);
+            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+
+            uiOptions |= (int)SystemUiFlags.LowProfile;
+            uiOptions |= (int)SystemUiFlags.Fullscreen;
+            uiOptions |= (int)SystemUiFlags.HideNavigation;
+            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
             Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
             Log.Debug(TAG, "SplashActivity.OnCreate");
         }
@@ -27,6 +36,14 @@ namespace Prototipo1_Lyfr.Droid
         // Launches the startup task
         protected override void OnResume()
         {
+            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+
+            uiOptions |= (int)SystemUiFlags.LowProfile;
+            uiOptions |= (int)SystemUiFlags.Fullscreen;
+            uiOptions |= (int)SystemUiFlags.HideNavigation;
+            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
             base.OnResume();
             Task startupWork = new Task(() => { SimulateStartup(); });
             startupWork.Start();
