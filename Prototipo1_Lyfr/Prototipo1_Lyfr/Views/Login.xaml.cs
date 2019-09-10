@@ -1,9 +1,11 @@
 ﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
+using Prototipo1_Lyfr.Interfaces;
 using Prototipo1_Lyfr.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr
@@ -28,11 +30,25 @@ namespace Prototipo1_Lyfr
         }
         protected override bool OnBackButtonPressed()
         {
+            //Exit();
             return base.OnBackButtonPressed();
         }
-        private void ChamarPagCadastrar(object sender, EventArgs e)
+         
+        //private async void Exit()
+        //{ 
+        //    await DisplayAlert("Lyfr", "Você deseja realmente sair do aplicativo?", "OK", "Cancel").ContinueWith(t => {
+        //        if (t.Result)
+        //        {
+        //            DependencyService.Get<IExit>().ExitApp();
+        //        }
+
+        //    });
+
+        //}
+
+        private async void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Cadastrar());
+            await Navigation.PushAsync(new Cadastrar());
         }
 
         private async void Logar_Clicked(object sender, EventArgs e)

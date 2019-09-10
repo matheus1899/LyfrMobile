@@ -37,7 +37,7 @@ namespace Prototipo1_Lyfr.Views
         private void ChamarPagLogin(object sender, EventArgs e){
             btn_Cadastrar.IsEnabled = false;
             btn_Entrar.IsEnabled = false;
-            Navigation.PushAsync(new Login());
+            App.Current.MainPage = new Login();
         }
         private void ContentPage_SizeChanged(object sender, EventArgs e)
         {

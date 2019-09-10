@@ -1,6 +1,7 @@
 ﻿using Prototipo1_Lyfr.Conexao.Interfaces;
 using Prototipo1_Lyfr.Models.SQLiteModels;
 using SQLite;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.ConexaoAPI
@@ -47,9 +48,11 @@ namespace Prototipo1_Lyfr.ConexaoAPI
             _conexao.Insert(pesquisaCache);
         }
 
-        public PesquisaCache GetPesquisaCache()
+        public List<PesquisaCache> GetPesquisaCache()
         {
-            return _conexao.Table<PesquisaCache>().FirstOrDefault();
+            return _conexao.Table<PesquisaCache>().ToList();
         }
+
+
     }
 }

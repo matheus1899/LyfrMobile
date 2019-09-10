@@ -122,7 +122,42 @@ namespace Prototipo1_Lyfr.Conexao.Classes
             }
         }
 
+        public async Task<string> Update(Cliente cliente, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var json = JsonConvert.SerializeObject(cliente);
 
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Cliente/Update/", content);
+                    mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return mensagem;
+                    }
+
+                    if (mensagem != null)
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+
+
+        }
     }
 }
 

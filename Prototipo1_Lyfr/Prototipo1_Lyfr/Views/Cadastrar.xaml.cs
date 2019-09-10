@@ -34,8 +34,13 @@ namespace Prototipo1_Lyfr
 
 
         protected override bool OnBackButtonPressed(){
-            Navigation.PushAsync(new Login());
+            BackToLogin();
             return true;
+        }
+
+        private void BackToLogin()
+        {
+            App.Current.MainPage = new Login();
         }
 
         private async void btn_gratis_Clicked(object sender, EventArgs e)
