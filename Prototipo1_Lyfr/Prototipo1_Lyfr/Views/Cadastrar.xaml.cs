@@ -120,7 +120,7 @@ namespace Prototipo1_Lyfr
             {
                 MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
             }
-            else if (!IsValidPassword(ent_Senha_Usuario.Text))
+            else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text))
             {
                 MostrarMensagem.Mostrar("Preencha o campo da senha!");
             }
@@ -179,7 +179,7 @@ namespace Prototipo1_Lyfr
 
                 try
                 {
-                    gerarToken.ChecharCache();
+                    gerarToken.ChecarCache();
 
                     var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);

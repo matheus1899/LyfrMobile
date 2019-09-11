@@ -14,10 +14,12 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
         }
+
         public MainPage(Cliente cliente)
         {
             InitializeComponent();
         }
+
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();

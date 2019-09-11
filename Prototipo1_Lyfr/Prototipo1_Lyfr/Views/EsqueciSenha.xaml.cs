@@ -77,10 +77,11 @@ namespace Prototipo1_Lyfr
                 {
                     throw new FormatException();
                 }
+
                 Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
                 GerarToken gerarToken = new GerarToken();
                 string result=" ";
-                gerarToken.ChecharCache();
+                gerarToken.ChecarCache();
                 await Task.Run(async () => { result = await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache()); });
                 MostrarMensagem.Mostrar(result);
             }

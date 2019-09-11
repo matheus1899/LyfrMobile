@@ -83,7 +83,7 @@ namespace Prototipo1_Lyfr.Conexao
             return false;
         }
 
-        public void ChecharCache()
+        public void ChecarCache()
         {
             if (cache.IsTableNull() == true || Expirou() == true)
             {

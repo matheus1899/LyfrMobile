@@ -71,7 +71,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     if (response.IsSuccessStatusCode)
                     {
                         Cliente user = JsonConvert.DeserializeObject<Cliente>(mensagem);
-                        return cliente;
+                        return user;
                     }
 
                     if (mensagem == null)

@@ -32,12 +32,12 @@ namespace Prototipo1_Lyfr.Views
         private void ChamarPagCadastrar(object sender, EventArgs e){
             btn_Cadastrar.IsEnabled = false;
             btn_Entrar.IsEnabled = false;
-            App.Current.MainPage = new Cadastrar();
+            App.Current.MainPage = new NavigationPage(new Cadastrar());
         }
         private void ChamarPagLogin(object sender, EventArgs e){
             btn_Cadastrar.IsEnabled = false;
             btn_Entrar.IsEnabled = false;
-            App.Current.MainPage = new Login();
+            App.Current.MainPage = new NavigationPage(new Login());
         }
         private void ContentPage_SizeChanged(object sender, EventArgs e)
         {
