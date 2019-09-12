@@ -13,7 +13,7 @@ namespace Prototipo1_Lyfr
     public partial class Cadastrar : ContentPage
     {
         private bool pago = false;
-        char plano;
+        string plano;
 
         public Cadastrar()
         {
@@ -46,7 +46,7 @@ namespace Prototipo1_Lyfr
         private async void btn_gratis_Clicked(object sender, EventArgs e)
         {
             pago = false;
-            plano = char.Parse("G");
+            plano = "G";
 
             if (pago == false)
             {
@@ -79,7 +79,7 @@ namespace Prototipo1_Lyfr
         private void btn_pago_Clicked(object sender, EventArgs e)
         {
             pago = true;
-            plano = char.Parse("P");
+            plano = "P";
 
             if (pago == true)
             {
@@ -170,7 +170,7 @@ namespace Prototipo1_Lyfr
                     Telefone = ent_Telefone_Usuario.Text,
                     Cpf = ent_CPF_Usuario.Text,
                     DataNasc = DataPicker_Nascimento.Date.ToString("MM/dd/yyyy"),
-                    DataDeCadastro = DateTime.Now.ToString(),
+                    Data_Cadastro = DateTime.Now.ToString(),
                     Plano = plano
                 };
 

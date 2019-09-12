@@ -65,20 +65,18 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
                     HttpResponseMessage response = await client.PostAsync("Cliente/GetClienteByEmail/", content);
-
                     string mensagem = await response.Content.ReadAsStringAsync();
 
-                    if (response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode==true)
                     {
+                        
                         Cliente user = JsonConvert.DeserializeObject<Cliente>(mensagem);
                         return user;
                     }
-
-                    if (mensagem == null)
+                    if (string.IsNullOrEmpty(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
-
                     throw new Exception(response.StatusCode.ToString());
                 }
                 catch (Exception ex)

@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Text;
 
 namespace Prototipo1_Lyfr
 {
@@ -25,9 +26,10 @@ namespace Prototipo1_Lyfr
 
                 NavigationPage.SetHasNavigationBar(this, false);
                 //gerarToken.ChecharCache();
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                DisplayAlert("Aviso","Seguinte erro ocorreu -> "+ex.Message,"OK");
+                DisplayAlert("Aviso", "Seguinte erro ocorreu -> " + ex.Message, "OK");
             }
         }
         protected override bool OnBackButtonPressed()
@@ -35,7 +37,7 @@ namespace Prototipo1_Lyfr
             //Exit();
             return base.OnBackButtonPressed();
         }
-         
+
         //private async void Exit()
         //{ 
         //    await DisplayAlert("Lyfr", "Você deseja realmente sair do aplicativo?", "OK", "Cancel").ContinueWith(t => {
@@ -75,9 +77,9 @@ namespace Prototipo1_Lyfr
                         Email = ent_Email_Usuario.Text,
                         Senha = ent_Senha_Usuario.Text
                     };
-
-                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                    App.Current.MainPage = new MainPage(select);
+                    var tkn = GerarToken.GetTokenFromCache();
+                    var select = await conexao.SelectOne(cliente, tkn);
+                    App.Current.MainPage = new NavigationPage(new MainPage());
                 }
             }
 
@@ -89,7 +91,7 @@ namespace Prototipo1_Lyfr
 
         }
 
-        private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e) 
+        private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             var a = sender as ImageButton;
             await a.ScaleTo(1.3, 100, Easing.SpringIn);
@@ -146,7 +148,7 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = false;
                 return;
             }
-            if (ent_Email_Usuario.Text.Length>0)
+            if (ent_Email_Usuario.Text.Length > 0)
             {
                 Lbl_X_Email.IsEnabled = true;
                 Lbl_X_Email.IsVisible = true;
@@ -199,7 +201,7 @@ namespace Prototipo1_Lyfr
             {
                 return false;
             }
-            if (password.Length<8)
+            if (password.Length < 8)
             {
                 return false;
             }
