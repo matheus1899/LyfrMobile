@@ -5,66 +5,283 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Prototipo1_Lyfr.Views.Perfil"
-             BackgroundColor="{DynamicResource Secondary_Color}">
-    
+             x:Class="Prototipo1_Lyfr.Views.Perfil">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <!-- |0|1|2|3|4|5|6|7|8|9| -->
-            <BoxView BackgroundColor="{DynamicResource Primary_Color}" 
-                     Grid.Row="3" 
-                     Grid.RowSpan="7" 
-                     Grid.Column="0" 
-                     Grid.ColumnSpan="10" 
-                     CornerRadius="50,50,0,0"/>
-            <BoxView BackgroundColor="Transparent" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
-            <Label Text="Matheus Tenorio Pereira dos Santos Santos Santos" 
-                   MaxLines="2"
-                   LineBreakMode="TailTruncation"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   BackgroundColor="Red"
-                   TextColor="{DynamicResource Secondary_Color}" 
-                   FontSize="Large"
-                   Grid.Column="3"
-                   Grid.ColumnSpan="4"
-                   Grid.Row="4"/>
-            
-                <Image Source="user.png" Visual="Material" 
-                       HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                       BackgroundColor="Gray"
-                       Grid.Row="4"
-                       Grid.Column="8"
-                       Aspect="AspectFit"/>
+        <ScrollView>
+            <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}" 
+                                 BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+                <StackLayout>
+                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
+                                         HorizontalOptions="FillAndExpand"
+                                         Grid.ColumnSpan="10"
+                                         HasShadow="True"
+                                         Margin="0,25,0,0"
+                                         Elevation="4">
+                    <Grid ColumnSpacing="2" RowSpacing="0" Margin="0,15,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="1.22857*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="1.12857*"/>
+                            <ColumnDefinition Width="1.62857*"/>
+                            <ColumnDefinition Width="0.15*"/>
+                            <ColumnDefinition Width="0.92857*"/>
+                            <ColumnDefinition Width="1.62857*"/>
+                            <ColumnDefinition Width="1.02857*"/>
+                            <ColumnDefinition Width="0.1*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- |0|1|2|3|4|5|6|7|8|9| -->
+                        <Label Text="Perfil" 
+                               Grid.Row="0" 
+                               Grid.Column="1" 
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               TextColor="{DynamicResource Secondary_Color}"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"/>
+                        <Label Text="Shuhei Amamiya" 
+                                   FontSize="Large" 
+                                   Grid.Row="0" 
+                                   Grid.Column="2"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"
+                                   Grid.ColumnSpan="6"
+                                   TextColor="{DynamicResource Secondary_Color}"/>
+                        <Label Text="&#xf013;" 
+                               FontSize="Large" 
+                               TextColor="{DynamicResource Secondary_Color}" 
+                               Grid.Row="0" 
+                               Grid.Column="8"
+                               Margin="0,0,5,0"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="End">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" 
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                            </Label.FontFamily>
+                        </Label>
 
-        </Grid>
+                        <Image Source="man.png" Margin="5" Grid.Row="1" Grid.Column="1"/>
+
+                        <Image Source="book_stack.png" Grid.Row="1" Grid.Column="3"/>
+                        <Label Grid.Row="1" 
+                               Grid.Column="4" 
+                               TextColor="{DynamicResource Secondary_Color}"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Lidos"/>
+                                    <Span Text="&#10;"/>
+                                    <Span Text="28"/>
+                                    <!-- Binding Here  -->
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image Source="insignia.png" Grid.Row="1" Grid.Column="6"/>
+                            <Label Grid.Row="1" 
+                               Grid.Column="7" 
+                               TextColor="{DynamicResource Secondary_Color}"
+                               VerticalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Premium"/>
+                                        <!-- Binding Here  -->
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
+                                         HorizontalOptions="FillAndExpand"
+                                         Grid.ColumnSpan="10"
+                                         Margin="0,10,0,0"
+                                         HasShadow="True"
+                                         Elevation="4">
+                        <Grid ColumnSpacing="2" RowSpacing="0" Margin="0,10,0,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.4*"/>
+                                <ColumnDefinition Width="3.333*"/>
+                                <ColumnDefinition Width="3.333*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="1.2*"/>
+                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- |0|1|2|3|4|5|6|7| -->
+                            <Label Text="Dados" 
+                                   Grid.Row="0" 
+                                   Grid.Column="1" 
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   HorizontalTextAlignment="Start" 
+                                   VerticalTextAlignment="Center"/>
+
+                            <Label Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Grid.ColumnSpan="3" 
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="{DynamicResource Secondary_Color}" 
+                                   FontSize="Medium">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Cachê total do aplicativo: "/>
+                                        <Span Text=" 15 MB" FontAttributes="Bold" FontSize="Medium"/>
+                                        <!-- Binding Here -->
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Text="Limpar" Grid.Row="1" Grid.Column="4" FontSize="Default" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Secondary_Color}"/>
+                            <Label Text="&#xf1f8;" 
+                                   FontSize="Medium" 
+                                   TextColor="{DynamicResource Secondary_Color}" 
+                                   Grid.Row="1" 
+                                   Grid.Column="5"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String" 
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
+                                         HorizontalOptions="FillAndExpand"
+                                         Grid.ColumnSpan="10"
+                                         Margin="0,10,0,0"
+                                         HasShadow="True"
+                                         Elevation="4">
+                        <Grid Margin="0,15,0,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.1*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Contatos" 
+                                   Grid.Row="0" 
+                                   Grid.Column="1" 
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   HorizontalTextAlignment="Start" 
+                                   VerticalTextAlignment="Center"/>
+                            <Label Grid.Row="1" 
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="3" 
+                                   FontSize="Medium"
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   HorizontalOptions="FillAndExpand" 
+                                   HorizontalTextAlignment="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Email:  "/>
+                                        <Span Text="contato.lyfr@gmail.com"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </pancake:PancakeView>
+                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
+                                         HorizontalOptions="FillAndExpand"
+                                         Grid.ColumnSpan="10"
+                                         Margin="0,10,0,0"
+                                         HasShadow="True"
+                                         Elevation="4">
+                        <Grid Margin="0,15,0,15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.1*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Críticas ou sugestões" 
+                                   Grid.Row="0" 
+                                   Grid.Column="1" 
+                                   Grid.ColumnSpan="3"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"
+                                   HorizontalOptions="FillAndExpand"
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   HorizontalTextAlignment="Start" 
+                                   VerticalTextAlignment="Center"/>
+                            <Frame Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Grid.ColumnSpan="3" 
+                                   Margin="0,15,0,0" 
+                                   CornerRadius="4">
+                                <Editor Margin="0,-15,0,-10"
+                                        AutoSize="TextChanges"
+                                        BackgroundColor="{DynamicResource Tertiary_Color}" 
+                                        HorizontalOptions="FillAndExpand" />
+                            </Frame>
+                            <Button Text="Enviar"
+                                    Grid.Row="2" 
+                                    Grid.Column="2" 
+                                    Margin="0,10,0,10"
+                                    BackgroundColor="{DynamicResource Secondary_Color}" 
+                                    TextColor="{DynamicResource Primary_Color}"/>
+                        </Grid>
+                        
+                    </pancake:PancakeView>
+                    <StackLayout Spacing="2" 
+                                 Margin="0,15,0,25">
+                        <Label Text="Sobre" 
+                               TextColor="{DynamicResource Secondary_Color}" 
+                               FontSize="Large" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="Lyfr™ - 1.10.3" 
+                               TextColor="{DynamicResource Secondary_Color}" 
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="Copyright 2019 - Endeavour Ltd.&#10;Quase todos os direitos reservados" 
+                               TextColor="{DynamicResource Secondary_Color}" 
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"/>
+                        <!--<Label Text="O uso deste software está sujeito aos&#10; Termos e Condições e à &#10; Politica de Privacidade" 
+                               TextColor="{DynamicResource Secondary_Color}" 
+                               HorizontalOptions="CenterAndExpand"
+                               HorizontalTextAlignment="Center"/>-->
+                    </StackLayout>
+                </StackLayout>
+            </pancake:PancakeView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

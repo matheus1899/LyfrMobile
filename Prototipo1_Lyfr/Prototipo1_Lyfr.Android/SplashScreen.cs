@@ -16,14 +16,14 @@ namespace Prototipo1_Lyfr.Droid
         {
             base.OnCreate(savedInstanceState, persistentState);
             int uiOptions = (int)Window.DecorView.SystemUiVisibility;
-
+            Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
             uiOptions |= (int)SystemUiFlags.LowProfile;
+
             uiOptions |= (int)SystemUiFlags.Fullscreen;
             uiOptions |= (int)SystemUiFlags.HideNavigation;
             uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
 
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
-            Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
             Log.Debug(TAG, "SplashActivity.OnCreate");
         }
         void SimulateStartup()
@@ -36,6 +36,7 @@ namespace Prototipo1_Lyfr.Droid
         // Launches the startup task
         protected override void OnResume()
         {
+            Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
             int uiOptions = (int)Window.DecorView.SystemUiVisibility;
 
             uiOptions |= (int)SystemUiFlags.LowProfile;

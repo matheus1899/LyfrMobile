@@ -76,6 +76,7 @@ namespace Prototipo1_Lyfr.Droid
 
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
         }
+
         void EsperarMensagem()
         {
             //Espera uma mensagem
