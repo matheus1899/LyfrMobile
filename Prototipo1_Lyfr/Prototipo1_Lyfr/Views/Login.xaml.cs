@@ -77,9 +77,9 @@ namespace Prototipo1_Lyfr
                         Email = ent_Email_Usuario.Text,
                         Senha = ent_Senha_Usuario.Text
                     };
-                    var tkn = GerarToken.GetTokenFromCache();
-                    var select = await conexao.SelectOne(cliente, tkn);
-                    App.Current.MainPage = new NavigationPage(new MainPage());
+
+                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                    App.Current.MainPage = new NavigationPage(new MainPage(select));
                 }
             }
 

@@ -38,7 +38,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         return mensagem;
                     }
 
-                    if (mensagem != null)
+                    if (!string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
@@ -73,10 +73,12 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         Cliente user = JsonConvert.DeserializeObject<Cliente>(mensagem);
                         return user;
                     }
-                    if (string.IsNullOrEmpty(mensagem))
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
+
                     throw new Exception(response.StatusCode.ToString());
                 }
                 catch (Exception ex)
@@ -105,7 +107,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         return mensagem;
                     }
 
-                    if (mensagem != null)
+                    if (!string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
@@ -140,7 +142,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         return mensagem;
                     }
 
-                    if (mensagem != null)
+                    if (!string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
@@ -153,9 +155,44 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     throw new Exception(ex.Message);
                 }
             }
+        }
 
+        public async Task<string> SendSugestao(Sugestao sugestao, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var json = JsonConvert.SerializeObject(sugestao);
 
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Sugestao/Insert/", content);
+                    mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return mensagem;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
         }
     }
+
+
 }
 

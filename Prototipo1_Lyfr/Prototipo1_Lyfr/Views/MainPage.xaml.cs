@@ -13,11 +13,17 @@ namespace Prototipo1_Lyfr.Views
         public MainPage()
         {
             InitializeComponent();
+            this.Children.Add(new Views.Downloads());
+            this.Children.Add(new Views.Home());
+            this.Children.Add(new Views.Perfil());
         }
 
         public MainPage(Cliente cliente)
         {
             InitializeComponent();
+            this.Children.Add(new Views.Downloads());
+            this.Children.Add(new Views.Home());
+            this.Children.Add(new Views.Perfil(cliente));
         }
 
         protected override void OnCurrentPageChanged()

@@ -18,6 +18,7 @@ namespace Prototipo1_Lyfr.ConexaoAPI
             _conexao = new SQLiteConnection(caminho);
             _conexao.CreateTable<TokenCache>();
             _conexao.CreateTable<PesquisaCache>();
+
         }
 
         public void InserirTokenCache(TokenCache tokenCache)

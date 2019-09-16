@@ -50,7 +50,7 @@
                                TextColor="{DynamicResource Secondary_Color}"
                                HorizontalTextAlignment="Center" 
                                VerticalTextAlignment="Center"/>
-                        <Label Text="Shuhei Amamiya" 
+                        <Label Text="{Binding Nome}" 
                                    FontSize="Large" 
                                    Grid.Row="0" 
                                    Grid.Column="2"
@@ -97,7 +97,7 @@
                                VerticalTextAlignment="Center">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="Premium"/>
+                                        <Span Text="{Binding Plano}"/>
                                         <!-- Binding Here  -->
                                     </FormattedString>
                                 </Label.FormattedText>
@@ -248,14 +248,16 @@
                                 <Editor Margin="0,-15,0,-10"
                                         AutoSize="TextChanges"
                                         BackgroundColor="{DynamicResource Tertiary_Color}" 
-                                        HorizontalOptions="FillAndExpand" />
+                                        HorizontalOptions="FillAndExpand"
+                                        x:Name="mensagem"/>
                             </Frame>
                             <Button Text="Enviar"
                                     Grid.Row="2" 
                                     Grid.Column="2" 
                                     Margin="0,10,0,10"
                                     BackgroundColor="{DynamicResource Secondary_Color}" 
-                                    TextColor="{DynamicResource Primary_Color}"/>
+                                    TextColor="{DynamicResource Primary_Color}"
+                                    Clicked="EnviarSugestao_Clicked"/>
                         </Grid>
                         
                     </pancake:PancakeView>
