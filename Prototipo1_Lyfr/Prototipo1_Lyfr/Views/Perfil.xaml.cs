@@ -38,10 +38,16 @@ namespace Prototipo1_Lyfr.Views
 
             try
             {
+                act_ind_Sugestao.IsVisible = true;
+                act_ind_Sugestao.IsRunning = true;
+
                 gerarToken.ChecarCache();
 
                 var result = await conexao.SendSugestao(sugestao, GerarToken.GetTokenFromCache());
                 MostrarMensagem.Mostrar(result);
+
+                act_ind_Sugestao.IsVisible = false;
+                act_ind_Sugestao.IsRunning = false;
             }
 
             catch (Exception ex)

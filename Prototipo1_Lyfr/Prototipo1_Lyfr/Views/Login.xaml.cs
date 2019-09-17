@@ -60,6 +60,8 @@ namespace Prototipo1_Lyfr
 
             try
             {
+                act_ind_Login.IsVisible = true;
+                act_ind_Login.IsRunning = true;
                 gerarToken.ChecarCache();
 
                 if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
@@ -79,12 +81,18 @@ namespace Prototipo1_Lyfr
                     };
 
                     var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                    act_ind_Login.IsVisible = false;
+                    act_ind_Login.IsRunning = false;
+
                     App.Current.MainPage = new NavigationPage(new MainPage(select));
                 }
+
             }
 
             catch (Exception ex)
             {
+                act_ind_Login.IsVisible = false;
+                act_ind_Login.IsRunning = false;
                 MostrarMensagem.Mostrar(ex.Message);
                 return;
             }

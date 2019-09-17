@@ -3,10 +3,11 @@
   <item>
     <color android:color="@color/splash_background"/>
   </item>
+  
   <item>
-
-    <bitmap android:src="@drawable/logo_lyfr"
+    <bitmap android:src="@drawable/logo_lyfr2"
             android:tileMode="disabled"
             android:gravity="center"/>
   </item>
+  
 </layer-list>

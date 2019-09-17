@@ -1,13 +1,11 @@
 ﻿using Prototipo1_Lyfr.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
     public class PerfilViewModel : BaseViewModel
     {
         private string _Plano;
+        private string _Nome;
         public string Plano
         {
             get
@@ -19,8 +17,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 SetProperty<string>(ref _Plano, value, nameof(Plano));
             }
         }
-
-        private string _Nome;
         public string Nome
         {
             get
@@ -35,7 +31,7 @@ namespace Prototipo1_Lyfr.ViewModels
 
         public PerfilViewModel(Cliente cliente)
         {
-            Plano = cliente.Plano;
+            Plano = cliente.Plano == "P" ? "Premium" : "Gratuito";
             Nome = cliente.Nome;
         }
     }
