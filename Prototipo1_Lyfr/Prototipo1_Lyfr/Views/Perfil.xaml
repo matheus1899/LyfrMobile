@@ -4,288 +4,168 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
+             BackgroundColor="#436477"
              IconImageSource="perfil_icon.png"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Prototipo1_Lyfr.Views.Perfil">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-
-    <ContentPage.Content>
-        <ScrollView>
-            <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}" 
-                                 BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
-                <StackLayout>
-                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
-                                         HorizontalOptions="FillAndExpand"
-                                         Grid.ColumnSpan="10"
-                                         HasShadow="True"
-                                         Margin="0,25,0,0"
-                                         Elevation="4">
-                    <Grid ColumnSpacing="2" RowSpacing="0" Margin="0,15,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.2*"/>
-                            <ColumnDefinition Width="1.22857*"/>
-                            <ColumnDefinition Width="0.3*"/>
-                            <ColumnDefinition Width="1.12857*"/>
-                            <ColumnDefinition Width="1.62857*"/>
-                            <ColumnDefinition Width="0.15*"/>
-                            <ColumnDefinition Width="0.92857*"/>
-                            <ColumnDefinition Width="1.62857*"/>
-                            <ColumnDefinition Width="1.02857*"/>
-                            <ColumnDefinition Width="0.1*"/>
-                        </Grid.ColumnDefinitions>
-                        <!-- |0|1|2|3|4|5|6|7|8|9| -->
-                        <Label Text="Perfil" 
-                               Grid.Row="0" 
-                               Grid.Column="1" 
-                               FontAttributes="Bold"
-                               FontSize="Medium"
-                               TextColor="{DynamicResource Secondary_Color}"
-                               HorizontalTextAlignment="Center" 
-                               VerticalTextAlignment="Center"/>
-                        <Label Text="{Binding Nome}" 
-                                   FontSize="Large" 
-                                   Grid.Row="0" 
-                                   Grid.Column="2"
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="Center"
-                                   Grid.ColumnSpan="6"
-                                   TextColor="{DynamicResource Secondary_Color}"/>
-                        <Label Text="&#xf013;" 
-                               FontSize="Large" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               Grid.Row="0" 
-                               Grid.Column="8"
-                               Margin="0,0,5,0"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="End">
-                            <Label.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String" 
-                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
-                            </Label.FontFamily>
-                        </Label>
-
-                        <Image Source="man.png" Margin="5" Grid.Row="1" Grid.Column="1"/>
-
-                        <Image Source="book_stack.png" Grid.Row="1" Grid.Column="3"/>
-                        <Label Grid.Row="1" 
-                               Grid.Column="4" 
-                               TextColor="{DynamicResource Secondary_Color}"
-                               HorizontalTextAlignment="Center" 
-                               VerticalTextAlignment="Center">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Lidos"/>
-                                    <Span Text="&#10;"/>
-                                    <Span Text="28"/>
-                                    <!-- Binding Here  -->
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Image Source="insignia.png" Grid.Row="1" Grid.Column="6"/>
-                            <Label Grid.Row="1" 
-                               Grid.Column="7" 
-                               TextColor="{DynamicResource Secondary_Color}"
-                               VerticalTextAlignment="Center">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="{Binding Plano}"/>
-                                        <!-- Binding Here  -->
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
-                                         HorizontalOptions="FillAndExpand"
-                                         Grid.ColumnSpan="10"
-                                         Margin="0,10,0,0"
-                                         HasShadow="True"
-                                         Elevation="4">
-                        <Grid ColumnSpacing="2" RowSpacing="0" Margin="0,10,0,15">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.4*"/>
-                                <ColumnDefinition Width="3.333*"/>
-                                <ColumnDefinition Width="3.333*"/>
-                                <ColumnDefinition Width="0.2*"/>
-                                <ColumnDefinition Width="1.2*"/>
-                                <ColumnDefinition Width="0.8*"/>
-                                <ColumnDefinition Width="0.2*"/>
-                            </Grid.ColumnDefinitions>
-                            <!-- |0|1|2|3|4|5|6|7| -->
-                            <Label Text="Dados" 
-                                   Grid.Row="0" 
-                                   Grid.Column="1" 
-                                   FontAttributes="Bold"
-                                   FontSize="Medium"
-                                   HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource Secondary_Color}"
-                                   HorizontalTextAlignment="Start" 
-                                   VerticalTextAlignment="Center"/>
-
-                            <Label Grid.Row="1" 
-                                   Grid.Column="1" 
-                                   Grid.ColumnSpan="3" 
-                                   HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource Secondary_Color}" 
-                                   FontSize="Medium">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="Cachê total do aplicativo: "/>
-                                        <Span Text=" 15 MB" FontAttributes="Bold" FontSize="Medium"/>
-                                        <!-- Binding Here -->
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                            <Label Text="Limpar" Grid.Row="1" Grid.Column="4" FontSize="Default" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Secondary_Color}"/>
-                            <Label Text="&#xf1f8;" 
-                                   FontSize="Medium" 
-                                   TextColor="{DynamicResource Secondary_Color}" 
-                                   Grid.Row="1" 
-                                   Grid.Column="5"
-                                   VerticalOptions="CenterAndExpand"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalTextAlignment="Center"
-                                   HorizontalTextAlignment="Center">
-                                <Label.FontFamily>
-                                    <OnPlatform x:TypeArguments="x:String" 
-                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
-                                </Label.FontFamily>
-                            </Label>
-
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
-                                         HorizontalOptions="FillAndExpand"
-                                         Grid.ColumnSpan="10"
-                                         Margin="0,10,0,0"
-                                         HasShadow="True"
-                                         Elevation="4">
-                        <Grid Margin="0,15,0,15">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.1*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="0.1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="Contatos" 
-                                   Grid.Row="0" 
-                                   Grid.Column="1" 
-                                   FontAttributes="Bold"
-                                   FontSize="Medium"
-                                   HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource Secondary_Color}"
-                                   HorizontalTextAlignment="Start" 
-                                   VerticalTextAlignment="Center"/>
-                            <Label Grid.Row="1" 
-                                   Grid.Column="1"
-                                   Grid.ColumnSpan="3" 
-                                   FontSize="Medium"
-                                   TextColor="{DynamicResource Secondary_Color}"
-                                   HorizontalOptions="FillAndExpand" 
-                                   HorizontalTextAlignment="Center">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text="Email:  "/>
-                                        <Span Text="contato.lyfr@gmail.com"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                        </Grid>
-                    </pancake:PancakeView>
-                    <pancake:PancakeView BackgroundColor="{DynamicResource Primary_Color}"
-                                         HorizontalOptions="FillAndExpand"
-                                         Grid.ColumnSpan="10"
-                                         Margin="0,10,0,0"
-                                         HasShadow="True"
-                                         Elevation="4">
-                        <Grid Margin="0,15,0,15">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.1*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="0.1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="Críticas ou sugestões" 
-                                   Grid.Row="0" 
-                                   Grid.Column="1" 
-                                   Grid.ColumnSpan="3"
-                                   FontAttributes="Bold"
-                                   FontSize="Medium"
-                                   HorizontalOptions="FillAndExpand"
-                                   TextColor="{DynamicResource Secondary_Color}"
-                                   HorizontalTextAlignment="Start" 
-                                   VerticalTextAlignment="Center"/>
-                            <ActivityIndicator Color="{DynamicResource Secondary_Color}" IsVisible="false" x:Name="act_ind_Sugestao" Grid.Row="0" Grid.Column="3"/>
-                            <Frame Grid.Row="1" 
-                                   Grid.Column="1" 
-                                   Grid.ColumnSpan="3" 
-                                   Margin="0,15,0,0" 
-                                   CornerRadius="4">
-                                <Editor Margin="0,-15,0,-10"
-                                        AutoSize="TextChanges"
-                                        BackgroundColor="{DynamicResource Tertiary_Color}" 
-                                        HorizontalOptions="FillAndExpand"
-                                        x:Name="mensagem"/>
-                            </Frame>
-                            <Button Text="Enviar"
-                                    Grid.Row="2" 
-                                    Grid.Column="2" 
-                                    Margin="0,10,0,10"
-                                    BackgroundColor="{DynamicResource Secondary_Color}" 
-                                    TextColor="{DynamicResource Primary_Color}"
-                                    Clicked="EnviarSugestao_Clicked"/>
-                        </Grid>
-                        
-                    </pancake:PancakeView>
-                    <StackLayout Spacing="2" 
-                                 Margin="0,15,0,25">
-                        <Label Text="Sobre" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               FontSize="Large" 
-                               FontAttributes="Bold" 
-                               HorizontalOptions="CenterAndExpand"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="Lyfr™ - 1.10.3" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               HorizontalOptions="CenterAndExpand"
-                               HorizontalTextAlignment="Center"/>
-                        <Label Text="Copyright 2019 - Endeavour Ltd.&#10;Quase todos os direitos reservados" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               HorizontalOptions="CenterAndExpand"
-                               HorizontalTextAlignment="Center"/>
-                        <!--<Label Text="O uso deste software está sujeito aos&#10; Termos e Condições e à &#10; Politica de Privacidade" 
-                               TextColor="{DynamicResource Secondary_Color}" 
-                               HorizontalOptions="CenterAndExpand"
-                               HorizontalTextAlignment="Center"/>-->
-                    </StackLayout>
-                </StackLayout>
-            </pancake:PancakeView>
-        </ScrollView>
-    </ContentPage.Content>
+    <ContentView>
+        <Grid RowSpacing="0" 
+              ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.6666*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding Nome}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" TextColor="{DynamicResource Tertiary_Color}" 
+                   FontSize="Title" FontAttributes="Bold"/>
+            <BoxView Grid.Row="1" 
+                     Grid.RowSpan="3" 
+                     Grid.Column="0" 
+                     Grid.ColumnSpan="6" 
+                     BackgroundColor="#EEDBAA" 
+                     CornerRadius="35,35,0,0"/>
+            <TableView HasUnevenRows="True" 
+                       Margin="0,20,0,0" 
+                       Grid.Row="1"
+                       Grid.RowSpan="3"
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="6">
+                <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="&#xf0e0;">
+                                                <Span.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" 
+                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                                </Span.FontFamily>
+                                            </Span>
+                                            <Span Text="  Email"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="{Binding Email}" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="&#xf084;">
+                                                <Span.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" 
+                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                                </Span.FontFamily>
+                                            </Span>
+                                            <Span Text="  Senha"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="************" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal" >
+                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="&#xf879;">
+                                                <Span.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" 
+                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                                </Span.FontFamily>
+                                            </Span>
+                                            <Span Text="  Telefone"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="{Binding Telefone}"  HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="&#xf3c5;">
+                                                <Span.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" 
+                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                                </Span.FontFamily>
+                                            </Span>
+                                            <Span Text="  Endereço"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label HorizontalOptions="EndAndExpand">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Rua}"/>
+                                            <Span Text=" n° "/>
+                                            <Span Text="{Binding Numero}"/>
+                                            <Span Text="&#10;"/>
+                                            <Span Text="{Binding Cidade}"/>
+                                            <Span Text=" - "/>
+                                            <Span Text="{Binding Estado}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Margin="20,30,20,0">
+                                <ActivityIndicator Color="{DynamicResource Secondary_Color}" IsVisible="false" x:Name="act_ind_Sugestao" Grid.Row="0" Grid.Column="3"/>
+                                <Label Text="Críticas ou sugestões" 
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="{DynamicResource Secondary_Color}"
+                                       HorizontalTextAlignment="Start" 
+                                       VerticalTextAlignment="Center"/> 
+                                <Frame Margin="0,15,0,0" 
+                                       CornerRadius="4">
+                                    <Editor Margin="0,-15,0,-10"
+                                            AutoSize="TextChanges"
+                                            BackgroundColor="{DynamicResource Tertiary_Color}" 
+                                            HorizontalOptions="FillAndExpand"
+                                            x:Name="mensagem"/> 
+                                </Frame>
+                                <StackLayout Orientation="Horizontal">
+                                    <Button Text="   Enviar   "
+                                            Margin="0,10,0,10"
+                                            BackgroundColor="{DynamicResource Secondary_Color}" 
+                                            TextColor="{DynamicResource Primary_Color}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Clicked="EnviarSugestao_Clicked"/> 
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            
+        </Grid>
+    </ContentView>
 </ContentPage>
