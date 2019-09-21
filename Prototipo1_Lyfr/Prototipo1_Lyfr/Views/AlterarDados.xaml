@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Prototipo1_Lyfr.Views.AlterarDados">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DefaultTextColor">#436477</Color>
+            <Style TargetType="StackLayout" x:Key="Filho_Frame">
+                <Setter Property="Padding" Value="7,-10,7,10"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="7"/>
+            </Style>
+            <Style TargetType="controls:NewFrame" x:Key="Frame_Pai">
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="15,0,15,0"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
+                <!--<Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource DefaultTextColor}"/>-->
+            </Style>
+            <Style TargetType="Label" x:Key="Label_X">
+                <Setter Property="Text" Value=" X "/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                             BackgroundGradientEndColor="PaleVioletRed">
+            <StackLayout>
+                <StackLayout x:Name="Stack_Email" 
+                             IsVisible="False" 
+                             VerticalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Vertical" >
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}"
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_EmailAtual_Usuario"
+                                       TextChanged="Entry_TextChanged"
+                                       HorizontalOptions="FillAndExpand"
+                                       Focused="Entry_Focused"
+                                       Placeholder="Email atual"
+                                       Unfocused="Entry_Unfocused"
+                                       TextColor="{DynamicResource DefaultTextColor}">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Style="{x:StaticResource Label_X}"
+                                       Margin="0,0,5,0"
+                                       VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                          NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" >
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}"
+                                     Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_EmailNovo_Usuario"
+                                       TextChanged="Entry_TextChanged"
+                                       HorizontalOptions="FillAndExpand"
+                                       Focused="Entry_Focused"
+                                       Placeholder="Email novo"
+                                       Unfocused="Entry_Unfocused"
+                                       TextColor="{DynamicResource DefaultTextColor}">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X "  
+                                       TextColor="{DynamicResource DefaultTextColor}"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End"
+                                       Margin="0,0,5,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                      NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="Stack_Senha"
+                             IsVisible="False"
+                             VerticalOptions="CenterAndExpand">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
+                            <Entry x:Name="ent_SenhaAtual_Usuario" 
+                                   TextColor="{DynamicResource DefaultTextColor}" 
+                                   IsPassword="True"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Senha_Ent_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Senha atual"
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X "  
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                     
+                                     WidthRequest="35" 
+                                     HeightRequest="30"
+                                     Margin="0,-5,-7,-25"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="Transparent"
+                                     Clicked="Esconde_Exibe_Senha_Clicked"
+                                     HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
+                            <Entry x:Name="ent_SenhaNova_Usuario" 
+                                   TextColor="{DynamicResource DefaultTextColor}" 
+                                   IsPassword="True"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Senha_Ent_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Senha nova"
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X " 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                     
+                                     WidthRequest="35" 
+                                     HeightRequest="30"
+                                     Margin="0,-5,-7,-25"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="Transparent"
+                                     Clicked="Esconde_Exibe_Senha_Clicked"
+                                     HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
+                            <Entry x:Name="ent_SenhaConfirmarNova_Usuario" 
+                                   TextColor="{DynamicResource DefaultTextColor}" 
+                                   IsPassword="True"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Senha_Ent_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Confirmar senha nova"
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X " 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                     
+                                     WidthRequest="35" 
+                                     HeightRequest="30"
+                                     Margin="0,-5,-7,-25"
+                                     Aspect="AspectFit"
+                                     BackgroundColor="Transparent"
+                                     Clicked="Esconde_Exibe_Senha_Clicked"
+                                     HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <!--Label de Aviso-->
+                    <Label x:Name="lbl_aviso"
+                           FontSize="Small"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#be1212"
+                           Margin="0"
+                           MaxLines="2"
+                           IsVisible="False">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Minimo de" />
+                                <Span Text=" 8 caracteres" TextColor="Red"/>
+                                <Span Text=", sendo"/>
+                                <Span Text="&#10;"/>
+                                <Span Text=" 1 especial" TextColor="Red"/>
+                                <Span Text=" e "/>
+                                <Span Text="1 letra maiúscula" TextColor="Red"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <StackLayout x:Name="Stack_Telefone"
+                             Orientation="Vertical" 
+                             VerticalOptions="CenterAndExpand"  
+                             IsVisible="False">
+                    <Label Text="Seu telefone atual é: &#10;(11) 95124-5656" 
+                           Margin="0,0,0,20"
+                           FontSize="Medium" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource DefaultTextColor}"/>
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}">
+                            <Entry x:Name="ent_Telefone_Usuario" 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Entry_Unfocused"
+                                   TextChanged="Entry_TextChanged"
+                                   Placeholder="Telefone novo"
+                                   Keyboard="Telephone"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Margin="0,-5,0,-25">
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                                <Entry.Behaviors>
+                                    <behaviorPack:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text=" X " 
+                                   x:Name="Lbl_X_Telefone" 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                </StackLayout>
+
+                <StackLayout x:Name="Stack_Endereco" 
+                             VerticalOptions="CenterAndExpand" 
+                             IsVisible="False">
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}">
+                            <Entry x:Name="ent_CEP_Usuario" 
+                               TextColor="{DynamicResource DefaultTextColor}"
+                               Focused="Entry_Focused"
+                               Unfocused="Entry_Unfocused"
+                               TextChanged="Entry_TextChanged"
+                               Placeholder="CEP"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               Keyboard="Numeric"
+                               MaxLength="9"
+                               Margin="0,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:CEPValidationBehavior />
+                                    <behaviorPack:MaskedBehavior Mask="XXXXX-XXX" />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X " 
+                               x:Name="Lbl_X_CEP" 
+                               TextColor="{DynamicResource TextColor}"
+                               IsEnabled="False"
+                               IsVisible="False"
+                               HorizontalOptions="Center"
+                               Margin="5,10,5,-10"
+                               VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                      NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 Margin="0">
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}" 
+                                           Margin="15,0,0,0"
+                                           HorizontalOptions="FillAndExpand">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Rua_Usuario"
+                                       TextColor="{DynamicResource DefaultTextColor}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
+                                       Placeholder="Rua" 
+                                       Keyboard="Default">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Rua" 
+                                       TextColor="{DynamicResource DefaultTextColor}"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End"
+                                       Margin="0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                      NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}" 
+                                           HorizontalOptions="End"
+                                           Margin="0,0,15,0">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         Orientation="Horizontal" 
+                                         HorizontalOptions="End"
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Numero_Usuario"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
+                                       TextColor="{DynamicResource DefaultTextColor}" 
+                                       HorizontalOptions="FillAndExpand"                               
+                                       Placeholder="Número"
+                                       Keyboard="Default">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Numero" 
+                                       TextColor="{DynamicResource DefaultTextColor}"
+                                       IsEnabled="False"
+                                        IsVisible="False"
+                                        HorizontalOptions="End" 
+                                        Margin="-5,0,0,0"
+                                        VerticalTextAlignment="Center"
+                                        VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                      NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}"
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="15,0,0,0">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}"  
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Cidade_Usuario"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
+                                       TextColor="{DynamicResource DefaultTextColor}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Cidade"
+                                       Keyboard="Default">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Cidade" 
+                                       TextColor="{DynamicResource DefaultTextColor}"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End"
+                                       Margin="0,0,0,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                              NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}"
+                                           Margin="0,0,15,0"
+                                           HorizontalOptions="Fill">
+                            <StackLayout Style="{x:StaticResource Filho_Frame}" 
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="0,-16,0,-16">
+                                <Entry x:Name="ent_Estado_Usuario"
+                                       Focused="Entry_Focused"
+                                       Unfocused="Entry_Unfocused"
+                                       TextChanged="Entry_TextChanged"
+                                       TextColor="{DynamicResource DefaultTextColor}" 
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Estado  "
+                                       MaxLength="2"
+                                       Keyboard="Default">
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X " 
+                                       x:Name="Lbl_X_Estado" 
+                                       TextColor="{DynamicResource DefaultTextColor}"
+                                       IsEnabled="False"
+                                       IsVisible="False"
+                                       HorizontalOptions="End" 
+                                       Margin="-5,0,0,0"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                      NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
+                    </StackLayout>
+                </StackLayout>
+                <Button Text="Alterar" 
+                        VerticalOptions="End" 
+                        Margin="10,0,10,25"
+                        Clicked="btn_Alterar_Clicked"
+                        BackgroundColor="{DynamicResource Secondary_Color}" 
+                        TextColor="{DynamicResource Primary_Color}"/>
+            </StackLayout>
+        </pancake:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

@@ -78,5 +78,22 @@ namespace Prototipo1_Lyfr.Views
                 bxv2.IsVisible = true;
             }
         }
+
+        private void GoTo_AlterEmail(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AlterarDados("Email"));
+        }
+        private void GoTo_AlterSenha(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AlterarDados("Senha"));
+        }
+        private void GoTo_AlterTelefone(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AlterarDados("Telefone"));
+        }
+        private void GoTo_AlterEndereco(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AlterarDados("Endereco"));
+        }
     }
 }

@@ -130,7 +130,7 @@
                        Grid.ColumnSpan="6">
                 <TableRoot>
                     <TableSection>
-                        <ViewCell>
+                        <ViewCell Tapped="GoTo_AlterEmail">
                             <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
                                 <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
                                     <Label.FormattedText>
@@ -148,7 +148,7 @@
                                 <Label Text="{Binding Email}" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="GoTo_AlterSenha">
                             <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
                                 <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
                                     <Label.FormattedText>
@@ -166,7 +166,7 @@
                                 <Label Text="************" HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="GoTo_AlterTelefone">
                             <StackLayout Margin="30,16,30,16" Orientation="Horizontal" >
                                 <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
                                     <Label.FormattedText>
@@ -184,7 +184,7 @@
                                 <Label Text="{Binding Telefone}"  HorizontalOptions="EndAndExpand"/>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="GoTo_AlterEndereco">
                             <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
                                 <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
                                     <Label.FormattedText>
