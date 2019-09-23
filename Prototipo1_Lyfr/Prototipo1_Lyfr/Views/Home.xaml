@@ -45,11 +45,19 @@
     </ContentPage.BindingContext>
 
     <ContentView>
-        <ScrollView>
+        <ScrollView Scrolled="ScrollView_Scrolled" VerticalOptions="FillAndExpand">
             <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
                 <StackLayout Spacing="10" 
                              Padding="5">
+                    <Frame HasShadow="True" x:Name="search_bar" Margin="-5,-5,-5,0" BackgroundColor="{DynamicResource Primary_Color}">
+                        <SearchBar Placeholder="Pesquisar livros e autores"
+                                   HorizontalOptions="FillAndExpand"
+                                   Margin="-16"
+                                   PlaceholderColor="{DynamicResource Secondary_Color}"
+                                   CancelButtonColor="{DynamicResource Secondary_Color}"
+                                   TextColor="{DynamicResource Secondary_Color}"/>
+                    </Frame>
                     <Frame Visual="Material" 
                            HasShadow="True" 
                            BackgroundColor="{DynamicResource Primary_Color}">

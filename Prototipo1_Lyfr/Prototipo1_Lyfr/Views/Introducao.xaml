@@ -42,9 +42,8 @@
             <cardview:CarouselView.ItemTemplate>
                 <DataTemplate>
                     <pancake:PancakeView HorizontalOptions="FillAndExpand" 
-                                         HasShadow="True" 
-                                         CornerRadius="4"
-                                         Elevation="-5" Margin="30,0,30,10">
+                                         HasShadow="True"
+                                         Elevation="4" Margin="30,0,30,10">
                         <StackLayout Orientation="Horizontal">
                             <BoxView HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"/>
