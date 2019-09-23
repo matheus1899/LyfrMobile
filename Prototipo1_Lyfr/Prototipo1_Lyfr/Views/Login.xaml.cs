@@ -34,43 +34,29 @@ namespace Prototipo1_Lyfr
         }
         protected override bool OnBackButtonPressed()
         {
-            //Exit();
-            return base.OnBackButtonPressed();
+            return false;
         }
-
-        //private async void Exit()
-        //{ 
-        //    await DisplayAlert("Lyfr", "Você deseja realmente sair do aplicativo?", "OK", "Cancel").ContinueWith(t => {
-        //        if (t.Result)
-        //        {
-        //            DependencyService.Get<IExit>().ExitApp();
-        //        }
-
-        //    });
-
-        //}
-
         private async void ChamarPagCadastrar(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Cadastrar());
         }
-
         private async void Logar_Clicked(object sender, EventArgs e)
         {
 
             try
             {
-                act_ind_Login.IsVisible = true;
-                act_ind_Login.IsRunning = true;
+                SetActivityIndicatorState(true);
                 gerarToken.ChecarCache();
 
                 if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
                 {
                     MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
+                    SetActivityIndicatorState(false);
                 }
                 else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text))
                 {
                     MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
+                    SetActivityIndicatorState(false);
                 }
                 else
                 {
@@ -80,25 +66,27 @@ namespace Prototipo1_Lyfr
                         Senha = ent_Senha_Usuario.Text
                     };
 
-                    var select = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                    act_ind_Login.IsVisible = false;
-                    act_ind_Login.IsRunning = false;
+                    var usuario = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                    SetActivityIndicatorState(false);
 
-                    App.Current.MainPage = new NavigationPage(new MainPage(select));
+                    App.Current.MainPage = new NavigationPage(new MainPage(usuario));
                 }
 
             }
 
             catch (Exception ex)
             {
-                act_ind_Login.IsVisible = false;
-                act_ind_Login.IsRunning = false;
+                SetActivityIndicatorState(false);
                 MostrarMensagem.Mostrar(ex.Message);
                 return;
             }
-
         }
-
+        private void SetActivityIndicatorState(bool state)
+        {
+            act_ind_Login.IsVisible = state;
+            act_ind_Login.IsRunning = state;
+        }
+        #region EntryActions
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {
             var a = sender as ImageButton;
@@ -196,10 +184,12 @@ namespace Prototipo1_Lyfr
             Lbl_X_Senha.IsEnabled = false;
             Lbl_X_Senha.IsVisible = false;
         }
+        #endregion
         private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
         {
             cbx_LembrarSenha.IsChecked = !cbx_LembrarSenha.IsChecked;
         }
+
         private bool IsValidPassword(string password)
         {
             bool _Maiusculo = false;
@@ -213,7 +203,7 @@ namespace Prototipo1_Lyfr
             {
                 return false;
             }
-            if (Regex.IsMatch(password, "@#!%&=") == true)
+            if (Regex.IsMatch(password, @"@#!%&=") == true)
             {
                 _Especial = true;
             }

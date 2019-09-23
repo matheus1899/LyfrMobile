@@ -106,10 +106,12 @@
                     </Label.FormattedText>
                 </Label>
             </StackLayout>
-            <Label Text="Shihei Mamaasm"  
+            <Label Text="{Binding Nome}"  
                    Grid.Row="1" 
                    Grid.Column="1" 
                    Grid.ColumnSpan="4" 
+                   MaxLines="1"
+                   LineBreakMode="TailTruncation"
                    BackgroundColor="Transparent"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" 
@@ -122,7 +124,8 @@
                      Grid.ColumnSpan="6" 
                      BackgroundColor="#EEDBAA" 
                      CornerRadius="35,35,0,0"/>
-            <TableView HasUnevenRows="True" 
+            <TableView x:Name="tableview_Main"
+                       HasUnevenRows="True" 
                        Margin="0,20,0,0" 
                        Grid.Row="2"
                        Grid.RowSpan="3"
