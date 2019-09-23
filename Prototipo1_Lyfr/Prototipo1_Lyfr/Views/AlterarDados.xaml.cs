@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Controls;
+using Prototipo1_Lyfr.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +21,9 @@ namespace Prototipo1_Lyfr.Views
         private bool ModificarTelefone = false;
         private bool ModificarEndereco = false;
         private bool ModificarPlano = false;
+        private Cliente cliente;
 
-        public AlterarDados(string propriedade)
+        public AlterarDados(string propriedade, Cliente cliente)
         {
             InitializeComponent();
             if (propriedade == "Email")
@@ -40,6 +44,9 @@ namespace Prototipo1_Lyfr.Views
                 Stack_Endereco.IsVisible = true;
                 ModificarEndereco = true;
             }
+
+            this.cliente = cliente;
+
         }
 
 
@@ -111,22 +118,144 @@ namespace Prototipo1_Lyfr.Views
             await a.ScaleTo(1, 100, Easing.BounceIn);
         }
 
-        private void btn_Alterar_Clicked(object sender, EventArgs e)
+        private async void btn_Alterar_Clicked(object sender, EventArgs e)
         {
-            return;
+            //return;
             if (ModificarEmail)
             {
-                //valida...
+                try
+                {
+                    if (cliente.Email == ent_EmailAtual_Usuario.Text)
+                    {
+                        Cliente clienteAlterado = new Cliente()
+                        {
+                            Nome = cliente.Nome,
+                            Email = ent_EmailNovo_Usuario.Text,
+                            Senha = cliente.Senha,
+                            Cpf = cliente.Cpf,
+                            Cep = cliente.Cep,
+                            Cidade = cliente.Cidade,
+                            DataNasc = cliente.DataNasc,
+                            Data_Cadastro = cliente.Data_Cadastro,
+                            Estado = cliente.Estado,
+                            Numero = cliente.Numero,
+                            Plano = cliente.Plano,
+                            Rua = cliente.Rua,
+                            Telefone = cliente.Telefone
+                        };
+
+                        var conexao = new Conexao.Classes.ConexaoAPI();
+                        var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
+                        MostrarMensagem.Mostrar(result);
+                    }
+                    else
+                    {
+                        MostrarMensagem.Mostrar("O e-mail atual não corresponde!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
+
             }else if (ModificarSenha)
             {
-                //valida...
-            }else if (ModificarTelefone)
-            {
-                //valida...
-            }else if (ModificarEndereco)
-            {
-                //valida...
+                try
+                {
+                    if(cliente.Senha == ent_SenhaAtual_Usuario.Text && ent_SenhaNova_Usuario.Text == ent_SenhaConfirmarNova_Usuario.Text)
+                    {
+                        Cliente clienteAlterado = new Cliente()
+                        {
+                            Nome = cliente.Nome,
+                            Email = cliente.Email,
+                            Senha = ent_SenhaNova_Usuario.Text,
+                            Cpf = cliente.Cpf,
+                            Cep = cliente.Cep,
+                            Cidade = cliente.Cidade,
+                            DataNasc = cliente.DataNasc,
+                            Data_Cadastro = cliente.Data_Cadastro,
+                            Estado = cliente.Estado,
+                            Numero = cliente.Numero,
+                            Plano = cliente.Plano,
+                            Rua = cliente.Rua,
+                            Telefone = cliente.Telefone
+                        };
+
+                        var conexao = new Conexao.Classes.ConexaoAPI();
+                        var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
+                        MostrarMensagem.Mostrar(result);
+                    }
+                    else
+                    {
+                        MostrarMensagem.Mostrar("As senhas não correspondem!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
             }
+            else if (ModificarTelefone)
+            {
+                try
+                {
+                    Cliente clienteAlterado = new Cliente()
+                    {
+                        Nome = cliente.Nome,
+                        Email = cliente.Email,
+                        Senha = cliente.Senha,
+                        Cpf = cliente.Cpf,
+                        Cep = cliente.Cep,
+                        Cidade = cliente.Cidade,
+                        DataNasc = cliente.DataNasc,
+                        Data_Cadastro = cliente.Data_Cadastro,
+                        Estado = cliente.Estado,
+                        Numero = cliente.Numero,
+                        Plano = cliente.Plano,
+                        Rua = cliente.Rua,
+                        Telefone = ent_Telefone_Usuario.Text
+                    };
+
+                    var conexao = new Conexao.Classes.ConexaoAPI();
+                    var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
+                    MostrarMensagem.Mostrar(result);
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
+            }
+            else if (ModificarEndereco)
+            {
+                try
+                {
+                    Cliente clienteAlterado = new Cliente()
+                    {
+                        Nome = cliente.Nome,
+                        Email = cliente.Email,
+                        Senha = cliente.Senha,
+                        Cpf = cliente.Cpf,
+                        Cep = ent_CEP_Usuario.Text,
+                        Cidade = ent_Cidade_Usuario.Text,
+                        DataNasc = cliente.DataNasc,
+                        Data_Cadastro = cliente.Data_Cadastro,
+                        Estado = ent_Estado_Usuario.Text,
+                        Numero = ent_Numero_Usuario.Text,
+                        Plano = cliente.Plano,
+                        Rua = ent_Rua_Usuario.Text,
+                        Telefone = cliente.Telefone
+                    };
+
+                    var conexao = new Conexao.Classes.ConexaoAPI();
+                    var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
+                    MostrarMensagem.Mostrar(result);
+                }
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
+            }
+
             else
             {
                 return;

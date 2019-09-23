@@ -81,19 +81,19 @@ namespace Prototipo1_Lyfr.Views
 
         private void GoTo_AlterEmail(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AlterarDados("Email"));
+            Navigation.PushAsync(new AlterarDados("Email", _cliente));
         }
         private void GoTo_AlterSenha(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AlterarDados("Senha"));
+            Navigation.PushAsync(new AlterarDados("Senha", _cliente));
         }
         private void GoTo_AlterTelefone(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AlterarDados("Telefone"));
+            Navigation.PushAsync(new AlterarDados("Telefone", _cliente));
         }
         private void GoTo_AlterEndereco(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AlterarDados("Endereco"));
+            Navigation.PushAsync(new AlterarDados("Endereco", _cliente));
         }
     }
 }
