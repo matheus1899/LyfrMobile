@@ -15,7 +15,6 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlterarDados : ContentPage
     {
-
         private bool ModificarEmail = false;
         private bool ModificarSenha = false;
         private bool ModificarTelefone = false;
@@ -30,11 +29,13 @@ namespace Prototipo1_Lyfr.Views
             {
                 Stack_Email.IsVisible = true;
                 ModificarEmail = true;
-            }else if (propriedade == "Senha")
+            }
+            else if (propriedade == "Senha")
             {
                 Stack_Senha.IsVisible = true;
                 ModificarSenha = true;
-            }else if (propriedade == "Telefone")
+            }
+            else if (propriedade == "Telefone")
             {
                 Stack_Telefone.IsVisible = true;
                 ModificarTelefone = true;
@@ -46,7 +47,6 @@ namespace Prototipo1_Lyfr.Views
             }
 
             this.cliente = cliente;
-
         }
 
 
@@ -120,7 +120,6 @@ namespace Prototipo1_Lyfr.Views
 
         private async void btn_Alterar_Clicked(object sender, EventArgs e)
         {
-            //return;
             if (ModificarEmail)
             {
                 try
@@ -130,6 +129,7 @@ namespace Prototipo1_Lyfr.Views
                         Cliente clienteAlterado = new Cliente()
                         {
                             Nome = cliente.Nome,
+                            IdCliente = cliente.IdCliente,
                             Email = ent_EmailNovo_Usuario.Text,
                             Senha = cliente.Senha,
                             Cpf = cliente.Cpf,
@@ -158,7 +158,8 @@ namespace Prototipo1_Lyfr.Views
                     MostrarMensagem.Mostrar(ex.Message);
                 }
 
-            }else if (ModificarSenha)
+            }
+            else if (ModificarSenha)
             {
                 try
                 {
@@ -167,6 +168,7 @@ namespace Prototipo1_Lyfr.Views
                         Cliente clienteAlterado = new Cliente()
                         {
                             Nome = cliente.Nome,
+                            IdCliente = cliente.IdCliente,
                             Email = cliente.Email,
                             Senha = ent_SenhaNova_Usuario.Text,
                             Cpf = cliente.Cpf,
@@ -202,6 +204,7 @@ namespace Prototipo1_Lyfr.Views
                     Cliente clienteAlterado = new Cliente()
                     {
                         Nome = cliente.Nome,
+                        IdCliente = cliente.IdCliente,
                         Email = cliente.Email,
                         Senha = cliente.Senha,
                         Cpf = cliente.Cpf,
@@ -232,6 +235,7 @@ namespace Prototipo1_Lyfr.Views
                     Cliente clienteAlterado = new Cliente()
                     {
                         Nome = cliente.Nome,
+                        IdCliente = cliente.IdCliente,
                         Email = cliente.Email,
                         Senha = cliente.Senha,
                         Cpf = cliente.Cpf,

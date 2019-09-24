@@ -87,7 +87,7 @@ namespace Prototipo1_Lyfr.Views
         private void GoTo_AlterEmail(object sender, EventArgs e)
         {
             SetIsEnabled(tableview_Main, false);
-            Navigation.PushAsync(new AlterarDados("Email", _cliente))
+            Navigation.PushAsync(new AlterarDados("Email", _cliente));
         }
         private void GoTo_AlterSenha(object sender, EventArgs e)
         {

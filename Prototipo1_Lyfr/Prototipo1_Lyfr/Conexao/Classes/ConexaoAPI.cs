@@ -134,7 +134,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
-                    HttpResponseMessage response = await client.PostAsync("Cliente/Update/", content);
+                    HttpResponseMessage response = await client.PutAsync("Cliente/Update/", content);
                     mensagem = await response.Content.ReadAsStringAsync();
 
                     if (response.IsSuccessStatusCode)
