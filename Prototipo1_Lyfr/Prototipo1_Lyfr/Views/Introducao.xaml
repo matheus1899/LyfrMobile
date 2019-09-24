@@ -10,44 +10,52 @@
              x:Class="Prototipo1_Lyfr.Views.Introducao"
              SizeChanged="ContentPage_SizeChanged"
              BackgroundColor="{DynamicResource Primary_Color}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-            <ColumnDefinition Width="1.428*"/>
-        </Grid.ColumnDefinitions>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-        <Image Source="Logo_Lyfr.png" 
+    <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                         BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+                <ColumnDefinition Width="1.428*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="Logo_Lyfr.png" 
                Aspect="AspectFit"
                HorizontalOptions="FillAndExpand"
                Margin="-45,5,-45,0"
                Grid.Row="0"
                Grid.Column="3"/>
-        <cardview:CarouselView x:Name="Carousel" 
+            <cardview:CarouselView x:Name="Carousel" 
                                Grid.Row="1"
                                Grid.Column="0"
                                Grid.ColumnSpan="7"
                                IsCyclical="False"
                                HorizontalOptions="FillAndExpand" 
                                VerticalOptions="FillAndExpand">
-            <cardview:CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <pancake:PancakeView HorizontalOptions="FillAndExpand" 
+                <cardview:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <pancake:PancakeView HorizontalOptions="FillAndExpand" 
                                          HasShadow="True"
                                          Elevation="4" Margin="30,0,30,10">
-                        <StackLayout Orientation="Horizontal">
-                            <BoxView HorizontalOptions="FillAndExpand"
+                            <StackLayout Orientation="Horizontal">
+                                <BoxView HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand"/>
-                            <Label Text="{Binding TextoIntro}" 
+                                <Label Text="{Binding TextoIntro}" 
                                    TextColor="{DynamicResource Secondary_Color}" 
                                    FontSize="Title"
                                    FontAttributes="Bold" 
@@ -55,51 +63,51 @@
                                    HorizontalOptions="FillAndExpand"
                                    HorizontalTextAlignment="Center"
                                    MaxLines="4"/>
-                            <BoxView HorizontalOptions="FillAndExpand" 
+                                <BoxView HorizontalOptions="FillAndExpand" 
                                      VerticalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </pancake:PancakeView>
-                </DataTemplate>
-            </cardview:CarouselView.ItemTemplate>
-            <controls:IndicatorsControl BackgroundColor="Transparent"/>
-        </cardview:CarouselView>
+                            </StackLayout>
+                        </pancake:PancakeView>
+                    </DataTemplate>
+                </cardview:CarouselView.ItemTemplate>
+                <controls:IndicatorsControl BackgroundColor="Transparent"/>
+            </cardview:CarouselView>
 
-        <StackLayout Padding="25,0,25,7"
+            <StackLayout Padding="25,0,25,7"
                      x:Name="stc_Buttons"
                      Grid.Row="2"
                      Grid.Column="0"
                      Grid.ColumnSpan="7"
                      Orientation="Vertical">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup>
-                    <VisualState Name="Portrait" >
-                        <VisualState.Setters>
-                            <Setter Property="Orientation" 
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState Name="Portrait" >
+                            <VisualState.Setters>
+                                <Setter Property="Orientation" 
                                     Value="Vertical"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState Name="Landscape" >
-                        <VisualState.Setters>
-                            <Setter Property="Orientation" 
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Landscape" >
+                            <VisualState.Setters>
+                                <Setter Property="Orientation" 
                                     Value="Horizontal"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-            <Button BackgroundColor="{DynamicResource Secondary_Color}" 
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Button BackgroundColor="{DynamicResource Secondary_Color}" 
                     x:Name="btn_Cadastrar"
                     Text="cadastrar"
                     CornerRadius="3"
                     TextColor="{DynamicResource Primary_Color}" 
                     HorizontalOptions="FillAndExpand" 
                     Clicked="ChamarPagCadastrar"/>
-            <Label Text="OU" 
+                <Label Text="OU" 
                    VerticalTextAlignment="Center" 
                    HorizontalTextAlignment="Center" 
                    Margin="5" 
                    FontAttributes="Bold"
                    TextColor="{DynamicResource Secondary_Color}"/>
-            <Button BackgroundColor="{DynamicResource Secondary_Color}" 
+                <Button BackgroundColor="{DynamicResource Secondary_Color}" 
                     x:Name="btn_Entrar"
                     Text="entrar"
                     CornerRadius="3"
@@ -107,7 +115,8 @@
                     HorizontalOptions="FillAndExpand" 
                     FontSize="Default" 
                     Clicked="ChamarPagLogin"/>
-        </StackLayout>
-    </Grid>
+            </StackLayout>
+        </Grid>
+    </pancake:PancakeView>
 </ContentPage>
     
