@@ -128,13 +128,12 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Senha.IsVisible = false;
             }
         }
-        private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
+        private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {
-            ent_Email_Usuario.Text = string.Empty;
-        }
-        private void Lbl_Apagar_Entry_Senha(object sender, EventArgs e)
-        {
-            ent_Senha_Usuario.Text = string.Empty;
+            var a = sender as Label;
+            var pai = a.Parent as StackLayout;
+            var ent = pai.Children[0] as Entry;
+            ent.Text = string.Empty;
         }
         private void EntryEmail_Focused(object sender, FocusEventArgs e)
         {

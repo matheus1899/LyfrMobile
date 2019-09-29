@@ -1,9 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 //using Microsoft.AppCenter;
 //using Microsoft.AppCenter.Analytics;
 //using Microsoft.AppCenter.Crashes;
 using Prototipo1_Lyfr.Conexao;
+using System.Diagnostics;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Prototipo1_Lyfr
@@ -12,10 +14,16 @@ namespace Prototipo1_Lyfr
     {
         public App()
         {
-            InitializeComponent();
-            HotReloader.Current.Run(this);
-            //MainPage = new NavigationPage(new Views.Introducao());
-            MainPage = new NavigationPage(new Views.Introducao());
+            try
+            {
+                InitializeComponent();
+                HotReloader.Current.Run(this);
+                //MainPage = new NavigationPage(new Views.Introducao());
+                MainPage = new NavigationPage(new Views.Introducao());
+            }catch(Exception ex)
+            {
+                Debug.WriteLine("AVISO -> " + ex.Message);
+            }
         }
         protected override void OnStart()
         {

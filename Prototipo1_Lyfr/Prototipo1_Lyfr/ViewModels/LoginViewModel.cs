@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.ViewModels
@@ -15,7 +16,7 @@ namespace Prototipo1_Lyfr.ViewModels
             }
             set
             {
-                SetProperty<string>(ref _email, value, "Email");
+                SetProperty<string>(ref _email, value, nameof(Email));
             }
         }
 
@@ -28,8 +29,19 @@ namespace Prototipo1_Lyfr.ViewModels
             }
             set
             {
-                SetProperty<string>(ref _senha, value, "Senha");
+                SetProperty<string>(ref _senha, value, nameof(Senha));
             }
         }
+
+        public ICommand Next_Entry_Command {private set; get;}
+
+        public LoginViewModel()
+        {
+            Next_Entry_Command = new Command((e) => {
+                var a = e as Entry;
+                a.Focus();
+            });
+        }
+
     }
 }

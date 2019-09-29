@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -14,17 +15,23 @@ namespace Prototipo1_Lyfr.Droid
 
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
-            base.OnCreate(savedInstanceState, persistentState);
-            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
-            Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
-            uiOptions |= (int)SystemUiFlags.LowProfile;
+            try
+            {
+                base.OnCreate(savedInstanceState, persistentState);
+                int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+                Window.SetNavigationBarColor(Color.Argb(255, 238, 219, 170));
+                uiOptions |= (int)SystemUiFlags.LowProfile;
 
-            uiOptions |= (int)SystemUiFlags.Fullscreen;
-            uiOptions |= (int)SystemUiFlags.HideNavigation;
-            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+                uiOptions |= (int)SystemUiFlags.Fullscreen;
+                uiOptions |= (int)SystemUiFlags.HideNavigation;
+                uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
 
-            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
-            Log.Debug(TAG, "SplashActivity.OnCreate");
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
+                Log.Debug(TAG, "SplashActivity.OnCreate");
+            }catch(Exception ex)
+            {
+                Log.Debug("ERRO in Splash -> ",ex.Message);
+            }
         }
         void SimulateStartup()
         {
