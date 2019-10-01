@@ -16,6 +16,13 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            Stack_Codigo_Verificacao.FadeTo(0, 1, Easing.Linear);
+            Stack_Codigo_Verificacao.IsVisible = false;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
         private void Lbl_Apagar_Entry_Email(object sender, EventArgs e)
         {
@@ -64,7 +71,7 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = true;
             }
         }
-        private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
+        /*private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -97,7 +104,7 @@ namespace Prototipo1_Lyfr
             {
                 MostrarMensagem.Mostrar(ex.Message);
             }
-        }
+        }*/
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopAsync();
