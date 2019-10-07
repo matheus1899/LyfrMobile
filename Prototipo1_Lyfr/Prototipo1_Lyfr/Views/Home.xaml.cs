@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using System.Text;
+using System.Security.Cryptography;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace Prototipo1_Lyfr.Views
 {
@@ -13,7 +18,10 @@ namespace Prototipo1_Lyfr.Views
         public Home()
         {
             InitializeComponent();
+            
         }
+
+        
         protected override bool OnBackButtonPressed()
         {
             return false;
@@ -57,17 +65,29 @@ namespace Prototipo1_Lyfr.Views
             if (height > e.ScrollY)
             {
                 //search_bar.IsVisible = true;
-                search_bar.TranslateTo(0,0,250,Easing.Linear);
+                //search_bar.TranslateTo(0,0,250,Easing.Linear);
             }
             else
             {
 
-                search_bar.TranslateTo(0,-50,250,Easing.Linear);
+                //search_bar.TranslateTo(0,-50,250,Easing.Linear);
                 //search_bar.IsVisible = false;
                 
             }
-            Debug.WriteLine("SearchY -> "+ search_bar.Y);
-            height = e.ScrollY;
+            //Debug.WriteLine("SearchY -> "+ search_bar.Y);
+            //height = e.ScrollY;
+        }
+
+        private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch
+            {
+
+            }
         }
     }
 }

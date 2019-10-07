@@ -5,11 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              IconImageSource="home_icon.png"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              x:Class="Prototipo1_Lyfr.Views.Home" 
              BackgroundColor="{DynamicResource Primary_Color}">
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Image" x:Key="Style_ImageLivro">
@@ -39,25 +40,51 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
 
+    <!--<pancake:PancakeView HasShadow="True" 
+                            x:Name="search_bar" 
+                            Margin="5,0,5,0"
+                            Elevation="1"
+                            BackgroundColor="{DynamicResource Primary_Color}">
+        <SearchBar Placeholder="Pesquisar livros e autores"
+                    HorizontalOptions="FillAndExpand"
+                    PlaceholderColor="{DynamicResource Secondary_Color}"
+                    CancelButtonColor="{DynamicResource Secondary_Color}"
+                    TextColor="{DynamicResource Secondary_Color}"/>
+    </pancake:PancakeView>-->
     <ContentView>
         <ScrollView Scrolled="ScrollView_Scrolled" VerticalOptions="FillAndExpand">
             <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
                 <StackLayout Spacing="10" 
                              Padding="5">
-                    <Frame HasShadow="True" x:Name="search_bar" Margin="-5,-5,-5,0" BackgroundColor="{DynamicResource Primary_Color}">
-                        <SearchBar Placeholder="Pesquisar livros e autores"
-                                   HorizontalOptions="FillAndExpand"
-                                   Margin="-16"
-                                   PlaceholderColor="{DynamicResource Secondary_Color}"
-                                   CancelButtonColor="{DynamicResource Secondary_Color}"
-                                   TextColor="{DynamicResource Secondary_Color}"/>
-                    </Frame>
+                    <pancake:PancakeView Elevation="2">
+                        <StackLayout>
+                            <SearchBar TextChanged="SearchBar_TextChanged" Placeholder="Teste"/>
+                            <ListView x:Name="list_view" HasUnevenRows="True" 
+                                      SeparatorColor="Indigo" SeparatorVisibility="Default">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding ImageUri}" WidthRequest="60" HeightRequest="60" 
+                                                       Aspect="AspectFit"/>
+                                                <Label Text="{Binding Nome}" 
+                                                       FontSize="Large"
+                                                       FontAttributes="Bold" 
+                                                       VerticalOptions="CenterAndExpand" 
+                                                       HorizontalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </pancake:PancakeView>
+
                     <Frame Visual="Material" 
                            HasShadow="True" 
                            BackgroundColor="{DynamicResource Primary_Color}">

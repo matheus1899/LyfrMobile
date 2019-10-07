@@ -66,12 +66,13 @@
                 
                     <!-- Logo -->
                     <!-- Row 1 -->
-                    <Image Source="Logo_Lyfr.png" 
-                       Aspect="AspectFit" 
-                       Grid.Row="0" 
-                       HeightRequest="110"
-                       Grid.Column="2"
-                       Grid.ColumnSpan="3"/>
+                    <Image Source="Logo_Lyfr2.png" 
+                           Aspect="AspectFit" 
+                           Grid.Row="0" 
+                           HeightRequest="110"
+                           Grid.Column="2"
+                           Margin="0,20,0,0"
+                           Grid.ColumnSpan="3"/>
                     <!-- Row 1 -->
                     <ActivityIndicator Grid.Row="1" 
                                    Grid.Column="0" 

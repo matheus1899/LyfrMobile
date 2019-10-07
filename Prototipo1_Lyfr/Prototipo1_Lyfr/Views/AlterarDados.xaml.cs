@@ -48,8 +48,11 @@ namespace Prototipo1_Lyfr.Views
 
             this.cliente = cliente;
         }
-
-
+        private void SetIsRunningAndIsVisible(ActivityIndicator act, bool b)
+        {
+            act.IsRunning = b;
+            act.IsVisible = b;
+        }
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {
             var a = sender as Label;
@@ -77,7 +80,7 @@ namespace Prototipo1_Lyfr.Views
         }
         private void Entry_Focused(object sender, FocusEventArgs e)
         {
-
+                
             var a = sender as Entry;
             var b = a.Parent as StackLayout;
             var c = b.Children[1] as Label;
@@ -117,13 +120,14 @@ namespace Prototipo1_Lyfr.Views
             ent.IsPassword = !ent.IsPassword;
             await a.ScaleTo(1, 100, Easing.BounceIn);
         }
-
         private async void btn_Alterar_Clicked(object sender, EventArgs e)
         {
+            SetIsRunningAndIsVisible(act_ind_alteracao, true);   
             if (ModificarEmail)
             {
                 try
                 {
+                    
                     if (cliente.Email == ent_EmailAtual_Usuario.Text)
                     {
                         Cliente clienteAlterado = new Cliente()
@@ -147,14 +151,17 @@ namespace Prototipo1_Lyfr.Views
                         var conexao = new Conexao.Classes.ConexaoAPI();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
+                        await Navigation.PopAsync();
                     }
                     else
                     {
+                        SetIsRunningAndIsVisible(act_ind_alteracao, false);
                         MostrarMensagem.Mostrar("O e-mail atual não corresponde!");
                     }
                 }
                 catch (Exception ex)
                 {
+                    SetIsRunningAndIsVisible(act_ind_alteracao, false);
                     MostrarMensagem.Mostrar(ex.Message);
                 }
 
@@ -163,7 +170,8 @@ namespace Prototipo1_Lyfr.Views
             {
                 try
                 {
-                    if(cliente.Senha == ent_SenhaAtual_Usuario.Text && ent_SenhaNova_Usuario.Text == ent_SenhaConfirmarNova_Usuario.Text)
+                    
+                    if (cliente.Senha == ent_SenhaAtual_Usuario.Text && ent_SenhaNova_Usuario.Text == ent_SenhaConfirmarNova_Usuario.Text)
                     {
                         Cliente clienteAlterado = new Cliente()
                         {
@@ -186,14 +194,17 @@ namespace Prototipo1_Lyfr.Views
                         var conexao = new Conexao.Classes.ConexaoAPI();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
+                        await Navigation.PopAsync();
                     }
                     else
                     {
+                        SetIsRunningAndIsVisible(act_ind_alteracao, false);
                         MostrarMensagem.Mostrar("As senhas não correspondem!");
                     }
                 }
                 catch (Exception ex)
                 {
+                    SetIsRunningAndIsVisible(act_ind_alteracao, false);
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             }
@@ -201,6 +212,7 @@ namespace Prototipo1_Lyfr.Views
             {
                 try
                 {
+                    
                     Cliente clienteAlterado = new Cliente()
                     {
                         Nome = cliente.Nome,
@@ -222,9 +234,11 @@ namespace Prototipo1_Lyfr.Views
                     var conexao = new Conexao.Classes.ConexaoAPI();
                     var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
+                    await Navigation.PopAsync();
                 }
                 catch (Exception ex)
                 {
+                    SetIsRunningAndIsVisible(act_ind_alteracao, false);
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             }
@@ -232,6 +246,7 @@ namespace Prototipo1_Lyfr.Views
             {
                 try
                 {
+                    
                     Cliente clienteAlterado = new Cliente()
                     {
                         Nome = cliente.Nome,
@@ -253,13 +268,14 @@ namespace Prototipo1_Lyfr.Views
                     var conexao = new Conexao.Classes.ConexaoAPI();
                     var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
+                    await Navigation.PopAsync();
                 }
                 catch (Exception ex)
                 {
+                    SetIsRunningAndIsVisible(act_ind_alteracao, false);
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             }
-
             else
             {
                 return;
@@ -274,10 +290,23 @@ namespace Prototipo1_Lyfr.Views
             c.IsEnabled = false;
             c.IsVisible = false;
         }
-
         private void Senha_Ent_TextChanged(object sender, TextChangedEventArgs e)
         {
+            var a = sender as Entry;
+            var b = a.Parent as StackLayout;
+            var c = b.Children[1] as Label;
 
+            if(string.IsNullOrEmpty(e.NewTextValue) || string.IsNullOrWhiteSpace(e.NewTextValue))
+            {
+                c.IsEnabled = false;
+                c.IsVisible = false;
+                return;
+            }
+            if (e.NewTextValue.Length > 0)
+            {
+                c.IsEnabled = true;
+                c.IsVisible = true;
+            }
         }
     }
 }

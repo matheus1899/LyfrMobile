@@ -1,12 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Conexao;
-using Prototipo1_Lyfr.Conexao.Classes;
-using Prototipo1_Lyfr.Controls;
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              mc:Ignorable="d"
-             BackgroundColor="#436477"
              IconImageSource="perfil_icon.png"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              SizeChanged="ContentPage_SizeChanged"
@@ -17,8 +16,9 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentView>
-        <Grid RowSpacing="0" 
+    <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                         BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+        <Grid RowSpacing="1" 
               ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
@@ -35,14 +35,18 @@
                 <ColumnDefinition Width="1.4466*"/>
                 <ColumnDefinition Width="1.7866*"/>
             </Grid.ColumnDefinitions>
-            <StackLayout Grid.Row="0" Grid.Column="0" Margin="15,0,0,0">
-                <BoxView VerticalOptions="Start" WidthRequest="170" x:Name="bxv1"/>
+            <StackLayout Grid.Row="0" 
+                         Grid.Column="0" 
+                         Margin="15,0,0,0">
+                <BoxView VerticalOptions="Start" 
+                         WidthRequest="170" 
+                         x:Name="bxv1"/>
                 <Image Source="book_stack.png" x:Name="img_lidos">
                     <VisualStateManager.VisualStateGroups>
                         <VisualStateGroup>
                             <VisualState Name="Portrait">
                                 <VisualState.Setters>
-                                    <Setter Property="Margin" Value="0"/>
+                                    <Setter Property="Margin" Value="5"/>
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState Name="Landscape">
@@ -56,11 +60,12 @@
                 <Label HorizontalTextAlignment="Center" 
                        HorizontalOptions="FillAndExpand" 
                        VerticalTextAlignment="Start" 
+                       FontSize="Small"
                        VerticalOptions="StartAndExpand" 
-                       TextColor="{DynamicResource Primary_Color}">
+                       TextColor="{DynamicResource Secondary_Color}">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Lidos" FontAttributes="Bold" FontSize="Medium"/>
+                            <Span Text="Lidos" FontAttributes="Bold" />
                             <Span Text="&#10;"/>
                             <Span Text="18"/>
                         </FormattedString>
@@ -81,7 +86,7 @@
                         <VisualStateGroup>
                             <VisualState Name="Portrait">
                                 <VisualState.Setters>
-                                    <Setter Property="Margin" Value="0"/>
+                                    <Setter Property="Margin" Value="5"/>
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState Name="Landscape">
@@ -96,10 +101,11 @@
                        HorizontalOptions="FillAndExpand" 
                        VerticalTextAlignment="Start" 
                        VerticalOptions="StartAndExpand" 
-                       TextColor="{DynamicResource Primary_Color}" >
+                       FontSize="Small"
+                       TextColor="{DynamicResource Secondary_Color}" >
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Plano" FontAttributes="Bold" FontSize="Medium"/>
+                            <Span Text="Plano" FontAttributes="Bold"/>
                             <Span Text="&#10;"/>
                             <Span Text="Premium"/>
                         </FormattedString>
@@ -115,18 +121,19 @@
                    BackgroundColor="Transparent"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" 
-                   TextColor="{DynamicResource Primary_Color}" 
+                   TextColor="{DynamicResource Secondary_Color}" 
                    FontSize="Title" 
                    FontAttributes="Bold"/>
             <BoxView Grid.Row="2" 
                      Grid.RowSpan="3" 
                      Grid.Column="0" 
                      Grid.ColumnSpan="6" 
-                     BackgroundColor="#EEDBAA" 
+                     Margin="4,0"
+                     BackgroundColor="{DynamicResource Secondary_Color}" 
                      CornerRadius="35,35,0,0"/>
             <TableView x:Name="tableview_Main"
-                       HasUnevenRows="True" 
-                       Margin="0,20,0,0" 
+                       HasUnevenRows="True"
+                       Margin="6,20,6,0" 
                        Grid.Row="2"
                        Grid.RowSpan="3"
                        Grid.Column="0" 
@@ -134,8 +141,12 @@
                 <TableRoot>
                     <TableSection>
                         <ViewCell Tapped="GoTo_AlterEmail">
-                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold" 
+                                        FontSize="Medium" 
+                                        TextColor="{DynamicResource Primary_Color}"
+                                        VerticalTextAlignment="Center" 
+                                        VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="&#xf0e0;">
@@ -148,12 +159,18 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="{Binding Email}" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding Email}" 
+                                       TextColor="{DynamicResource Primary_Color}" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell Tapped="GoTo_AlterSenha">
-                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold" 
+                                        FontSize="Medium" 
+                                        TextColor="{DynamicResource Primary_Color}"
+                                        VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="&#xf084;">
@@ -166,12 +183,18 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="************" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="************"
+                                       TextColor="{DynamicResource Primary_Color}" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell Tapped="GoTo_AlterTelefone">
-                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal" >
-                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal" >
+                                <Label  FontAttributes="Bold" 
+                                        FontSize="Medium" 
+                                        TextColor="{DynamicResource Primary_Color}"
+                                        VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="&#xf879;">
@@ -184,12 +207,18 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="{Binding Telefone}"  HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding Telefone}" 
+                                       TextColor="{DynamicResource Primary_Color}" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell Tapped="GoTo_AlterEndereco">
-                            <StackLayout Margin="30,16,30,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center">
+                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
+                                <Label  FontAttributes="Bold"
+                                        TextColor="{DynamicResource Primary_Color}"
+                                        FontSize="Medium" 
+                                        VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="&#xf3c5;">
@@ -202,7 +231,9 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label HorizontalOptions="EndAndExpand">
+                                <Label HorizontalOptions="EndAndExpand" 
+                                       TextColor="{DynamicResource Primary_Color}" 
+                                       VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding Rua}"/>
@@ -219,29 +250,32 @@
                         </ViewCell>
                         <ViewCell>
                             <StackLayout Margin="20,30,20,0">
-                                <ActivityIndicator Color="{DynamicResource Secondary_Color}" IsVisible="false" x:Name="act_ind_Sugestao" Grid.Row="0" Grid.Column="3"/>
+                                <ActivityIndicator Color="{DynamicResource Secondary_Color}" 
+                                                   IsVisible="{Binding Act_Ind_Sugestao}"
+                                                   IsRunning="{Binding Act_Ind_Sugestao}" />
                                 <Label Text="Críticas ou sugestões" 
                                        FontAttributes="Bold"
                                        FontSize="Medium"
                                        HorizontalOptions="FillAndExpand"
-                                       TextColor="{DynamicResource Secondary_Color}"
+                                       TextColor="{DynamicResource Primary_Color}"
                                        HorizontalTextAlignment="Start" 
                                        VerticalTextAlignment="Center"/>
-                                <Frame Margin="0,15,0,0" 
+                                <Frame Margin="0,10,0,0" 
                                        CornerRadius="4">
                                     <Editor Margin="0,-15,0,-10"
                                             AutoSize="TextChanges"
                                             BackgroundColor="{DynamicResource Tertiary_Color}" 
                                             HorizontalOptions="FillAndExpand"
-                                            x:Name="mensagem"/>
+                                            x:Name="edt_sugestao"/>
                                 </Frame>
                                 <StackLayout Orientation="Horizontal">
                                     <Button Text="   Enviar   "
-                                            Margin="0,10,0,10"
-                                            BackgroundColor="{DynamicResource Secondary_Color}" 
-                                            TextColor="{DynamicResource Primary_Color}"
-                                            HorizontalOptions="CenterAndExpand"
-                                            Clicked="EnviarSugestao_Clicked"/>
+                                            Margin="0,10,0,20"
+                                            BackgroundColor="{DynamicResource Primary_Color}" 
+                                            TextColor="{DynamicResource Secondary_Color}"
+                                            Command="{Binding Enviar_Sugestao_Command}"
+                                            CommandParameter="{Binding Source={x:Reference edt_sugestao}, Path=Text}"
+                                            HorizontalOptions="CenterAndExpand"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -249,5 +283,5 @@
                 </TableRoot>
             </TableView>
         </Grid>
-    </ContentView>
+    </pancake:PancakeView>
 </ContentPage>

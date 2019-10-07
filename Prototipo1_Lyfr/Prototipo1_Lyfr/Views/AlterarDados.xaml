@@ -139,14 +139,13 @@
                                 </Label.GestureRecognizers>
                             </Label>
                             <ImageButton Source="eye.png"
-                                     
-                                     WidthRequest="35" 
-                                     HeightRequest="30"
-                                     Margin="0,-5,-7,-25"
-                                     Aspect="AspectFit"
-                                     BackgroundColor="Transparent"
-                                     Clicked="Esconde_Exibe_Senha_Clicked"
-                                     HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
+                                         WidthRequest="35" 
+                                         HeightRequest="30"
+                                         Margin="0,-5,-7,-25"
+                                         Aspect="AspectFit"
+                                         BackgroundColor="Transparent"
+                                         Clicked="Esconde_Exibe_Senha_Clicked"
+                                         HorizontalOptions="End" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </controls:NewFrame>
                     <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
@@ -159,7 +158,7 @@
                                    TextChanged="Senha_Ent_TextChanged"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Placeholder="Senha nova"
+                                   Placeholder="Nova senha"
                                    Margin="-5,-5,0,-25">
                                 <Entry.Behaviors>
                                     <behaviorPack:PasswordValidationBehavior />
@@ -200,7 +199,7 @@
                                    TextChanged="Senha_Ent_TextChanged"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand"
-                                   Placeholder="Confirmar senha nova"
+                                   Placeholder="Confirmar nova senha"
                                    Margin="-5,-5,0,-25">
                                 <Entry.Behaviors>
                                     <behaviorPack:PasswordValidationBehavior />
@@ -483,12 +482,19 @@
                         </controls:NewFrame>
                     </StackLayout>
                 </StackLayout>
-                <Button Text="Alterar" 
-                        VerticalOptions="End" 
-                        Margin="10,0,10,25"
-                        Clicked="btn_Alterar_Clicked"
-                        BackgroundColor="{DynamicResource Secondary_Color}" 
-                        TextColor="{DynamicResource Primary_Color}"/>
+                <StackLayout>
+                    <ActivityIndicator Color="{DynamicResource Secondary_Color}"
+                                       IsVisible="False" 
+                                       IsRunning="False" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       x:Name="act_ind_alteracao"/>
+                    <Button Text="Alterar" 
+                            VerticalOptions="End" 
+                            Margin="10,0,10,25"
+                            Clicked="btn_Alterar_Clicked"
+                            BackgroundColor="{DynamicResource Secondary_Color}" 
+                            TextColor="{DynamicResource Primary_Color}"/>
+                </StackLayout>
             </StackLayout>
         </pancake:PancakeView>
     </ContentPage.Content>
