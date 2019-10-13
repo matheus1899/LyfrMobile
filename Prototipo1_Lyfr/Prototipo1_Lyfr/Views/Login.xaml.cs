@@ -186,7 +186,7 @@ namespace Prototipo1_Lyfr
         #endregion
         private void lbl_LembrarSenha_Tapped(object sender, EventArgs e)
         {
-            cbx_LembrarSenha.IsChecked = !cbx_LembrarSenha.IsChecked;
+            //cbx_LembrarSenha.IsChecked = !cbx_LembrarSenha.IsChecked;
         }
 
         private bool IsValidPassword(string password)

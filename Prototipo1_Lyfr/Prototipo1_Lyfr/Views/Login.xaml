@@ -9,7 +9,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DefaultTextColor">#436477</Color>
-            <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
@@ -174,9 +174,9 @@
                             </Label.GestureRecognizers>
                         </Label>
                         <!--Lembrar senha?-->
-                        <StackLayout HorizontalOptions="Center" 
+                        <!--<StackLayout HorizontalOptions="Center" 
                                             Orientation="Horizontal"
-                                            Margin="10">
+                                            Margin="10" IsVisible="False">
                             <CheckBox Color="{DynamicResource Secondary_Color}" 
                                     x:Name="cbx_LembrarSenha" />
                             <Label Text="Lembrar senha?" 
@@ -188,7 +188,7 @@
                                                         NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                        </StackLayout>
+                        </StackLayout>-->
                     </StackLayout>
                     <StackLayout VerticalOptions="CenterAndExpand" 
                                  Grid.Row="5" 

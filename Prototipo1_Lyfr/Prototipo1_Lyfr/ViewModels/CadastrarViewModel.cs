@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
-    public class CadastrarViewModel:BaseViewModel
+    public class CadastrarViewModel : BaseViewModel
     {
         public ICommand Btn_Gratis_Clicked { private set; get; }
         public ICommand Btn_Pago_Clicked { private set; get; }
@@ -17,8 +17,8 @@ namespace Prototipo1_Lyfr.ViewModels
 
         public CadastrarViewModel()
         {
-            Botao_Gratis = App.Current.Resources["Style_Button_Ativo"] as Style;
-            Botao_Pago   = App.Current.Resources["Style_Button_Desativo"] as Style;
+            //Botao_Gratis = App.Current.Resources["Style_Button_Ativo"] as Style;
+            //Botao_Pago   = App.Current.Resources["Style_Button_Desativo"] as Style;
 
             Nome = string.Empty;
             Email = string.Empty;
@@ -30,9 +30,9 @@ namespace Prototipo1_Lyfr.ViewModels
             Cidade = string.Empty;
             Estado = string.Empty;
             DataNasc = DateTime.Now;
-            Plano = "G";
+            //Plano = "P";
 
-            Btn_Gratis_Clicked = new Command(async(e) =>
+            Btn_Gratis_Clicked = new Command(async (e) =>
             {
                 Plano = "G";
                 var a = e as Grid;
@@ -53,7 +53,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 Botao_Pago = App.Current.Resources["Style_Button_Desativo"] as Style;
             });
 
-            Btn_Pago_Clicked = new Command(async(e) =>
+            Btn_Pago_Clicked = new Command(async (e) =>
             {
                 Plano = "P";
                 var a = e as Grid;
@@ -63,7 +63,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 a.Children[8].IsVisible = true;
                 a.Children[9].IsVisible = true;
                 a.Children[10].IsVisible = true;
-                await Task.Run(async() =>
+                await Task.Run(async () =>
                 {
                     await a.Children[5].TranslateTo(0, 0, 200, Easing.Linear);
                     await a.Children[6].TranslateTo(0, 0, 200, Easing.Linear);
@@ -77,7 +77,8 @@ namespace Prototipo1_Lyfr.ViewModels
                 Botao_Gratis = App.Current.Resources["Style_Button_Desativo"] as Style;
             });
 
-            Cadastrar_Clicked = new Command(async()=>{
+            Cadastrar_Clicked = new Command(async () =>
+            {
                 if (string.IsNullOrEmpty(Nome))
                 {
                     MostrarMensagem.Mostrar("Prencha o campo do nome!");
@@ -167,7 +168,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 }
             });
 
-            Next_Entry_Command = new Command(async(e) =>
+            Next_Entry_Command = new Command(async (e) =>
             {
                 var a = e as Entry;
                 if (a.Placeholder == "Email")
@@ -178,82 +179,41 @@ namespace Prototipo1_Lyfr.ViewModels
                 {
                     a.Focus();
                 }
-                else if(a.Placeholder == "CPF")
+                else if (a.Placeholder == "CPF")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "CEP")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "Telefone")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "Rua")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "Número")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "Cidade")
                 {
-                    if (Plano == "P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
                 }
                 else if (a.Placeholder == "Estado  ")
                 {
-                    if (Plano=="P")
-                    {
-                        a.Focus();
-                    }
-                    else
-                    {
-                        return;
-                    }
+
+                    a.Focus();
+
                 }
             });
         }

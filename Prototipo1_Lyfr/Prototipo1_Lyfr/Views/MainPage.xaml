@@ -5,7 +5,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            BarBackgroundColor="{DynamicResource Secondary_Color}"
+            BarBackgroundColor="{DynamicResource Primary_Color}"
             xmlns:views="clr-namespace:Prototipo1_Lyfr.Views"
             mc:Ignorable="d"
             x:Class="Prototipo1_Lyfr.Views.MainPage">

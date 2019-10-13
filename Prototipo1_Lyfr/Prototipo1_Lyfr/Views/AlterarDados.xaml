@@ -15,7 +15,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DefaultTextColor">#436477</Color>
-            <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
             <Style TargetType="StackLayout" x:Key="Filho_Frame">
                 <Setter Property="Padding" Value="7,-10,7,10"/>
                 <Setter Property="Orientation" Value="Horizontal"/>

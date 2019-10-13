@@ -11,12 +11,6 @@ namespace Prototipo1_Lyfr
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Grid_.Children[5].TranslationX = 1700;
-            Grid_.Children[6].TranslationX = 1700;
-            Grid_.Children[7].TranslationX = 1700;
-            Grid_.Children[8].TranslationX = 1700;
-            Grid_.Children[9].TranslationX = 1700;
-            Grid_.Children[10].TranslationX = 1700;
         }
         private void BackToLogin()
         {

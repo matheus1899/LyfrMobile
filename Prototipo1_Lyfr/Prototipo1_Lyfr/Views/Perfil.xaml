@@ -10,7 +10,7 @@
              x:Class="Prototipo1_Lyfr.Views.Perfil">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Variant_Primary_Color">#e3c38b</Color>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
             </Style>

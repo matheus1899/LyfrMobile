@@ -6,8 +6,10 @@
         <ResourceDictionary>
 
             <Color x:Key="TextColor_Alert">Red</Color>
-            <Color x:Key="Primary_Color">#EEDBAA</Color>
-            <Color x:Key="Secondary_Color">#436477</Color>
+            <!--<Color x:Key="Primary_Color">#EEDBAA</Color>-->
+            <!--<Color x:Key="Secondary_Color">#436477</Color>-->
+            <Color x:Key="Primary_Color">#303030</Color>
+            <Color x:Key="Secondary_Color">#FFFFFF</Color>
             <Color x:Key="Tertiary_Color">#FFFFFF</Color>
 
             <Style x:Key="Style_Label" TargetType="Label">

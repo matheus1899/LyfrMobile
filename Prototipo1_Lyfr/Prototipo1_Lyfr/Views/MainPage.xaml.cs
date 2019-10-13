@@ -13,16 +13,19 @@ namespace Prototipo1_Lyfr.Views
         public MainPage()
         {
             InitializeComponent();
-            this.Children.Add(new Views.Downloads());
-            this.Children.Add(new Views.Home());
-            this.Children.Add(new Views.Perfil());
+            NavigationPage.SetHasNavigationBar(this, false);
+            this.Children.Add(new Downloads());
+            this.Children.Add(new Home());
+            this.Children.Add(new Perfil());
+            CurrentPage = this.Children[1];
         }
         public MainPage(Cliente cliente)
         {
             InitializeComponent();
-            this.Children.Add(new Views.Downloads());
-            this.Children.Add(new Views.Home());
-            this.Children.Add(new Views.Perfil(cliente));
+            NavigationPage.SetHasNavigationBar(this, false);
+            this.Children.Add(new Downloads());
+            this.Children.Add(new Home());
+            this.Children.Add(new Perfil(cliente));
             CurrentPage = this.Children[1];
         }
         protected override void OnCurrentPageChanged()
@@ -30,16 +33,6 @@ namespace Prototipo1_Lyfr.Views
             base.OnCurrentPageChanged();
             NavigationPage.SetHasNavigationBar(this, false);
             Debug.WriteLine(CurrentPage.GetType().Name);
-            //if (CurrentPage.GetType().Name == "Home")
-            //{
-            //    NavigationPage.SetHasBackButton(this, false);
-            //    NavigationPage.SetHasNavigationBar(this, true);
-            //    search_bar.IsVisible = true;
-            //}
-            //else
-            //{
-            //    NavigationPage.SetHasNavigationBar(this, false);
-            //}
         }
         protected override void OnAppearing()
         {
