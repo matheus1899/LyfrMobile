@@ -21,7 +21,7 @@
         <Grid RowSpacing="1" 
               ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -35,8 +35,8 @@
                 <ColumnDefinition Width="1.4466*"/>
                 <ColumnDefinition Width="1.7866*"/>
             </Grid.ColumnDefinitions>
-            <StackLayout Grid.Row="0" 
-                         Grid.Column="0" 
+            <!--<StackLayout Grid.Row="0" 
+                         Grid.Column="3" 
                          Margin="15,0,0,0">
                 <BoxView VerticalOptions="Start" 
                          WidthRequest="170" 
@@ -71,15 +71,23 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-            </StackLayout>
-            <Image Source="goldenaxe.jpg" 
-                   Grid.Row="0" 
+            </StackLayout>-->
+            <Image Grid.Row="0" 
                    Grid.Column="2" 
                    Grid.ColumnSpan="2" 
                    Aspect="AspectFill" 
-                   Margin="0,15,0,0"
-                   HorizontalOptions="FillAndExpand"/>
-            <StackLayout Grid.Row="0" Grid.Column="5" Margin="0,0,15,0">
+                   Margin="20,35,20,35"
+                   HorizontalOptions="FillAndExpand">
+                <Image.Source>
+                    <FontImageSource Glyph="&#xf2bd;" Size="200" >
+                        <FontImageSource.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String" 
+                                        Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/> 
+                        </FontImageSource.FontFamily>
+                    </FontImageSource>
+                </Image.Source>
+            </Image>
+            <!--<StackLayout Grid.Row="0" Grid.Column="5" Margin="0,0,15,0">
                 <BoxView VerticalOptions="Start" WidthRequest="170" x:Name="bxv2"/>
                 <Image Source="insignia.png" x:Name="img_plan" >
                     <VisualStateManager.VisualStateGroups>
@@ -111,7 +119,7 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-            </StackLayout>
+            </StackLayout>-->
             <Label Text="{Binding Nome}"  
                    Grid.Row="1" 
                    Grid.Column="1" 
@@ -130,7 +138,7 @@
                      Grid.ColumnSpan="6" 
                      Margin="4,0"
                      BackgroundColor="{DynamicResource Secondary_Color}" 
-                     CornerRadius="35,35,0,0"/>
+                     CornerRadius="0,0,0,0"/>
             <TableView x:Name="tableview_Main"
                        HasUnevenRows="True"
                        Margin="6,20,6,0" 
@@ -250,7 +258,7 @@
                         </ViewCell>
                         <ViewCell>
                             <StackLayout Margin="20,30,20,0">
-                                <ActivityIndicator Color="{DynamicResource Secondary_Color}" 
+                                <ActivityIndicator Color="{DynamicResource Primary_Color}" 
                                                    IsVisible="{Binding Act_Ind_Sugestao}"
                                                    IsRunning="{Binding Act_Ind_Sugestao}" />
                                 <Label Text="Críticas ou sugestões" 
@@ -260,14 +268,16 @@
                                        TextColor="{DynamicResource Primary_Color}"
                                        HorizontalTextAlignment="Start" 
                                        VerticalTextAlignment="Center"/>
-                                <Frame Margin="0,10,0,0" 
-                                       CornerRadius="4">
-                                    <Editor Margin="0,-15,0,-10"
+                                <pancake:PancakeView Margin="0,10,0,0" 
+                                                     Elevation="2"
+                                                     BackgroundColor="{DynamicResource Secondary_Color}"
+                                                     CornerRadius="10">
+                                    <Editor Margin="15,20,15,5"
                                             AutoSize="TextChanges"
                                             BackgroundColor="{DynamicResource Tertiary_Color}" 
                                             HorizontalOptions="FillAndExpand"
                                             x:Name="edt_sugestao"/>
-                                </Frame>
+                                </pancake:PancakeView>
                                 <StackLayout Orientation="Horizontal">
                                     <Button Text="   Enviar   "
                                             Margin="0,10,0,20"

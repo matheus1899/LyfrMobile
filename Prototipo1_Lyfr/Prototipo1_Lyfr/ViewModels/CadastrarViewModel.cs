@@ -2,6 +2,7 @@
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -10,8 +11,8 @@ namespace Prototipo1_Lyfr.ViewModels
 {
     public class CadastrarViewModel : BaseViewModel
     {
-        public ICommand Btn_Gratis_Clicked { private set; get; }
-        public ICommand Btn_Pago_Clicked { private set; get; }
+        //public ICommand Btn_Gratis_Clicked { private set; get; }
+        //public ICommand Btn_Pago_Clicked { private set; get; }
         public ICommand Cadastrar_Clicked { private set; get; }
         public ICommand Next_Entry_Command { private set; get; }
 
@@ -32,7 +33,7 @@ namespace Prototipo1_Lyfr.ViewModels
             DataNasc = DateTime.Now;
             //Plano = "P";
 
-            Btn_Gratis_Clicked = new Command(async (e) =>
+            /* Btn_Gratis_Clicked = new Command(async (e) =>
             {
                 Plano = "G";
                 var a = e as Grid;
@@ -75,58 +76,59 @@ namespace Prototipo1_Lyfr.ViewModels
 
                 Botao_Pago = App.Current.Resources["Style_Button_Ativo"] as Style;
                 Botao_Gratis = App.Current.Resources["Style_Button_Desativo"] as Style;
-            });
+            });*/
 
             Cadastrar_Clicked = new Command(async () =>
             {
                 if (string.IsNullOrEmpty(Nome))
                 {
-                    MostrarMensagem.Mostrar("Prencha o campo do nome!");
+                    MostrarMensagem.Mostrar("Prencha o campo do nome");
                     return;
                 }
+                
                 else if (string.IsNullOrEmpty(Email))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do e-mail!");
+                    MostrarMensagem.Mostrar("Preencha o campo do e-mail");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Senha))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo da senha!");
+                    MostrarMensagem.Mostrar("Preencha o campo da senha");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cpf))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do CPF!");
+                    MostrarMensagem.Mostrar("Preencha o campo do CPF");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cep))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do CEP!");
+                    MostrarMensagem.Mostrar("Preencha o campo do CEP");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Telefone))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do telefone!");
+                    MostrarMensagem.Mostrar("Preencha o campo do telefone");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Rua))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo da rua!");
+                    MostrarMensagem.Mostrar("Preencha o campo da rua");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Numero))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do número!");
+                    MostrarMensagem.Mostrar("Preencha o campo do número");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cidade))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo da cidade!");
+                    MostrarMensagem.Mostrar("Preencha o campo da cidade");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Estado))
                 {
-                    MostrarMensagem.Mostrar("Preencha o campo do estado!");
+                    MostrarMensagem.Mostrar("Preencha o campo do estado");
                     return;
                 }
                 else
@@ -232,25 +234,15 @@ namespace Prototipo1_Lyfr.ViewModels
         private string _Senha;
         private string _Telefone;
         private string _Data_Cadastro;
-        private Style _Botao_Gratis;
-        private Style _Botao_Pago;
+        //private Style _Botao_Gratis;
+        //private Style _Botao_Pago;
 
         private bool _Act_Indicator;
 
         #endregion
 
         #region Get_Set
-        public string Plano
-        {
-            get
-            {
-                return (string)_Plano;
-            }
-            set
-            {
-                SetProperty<string>(ref _Plano, value, nameof(Plano));
-            }
-        }
+        
         public string Nome
         {
             get

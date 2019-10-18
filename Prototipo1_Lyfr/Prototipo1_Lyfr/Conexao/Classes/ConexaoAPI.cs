@@ -15,7 +15,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
 
         public ConexaoAPI()
         {
-            uri = new Uri("https://lyfrapi1.herokuapp.com/api/");
+            uri = new Uri("http://lyfrapi.com.br/api/");
         }
 
         public async Task<string> Add(Cliente cliente, string Token)

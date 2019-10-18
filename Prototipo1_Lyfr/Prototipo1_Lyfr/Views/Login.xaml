@@ -84,6 +84,7 @@
                                            TextChanged="EntryEmail_TextChanged"
                                            Focused="EntryEmail_Focused"
                                            Placeholder="Email"
+                                           ReturnType="Next"
                                            Text="{Binding Email, Mode=TwoWay}"
                                            ReturnCommand="{Binding Next_Entry_Command}"
                                            ReturnCommandParameter="{x:Reference ent_Senha_Usuario}"

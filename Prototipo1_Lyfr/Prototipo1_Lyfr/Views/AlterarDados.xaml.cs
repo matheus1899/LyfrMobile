@@ -21,10 +21,11 @@ namespace Prototipo1_Lyfr.Views
         private bool ModificarEndereco = false;
         private bool ModificarPlano = false;
         private Cliente cliente;
-
+        private GerarToken gerarToken;
         public AlterarDados(string propriedade, Cliente cliente)
         {
             InitializeComponent();
+            gerarToken = new GerarToken();
             if (propriedade == "Email")
             {
                 Stack_Email.IsVisible = true;
@@ -149,6 +150,7 @@ namespace Prototipo1_Lyfr.Views
                         };
 
                         var conexao = new Conexao.Classes.ConexaoAPI();
+                        gerarToken.ChecarCache();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();
@@ -192,6 +194,7 @@ namespace Prototipo1_Lyfr.Views
                         };
 
                         var conexao = new Conexao.Classes.ConexaoAPI();
+                        gerarToken.ChecarCache();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();

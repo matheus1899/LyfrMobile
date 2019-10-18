@@ -44,11 +44,9 @@
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
 
-    
     <ContentView >
         <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
-
             <AbsoluteLayout>
                 <ScrollView VerticalOptions="FillAndExpand" 
                             Scrolled="ScrollView_Scrolled" 
@@ -56,14 +54,13 @@
                             AbsoluteLayout.LayoutFlags="All">
                     <StackLayout>
                         <StackLayout>
-                            <Grid BackgroundColor="Red">
+                            <Grid>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="75.6666*"/>
+                                    <RowDefinition Height="75.6666*"/>
+                                    <RowDefinition Height="25.6666*"/>
                                     <RowDefinition Height="18.6666*"/>
-                                    <RowDefinition Height="18.6666*"/>
-                                    <RowDefinition Height="18.6666*"/>
-                                    <RowDefinition Height="18.6666*"/>
-                                    <RowDefinition Height="18.6666*"/>
-                                    <RowDefinition Height="18.6666*"/>
+                                    <RowDefinition Height="8.6666*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="15"/>
@@ -72,38 +69,59 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="15"/>
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Row="0" Grid.RowSpan="6" 
-                                       Grid.Column="0" Grid.ColumnSpan="5" VerticalOptions="FillAndExpand"
-                                       Aspect="AspectFill" HorizontalOptions="FillAndExpand"
-                                       Source="http://it-ebs.co.uk/wp-content/uploads/2019/06/Terracotta-warriors.jpg"/>
+                                <Image Grid.Row="0" 
+                                       Grid.RowSpan="5" 
+                                       Grid.ColumnSpan="5" 
+                                       Grid.Column="0" 
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand"
+                                       Aspect="AspectFill" 
+                                       Source="artedaguerra.png"/>
 
-                                <Label Text=" A Arte da Guerra " TextColor="GreenYellow" FontFamily="serif" 
-                                       Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"
-                                       FontAttributes="Bold" FontSize="Large"/>
+                                <StackLayout Orientation="Vertical" 
+                                             Grid.Row="1"
+                                             Grid.Column="1" 
+                                             Grid.ColumnSpan="3"
+                                             IsVisible="True" 
+                                             Margin="0,0,0,0" 
+                                             HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="CenterAndExpand" 
+                                             Spacing="10">
+                                    <Label TextColor="White"
+                                           Text="A Arte da Guerra"
+                                           FontFamily="serif"
+                                           Margin="10,0,0,0"
+                                           VerticalOptions="CenterAndExpand"
+                                           FontSize="Title"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button Text="Ler" BackgroundColor="Transparent" BorderWidth="1"  BorderColor="White" TextColor="White" CornerRadius="5"/>
+                                        <Button Text="Adicionar" BackgroundColor="Transparent" BorderWidth="1" BorderColor="White" TextColor="White" CornerRadius="5"/>
+                                    </StackLayout>
+                                </StackLayout>
                             </Grid>
                         </StackLayout>
                         <Frame Visual="Material" 
-                HasShadow="True" 
-                BackgroundColor="{DynamicResource Primary_Color}">
+                               HasShadow="True" 
+                               BackgroundColor="{DynamicResource Primary_Color}">
                             <StackLayout Orientation="Vertical">
                                 <Label TextColor="{DynamicResource Secondary_Color}"
-                        Text="Recomendados para você"
-                        HorizontalOptions="FillAndExpand" 
-                        FontSize="Medium"
-                        FontAttributes="Bold"/>
+                                       Text="Recomendados para você"
+                                       HorizontalOptions="FillAndExpand" 
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"/>
                                 <CollectionView x:Name="lista"
-                                ItemsSource="{Binding LivrosRecomendados}"
-                                HeightRequest="200"
-                                SelectionMode="Single"
-                                SelectionChanged="CollectionView_SelectionChanged" >
+                                                ItemsSource="{Binding LivrosRecomendados}"
+                                                HeightRequest="200"
+                                                SelectionMode="Single"
+                                                SelectionChanged="CollectionView_SelectionChanged" >
                                     <CollectionView.ItemsLayout>
                                         <GridItemsLayout Orientation="Horizontal" 
-                                            Span="1"/>
+                                                         Span="1"/>
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid RowSpacing="0" 
-                                    BackgroundColor="Transparent">
+                                                  BackgroundColor="Transparent">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="115"/>
                                                 </Grid.ColumnDefinitions>
@@ -113,8 +131,8 @@
                                                 </Grid.RowDefinitions>
                                                 <Image Style="{DynamicResource Style_ImageLivro}"/>
                                                 <Label Style="{DynamicResource Style_LabelLivro}"
-                                        MaxLines="2" 
-                                        LineBreakMode="TailTruncation"/>
+                                                       MaxLines="2" 
+                                                       LineBreakMode="TailTruncation"/>
                                             </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
@@ -122,26 +140,26 @@
                             </StackLayout>
                         </Frame>
                         <Frame Visual="Material" 
-                HasShadow="True" 
-                BackgroundColor="{DynamicResource Primary_Color}">
+                               HasShadow="True" 
+                               BackgroundColor="{DynamicResource Primary_Color}">  
                             <StackLayout Orientation="Vertical">
                                 <Label TextColor="{DynamicResource Secondary_Color}" 
-                    Text="Continue lendo"
-                    HorizontalOptions="FillAndExpand"
-                    FontSize="Medium" 
-                    FontAttributes="Bold"/>
+                                       Text="Continue lendo"
+                                       HorizontalOptions="FillAndExpand"
+                                       FontSize="Medium" 
+                                       FontAttributes="Bold"/>
                                 <CollectionView x:Name="lista2" 
-                                HeightRequest="200" 
-                                ItemsSource="{Binding ContinueLendo}"
-                                SelectionMode="Single" 
-                                SelectionChanged="CollectionView2_SelectionChanged">
+                                                HeightRequest="200" 
+                                                ItemsSource="{Binding ContinueLendo}"
+                                                SelectionMode="Single" 
+                                                SelectionChanged="CollectionView2_SelectionChanged">
                                     <CollectionView.ItemsLayout>
                                         <GridItemsLayout Orientation="Horizontal" Span="1"/>
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid RowSpacing="0" 
-                                    BackgroundColor="Transparent">
+                                                  BackgroundColor="Transparent">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="115"/>
                                                 </Grid.ColumnDefinitions>
@@ -151,8 +169,8 @@
                                                 </Grid.RowDefinitions>
                                                 <Image Style="{DynamicResource Style_ImageLivro}"/>
                                                 <Label Style="{DynamicResource Style_LabelLivro}" 
-                                        MaxLines="2" 
-                                        LineBreakMode="TailTruncation"/>
+                                                       MaxLines="2" 
+                                                       LineBreakMode="TailTruncation"/>
                                             </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
@@ -239,14 +257,14 @@
                 </ScrollView>
                 <SearchBar Placeholder="Pesquisar livros ou autores..."  
                            Focused="SearchBar_Focused"
-                           BackgroundColor="#151515"
+                           BackgroundColor="Black"
                            x:Name="sb_home" 
+                           Margin="-15,0,0,0"
                            PlaceholderColor="{DynamicResource Tertiary_Color}" 
                            TextColor="{DynamicResource Tertiary_Color}"
                            AbsoluteLayout.LayoutBounds="0,0,1,55" 
                            AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"/>
             </AbsoluteLayout>
-       
         </pancake:PancakeView>
     </ContentView>
 </ContentPage>

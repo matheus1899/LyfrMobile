@@ -25,35 +25,35 @@ namespace Prototipo1_Lyfr.Views
         }
         private void ContentPage_SizeChanged(object sender, EventArgs e)
         {
-            MudarEstadoImagem();
+            //MudarEstadoImagem();
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MudarEstadoImagem();
+            //MudarEstadoImagem();
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             SetIsEnabled(tableview_Main, true);
         }
-        private void MudarEstadoImagem()
-        {
-            if (Width > Height)
-            {
-                VisualStateManager.GoToState(img_lidos, "Landscape");
-                VisualStateManager.GoToState(img_plan, "Landscape");
-                bxv1.IsVisible = false;
-                bxv2.IsVisible = false;
-            }
-            else
-            {
-                VisualStateManager.GoToState(img_lidos, "Portrait");
-                VisualStateManager.GoToState(img_plan, "Portrait");
-                bxv1.IsVisible = true;
-                bxv2.IsVisible = true;
-            }
-        }
+        //private void MudarEstadoImagem()
+        //{
+        //    if (Width > Height)
+        //    {
+        //        VisualStateManager.GoToState(img_lidos, "Landscape");
+        //        VisualStateManager.GoToState(img_plan, "Landscape");
+        //        bxv1.IsVisible = false;
+        //        bxv2.IsVisible = false;
+        //    }
+        //    else
+        //    {
+        //        VisualStateManager.GoToState(img_lidos, "Portrait");
+        //        VisualStateManager.GoToState(img_plan, "Portrait");
+        //        bxv1.IsVisible = true;
+        //        bxv2.IsVisible = true;
+        //    }
+        //}
         private void GoTo_AlterEmail(object sender, EventArgs e)
         {
             SetIsEnabled(tableview_Main, false);

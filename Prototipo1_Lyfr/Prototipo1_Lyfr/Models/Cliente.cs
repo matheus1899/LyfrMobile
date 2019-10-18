@@ -16,7 +16,7 @@
         public string Senha { get; set; }
         public string Telefone { get; set; }
         public string Data_Cadastro { get; set; }
-        public string Plano { get; set; }
+        //public string Plano { get; set; }
        
     }
 

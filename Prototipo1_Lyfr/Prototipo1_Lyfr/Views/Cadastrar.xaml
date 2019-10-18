@@ -71,7 +71,7 @@
                            Grid.Row="0" 
                            HeightRequest="110"
                            Grid.Column="2"
-                           Margin="0,20,0,0"
+                           Margin="0,25,0,10"
                            Grid.ColumnSpan="3"/>
                     <!-- Row 1 -->
                     <ActivityIndicator Grid.Row="1" 
@@ -89,7 +89,7 @@
                              Grid.Row="3" 
                              Grid.Column="0" 
                              Grid.ColumnSpan="7">
-                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                         <StackLayout Style="{x:StaticResource Filho_Frame}"
                                      Padding="0,-16,0,-16">
                             <Entry x:Name="ent_Nome_Usuario"
@@ -97,10 +97,11 @@
                                    HorizontalOptions="FillAndExpand"
                                    Focused="Entry_Focused"
                                    Placeholder="Nome"
+                                   ReturnType="Next"
                                    ReturnCommand="{Binding Next_Entry_Command}"
                                    ReturnCommandParameter="{x:Reference ent_Email_Usuario}"
                                    Unfocused="Entry_Unfocused"
-                                   Text="{Binding Nome, Mode=TwoWay}"
+                                   Text="{Binding Nome}"
                                    TextColor="{DynamicResource DefaultTextColor}">
                                 <Entry.Effects>
                                     <ef:FocusEffect/>
@@ -122,7 +123,7 @@
                             </Label>
                         </StackLayout>
                     </controls:NewFrame>
-                </StackLayout>
+                    </StackLayout>
                     <!-- Email -->
                     <!-- Row 4 -->
                     <StackLayout Orientation="Vertical" 
@@ -139,9 +140,10 @@
                                        HorizontalOptions="FillAndExpand"
                                        Focused="Entry_Focused"
                                        Placeholder="Email"
+                                       ReturnType="Next"
                                        ReturnCommand="{Binding Next_Entry_Command}"
                                        ReturnCommandParameter="{x:Reference ent_Senha_Usuario}"
-                                       Text="{Binding Email, Mode=TwoWay}"
+                                       Text="{Binding Email}"
                                        Unfocused="Entry_Unfocused"
                                        Keyboard="Email">
                                     <Entry.Behaviors>
@@ -185,9 +187,10 @@
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Placeholder="Senha"
+                                       ReturnType="Next"
                                        ReturnCommand="{Binding Next_Entry_Command}"
                                        ReturnCommandParameter="{x:Reference ent_CPF_Usuario}"
-                                       Text="{Binding Senha, Mode=TwoWay}"
+                                       Text="{Binding Senha}"
                                        Margin="-5,-5,0,-25">
                                     <Entry.Behaviors>
                                         <behaviorPack:PasswordValidationBehavior />
@@ -247,7 +250,7 @@
                                  x:Name="Stack_Ent_CPF"
                                  Grid.Row="6" 
                                  Grid.Column="0"
-                                 IsVisible="False"
+                                 IsVisible="True"
                                  Grid.ColumnSpan="7">
                         <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                             <StackLayout Style="{x:StaticResource Filho_Frame}" >
@@ -257,9 +260,10 @@
                                        Unfocused="Entry_Unfocused"
                                        TextChanged="Entry_TextChanged"
                                        Placeholder="CPF"
+                                       ReturnType="Next"
                                        ReturnCommand="{Binding Next_Entry_Command}"
                                        ReturnCommandParameter="{x:Reference ent_CEP_Usuario}"
-                                       Text="{Binding Cpf, Mode=TwoWay}"
+                                       Text="{Binding Cpf}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        MaxLength="14"
@@ -296,7 +300,7 @@
                                  x:Name="Stack_Ent_CEP" 
                                  Grid.Row="7" 
                                  Grid.Column="0" 
-                                 IsVisible="False"
+                                 IsVisible="True"
                                  Grid.ColumnSpan="7">
                         <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                             <StackLayout Style="{x:StaticResource Filho_Frame}">
@@ -311,7 +315,8 @@
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Keyboard="Numeric"
-                                       Text="{Binding Cep, Mode=TwoWay}"
+                                       ReturnType="Next"
+                                       Text="{Binding Cep}"
                                        MaxLength="9"
                                        Margin="0,-5,0,-25">
                                     <Entry.Behaviors>
@@ -345,7 +350,7 @@
                                  x:Name="Stack_Ent_Tele" 
                                  Grid.Row="8" 
                                  Grid.Column="0" 
-                                 IsVisible="False"
+                                 IsVisible="True"
                                  Grid.ColumnSpan="7">
                         <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                             <StackLayout Style="{x:StaticResource Filho_Frame}">
@@ -356,6 +361,7 @@
                                        TextChanged="Entry_TextChanged"
                                        Placeholder="Telefone"
                                        Keyboard="Telephone"
+                                       ReturnType="Next"
                                        Text="{Binding Telefone,Mode=TwoWay}"
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
@@ -390,14 +396,14 @@
                                  x:Name="Stack_Ent_DataNasc" 
                                  Grid.Row="9" 
                                  Grid.Column="0" 
-                                 IsVisible="False"                             
+                                 IsVisible="True"                             
                                  Grid.ColumnSpan="7">
                         <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
                             <StackLayout Style="{x:StaticResource Filho_Frame}"
                                          Padding="0,-16,0,-16">
                                 <DatePicker MinimumDate="01/01/1940" 
                                             Visual="Material"
-                                            Date="{Binding DataNasc, Mode=TwoWay}"
+                                            Date="{Binding DataNasc}"
                                             TextColor="{DynamicResource DefaultTextColor}"
                                             x:Name="DataPicker_Nascimento" 
                                             HorizontalOptions="FillAndExpand"/>
@@ -412,7 +418,7 @@
                                  Grid.ColumnSpan="7"
                                  BackgroundColor="Transparent"
                                  x:Name="Stack_Ent_Rua_Numero"
-                                 IsVisible="False">
+                                 IsVisible="True">
                         <StackLayout Orientation="Horizontal" 
                                      HorizontalOptions="FillAndExpand" 
                                      Margin="0">
@@ -429,6 +435,7 @@
                                            Unfocused="Entry_Unfocused"
                                            TextChanged="Entry_TextChanged"
                                            Placeholder="Rua" 
+                                           ReturnType="Next"
                                            ReturnCommand="{Binding Next_Entry_Command}"
                                            ReturnCommandParameter="{x:Reference ent_Numero_Usuario}"
                                            Text="{Binding Rua,Mode=TwoWay}"
@@ -467,6 +474,7 @@
                                            TextColor="{DynamicResource DefaultTextColor}" 
                                            HorizontalOptions="FillAndExpand"                               
                                            Placeholder="Número"
+                                           ReturnType="Next"
                                            ReturnCommand="{Binding Next_Entry_Command}"
                                            ReturnCommandParameter="{x:Reference ent_Cidade_Usuario}"
                                            Text="{Binding Numero,Mode=TwoWay}"
@@ -501,7 +509,7 @@
                                  Grid.Column="0" 
                                  Grid.ColumnSpan="7"
                                  x:Name="Stack_Ent_Cidade_Estado"
-                                 IsVisible="False"
+                                 IsVisible="True"
                                  BackgroundColor="Transparent">
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <controls:NewFrame Style="{x:StaticResource Frame_Pai}"
@@ -516,6 +524,7 @@
                                            TextColor="{DynamicResource DefaultTextColor}" 
                                            HorizontalOptions="FillAndExpand"
                                            Placeholder="Cidade"
+                                           ReturnType="Next"
                                            ReturnCommand="{Binding Next_Entry_Command}"
                                            ReturnCommandParameter="{x:Reference ent_Estado_Usuario}"
                                            Text="{Binding Cidade,Mode=TwoWay}"
@@ -553,6 +562,7 @@
                                            TextColor="{DynamicResource DefaultTextColor}" 
                                            HorizontalOptions="FillAndExpand"
                                            Placeholder="Estado  "
+                                           ReturnType="Go"
                                            Text="{Binding Estado,Mode=TwoWay}"
                                            MaxLength="2"
                                            Keyboard="Default">
