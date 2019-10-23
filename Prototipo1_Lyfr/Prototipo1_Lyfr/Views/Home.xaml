@@ -14,7 +14,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Image" x:Key="Style_ImageLivro">
-                <Setter Property="Source" Value="{Binding Source_imagem}"/>
+                <Setter Property="Source" Value="{Binding Caminho}"/>
                 <Setter Property="WidthRequest" Value="90"/>
                 <Setter Property="HeightRequest" Value="150"/>
                 <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
@@ -25,7 +25,7 @@
             <Style TargetType="Label" x:Key="Style_LabelLivro">
                 <Setter Property="Grid.Row" Value="1"/>
                 <Setter Property="Grid.Column" Value="0"/>
-                <Setter Property="Text" Value="{Binding Nome}"/>
+                <Setter Property="Text" Value="{Binding NomeLivro}"/>
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"/>

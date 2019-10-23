@@ -1,5 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.Conexao.Classes;
+using Prototipo1_Lyfr.Models.SQLiteModels;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
@@ -10,24 +15,24 @@ namespace Prototipo1_Lyfr.ViewModels
         // nome de usuário ou categorias de livros...
 
         //Funções devem ser criadas para o retorno dos Recomendados, de preferência no DB
-               
 
-        public ObservableCollection<Livro> LivrosRecomendadosViewModel()
+        public CacheLiteDB _cacheLite = new CacheLiteDB();
+        
+        public async Task<List<Capa>> LivrosRecomendadosViewModel()
         {
-            return new ObservableCollection<Livro>
-            {
-                new Livro { Nome = "Noturno", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Dom Casmurro", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "A Queda", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Noite Eterna", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "O Iluminado", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "It, A Coisa - Livro 1", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Doutor Sono", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "As Fontes do Paraíso", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Fundação", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Segunda Fundação", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "O País de Outubro", Source_imagem = "cover_example.jpg" }
-            };
+            return await _cacheLite.LoadCapas();
+                //new Livro { Nome = "Noturno", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "Dom Casmurro", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "A Queda", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "Noite Eterna", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "O Iluminado", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "It, A Coisa - Livro 1", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "Doutor Sono", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "As Fontes do Paraíso", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "Fundação", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "Segunda Fundação", Source_imagem = "cover_example.jpg" },
+                //new Livro { Nome = "O País de Outubro", Source_imagem = "cover_example.jpg" }
+            
         }
         public ObservableCollection<Livro> ContinueLendoViewModel()
         {
@@ -42,7 +47,7 @@ namespace Prototipo1_Lyfr.ViewModels
             };
         }
 
-        public ObservableCollection<Livro> LivrosRecomendados { get=>LivrosRecomendadosViewModel();}
+        public Task<List<Capa>> LivrosRecomendados { get=>LivrosRecomendadosViewModel();}
         public ObservableCollection<Livro> ContinueLendo { get => ContinueLendoViewModel(); }
     }
 }
