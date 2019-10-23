@@ -168,8 +168,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 {
                     Act_Ind_Sugestao = true;
 
-                    gerarToken.ChecarCache();
-
                     var result = await conexao.SendSugestao(sugestao, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
 
@@ -186,7 +184,7 @@ namespace Prototipo1_Lyfr.ViewModels
 
         private void Set_Initial_Values(Cliente cliente)
         {
-            Plano = cliente.Plano == "P" ? "Premium" : "Gratuito";
+            //Plano = cliente.Plano == "P" ? "Premium" : "Gratuito";
             IdCliente = cliente.IdCliente;
             Nome = cliente.Nome;
             Nome = cliente.Nome;

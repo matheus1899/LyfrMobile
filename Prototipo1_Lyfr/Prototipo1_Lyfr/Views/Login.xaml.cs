@@ -46,7 +46,6 @@ namespace Prototipo1_Lyfr
             try
             {
                 SetActivityIndicatorState(true);
-                gerarToken.ChecarCache();
 
                 if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
                 {

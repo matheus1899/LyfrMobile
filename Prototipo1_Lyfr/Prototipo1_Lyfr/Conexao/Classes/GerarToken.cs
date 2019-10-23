@@ -93,6 +93,8 @@ namespace Prototipo1_Lyfr.Conexao
 
         public static string GetTokenFromCache()
         {
+            GerarToken gerar = new GerarToken();
+            gerar.ChecarCache();
             Cache cache = new Cache();
             return cache.GetTokenCache().TokenString;
         }

@@ -148,8 +148,7 @@ namespace Prototipo1_Lyfr.ViewModels
                         Telefone = this.Telefone,
                         Cpf = this.Cpf,
                         DataNasc = this.DataNasc.ToString("MM/dd/yyyy"),
-                        Data_Cadastro = DateTime.Now.ToString(),
-                        Plano = this.Plano
+                        Data_Cadastro = DateTime.Now.ToString()
                     };
 
                     var conexao = new Conexao.Classes.ConexaoAPI();
@@ -157,7 +156,6 @@ namespace Prototipo1_Lyfr.ViewModels
 
                     try
                     {
-                        gerarToken.Value.ChecarCache();
                         var result = await conexao.Add(cliente, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
 
@@ -375,28 +373,28 @@ namespace Prototipo1_Lyfr.ViewModels
                 SetProperty<string>(ref _Data_Cadastro, value.ToString(), nameof(Data_Cadastro));
             }
         }
-        public Style Botao_Pago
-        {
-            get
-            {
-                return (Style)_Botao_Pago;
-            }
-            set
-            {
-                SetProperty<Style>(ref _Botao_Pago, value, nameof(Botao_Pago));
-            }
-        }
-        public Style Botao_Gratis
-        {
-            get
-            {
-                return (Style)_Botao_Gratis;
-            }
-            set
-            {
-                SetProperty<Style>(ref _Botao_Gratis, value, nameof(Botao_Gratis));
-            }
-        }
+        //public Style Botao_Pago
+        //{
+        //    //get
+        //    //{
+        //    //    //return (Style)_Botao_Pago;
+        //    //}
+        //    //set
+        //    //{
+        //    //    //SetProperty<Style>(ref _Botao_Pago, value, nameof(Botao_Pago));
+        //    //}
+        //}
+        //public Style Botao_Gratis
+        //{
+        //    ////get
+        //    //{
+        //    //    //return (Style)_Botao_Gratis;
+        //    //}
+        //    //set
+        //    //{
+        //    //    //SetProperty<Style>(ref _Botao_Gratis, value, nameof(Botao_Gratis));
+        //    //}
+        //}
 
         public bool Act_Indicator
         {

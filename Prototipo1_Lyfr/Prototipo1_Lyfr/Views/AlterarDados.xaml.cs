@@ -144,13 +144,12 @@ namespace Prototipo1_Lyfr.Views
                             Data_Cadastro = cliente.Data_Cadastro,
                             Estado = cliente.Estado,
                             Numero = cliente.Numero,
-                            Plano = cliente.Plano,
+                            //Plano = cliente.Plano,
                             Rua = cliente.Rua,
                             Telefone = cliente.Telefone
                         };
 
                         var conexao = new Conexao.Classes.ConexaoAPI();
-                        gerarToken.ChecarCache();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();
@@ -188,13 +187,12 @@ namespace Prototipo1_Lyfr.Views
                             Data_Cadastro = cliente.Data_Cadastro,
                             Estado = cliente.Estado,
                             Numero = cliente.Numero,
-                            Plano = cliente.Plano,
+                            //Plano = cliente.Plano,
                             Rua = cliente.Rua,
                             Telefone = cliente.Telefone
                         };
 
                         var conexao = new Conexao.Classes.ConexaoAPI();
-                        gerarToken.ChecarCache();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();
@@ -229,7 +227,7 @@ namespace Prototipo1_Lyfr.Views
                         Data_Cadastro = cliente.Data_Cadastro,
                         Estado = cliente.Estado,
                         Numero = cliente.Numero,
-                        Plano = cliente.Plano,
+                        //Plano = cliente.Plano,
                         Rua = cliente.Rua,
                         Telefone = ent_Telefone_Usuario.Text
                     };
@@ -263,7 +261,7 @@ namespace Prototipo1_Lyfr.Views
                         Data_Cadastro = cliente.Data_Cadastro,
                         Estado = ent_Estado_Usuario.Text,
                         Numero = ent_Numero_Usuario.Text,
-                        Plano = cliente.Plano,
+                        //Plano = cliente.Plano,
                         Rua = ent_Rua_Usuario.Text,
                         Telefone = cliente.Telefone
                     };
