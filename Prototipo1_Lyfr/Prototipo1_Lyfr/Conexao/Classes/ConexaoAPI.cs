@@ -234,7 +234,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     client.BaseAddress = uri;
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
-                    HttpResponseMessage response = await client.GetAsync("/Livros/GetAllLivros/?numeroDeLivros=0");
+                    HttpResponseMessage response = await client.GetAsync("Livros/GetAllLivros/?numeroDeLivros=0");
                     string mensagem = await response.Content.ReadAsStringAsync();
 
                     if (response.IsSuccessStatusCode == true)

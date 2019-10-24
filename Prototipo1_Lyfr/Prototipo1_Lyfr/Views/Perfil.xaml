@@ -35,43 +35,6 @@
                 <ColumnDefinition Width="1.4466*"/>
                 <ColumnDefinition Width="1.7866*"/>
             </Grid.ColumnDefinitions>
-            <!--<StackLayout Grid.Row="0" 
-                         Grid.Column="3" 
-                         Margin="15,0,0,0">
-                <BoxView VerticalOptions="Start" 
-                         WidthRequest="170" 
-                         x:Name="bxv1"/>
-                <Image Source="book_stack.png" x:Name="img_lidos">
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup>
-                            <VisualState Name="Portrait">
-                                <VisualState.Setters>
-                                    <Setter Property="Margin" Value="5"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Landscape">
-                                <VisualState.Setters>
-                                    <Setter Property="Margin" Value="30,30,30,0"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                </Image>
-                <Label HorizontalTextAlignment="Center" 
-                       HorizontalOptions="FillAndExpand" 
-                       VerticalTextAlignment="Start" 
-                       FontSize="Small"
-                       VerticalOptions="StartAndExpand" 
-                       TextColor="{DynamicResource Secondary_Color}">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Lidos" FontAttributes="Bold" />
-                            <Span Text="&#10;"/>
-                            <Span Text="18"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </StackLayout>-->
             <Image Grid.Row="0" 
                    Grid.Column="2" 
                    Grid.ColumnSpan="2" 
@@ -82,44 +45,11 @@
                     <FontImageSource Glyph="&#xf2bd;" Size="200" >
                         <FontImageSource.FontFamily>
                             <OnPlatform x:TypeArguments="x:String" 
-                                        Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/> 
+                                        Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                         </FontImageSource.FontFamily>
                     </FontImageSource>
                 </Image.Source>
             </Image>
-            <!--<StackLayout Grid.Row="0" Grid.Column="5" Margin="0,0,15,0">
-                <BoxView VerticalOptions="Start" WidthRequest="170" x:Name="bxv2"/>
-                <Image Source="insignia.png" x:Name="img_plan" >
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup>
-                            <VisualState Name="Portrait">
-                                <VisualState.Setters>
-                                    <Setter Property="Margin" Value="5"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState Name="Landscape">
-                                <VisualState.Setters>
-                                    <Setter Property="Margin" Value="30,30,30,0"/>
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                </Image>
-                <Label HorizontalTextAlignment="Center" 
-                       HorizontalOptions="FillAndExpand" 
-                       VerticalTextAlignment="Start" 
-                       VerticalOptions="StartAndExpand" 
-                       FontSize="Small"
-                       TextColor="{DynamicResource Secondary_Color}" >
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Plano" FontAttributes="Bold"/>
-                            <Span Text="&#10;"/>
-                            <Span Text="Premium"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </StackLayout>-->
             <Label Text="{Binding Nome}"  
                    Grid.Row="1" 
                    Grid.Column="1" 
@@ -268,7 +198,7 @@
                                        TextColor="{DynamicResource Primary_Color}"
                                        HorizontalTextAlignment="Start" 
                                        VerticalTextAlignment="Center"/>
-                                <pancake:PancakeView Margin="0,10,0,0" 
+                                <pancake:PancakeView Margin="5,10,5,0" 
                                                      Elevation="2"
                                                      BackgroundColor="{DynamicResource Secondary_Color}"
                                                      CornerRadius="10">
@@ -287,6 +217,30 @@
                                             CommandParameter="{Binding Source={x:Reference edt_sugestao}, Path=Text}"
                                             HorizontalOptions="CenterAndExpand"/>
                                 </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label  FontAttributes="Bold"
+                                        TextColor="{DynamicResource Primary_Color}"
+                                        FontSize="Medium" 
+                                        VerticalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="&#xf3c5;">
+                                                <Span.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String" 
+                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                                </Span.FontFamily>
+                                            </Span>
+                                            <Span Text="  Endereço"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label HorizontalOptions="EndAndExpand" 
+                                       TextColor="{DynamicResource Primary_Color}" 
+                                       VerticalTextAlignment="Center"
+                                       Text="Logout"/>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>

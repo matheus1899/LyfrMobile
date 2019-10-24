@@ -47,7 +47,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
         {
             if (Capas.Count() <= 0)
             {
-                livros = await _conexao.GetSixLivros(GerarToken.GetTokenFromCache());
+                livros = await _conexao.GetAllLivros(GerarToken.GetTokenFromCache());
                 foreach (var livro in livros)
                 {
                     Capa capa = new Capa()

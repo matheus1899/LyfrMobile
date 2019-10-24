@@ -5,6 +5,8 @@ using Prototipo1_Lyfr.Models.SQLiteModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Prototipo1_Lyfr.Conexao;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
@@ -17,10 +19,14 @@ namespace Prototipo1_Lyfr.ViewModels
         //Funções devem ser criadas para o retorno dos Recomendados, de preferência no DB
 
         public CacheLiteDB _cacheLite = new CacheLiteDB();
+        Conexao.Classes.ConexaoAPI con = new Conexao.Classes.ConexaoAPI();
         
-        public async Task<List<Capa>> LivrosRecomendadosViewModel()
+        public async Task<List<Capa>> LivrosRecomendadosViewModelAsync()
         {
+            //var livros = await con.GetAllLivros(GerarToken.GetTokenFromCache());
+
             return await _cacheLite.LoadCapas();
+            //return livros;
                 //new Livro { Nome = "Noturno", Source_imagem = "cover_example.jpg" },
                 //new Livro { Nome = "Dom Casmurro", Source_imagem = "cover_example.jpg" },
                 //new Livro { Nome = "A Queda", Source_imagem = "cover_example.jpg" },
@@ -47,7 +53,7 @@ namespace Prototipo1_Lyfr.ViewModels
             };
         }
 
-        public Task<List<Capa>> LivrosRecomendados { get=>LivrosRecomendadosViewModel();}
+        public Task<List<Capa>> LivrosRecomendados { get=>LivrosRecomendadosViewModelAsync();}
         public ObservableCollection<Livro> ContinueLendo { get => ContinueLendoViewModel(); }
     }
 }
