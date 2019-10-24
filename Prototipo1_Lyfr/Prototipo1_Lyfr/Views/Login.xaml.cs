@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Text;
 
-namespace Prototipo1_Lyfr
+namespace Prototipo1_Lyfr.Views
 {
     public partial class Login : ContentPage
     {

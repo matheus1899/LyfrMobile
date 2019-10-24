@@ -78,5 +78,10 @@ namespace Prototipo1_Lyfr.Views
         {
             v.IsEnabled = b;
         }
+
+        private void GoTo_LoginPage(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new Views.Login());
+        }
     }
 }

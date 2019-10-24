@@ -14,7 +14,7 @@ namespace Prototipo1_Lyfr
         }
         private void BackToLogin()
         {
-            App.Current.MainPage = new Login();
+            App.Current.MainPage = new Views.Login();
         }
         protected override void OnAppearing()
         {

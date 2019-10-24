@@ -291,7 +291,5 @@ namespace Prototipo1_Lyfr.Conexao.Classes
             }
         }
     }
-
-
 }
 

@@ -219,7 +219,7 @@
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
+                        <ViewCell Tapped="GoTo_LoginPage">
                             <StackLayout Orientation="Horizontal">
                                 <Label  FontAttributes="Bold"
                                         TextColor="{DynamicResource Primary_Color}"
@@ -227,13 +227,12 @@
                                         VerticalTextAlignment="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf3c5;">
+                                            <Span Text="&#xf011;">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                                                 </Span.FontFamily>
                                             </Span>
-                                            <Span Text="  Endereço"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
