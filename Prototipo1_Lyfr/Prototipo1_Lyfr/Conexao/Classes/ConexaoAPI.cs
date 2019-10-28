@@ -16,7 +16,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
 
         public ConexaoAPI()
         {
-            uri = new Uri("http://lyfrapi.com.br/api/");
+            uri = new Uri("http://www.lyfrapi.com.br/api/");
         }
 
         public async Task<string> Add(Cliente cliente, string Token)
@@ -75,7 +75,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         return user;
                     }
 
-                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    if (string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }
@@ -225,7 +225,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
             }
         }
 
-        public async Task<List<Livros>> GetAllLivros(string Token)
+        public async Task<List<Livros>> GetAllLivros(string Token,short n_livros)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -234,7 +234,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                     client.BaseAddress = uri;
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
-                    HttpResponseMessage response = await client.GetAsync("Livros/GetAllLivros/?numeroDeLivros=0");
+                    HttpResponseMessage response = await client.GetAsync("Livros/GetAllLivros/"+n_livros.ToString());
                     string mensagem = await response.Content.ReadAsStringAsync();
 
                     if (response.IsSuccessStatusCode == true)
@@ -243,7 +243,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                         return livros;
                     }
 
-                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    if (string.IsNullOrWhiteSpace(mensagem))
                     {
                         throw new Exception(mensagem);
                     }

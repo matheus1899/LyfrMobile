@@ -12,48 +12,54 @@ namespace Prototipo1_Lyfr.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        // Provavelmente no futuro esses métodos irão se conectar a API carregando os livros pela WEB
-        // É provavel também que ambos os métodos recebam sobrecarga recebendo parâmetros como
-        // nome de usuário ou categorias de livros...
-
-        //Funções devem ser criadas para o retorno dos Recomendados, de preferência no DB
 
         public CacheLiteDB _cacheLite = new CacheLiteDB();
         Conexao.Classes.ConexaoAPI con = new Conexao.Classes.ConexaoAPI();
         
-        public async Task<List<Capa>> LivrosRecomendadosViewModelAsync()
+        public HomeViewModel()
         {
-            //var livros = await con.GetAllLivros(GerarToken.GetTokenFromCache());
-
-            return await _cacheLite.LoadCapas();
-            //return livros;
-                //new Livro { Nome = "Noturno", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "Dom Casmurro", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "A Queda", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "Noite Eterna", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "O Iluminado", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "It, A Coisa - Livro 1", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "Doutor Sono", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "As Fontes do Paraíso", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "Fundação", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "Segunda Fundação", Source_imagem = "cover_example.jpg" },
-                //new Livro { Nome = "O País de Outubro", Source_imagem = "cover_example.jpg" }
-            
+            SetList();
         }
-        public ObservableCollection<Livro> ContinueLendoViewModel()
+
+        private async void SetList()
         {
-            return new ObservableCollection<Livro>
+            LivrosNovos = await LivrosNovosViewModelAsync();
+            ContinueLendo =  ContinueLendoViewModel();
+        }
+
+        public async Task<List<Livros>> LivrosNovosViewModelAsync()
+        {
+            var t = await con.GetAllLivros(GerarToken.GetTokenFromCache(),0);
+            return t;
+            //return _cacheLite.LoadCapas().Result;            
+        }
+        public List<Livros> ContinueLendoViewModel()
+        {
+            return new List<Livros>
             {
-                new Livro { Nome = "Como as Democracias Morrem", Source_imagem = "cover_example.jpg"},
-                new Livro { Nome = "A tolice da inteligência brasileira: ou como o país se deixa manipular pela elite", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Noturno", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "A Queda", Source_imagem="cover_example.jpg" },
-                new Livro { Nome = "Noite Eterna", Source_imagem = "cover_example.jpg" },
-                new Livro { Nome = "Encontro com Rama", Source_imagem="cover_example.jpg" }
+                new Livros { Titulo = "Como as Democracias Morrem", Capa = "http://www.lyfrapi.com.br/Livros/Capas/lyfr_cover24_10_2019_17_15_39.jpg"},
+                new Livros { Titulo = "A tolice da inteligência brasileira: ou como o país se deixa manipular pela elite", Capa = "http://www.lyfrapi.com.br/Livros/Capas/lyfr_cover24_10_2019_17_15_39.jpg" },
+                new Livros { Titulo = "Noturno", Capa = "cover_example.jpg" },
+                new Livros { Titulo = "A Queda", Capa="cover_example.jpg" },
+                new Livros { Titulo = "Noite Eterna", Capa = "cover_example.jpg" },
+                new Livros { Titulo = "Encontro com Rama", Capa="cover_example.jpg" }
             };
         }
 
-        public Task<List<Capa>> LivrosRecomendados { get=>LivrosRecomendadosViewModelAsync();}
-        public ObservableCollection<Livro> ContinueLendo { get => ContinueLendoViewModel(); }
+        private List<Livros> _LivrosNovos;
+        private List<Livros> _ContinueLendo;
+
+        public List<Livros> LivrosNovos
+        {
+            get => _LivrosNovos;
+            set => SetProperty(ref _LivrosNovos, value, nameof(LivrosNovos));
+        }
+        public List<Livros> ContinueLendo
+        {
+            get => _ContinueLendo;
+            set => SetProperty(ref _ContinueLendo, value, nameof(ContinueLendo));
+        }
+
+
     }
 }

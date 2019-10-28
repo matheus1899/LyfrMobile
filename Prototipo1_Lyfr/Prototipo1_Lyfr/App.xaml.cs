@@ -18,8 +18,8 @@ namespace Prototipo1_Lyfr
             {
                 InitializeComponent();
                 HotReloader.Current.Run(this);
-                MainPage = new NavigationPage(new Views.Introducao());
-                //MainPage = new Views.MainPage();
+                //MainPage = new NavigationPage(new Views.Introducao());
+                MainPage = new Views.MainPage();
             }catch(Exception ex)
             {
                 Debug.WriteLine("AVISO -> " + ex.Message);
