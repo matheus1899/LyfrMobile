@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Prototipo1_Lyfr.Conexao;
-using System.Runtime.InteropServices.ComTypes;
+using System;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
 
-        public CacheLiteDB _cacheLite = new CacheLiteDB();
-        Conexao.Classes.ConexaoAPI con = new Conexao.Classes.ConexaoAPI();
+        Lazy<CacheLiteDB> _cacheLite = new Lazy<CacheLiteDB>();
+        Lazy<Conexao.Classes.ConexaoAPI> con = new Lazy<Conexao.Classes.ConexaoAPI>();
         
         public HomeViewModel()
         {
@@ -29,9 +29,7 @@ namespace Prototipo1_Lyfr.ViewModels
 
         public async Task<List<Livros>> LivrosNovosViewModelAsync()
         {
-            var t = await con.GetAllLivros(GerarToken.GetTokenFromCache(),0);
-            return t;
-            //return _cacheLite.LoadCapas().Result;            
+            return await con.Value.GetAllLivros(GerarToken.GetTokenFromCache(), 0);          
         }
         public List<Livros> ContinueLendoViewModel()
         {

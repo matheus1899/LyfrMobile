@@ -4,7 +4,6 @@ using Xamarin.Forms.Xaml;
 //using Microsoft.AppCenter;
 //using Microsoft.AppCenter.Analytics;
 //using Microsoft.AppCenter.Crashes;
-using Prototipo1_Lyfr.Conexao;
 using System.Diagnostics;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -17,10 +16,12 @@ namespace Prototipo1_Lyfr
             try
             {
                 InitializeComponent();
-                HotReloader.Current.Run(this);
                 //MainPage = new NavigationPage(new Views.Introducao());
-                MainPage = new Views.MainPage();
-            }catch(Exception ex)
+                MainPage = new NavigationPage(new Views.MainPage());
+                //MainPage = new Views.MainPage();
+                //MainPage = new Views.InfoLivro();
+            }
+            catch(Exception ex)
             {
                 Debug.WriteLine("AVISO -> " + ex.Message);
             }

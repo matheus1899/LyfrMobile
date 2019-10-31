@@ -20,7 +20,7 @@ namespace Prototipo1_Lyfr.Conexao
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://lyfrapi1.herokuapp.com/api/");
+                client.BaseAddress = new Uri("http://www.lyfrapi.com.br/api/");
 
                 try
                 {
@@ -73,7 +73,7 @@ namespace Prototipo1_Lyfr.Conexao
         public bool Expirou()
         {
             DateTime now = DateTime.Now;
-            DateTime expiration = DateTime.ParseExact(cache.GetTokenCache().HoraExpiracao, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateTime expiration = DateTime.ParseExact(cache.GetTokenCache().HoraExpiracao, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
             if (now.CompareTo(expiration) >= 0)
             {

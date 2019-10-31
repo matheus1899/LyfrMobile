@@ -3,26 +3,117 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
+             xmlns:tg="clr-namespace:Prototipo1_Lyfr.TriggersAction"
+             SizeChanged="ContentPage_SizeChanged"
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Views.InfoLivro">
-    <ContentPage.Content>
-        <StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-                
-                
-            </Grid>
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <vm:InfoLivroViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <p:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                   BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Margin="10">
+                    <BoxView x:Name="bxv_HeaderPage"
+                             BackgroundColor="Transparent" 
+                             HorizontalOptions="Start" 
+                             IsVisible="False"
+                             Margin="15,0,15,0"/>
+                    <Image Source="cover_example.jpg"
+                           WidthRequest="120"
+                           HeightRequest="180"
+                           HorizontalOptions="Center"
+                           Margin="2"
+                           Aspect="AspectFit"/>
+                    <StackLayout VerticalOptions="StartAndExpand"
+                                 Margin="0,25,0,0"
+                                 HorizontalOptions="FillAndExpand">
+                        <Label Text="A construção social da subcidadania: para uma sociologia política da modernidade periférica"
+                                MaxLines="4"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                               TextColor="{DynamicResource Secondary_Color}"
+                                VerticalTextAlignment="Start"
+                                HorizontalTextAlignment="Start"
+                                LineBreakMode="TailTruncation"
+                                Margin="4,0,0,0"/>
+                        <Label Text="Machadão de Assis" 
+                               MaxLines="1"
+                               TextColor="{DynamicResource Secondary_Color}"
+                               LineBreakMode="TailTruncation"
+                               FontSize="Medium"
+                               FontAttributes="Bold"/>
+                        
+                    </StackLayout>
+                    <BoxView x:Name="bxv_HeaderPage2"
+                            BackgroundColor="Transparent" 
+                            HorizontalOptions="Start" 
+                            IsVisible="false"
+                            Margin="15,0,15,0"/>
+                </StackLayout>
+                <StackLayout x:Name="stc_BtnActionLivro"
+                             Margin="15,0,15,10"
+                             HorizontalOptions="FillAndExpand">
+                    <Button Text="adicionar"
+                            HorizontalOptions="FillAndExpand" 
+                            CornerRadius="3" 
+                            BorderColor="{DynamicResource Variant_Primary_Color}" 
+                            BackgroundColor="White"
+                            BorderWidth="1"/>
+                    <Button Text="ler" 
+                            CornerRadius="3" 
+                            BorderColor="{DynamicResource Variant_Primary_Color}" 
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand" 
+                            BorderWidth="1"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="SOBRE"
+                           Margin="10,20,0,0"
+                           FontSize="Medium"
+                           TextColor="{DynamicResource Secondary_Color}"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Frame Margin="10,0,10,0">
+                        <Label Text="{Binding Livro.Sinopse}"
+                               MaxLines="5" 
+                               FontSize="Medium" 
+                               Margin="-10"
+                               TextColor="{DynamicResource Primary_Color}"
+                               BackgroundColor="Transparent"
+                               LineBreakMode="TailTruncation"/>
+                    </Frame>
+                    <Label Margin="10,10,0,0"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           TextColor="{DynamicResource Secondary_Color}"
+                           HorizontalOptions="FillAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="SOBRE" />
+                                <Span Text="&#10;"/>
+                                <Span Text="Machadão de Assis" FontSize="Large"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame Margin="10,0,10,0">
+                        <StackLayout Margin="-10">
+                            <Label Text="{Binding Livro.SobreAutor}"
+                                   TextColor="{DynamicResource Primary_Color}"
+                                   FontSize="Medium"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </p:PancakeView>
 </ContentPage>

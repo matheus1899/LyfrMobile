@@ -30,7 +30,8 @@ namespace Prototipo1_Lyfr.Views
         {
             try
             {
-                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Models.Livro;
+                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Models.Livros;
+                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado));
             }
             catch (Exception exception)
             {
