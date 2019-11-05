@@ -15,8 +15,8 @@
         <ResourceDictionary>
             <Style TargetType="Image" x:Key="Style_ImageLivro">
                 <Setter Property="Source" Value="{Binding Capa}"/>
-                <Setter Property="WidthRequest" Value="90"/>
-                <Setter Property="HeightRequest" Value="150"/>
+                <Setter Property="WidthRequest" Value="120"/>
+                <Setter Property="HeightRequest" Value="200"/>
                 <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
                 <Setter Property="Grid.Row" Value="0"/>
                 <Setter Property="Grid.Column" Value="0"/>
@@ -32,9 +32,9 @@
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
                 <Setter Property="VerticalTextAlignment" Value="Start"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontAttributes" Value="None"/>
+                <Setter Property="Margin" Value="10,0"/>
                 <Setter Property="FontSize" Value="Small"/>
-                <Setter Property="WidthRequest" Value="88"/>
                 <Setter Property="MaxLines" Value="2"/>
                 <Setter Property="LineBreakMode" Value="TailTruncation"/>
             </Style>
@@ -104,10 +104,11 @@
                                BackgroundColor="{DynamicResource Primary_Color}">
                             <StackLayout Orientation="Vertical">
                                 <Label TextColor="{DynamicResource Secondary_Color}"
-                                       Text="Recomendados para você"
+                                       Text="Livros novos"
+                                       Margin="0,5"
+                                       FontAttributes="Bold"
                                        HorizontalOptions="FillAndExpand" 
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"/>
+                                       FontSize="Medium"/>
                                 <CollectionView x:Name="lista"
                                                 ItemsSource="{Binding LivrosNovos}"
                                                 HeightRequest="200"
@@ -144,9 +145,10 @@
                             <StackLayout Orientation="Vertical">
                                 <Label TextColor="{DynamicResource Secondary_Color}" 
                                        Text="Continue lendo"
-                                       HorizontalOptions="FillAndExpand"
-                                       FontSize="Medium" 
-                                       FontAttributes="Bold"/>
+                                       Margin="0,5"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="FillAndExpand" 
+                                       FontSize="Medium"/>
                                 <CollectionView x:Name="lista2" 
                                                 HeightRequest="200" 
                                                 ItemsSource="{Binding ContinueLendo}"

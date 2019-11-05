@@ -14,6 +14,10 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
             </Style>
+            <Style TargetType="StackLayout" x:Key="stack_ViewCell">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Margin" Value="20,10,20,8"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
@@ -21,8 +25,7 @@
         <Grid RowSpacing="1" 
               ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.45*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="*"/>
@@ -30,148 +33,162 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.7866*"/>
                 <ColumnDefinition Width="1.4466*"/>
-                <ColumnDefinition Width="1.6666*"/>
-                <ColumnDefinition Width="1.6666*"/>
+                <ColumnDefinition Width="1.0666*"/>
+                <ColumnDefinition Width="1.0666*"/>
                 <ColumnDefinition Width="1.4466*"/>
                 <ColumnDefinition Width="1.7866*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Row="0" 
+            <!--<Image Grid.Row="1" 
                    Grid.Column="2" 
                    Grid.ColumnSpan="2" 
                    Aspect="AspectFill" 
-                   Margin="20,35,20,35"
-                   HorizontalOptions="FillAndExpand">
-                <Image.Source>
-                    <FontImageSource Glyph="&#xf2bd;" Size="200" >
-                        <FontImageSource.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String" 
-                                        Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
-                        </FontImageSource.FontFamily>
-                    </FontImageSource>
-                </Image.Source>
-            </Image>
-            <Label Text="{Binding Nome}"  
-                   Grid.Row="1" 
-                   Grid.Column="1" 
-                   Grid.ColumnSpan="4" 
+                   Source="user.png"
+                   HorizontalOptions="FillAndExpand"/>-->
+            <Label Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="6" 
                    MaxLines="1"
-                   LineBreakMode="TailTruncation"
                    BackgroundColor="Transparent"
+                   LineBreakMode="TailTruncation"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center" 
                    TextColor="{DynamicResource Secondary_Color}" 
                    FontSize="Title" 
-                   FontAttributes="Bold"/>
-            <BoxView Grid.Row="2" 
-                     Grid.RowSpan="3" 
-                     Grid.Column="0" 
-                     Grid.ColumnSpan="6" 
-                     Margin="4,0"
-                     BackgroundColor="{DynamicResource Secondary_Color}" 
-                     CornerRadius="0,0,0,0"/>
+                   FontAttributes="Bold">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="&#xf2bd;" 
+                              FontSize="Large">
+                            <Span.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                            </Span.FontFamily>
+                        </Span>
+                        <Span Text="   "/>
+                        <Span Text="Matheus Tenorio"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
             <TableView x:Name="tableview_Main"
+                       BackgroundColor="{DynamicResource Secondary_Color}"
                        HasUnevenRows="True"
-                       Margin="6,20,6,0" 
-                       Grid.Row="2"
+                       Margin="3,20,3,0" 
+                       Grid.Row="1"
                        Grid.RowSpan="3"
                        Grid.Column="0" 
                        Grid.ColumnSpan="6">
                 <TableRoot>
-                    <TableSection>
+                    <TableSection Title="Email"
+                                  TextColor="{DynamicResource Primary_Color}">
                         <ViewCell Tapped="GoTo_AlterEmail">
-                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold" 
-                                        FontSize="Medium" 
-                                        TextColor="{DynamicResource Primary_Color}"
-                                        VerticalTextAlignment="Center" 
-                                        VerticalOptions="FillAndExpand">
+                            <StackLayout Style="{x:StaticResource stack_ViewCell}">
+                                <Label FontSize="Medium"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation"
+                                       TextColor="{DynamicResource Primary_Color}"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf0e0;">
+                                            <Span Text="&#xf0e0;"
+                                                  FontSize="Large">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                                                 </Span.FontFamily>
                                             </Span>
-                                            <Span Text="  Email"/>
+                                            <Span Text="   "/>
+                                            <Span Text="{Binding Email}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="{Binding Email}" 
-                                       TextColor="{DynamicResource Primary_Color}" 
-                                       HorizontalOptions="EndAndExpand" 
-                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
+                    </TableSection >
+                    <TableSection Title="Senha"
+                                  TextColor="{DynamicResource Primary_Color}">
                         <ViewCell Tapped="GoTo_AlterSenha">
-                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold" 
-                                        FontSize="Medium" 
-                                        TextColor="{DynamicResource Primary_Color}"
-                                        VerticalTextAlignment="Center">
+                            <StackLayout Style="{x:StaticResource stack_ViewCell}">
+                                <Label FontSize="Medium" 
+                                       TextColor="{DynamicResource Primary_Color}"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf084;">
+                                            <Span Text="&#xf084;"
+                                                  FontSize="Large">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                                                 </Span.FontFamily>
                                             </Span>
-                                            <Span Text="  Senha"/>
+                                            <Span Text="   "/>
+                                            <Span Text="  ********"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="************"
-                                       TextColor="{DynamicResource Primary_Color}" 
-                                       HorizontalOptions="EndAndExpand" 
-                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Telefone"
+                                  TextColor="{DynamicResource Primary_Color}">
                         <ViewCell Tapped="GoTo_AlterTelefone">
-                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal" >
-                                <Label  FontAttributes="Bold" 
-                                        FontSize="Medium" 
-                                        TextColor="{DynamicResource Primary_Color}"
-                                        VerticalTextAlignment="Center">
+                            <StackLayout Style="{x:StaticResource stack_ViewCell}">
+                                <Label FontSize="Medium" 
+                                       TextColor="{DynamicResource Primary_Color}"
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf879;">
+                                            <Span Text="&#xf879;"
+                                                  FontSize="Large">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                                                 </Span.FontFamily>
                                             </Span>
-                                            <Span Text="  Telefone"/>
+                                            <Span Text="   "/>
+                                            <Span Text="{Binding Telefone}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label Text="{Binding Telefone}" 
-                                       TextColor="{DynamicResource Primary_Color}" 
-                                       HorizontalOptions="EndAndExpand" 
-                                       VerticalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Endereço"
+                                  TextColor="{DynamicResource Primary_Color}">
                         <ViewCell Tapped="GoTo_AlterEndereco">
-                            <StackLayout Margin="20,16,20,16" Orientation="Horizontal">
-                                <Label  FontAttributes="Bold"
-                                        TextColor="{DynamicResource Primary_Color}"
-                                        FontSize="Medium" 
-                                        VerticalTextAlignment="Center">
+                            <StackLayout Style="{x:StaticResource stack_ViewCell}">
+                                <Label TextColor="{DynamicResource Primary_Color}"
+                                       FontSize="Medium" 
+                                       VerticalTextAlignment="Center" 
+                                       HorizontalTextAlignment="End"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Center">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf3c5;">
+                                            <Span Text="&#xf3c5;"
+                                                  FontSize="Large">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
                                                 </Span.FontFamily>
                                             </Span>
-                                            <Span Text="  Endereço"/>
+                                            <Span Text="   "/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label HorizontalOptions="EndAndExpand" 
-                                       TextColor="{DynamicResource Primary_Color}" 
-                                       VerticalTextAlignment="Center">
+                                <Label TextColor="{DynamicResource Primary_Color}" 
+                                       VerticalTextAlignment="Start" 
+                                       HorizontalOptions="StartAndExpand" 
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding Rua}"/>
@@ -186,48 +203,58 @@
                                 </Label>
                             </StackLayout>
                         </ViewCell>
-                        <ViewCell>
-                            <StackLayout Margin="20,30,20,0">
+                    </TableSection>
+                    <TableSection Title="Críticas ou sugestões"
+                                  TextColor="{DynamicResource Primary_Color}">
+                        <ViewCell >
+                            <StackLayout Margin="15,15,15,5">
                                 <ActivityIndicator Color="{DynamicResource Primary_Color}" 
                                                    IsVisible="{Binding Act_Ind_Sugestao}"
                                                    IsRunning="{Binding Act_Ind_Sugestao}" />
-                                <Label Text="Críticas ou sugestões" 
-                                       FontAttributes="Bold"
-                                       FontSize="Medium"
-                                       HorizontalOptions="FillAndExpand"
-                                       TextColor="{DynamicResource Primary_Color}"
-                                       HorizontalTextAlignment="Start" 
-                                       VerticalTextAlignment="Center"/>
                                 <pancake:PancakeView Margin="5,10,5,0" 
-                                                     Elevation="2"
+                                                     Elevation="4"
+                                                     BorderColor="LightGray"
+                                                     BorderThickness="1"
                                                      BackgroundColor="{DynamicResource Secondary_Color}"
                                                      CornerRadius="10">
                                     <Editor Margin="15,20,15,5"
                                             AutoSize="TextChanges"
-                                            BackgroundColor="{DynamicResource Tertiary_Color}" 
+                                            BackgroundColor="{DynamicResource Secondary_Color}" 
+                                            TextColor="{DynamicResource Primary_Color}"
                                             HorizontalOptions="FillAndExpand"
                                             x:Name="edt_sugestao"/>
                                 </pancake:PancakeView>
                                 <StackLayout Orientation="Horizontal">
                                     <Button Text="   Enviar   "
-                                            Margin="0,10,0,20"
-                                            BackgroundColor="{DynamicResource Primary_Color}" 
-                                            TextColor="{DynamicResource Secondary_Color}"
+                                            Margin="0,10,0,0"
+                                            BackgroundColor="{DynamicResource Secondary_Color}" 
+                                            TextColor="{DynamicResource Primary_Color}"
                                             Command="{Binding Enviar_Sugestao_Command}"
+                                            BorderColor="{DynamicResource Primary_Color}"
                                             CommandParameter="{Binding Source={x:Reference edt_sugestao}, Path=Text}"
+                                            BorderWidth="2"
+                                            CornerRadius="4"
                                             HorizontalOptions="CenterAndExpand"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
+                    </TableSection>
+                    <TableSection Title="Logout"
+                                  TextColor="{DynamicResource Primary_Color}">
                         <ViewCell Tapped="GoTo_LoginPage">
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout Margin="20,15,20,15" 
+                                         Style="{x:StaticResource stack_ViewCell}">
                                 <Label  FontAttributes="Bold"
-                                        TextColor="{DynamicResource Primary_Color}"
-                                        FontSize="Medium" 
-                                        VerticalTextAlignment="Center">
+                                        TextColor="Red"
+                                        FontSize="Large"
+                                        HorizontalOptions="FillAndExpand"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        VerticalOptions="FillAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="&#xf011;">
+                                            <Span Text="&#xf011;"
+                                                  FontSize="Large">
                                                 <Span.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String" 
                                                                 Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
@@ -236,10 +263,6 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                                <Label HorizontalOptions="EndAndExpand" 
-                                       TextColor="{DynamicResource Primary_Color}" 
-                                       VerticalTextAlignment="Center"
-                                       Text="Logout"/>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>
