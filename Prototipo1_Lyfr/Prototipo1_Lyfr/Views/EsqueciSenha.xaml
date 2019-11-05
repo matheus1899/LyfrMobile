@@ -244,8 +244,9 @@
                             Text="enviar email" 
                             CornerRadius="4" 
                             Margin="10" 
-                            TextColor="{DynamicResource Primary_Color}">
-                        </Button>
+                            TextColor="{DynamicResource Primary_Color}"/>
+                        <ActivityIndicator Color="{DynamicResource Secondary_Color}"
+                                           IsRunning="{Binding Act_State}"/>
                     </StackLayout>
                 </StackLayout>
             </Grid>

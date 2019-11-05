@@ -89,7 +89,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
             }
         }
 
-        public async Task<string> EnviarEmail(string email, string Token)
+        public async Task<string> EnviarEmail(RecoveryPassword recovery, string Token)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -97,7 +97,7 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                 {
                     client.BaseAddress = uri;
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-                    var json = JsonConvert.SerializeObject(email);
+                    var json = JsonConvert.SerializeObject(recovery);
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync("Cliente/ForgotPassword", content);
