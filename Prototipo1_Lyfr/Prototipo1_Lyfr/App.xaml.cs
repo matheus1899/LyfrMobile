@@ -16,8 +16,8 @@ namespace Prototipo1_Lyfr
             try
             {
                 InitializeComponent();
-                //MainPage = new NavigationPage(new Views.Introducao());
-                MainPage = new NavigationPage(new Views.MainPage());
+                MainPage = new NavigationPage(new Views.Introducao());
+                //MainPage = new NavigationPage(new Views.MainPage());
                 //MainPage = new Views.MainPage();
                 //MainPage = new Views.InfoLivro();
             }

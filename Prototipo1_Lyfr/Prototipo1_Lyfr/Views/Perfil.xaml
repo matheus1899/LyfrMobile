@@ -38,12 +38,6 @@
                 <ColumnDefinition Width="1.4466*"/>
                 <ColumnDefinition Width="1.7866*"/>
             </Grid.ColumnDefinitions>
-            <!--<Image Grid.Row="1" 
-                   Grid.Column="2" 
-                   Grid.ColumnSpan="2" 
-                   Aspect="AspectFill" 
-                   Source="user.png"
-                   HorizontalOptions="FillAndExpand"/>-->
             <Label Grid.Row="0" 
                    Grid.Column="0" 
                    Grid.ColumnSpan="6" 
@@ -246,22 +240,16 @@
                                          Style="{x:StaticResource stack_ViewCell}">
                                 <Label  FontAttributes="Bold"
                                         TextColor="Red"
+                                        Text="&#xf011;"
                                         FontSize="Large"
                                         HorizontalOptions="FillAndExpand"
                                         HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="Center"
                                         VerticalOptions="FillAndExpand">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="&#xf011;"
-                                                  FontSize="Large">
-                                                <Span.FontFamily>
-                                                    <OnPlatform x:TypeArguments="x:String" 
-                                                                Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
-                                                </Span.FontFamily>
-                                            </Span>
-                                        </FormattedString>
-                                    </Label.FormattedText>
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String" 
+                                                    Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+                                    </Label.FontFamily>
                                 </Label>
                             </StackLayout>
                         </ViewCell>

@@ -71,40 +71,6 @@ namespace Prototipo1_Lyfr
                 Lbl_X_Email.IsVisible = true;
             }
         }
-        /*private async void BtnEnviaCodigo_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(ent_Email_Usuario.Text) || string.IsNullOrWhiteSpace(ent_Email_Usuario.Text))
-                {
-                    throw new ArgumentNullException();
-                }
-                if (!Regex.IsMatch(ent_Email_Usuario.Text, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                        @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50)))
-                {
-                    throw new FormatException();
-                }
-
-                Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
-                GerarToken gerarToken = new GerarToken();
-                string result=" ";
-                gerarToken.ChecarCache();
-                await Task.Run(async () => { result = await conexao.EnviarEmail(ent_Email_Usuario.Text, GerarToken.GetTokenFromCache()); });
-                MostrarMensagem.Mostrar(result);
-            }
-            catch (ArgumentNullException)
-            {
-                MostrarMensagem.Mostrar("Preencha o campo para completar a solicitação");
-            }
-            catch (FormatException)
-            {
-                MostrarMensagem.Mostrar("Email inválido, por favor digite o seu email novamente");
-            }
-            catch (Exception ex)
-            {
-                MostrarMensagem.Mostrar(ex.Message);
-            }
-        }*/
         protected override bool OnBackButtonPressed()
         {
             Navigation.PopAsync();
