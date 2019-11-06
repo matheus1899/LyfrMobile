@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace Prototipo1_Lyfr.Conexao
 {
-    public class GerarToken
+    public class GerarToken:IDisposable
     {
         Cache cache = new Cache();
         public string mensagem;
         public string dataExpiracao;
+        private bool Disposed;
 
         public async Task<Token> GenerateToken()
         {
@@ -69,7 +70,6 @@ namespace Prototipo1_Lyfr.Conexao
             cache.InserirTokenCache(tokenCache);
         }
 
-
         public bool Expirou()
         {
             DateTime now = DateTime.Now;
@@ -95,8 +95,34 @@ namespace Prototipo1_Lyfr.Conexao
         {
             GerarToken gerar = new GerarToken();
             gerar.ChecarCache();
-            Cache cache = new Cache();
-            return cache.GetTokenCache().TokenString;
+            using (Cache cache = new Cache())
+            {
+                return cache.GetTokenCache().TokenString;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!Disposed)
+            {
+                if (disposing)
+                {
+                    cache.Dispose();
+                }
+                // Liberando recursos não gerenciados
+                //informa que os recursos já foram liberados
+                Disposed = true;
+            }
+        }
+        //Destrutor
+        ~GerarToken()
+        {
+            Dispose(false);
         }
     }
 }

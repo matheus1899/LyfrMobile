@@ -1,5 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao.Classes;
-using Prototipo1_Lyfr.ConexaoAPI;
+﻿using Prototipo1_Lyfr.ConexaoAPI;
 using Prototipo1_Lyfr.Models;
 using System;
 using System.Text.RegularExpressions;
@@ -93,25 +92,16 @@ namespace Prototipo1_Lyfr.ViewModels
                 Act_State = true;
                 var a = e as StackLayout;
                 var b = a.Children[0] as StackLayout;
-                if (!Regex.IsMatch(Email,
-                            @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                            RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50))){
+                if (!EmailIsValid(Email)){
                     var c = b.Children[1];
-                    await c.TranslateTo(25, 0, 30, Easing.Linear);
-                    await c.TranslateTo(-25, 0, 30, Easing.Linear);
-                    await c.TranslateTo(10, 0, 25, Easing.Linear);
-                    await c.TranslateTo(-10, 0, 25, Easing.Linear);
-                    await c.TranslateTo(5, 0, 25, Easing.Linear);
-                    await c.TranslateTo(-5, 0, 25, Easing.Linear);
-                    await c.TranslateTo(0, 0, 25, Easing.Linear);
+                    ShakeShake(c);
                     Act_State = false;
                 }
                 else
                 {
                     Act_State = true;
-                    Gerar_Codigo();
-                    await con.Value.EnviarEmail(new RecoveryPassword {Email = this.Email, CodigoGerado = Codigo }, db_cache.Value.GetTokenCache().TokenString);
+                    
+                    await con.Value.EnviarEmail(GetNewRecoveryPassword(), db_cache.Value.GetTokenCache().TokenString);
                     var c = a.Children[2];
                     await b.FadeTo(0, 250, Easing.Linear);
                     await c.FadeTo(0, 250, Easing.Linear);
@@ -126,33 +116,54 @@ namespace Prototipo1_Lyfr.ViewModels
 
             Btn_Verificar_Codigo_Command = new Command(async(e)=> {
                 var b = e as StackLayout;
-                if(string.IsNullOrWhiteSpace(C1) ||  string.IsNullOrWhiteSpace(C2) ||  string.IsNullOrWhiteSpace(C3) ||  string.IsNullOrWhiteSpace(C4) || string.IsNullOrWhiteSpace(C5)){
-                    await b.TranslateTo(25, 0, 30, Easing.Linear);
-                    await b.TranslateTo(-25, 0, 30, Easing.Linear);
-                    await b.TranslateTo(10, 0, 25, Easing.Linear);
-                    await b.TranslateTo(-10, 0, 25, Easing.Linear);
-                    await b.TranslateTo(5, 0, 25, Easing.Linear);
-                    await b.TranslateTo(-5, 0, 25, Easing.Linear);
-                    await b.TranslateTo(0, 0, 25, Easing.Linear);
-                }
-                else if (!Equals(Codigo, string.Concat(C1,C2,C3,C4,C5)))
+                if (CodesIsValid())
                 {
-                    await b.TranslateTo(25, 0, 30, Easing.Linear);
-                    await b.TranslateTo(-25, 0, 30, Easing.Linear);
-                    await b.TranslateTo(10, 0, 25, Easing.Linear);
-                    await b.TranslateTo(-10, 0, 25, Easing.Linear);
-                    await b.TranslateTo(5, 0, 25, Easing.Linear);
-                    await b.TranslateTo(-5, 0, 25, Easing.Linear);
-                    await b.TranslateTo(0, 0, 25, Easing.Linear);
+                    ShakeShake(b);
                 }
                 else
                 {
-
+                    //NavigationService
                 }
             });
         }
 
-
+        private bool CodesIsValid()
+        {
+            if (IsNullOrWhiteSpaceOrEmpty(C1, C2, C3, C4, C5))
+            {
+                return false;
+            }
+            else if (!Equals(Codigo, string.Concat(C1, C2, C3, C4, C5)))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool IsNullOrWhiteSpaceOrEmpty(string s)
+        {
+            if(string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool IsNullOrWhiteSpaceOrEmpty(params string[] s)
+        {
+            for(short i=0; i < s.Length; i++)
+            {
+                if(IsNullOrWhiteSpaceOrEmpty(s[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void Gerar_Codigo()
         {
             string c = string.Empty;
@@ -163,6 +174,27 @@ namespace Prototipo1_Lyfr.ViewModels
             }
             Codigo = c;
         }
-        
+        private RecoveryPassword GetNewRecoveryPassword()
+        {
+            Gerar_Codigo();
+            return new RecoveryPassword { Email = this.Email, CodigoGerado = Codigo };
+        }
+        private async void ShakeShake(VisualElement v)
+        {
+            await v.TranslateTo(25, 0, 30, Easing.Linear);
+            await v.TranslateTo(-25, 0, 30, Easing.Linear);
+            await v.TranslateTo(10, 0, 30, Easing.Linear);
+            await v.TranslateTo(-10, 0, 30, Easing.Linear);
+            await v.TranslateTo(5, 0, 30, Easing.Linear);
+            await v.TranslateTo(-5, 0, 30, Easing.Linear);
+            await v.TranslateTo(0, 0, 30, Easing.Linear);
+        }
+        private bool EmailIsValid(string e)
+        {
+            return Regex.IsMatch(Email,
+                            @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                            RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50));
+        }
     }
 }

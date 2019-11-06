@@ -11,13 +11,14 @@ using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.Conexao.Classes
 {
-    public class CacheLiteDB
+    public class CacheLiteDB:IDisposable
     {
         LiteDatabase _dataBase;
         LiteCollection<Capa> Capas;
         Lazy<Cache> cache = new Lazy<Cache>();
         Lazy<ConexaoAPI> _conexao = new Lazy<ConexaoAPI>();
         List<Livros> livros;
+        private bool Disposed;
 
         public CacheLiteDB()
         {
@@ -63,6 +64,29 @@ namespace Prototipo1_Lyfr.Conexao.Classes
         public List<Capa> ListarCapas()
         {
             return Capas.FindAll().ToList();
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!Disposed)
+            {
+                if (disposing)
+                {
+                    _dataBase.Dispose();
+                }
+                // Liberando recursos não gerenciados
+                //informa que os recursos já foram liberados
+                Disposed = true;
+            }
+        }
+        //Destrutor
+        ~CacheLiteDB()
+        {
+            Dispose(false);
         }
     }
 }
