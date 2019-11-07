@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using Prototipo1_Lyfr.ConexaoAPI;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.Conexao.Classes;
 using Prototipo1_Lyfr.Models.SQLiteModels;
 using Xamarin.Forms;
 

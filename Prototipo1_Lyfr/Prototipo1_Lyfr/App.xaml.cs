@@ -5,6 +5,8 @@ using Xamarin.Forms.Xaml;
 //using Microsoft.AppCenter.Analytics;
 //using Microsoft.AppCenter.Crashes;
 using System.Diagnostics;
+using Prototipo1_Lyfr.ViewModels.Services;
+using Prototipo1_Lyfr.Views.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Prototipo1_Lyfr
@@ -16,6 +18,8 @@ namespace Prototipo1_Lyfr
             try
             {
                 InitializeComponent();
+                DependencyService.Register<INavigationService, NavigationService>();
+
                 MainPage = new NavigationPage(new Views.Introducao());
                 //MainPage = new NavigationPage(new Views.MainPage());
                 //MainPage = new Views.MainPage();

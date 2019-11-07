@@ -35,221 +35,226 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+        <ScrollView>
+            <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
-            <Grid>
-                <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Image Source="Logo_Lyfr2.png" 
-                       Grid.Row="0" Grid.Column="1" 
-                       Grid.ColumnSpan="3" Margin="40,20,40,0"/>
+                    <Image Source="Logo_Lyfr2.png" 
+                           Aspect="AspectFit"
+                           Grid.Row="0" 
+                           Grid.Column="1" 
+                           Grid.ColumnSpan="3" 
+                           Margin="35"/>
 
-                <Label Text="Digite seu email" 
-                       x:Name="Lbl_DigiteEmail"
-                       TextColor="{DynamicResource Secondary_Color}" 
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
-                       FontSize="30"
-                       Grid.Row="1"
-                       BackgroundColor="Transparent"
-                       Grid.Column="1"
-                       Grid.ColumnSpan="3"/>
-                <StackLayout VerticalOptions="CenterAndExpand" 
-                             Grid.Row="2" 
-                             Grid.Column="0" 
-                             Grid.ColumnSpan="5" 
-                             HorizontalOptions="FillAndExpand" 
-                             x:Name="stack_Pai"
-                             Margin="20,-10,20,0">
-                    <StackLayout x:Name="Stack">
-                        <Label Text="E-mail"
-                               x:Name="Lbl_SubHeaderFrame"
-                               Style="{StaticResource Lbl_Titulo_Entry}"/>
-                        <Frame Style="{StaticResource Frame_This_Page}" 
-                               x:Name="Frame_Ent_Email">
-                            <StackLayout Padding="0,-13,0,-13" 
-                                         Orientation="Horizontal">
-                                <Entry x:Name="ent_Email_Usuario"
-                                       Keyboard="Email"
-                                       TextColor="Black"
-                                       Text="{Binding Email}"
-                                       TextChanged="EntryEmail_TextChanged"
-                                       Focused="EntryEmail_Focused"
-                                       Unfocused="EntryEmail_Unfocused"
-                                       HorizontalOptions="FillAndExpand">
-                                    <Entry.Triggers>
-                                        <EventTrigger Event="TextChanged">
-                                            <tri:EmailValidationTriggerAction/>
-                                        </EventTrigger>
-                                    </Entry.Triggers>
-                                    <Entry.Effects>
-                                        <ef:FocusEffect/>
-                                    </Entry.Effects>
-                                </Entry>
+                    <Label Text="{Binding MainText}" 
+                           x:Name="Lbl_DigiteEmail"
+                           TextColor="{DynamicResource Secondary_Color}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="30"
+                           Grid.Row="1"
+                           BackgroundColor="Transparent"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="3"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" 
+                                 Grid.Row="2" 
+                                 Grid.Column="0" 
+                                 Grid.ColumnSpan="5" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 x:Name="stack_Pai"
+                                 Margin="20,-10,20,0">
+                        <StackLayout x:Name="Stack">
+                            <Label Text="E-mail"
+                                   x:Name="Lbl_SubHeaderFrame"
+                                   Style="{StaticResource Lbl_Titulo_Entry}"/>
+                            <Frame Style="{StaticResource Frame_This_Page}" 
+                                   x:Name="Frame_Ent_Email">
+                                <StackLayout Padding="0,-13,0,-13" 
+                                             Orientation="Horizontal">
+                                    <Entry x:Name="ent_Email_Usuario"
+                                           Keyboard="Email"
+                                           TextColor="Black"
+                                           Text="{Binding Email}"
+                                           TextChanged="EntryEmail_TextChanged"
+                                           Focused="EntryEmail_Focused"
+                                           Unfocused="EntryEmail_Unfocused"
+                                           HorizontalOptions="FillAndExpand">
+                                        <Entry.Triggers>
+                                            <EventTrigger Event="TextChanged">
+                                                <tri:EmailValidationTriggerAction/>
+                                            </EventTrigger>
+                                        </Entry.Triggers>
+                                        <Entry.Effects>
+                                            <ef:FocusEffect/>
+                                        </Entry.Effects>
+                                    </Entry>
                                     <Label Text=" X " 
-                                           x:Name="Lbl_X_Email"
-                                           TextColor="Gray"
-                                           IsEnabled="False"
-                                           IsVisible="False"
-                                           HorizontalOptions="End" 
-                                           Margin="5,0,5,0"
-                                           VerticalTextAlignment="Center"
-                                           VerticalOptions="FillAndExpand">
+                                               x:Name="Lbl_X_Email"
+                                               TextColor="Gray"
+                                               IsEnabled="False"
+                                               IsVisible="False"
+                                               HorizontalOptions="End" 
+                                               Margin="5,0,5,0"
+                                               VerticalTextAlignment="Center"
+                                               VerticalOptions="FillAndExpand">
                                         <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
-                                                      NumberOfTapsRequired="1"/>
-                                    </Label.GestureRecognizers>
-                                </Label>
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical" 
-                             x:Name="Stack_Codigo_Verificacao" 
-                             HorizontalOptions="FillAndExpand" 
-                             IsVisible="False">
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="0,0,0,20"
-                                 HorizontalOptions="FillAndExpand" >
-                            <Frame BackgroundColor="{DynamicResource TertiaryColor}"
-                               HasShadow="True" 
-                               HorizontalOptions="FillAndExpand" 
-                               CornerRadius="10">
-                                <StackLayout Padding="-15" 
-                                         VerticalOptions="FillAndExpand">
-                                    <Entry HorizontalTextAlignment="Center" 
-                                           MaxLength="1"
-                                           HorizontalOptions="FillAndExpand" 
-                                           x:Name="ent_Codigo1"
-                                           Text="{Binding C1}"
-                                           Keyboard="Numeric" 
-                                           VerticalOptions="FillAndExpand">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:NextEntryTriggerAction NextEntry="{x:Reference ent_Codigo2}"/>
-                                            </EventTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
-                               HasShadow="True" 
-                               HorizontalOptions="FillAndExpand" 
-                               CornerRadius="10">
-                                <StackLayout Padding="-15"
-                                         VerticalOptions="FillAndExpand">
-                                    <Entry HorizontalTextAlignment="Center" 
-                                       MaxLength="1" 
-                                       HorizontalOptions="FillAndExpand" 
-                                       x:Name="ent_Codigo2"
-                                       Text="{Binding C2}"
-                                       Keyboard="Numeric"
-                                       VerticalOptions="FillAndExpand">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:NextEntryTriggerAction PrevEntry="{x:Reference ent_Codigo1}" NextEntry="{x:Reference ent_Codigo3}"/>
-                                            </EventTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
-                               HasShadow="True" 
-                               HorizontalOptions="FillAndExpand" 
-                               CornerRadius="10">
-                                <StackLayout Padding="-15" 
-                                         VerticalOptions="FillAndExpand">
-                                    <Entry HorizontalTextAlignment="Center" 
-                                       MaxLength="1" 
-                                       HorizontalOptions="FillAndExpand"  
-                                       x:Name="ent_Codigo3"
-                                       Text="{Binding C3}"
-                                       Keyboard="Numeric" 
-                                       VerticalOptions="FillAndExpand">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:NextEntryTriggerAction PrevEntry="{x:Reference ent_Codigo2}" NextEntry="{x:Reference ent_Codigo4}"/>
-                                            </EventTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
-                               HasShadow="True" 
-                               HorizontalOptions="FillAndExpand" 
-                               CornerRadius="10">
-                                <StackLayout Padding="-15" 
-                                         VerticalOptions="FillAndExpand">
-                                    <Entry HorizontalTextAlignment="Center" 
-                                       MaxLength="1" 
-                                       HorizontalOptions="FillAndExpand"
-                                       x:Name="ent_Codigo4"
-                                       Text="{Binding C4}"
-                                   
-                                       Keyboard="Numeric" 
-                                       VerticalOptions="FillAndExpand">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:NextEntryTriggerAction  PrevEntry="{x:Reference ent_Codigo3}" NextEntry="{x:Reference ent_Codigo5}"/>
-                                            </EventTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
-                               HasShadow="True" 
-                               HorizontalOptions="FillAndExpand" 
-                               CornerRadius="10">
-                                <StackLayout Padding="-15" 
-                                         VerticalOptions="FillAndExpand">
-                                    <Entry HorizontalTextAlignment="Center" 
-                                       MaxLength="1" 
-                                       HorizontalOptions="FillAndExpand" 
-                                       x:Name="ent_Codigo5"
-                                       Text="{Binding C5}"
-                                       Keyboard="Numeric"
-                                       VerticalOptions="FillAndExpand">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:NextEntryTriggerAction  PrevEntry="{x:Reference ent_Codigo4}" />
-                                            </EventTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
+                                            <TapGestureRecognizer Tapped="Lbl_Apagar_Entry_Email" 
+                                                          NumberOfTapsRequired="1"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
-                        <Button Text="Verificar código"
-                            x:Name="btn_Codigo"
-                            BackgroundColor="{DynamicResource Secondary_Color}"
-                            Command="{Binding Btn_Verificar_Codigo_Command}"
-                            CommandParameter="{x:Reference Stack_Codigo_Verificacao}"
-                            TextColor="{DynamicResource Primary_Color}"/>
+                        <StackLayout Orientation="Vertical" 
+                                 x:Name="Stack_Codigo_Verificacao" 
+                                 HorizontalOptions="FillAndExpand" 
+                                 IsVisible="False">
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="0,0,0,20"
+                                     HorizontalOptions="FillAndExpand" >
+                                <Frame BackgroundColor="{DynamicResource TertiaryColor}"
+                                   HasShadow="True" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   CornerRadius="10">
+                                    <StackLayout Padding="-15" 
+                                             VerticalOptions="FillAndExpand">
+                                        <Entry HorizontalTextAlignment="Center" 
+                                               MaxLength="1"
+                                               HorizontalOptions="FillAndExpand" 
+                                               x:Name="ent_Codigo1"
+                                               Text="{Binding C1}"
+                                               Keyboard="Numeric" 
+                                               VerticalOptions="FillAndExpand">
+                                            <Entry.Triggers>
+                                                <EventTrigger Event="TextChanged">
+                                                    <tri:NextEntryTriggerAction NextEntry="{x:Reference ent_Codigo2}"/>
+                                                </EventTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
+                                   HasShadow="True" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   CornerRadius="10">
+                                    <StackLayout Padding="-15"
+                                             VerticalOptions="FillAndExpand">
+                                        <Entry HorizontalTextAlignment="Center" 
+                                           MaxLength="1" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           x:Name="ent_Codigo2"
+                                           Text="{Binding C2}"
+                                           Keyboard="Numeric"
+                                           VerticalOptions="FillAndExpand">
+                                            <Entry.Triggers>
+                                                <EventTrigger Event="TextChanged">
+                                                    <tri:NextEntryTriggerAction PrevEntry="{x:Reference ent_Codigo1}" NextEntry="{x:Reference ent_Codigo3}"/>
+                                                </EventTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
+                                   HasShadow="True" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   CornerRadius="10">
+                                    <StackLayout Padding="-15" 
+                                             VerticalOptions="FillAndExpand">
+                                        <Entry HorizontalTextAlignment="Center" 
+                                           MaxLength="1" 
+                                           HorizontalOptions="FillAndExpand"  
+                                           x:Name="ent_Codigo3"
+                                           Text="{Binding C3}"
+                                           Keyboard="Numeric" 
+                                           VerticalOptions="FillAndExpand">
+                                            <Entry.Triggers>
+                                                <EventTrigger Event="TextChanged">
+                                                    <tri:NextEntryTriggerAction PrevEntry="{x:Reference ent_Codigo2}" NextEntry="{x:Reference ent_Codigo4}"/>
+                                                </EventTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
+                                   HasShadow="True" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   CornerRadius="10">
+                                    <StackLayout Padding="-15" 
+                                             VerticalOptions="FillAndExpand">
+                                        <Entry HorizontalTextAlignment="Center" 
+                                           MaxLength="1" 
+                                           HorizontalOptions="FillAndExpand"
+                                           x:Name="ent_Codigo4"
+                                           Text="{Binding C4}"
+                                   
+                                           Keyboard="Numeric" 
+                                           VerticalOptions="FillAndExpand">
+                                            <Entry.Triggers>
+                                                <EventTrigger Event="TextChanged">
+                                                    <tri:NextEntryTriggerAction  PrevEntry="{x:Reference ent_Codigo3}" NextEntry="{x:Reference ent_Codigo5}"/>
+                                                </EventTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource TertiaryColor}" 
+                                   HasShadow="True" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   CornerRadius="10">
+                                    <StackLayout Padding="-15" 
+                                                 VerticalOptions="FillAndExpand">
+                                        <Entry HorizontalTextAlignment="Center" 
+                                               MaxLength="1" 
+                                               HorizontalOptions="FillAndExpand" 
+                                               x:Name="ent_Codigo5"
+                                               Text="{Binding C5}"
+                                               Keyboard="Numeric"
+                                               VerticalOptions="FillAndExpand">
+                                            <Entry.Triggers>
+                                                <EventTrigger Event="TextChanged">
+                                                    <tri:NextEntryTriggerAction  PrevEntry="{x:Reference ent_Codigo4}" />
+                                                </EventTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <Button Text="Verificar código"
+                                x:Name="btn_Codigo"
+                                BackgroundColor="{DynamicResource Secondary_Color}"
+                                Command="{Binding Btn_Verificar_Codigo_Command}"
+                                CommandParameter="{x:Reference Stack_Codigo_Verificacao}"
+                                TextColor="{DynamicResource Primary_Color}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Button BackgroundColor="{DynamicResource Secondary_Color}"
+                                Command="{Binding Btn_Enviar_Email_Command}"
+                                CommandParameter="{x:Reference stack_Pai}"
+                                x:Name="BtnEnviaCodigo"
+                                Text="enviar email" 
+                                CornerRadius="4" 
+                                Margin="10" 
+                                TextColor="{DynamicResource Primary_Color}"/>
+                            <ActivityIndicator Color="{DynamicResource Secondary_Color}"
+                                               IsRunning="{Binding Act_State}"/>
+                        </StackLayout>
                     </StackLayout>
-                    <StackLayout Orientation="Vertical">
-                        <Button BackgroundColor="{DynamicResource Secondary_Color}"
-                            Command="{Binding Btn_Enviar_Email_Command}"
-                            CommandParameter="{x:Reference stack_Pai}"
-                            x:Name="BtnEnviaCodigo"
-                            Text="enviar email" 
-                            CornerRadius="4" 
-                            Margin="10" 
-                            TextColor="{DynamicResource Primary_Color}"/>
-                        <ActivityIndicator Color="{DynamicResource Secondary_Color}"
-                                           IsRunning="{Binding Act_State}"/>
-                    </StackLayout>
-                </StackLayout>
-            </Grid>
-        </pancake:PancakeView>
+                </Grid>
+            </pancake:PancakeView>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

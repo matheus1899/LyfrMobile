@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
+             xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             x:Class="Prototipo1_Lyfr.Views.AlterarSenha">
+    <NavigationPage.HasBackButton>
+        <x:Boolean>True</x:Boolean>
+    </NavigationPage.HasBackButton>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DefaultTextColor">White</Color>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
+            <Style TargetType="StackLayout" x:Key="Filho_Frame">
+                <Setter Property="Padding" Value="7,-10,7,10"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="7"/>
+            </Style>
+            <Style TargetType="controls:NewFrame" x:Key="Frame_Pai">
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="15,0,15,0"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
+                <!--<Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource DefaultTextColor}"/>-->
+            </Style>
+            <Style TargetType="Label" x:Key="Label_X">
+                <Setter Property="Text" Value=" X "/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:AlterarSenhaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                                 BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+                <StackLayout VerticalOptions="CenterAndExpand" 
+                             x:Name="stack_Pai">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="225"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Logo_Lyfr2.png" 
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="3"
+                               Aspect="AspectFit" 
+                               HorizontalOptions="FillAndExpand"
+                               Margin="35"/>
+                    </Grid>
+                    
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
+                            <Entry TextColor="{DynamicResource DefaultTextColor}" 
+                                   IsPassword="{Binding EntryNovaSenhaIsPassword}"
+                                   Text="{Binding NovaSenha}"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Senha_Ent_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Nova senha"
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X " 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SetEmptyNovaSenhaCommand}"
+                                                          NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                         WidthRequest="35" 
+                                         HeightRequest="30"
+                                         Margin="0,-5,-7,-25"
+                                         Aspect="AspectFit"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding EntryNovaSenhaIsPasswordCommand}"
+                                         HorizontalOptions="End" 
+                                         VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}" >
+                            <Entry TextColor="{DynamicResource DefaultTextColor}" 
+                                   IsPassword="{Binding EntryConfirmarNovaSenhaIsPassword}"
+                                   Text="{Binding ConfirmarNovaSenha}"
+                                   Focused="Entry_Focused"
+                                   Unfocused="Senha_Ent_Unfocused"
+                                   TextChanged="Senha_Ent_TextChanged"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand"
+                                   Placeholder="Confirmar nova senha"
+                                   Margin="-5,-5,0,-25">
+                                <Entry.Behaviors>
+                                    <behaviorPack:PasswordValidationBehavior />
+                                </Entry.Behaviors>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X " 
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="Center"
+                                   Margin="5,10,5,-10"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SetEmptyConfirmarNovaSenhaCommand}" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ImageButton Source="eye.png"
+                                         WidthRequest="35" 
+                                         HeightRequest="30"
+                                         Margin="0,-5,-7,-25"
+                                         Aspect="AspectFit"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding EntryConfirmarNovaSenhaIsPasswordCommand}"
+                                         HorizontalOptions="End" 
+                                         VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <Button Text="   alterar   "
+                            Margin="25"
+                            HorizontalOptions="Center"
+                            CornerRadius="3"
+                            Command="{Binding AlterarSenhaCommand}"
+                            CommandParameter="{x:Reference stack_Pai}"
+                            TextColor="{DynamicResource Primary_Color}"
+                            BackgroundColor="{DynamicResource Secondary_Color}"/>
+                    <ActivityIndicator Color="{DynamicResource Secondary_Color}"
+                                       IsRunning="{Binding ActIsRunning}"/>
+                </StackLayout>
+            </pancake:PancakeView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

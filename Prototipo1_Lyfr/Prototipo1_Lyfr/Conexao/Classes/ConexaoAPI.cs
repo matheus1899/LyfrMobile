@@ -88,6 +88,40 @@ namespace Prototipo1_Lyfr.Conexao.Classes
                 }
             }
         }
+        public async Task<Cliente> SelectOneWithoutPassword(Cliente cliente, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var json = JsonConvert.SerializeObject(cliente.Email);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Cliente/GetClienteToUpdateByEmail/", content);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+
+                        Cliente user = JsonConvert.DeserializeObject<Cliente>(mensagem);
+                        return user;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
 
         public async Task<string> EnviarEmail(RecoveryPassword recovery, string Token)
         {

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Prototipo1_Lyfr.Views.AlterarEmail"
+             xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
+             xmlns:tri="clr-namespace:Prototipo1_Lyfr.TriggersAction"
+             xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <NavigationPage.HasBackButton>
+        <x:Boolean>True</x:Boolean>
+    </NavigationPage.HasBackButton>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="DefaultTextColor">White</Color>
+            <Color x:Key="Variant_Primary_Color">#212121</Color>
+            <Style TargetType="StackLayout" x:Key="Filho_Frame">
+                <Setter Property="Padding" Value="7,-10,7,10"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="7"/>
+            </Style>
+            <Style TargetType="controls:NewFrame" x:Key="Frame_Pai">
+                <Setter Property="CornerRadius" Value="7"/>
+                <Setter Property="Visual" Value="Material"/>
+                <Setter Property="HeightRequest" Value="18"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="15,0,15,0"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Tertiary_Color}"/>
+                <!--<Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="BorderColor" Value="{DynamicResource DefaultTextColor}"/>-->
+            </Style>
+            <Style TargetType="Label" x:Key="Label_X">
+                <Setter Property="Text" Value=" X "/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
+                             BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         x:Name="stack_Pai">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="225"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="Logo_Lyfr2.png" 
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="3"
+                               Aspect="AspectFit" 
+                               HorizontalOptions="FillAndExpand"
+                               Margin="35"/>
+                </Grid>
+                <Label Text="Digite seu novo email" 
+                       TextColor="{DynamicResource Secondary_Color}" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="30"
+                       Margin="0,18"
+                       Grid.Row="1"
+                       BackgroundColor="Transparent"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="3"/>
+                <StackLayout>
+                    <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
+                        <StackLayout Style="{x:StaticResource Filho_Frame}"
+                                         Padding="0,-16,0,-16">
+                            <Entry TextChanged="Entry_TextChanged"
+                                   Text="{Binding NovoEmail}"
+                                   HorizontalOptions="FillAndExpand"
+                                   Focused="Entry_Focused"
+                                   Placeholder="Email novo"
+                                   Unfocused="Entry_Unfocused"
+                                   TextColor="{DynamicResource DefaultTextColor}">
+                                <Entry.Triggers>
+                                    <EventTrigger Event="TextChanged">
+                                        <tri:EmailValidationTriggerAction/>
+                                    </EventTrigger>
+                                </Entry.Triggers>
+                                <Entry.Effects>
+                                    <ef:FocusEffect/>
+                                </Entry.Effects>
+                            </Entry>
+                            <Label Text=" X "  
+                                   TextColor="{DynamicResource DefaultTextColor}"
+                                   IsEnabled="False"
+                                   IsVisible="False"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,5,0"
+                                   VerticalTextAlignment="Center"
+                                   VerticalOptions="FillAndExpand">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </controls:NewFrame>
+                    <Button Text="   alterar   "
+                            Margin="25"
+                            HorizontalOptions="Center"
+                            CornerRadius="3"
+                            Command="{Binding AlterarEmailCommand}"
+                            CommandParameter="{x:Reference stack_Pai}"
+                            TextColor="{DynamicResource Primary_Color}"
+                            BackgroundColor="{DynamicResource Secondary_Color}"/>
+                    <ActivityIndicator Color="{DynamicResource Secondary_Color}"
+                                       IsRunning="{Binding ActIsRunning}"/>
+                </StackLayout>
+            </StackLayout>
+        </pancake:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,7 @@
-﻿using Prototipo1_Lyfr.ConexaoAPI;
+﻿using Prototipo1_Lyfr.Conexao.Classes;
+using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels.Services;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
@@ -19,12 +21,13 @@ namespace Prototipo1_Lyfr.ViewModels
         private string _C5;
         private bool _IsValid;
         private bool _Act_State;
-        private Lazy<Conexao.Classes.ConexaoAPI> con;
+        private Lazy<ConexaoAPI> con;
         private Lazy<Cache> db_cache;
+        private Cliente cliente;
+        private string _MainText;
 
         public ICommand Btn_Enviar_Email_Command { get; private set; }
         public ICommand Btn_Verificar_Codigo_Command { get; private set; }
-
         public string Codigo
         {
             get { return _Codigo; }
@@ -70,6 +73,11 @@ namespace Prototipo1_Lyfr.ViewModels
             get => _Act_State;
             set { SetProperty(ref _Act_State, value, nameof(Act_State)); }
         }
+        public string MainText
+        {
+            get => _MainText;
+            set => SetProperty(ref _MainText, value, nameof(MainText));
+        }
         #endregion
         public EsqueciSenhaViewModel()
         {
@@ -82,51 +90,68 @@ namespace Prototipo1_Lyfr.ViewModels
             C5 = string.Empty;
             IsValid = false;
             Act_State = false;
+            MainText = "Digite seu Email";
 
-            con = new Lazy<Conexao.Classes.ConexaoAPI>();
+            con = new Lazy<ConexaoAPI>();
             db_cache = new Lazy<Cache>();
 
             Btn_Enviar_Email_Command = new Command(async (e)=> 
             {
-
-                Act_State = true;
-                var a = e as StackLayout;
-                var b = a.Children[0] as StackLayout;
-                if (!EmailIsValid(Email)){
-                    var c = b.Children[1];
-                    ShakeShake(c);
-                    Act_State = false;
-                }
-                else
+                try
                 {
                     Act_State = true;
-                    
-                    await con.Value.EnviarEmail(GetNewRecoveryPassword(), db_cache.Value.GetTokenCache().TokenString);
-                    var c = a.Children[2];
-                    await b.FadeTo(0, 250, Easing.Linear);
-                    await c.FadeTo(0, 250, Easing.Linear);
-                    b.IsVisible = false;
-                    c.IsVisible = false;
-                    var d = a.Children[1];
-                    d.IsVisible = true;
-                    await d.FadeTo(1, 300, Easing.Linear);
+                    var a = e as StackLayout;
+                    var b = a.Children[0] as StackLayout;
+                    if (!EmailIsValid(Email))
+                    {
+                        var c = b.Children[1];
+                        ShakeShake(c);
+                        Act_State = false;
+                    }
+                    else
+                    {
+                        Act_State = true;
+                        await con.Value.EnviarEmail(GetNewRecoveryPassword(), db_cache.Value.GetTokenCache().TokenString);
+                        cliente = await con.Value.SelectOneWithoutPassword(new Cliente { Email = this.Email }, db_cache.Value.GetTokenCache().TokenString);
+                        var c = a.Children[2];
+                        await b.FadeTo(0, 250, Easing.Linear);
+                        await c.FadeTo(0, 250, Easing.Linear);
+                        b.IsVisible = false;
+                        c.IsVisible = false;
+                        var d = a.Children[1];
+                        d.IsVisible = true;
+                        Act_State = false;
+                        await d.FadeTo(1, 300, Easing.Linear);
+                        MainText = "Verifique seu Email";
+                    }
                 }
-                
+                catch (Exception ex)
+                {
+                    MostrarMensagem.Mostrar(ex.Message);
+                }
             });
-
             Btn_Verificar_Codigo_Command = new Command(async(e)=> {
-                var b = e as StackLayout;
-                if (CodesIsValid())
+                try
                 {
-                    ShakeShake(b);
+                    Act_State = true;
+                    var b = e as StackLayout;
+                    if (!CodesIsValid())
+                    {
+                        ShakeShake(b);
+                        Act_State = false;
+                    }
+                    else
+                    {
+                        Act_State = false;
+                        await DependencyService.Get<INavigationService>().NavigateToAlterarSenha(cliente);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    //NavigationService
+                    MostrarMensagem.Mostrar(ex.Message);
                 }
             });
         }
-
         private bool CodesIsValid()
         {
             if (IsNullOrWhiteSpaceOrEmpty(C1, C2, C3, C4, C5))
@@ -142,28 +167,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 return true;
             }
         }
-        private bool IsNullOrWhiteSpaceOrEmpty(string s)
-        {
-            if(string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        private bool IsNullOrWhiteSpaceOrEmpty(params string[] s)
-        {
-            for(short i=0; i < s.Length; i++)
-            {
-                if(IsNullOrWhiteSpaceOrEmpty(s[i]))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
         private void Gerar_Codigo()
         {
             string c = string.Empty;
@@ -178,23 +181,6 @@ namespace Prototipo1_Lyfr.ViewModels
         {
             Gerar_Codigo();
             return new RecoveryPassword { Email = this.Email, CodigoGerado = Codigo };
-        }
-        private async void ShakeShake(VisualElement v)
-        {
-            await v.TranslateTo(25, 0, 30, Easing.Linear);
-            await v.TranslateTo(-25, 0, 30, Easing.Linear);
-            await v.TranslateTo(10, 0, 30, Easing.Linear);
-            await v.TranslateTo(-10, 0, 30, Easing.Linear);
-            await v.TranslateTo(5, 0, 30, Easing.Linear);
-            await v.TranslateTo(-5, 0, 30, Easing.Linear);
-            await v.TranslateTo(0, 0, 30, Easing.Linear);
-        }
-        private bool EmailIsValid(string e)
-        {
-            return Regex.IsMatch(Email,
-                            @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
-                            RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50));
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
              xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Prototipo1_Lyfr.Views.Login" BackgroundColor="{DynamicResource Primary_Color}">
+             x:Class="Prototipo1_Lyfr.Views.Login">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DefaultTextColor">#436477</Color>
@@ -38,9 +38,9 @@
                 <Grid HorizontalOptions="FillAndExpand" 
                     VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="225"/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>

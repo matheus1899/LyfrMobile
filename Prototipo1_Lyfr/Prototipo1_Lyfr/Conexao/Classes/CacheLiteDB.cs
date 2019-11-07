@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LiteDB;
 using Prototipo1_Lyfr.Conexao.Interfaces;
-using Prototipo1_Lyfr.ConexaoAPI;
+
 using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.Models.SQLiteModels;
 using Xamarin.Forms;

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Prototipo1_Lyfr.ConexaoAPI
+namespace Prototipo1_Lyfr.Conexao.Classes
 {
     public class Cache:IDisposable
     {

@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao;
+﻿using Prototipo1_Lyfr.Conexao.Classes;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Interfaces;
 using Prototipo1_Lyfr.Models;
@@ -16,7 +16,7 @@ namespace Prototipo1_Lyfr.Views
     public partial class Login : ContentPage
     {
         GerarToken gerarToken = new GerarToken();
-        Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
+        ConexaoAPI conexao = new ConexaoAPI();
 
         public Login()
         {

@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao;
+﻿using Prototipo1_Lyfr.Conexao.Classes;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;
@@ -11,16 +11,11 @@ namespace Prototipo1_Lyfr.ViewModels
 {
     public class CadastrarViewModel : BaseViewModel
     {
-        //public ICommand Btn_Gratis_Clicked { private set; get; }
-        //public ICommand Btn_Pago_Clicked { private set; get; }
         public ICommand Cadastrar_Clicked { private set; get; }
         public ICommand Next_Entry_Command { private set; get; }
 
         public CadastrarViewModel()
         {
-            //Botao_Gratis = App.Current.Resources["Style_Button_Ativo"] as Style;
-            //Botao_Pago   = App.Current.Resources["Style_Button_Desativo"] as Style;
-
             Nome = string.Empty;
             Email = string.Empty;
             Senha = string.Empty;
@@ -31,52 +26,6 @@ namespace Prototipo1_Lyfr.ViewModels
             Cidade = string.Empty;
             Estado = string.Empty;
             DataNasc = DateTime.Now;
-            //Plano = "P";
-
-            /* Btn_Gratis_Clicked = new Command(async (e) =>
-            {
-                Plano = "G";
-                var a = e as Grid;
-                await a.Children[5].TranslateTo(1700, 0, 200, Easing.Linear);
-                await a.Children[6].TranslateTo(1700, 0, 200, Easing.Linear);
-                await a.Children[7].TranslateTo(1700, 0, 200, Easing.Linear);
-                await a.Children[8].TranslateTo(1700, 0, 200, Easing.Linear);
-                await a.Children[9].TranslateTo(1700, 0, 200, Easing.Linear);
-                await a.Children[10].TranslateTo(1700, 0, 200, Easing.Linear);
-                a.Children[5].IsVisible = false;
-                a.Children[6].IsVisible = false;
-                a.Children[7].IsVisible = false;
-                a.Children[8].IsVisible = false;
-                a.Children[9].IsVisible = false;
-                a.Children[10].IsVisible = false;
-
-                Botao_Gratis = App.Current.Resources["Style_Button_Ativo"] as Style;
-                Botao_Pago = App.Current.Resources["Style_Button_Desativo"] as Style;
-            });
-
-            Btn_Pago_Clicked = new Command(async (e) =>
-            {
-                Plano = "P";
-                var a = e as Grid;
-                a.Children[5].IsVisible = true;
-                a.Children[6].IsVisible = true;
-                a.Children[7].IsVisible = true;
-                a.Children[8].IsVisible = true;
-                a.Children[9].IsVisible = true;
-                a.Children[10].IsVisible = true;
-                await Task.Run(async () =>
-                {
-                    await a.Children[5].TranslateTo(0, 0, 200, Easing.Linear);
-                    await a.Children[6].TranslateTo(0, 0, 200, Easing.Linear);
-                    await a.Children[7].TranslateTo(0, 0, 200, Easing.Linear);
-                    await a.Children[8].TranslateTo(0, 0, 200, Easing.Linear);
-                    await a.Children[9].TranslateTo(0, 0, 200, Easing.Linear);
-                    await a.Children[10].TranslateTo(0, 0, 200, Easing.Linear);
-                });
-
-                Botao_Pago = App.Current.Resources["Style_Button_Ativo"] as Style;
-                Botao_Gratis = App.Current.Resources["Style_Button_Desativo"] as Style;
-            });*/
 
             Cadastrar_Clicked = new Command(async () =>
             {

@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao;
+﻿using Prototipo1_Lyfr.Conexao.Classes;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;
@@ -153,7 +153,7 @@ namespace Prototipo1_Lyfr.ViewModels
         {
             Set_Initial_Values(cliente);
             GerarToken gerarToken = new GerarToken();
-            Conexao.Classes.ConexaoAPI conexao = new Conexao.Classes.ConexaoAPI();
+            ConexaoAPI conexao = new ConexaoAPI();
 
             Enviar_Sugestao_Command = new Command(async(e)=> {
                 var msn = e as string;
