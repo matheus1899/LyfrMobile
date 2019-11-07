@@ -1,27 +1,30 @@
-﻿using System;
-using Xamarin.Forms;
-using System.Windows.Input;
-using Prototipo1_Lyfr.Models;
+﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
-using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.ViewModels
 {
-    public class AlterarEmailViewModel:BaseViewModel
+    public class AlterarTelefoneViewModel:BaseViewModel
     {
-        private string _NovoEmail;
         private bool _Act_State;
+        private string _NovoTelefone;
         private Cliente _cliente;
         private Lazy<ConexaoAPI> con = new Lazy<ConexaoAPI>();
-        public string NovoEmail
-        {
-            get => _NovoEmail;
-            set => SetProperty(ref _NovoEmail, value, nameof(NovoEmail));
-        }
-        public bool Act_State 
+
+        public bool Act_State
         {
             get => _Act_State;
             set => SetProperty(ref _Act_State, value, nameof(Act_State));
+        }
+        public string NovoTelefone
+        {
+            get => _NovoTelefone;
+            set => SetProperty(ref _NovoTelefone, value, nameof(NovoTelefone));
         }
         public Cliente cliente
         {
@@ -29,16 +32,21 @@ namespace Prototipo1_Lyfr.ViewModels
             set => SetProperty(ref _cliente, value, nameof(cliente));
         }
 
-        public ICommand AlterarEmailCommand { get; private set; }
-        public AlterarEmailViewModel()
+        public ICommand AlterarTelefoneCommand { get; private set; }
+
+        public AlterarTelefoneViewModel()
         {
-            AlterarEmailCommand = new Command(async(e) => {
+            Act_State = false;
+            NovoTelefone = string.Empty;
+
+            AlterarTelefoneCommand = new Command(async (e) =>
+            {
                 try
                 {
                     Act_State = true;
                     var a = e as StackLayout;
                     var b = a.Children[2] as StackLayout;
-                    if (!EmailIsValid(NovoEmail))
+                    if (!TelefoneIsValid(NovoTelefone))
                     {
                         ShakeShake(b);
                         Act_State = false;
@@ -46,7 +54,7 @@ namespace Prototipo1_Lyfr.ViewModels
                     else
                     {
                         Cliente c = cliente;
-                        cliente.Email = NovoEmail;
+                        cliente.Telefone = NovoTelefone;
                         using (Cache cache = new Cache())
                         {
                             await con.Value.Update(cliente, cache.GetTokenCache().TokenString);
@@ -55,7 +63,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 }
                 catch (Exception ex)
                 {
-
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             });

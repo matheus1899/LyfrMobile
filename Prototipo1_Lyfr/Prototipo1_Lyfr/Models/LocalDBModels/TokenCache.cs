@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace Prototipo1_Lyfr.Models.SQLiteModels
+namespace Prototipo1_Lyfr.Models.LocalDBModels
 {
     [Table("Token")]
     public class TokenCache

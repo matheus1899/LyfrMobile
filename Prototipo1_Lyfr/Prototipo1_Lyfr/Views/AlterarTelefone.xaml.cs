@@ -1,5 +1,4 @@
 ﻿using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,13 +6,12 @@ using Xamarin.Forms.Xaml;
 namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlterarEmail : ContentPage
+    public partial class AlterarTelefone : ContentPage
     {
-        public AlterarEmail(object o)
+        public AlterarTelefone(object o)
         {
             InitializeComponent();
-            var b = BindingContext as AlterarEmailViewModel;
-            b.cliente = o as Cliente;
+            var a = BindingContext as AlterarTelefone;
         }
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {

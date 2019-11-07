@@ -4,8 +4,8 @@ using System.Linq;
 using System.Windows.Input;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Conexao.Classes;
-using Prototipo1_Lyfr.Models.SQLiteModels;
+using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.ViewModels

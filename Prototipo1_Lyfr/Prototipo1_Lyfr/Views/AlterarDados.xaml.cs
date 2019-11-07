@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao.Classes;
+﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;
@@ -49,7 +49,7 @@ namespace Prototipo1_Lyfr.Views
                             Telefone = cliente.Telefone
                         };
 
-                        var conexao = new Conexao.Classes.ConexaoAPI();
+                        var conexao = new ConexaoAPI();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();
@@ -92,7 +92,7 @@ namespace Prototipo1_Lyfr.Views
                             Telefone = cliente.Telefone
                         };
 
-                        var conexao = new Conexao.Classes.ConexaoAPI();
+                        var conexao = new ConexaoAPI();
                         var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                         MostrarMensagem.Mostrar(result);
                         await Navigation.PopAsync();
@@ -132,7 +132,7 @@ namespace Prototipo1_Lyfr.Views
                         Telefone = ent_Telefone_Usuario.Text
                     };
 
-                    var conexao = new Conexao.Classes.ConexaoAPI();
+                    var conexao = new ConexaoAPI();
                     var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
                     await Navigation.PopAsync();
@@ -166,7 +166,7 @@ namespace Prototipo1_Lyfr.Views
                         Telefone = cliente.Telefone
                     };
 
-                    var conexao = new Conexao.Classes.ConexaoAPI();
+                    var conexao = new ConexaoAPI();
                     var result = await conexao.Update(clienteAlterado, GerarToken.GetTokenFromCache());
                     MostrarMensagem.Mostrar(result);
                     await Navigation.PopAsync();

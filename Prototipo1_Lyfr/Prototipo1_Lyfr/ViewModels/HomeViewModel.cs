@@ -1,11 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Conexao.Classes;
-using Prototipo1_Lyfr.Models.SQLiteModels;
+using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Prototipo1_Lyfr.Conexao;
 using System;
 
 namespace Prototipo1_Lyfr.ViewModels
@@ -14,7 +13,7 @@ namespace Prototipo1_Lyfr.ViewModels
     {
 
         Lazy<CacheLiteDB> _cacheLite = new Lazy<CacheLiteDB>();
-        Lazy<Conexao.Classes.ConexaoAPI> con = new Lazy<Conexao.Classes.ConexaoAPI>();
+        Lazy<ConexaoAPI> con = new Lazy<ConexaoAPI>();
         
         public HomeViewModel()
         {

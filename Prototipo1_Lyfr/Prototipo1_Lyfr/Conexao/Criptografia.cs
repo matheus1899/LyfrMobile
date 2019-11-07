@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Prototipo1_Lyfr.Conexao.Classes
+namespace Prototipo1_Lyfr.Conexao
 {
     public class Criptografia
     {

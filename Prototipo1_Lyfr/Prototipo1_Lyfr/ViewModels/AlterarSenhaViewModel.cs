@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao.Classes;
+﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System.Windows.Input;
@@ -89,8 +89,8 @@ namespace Prototipo1_Lyfr.ViewModels
                         {
                             await con.Update(OldCliente, c.GetTokenCache().TokenString);
                         }
-                        MostrarMensagem.Mostrar("Senha alterada com sucesso");
-                        await DependencyService.Get<INavigationService>().GoBack();
+                        MostrarMensagem.Mostrar("Senha alterada com sucesso!!! Deslogando...");
+                        DependencyService.Get<INavigationService>().SetLoginMainPage();
                     }
                 }
                 catch (Exception ex)

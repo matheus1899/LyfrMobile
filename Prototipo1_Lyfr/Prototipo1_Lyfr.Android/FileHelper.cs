@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Android.OS;
-using Prototipo1_Lyfr.Conexao.Interfaces;
+using Prototipo1_Lyfr.Interfaces;
 using Prototipo1_Lyfr.Droid;
 using Xamarin.Forms;
 using Environment = System.Environment;

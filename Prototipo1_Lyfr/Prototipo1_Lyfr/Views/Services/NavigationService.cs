@@ -10,27 +10,25 @@ namespace Prototipo1_Lyfr.Views.Services
         {
             return App.Current.MainPage.Navigation.PopAsync();
         }
-        public Task NavigateToAlterarEmail()
+        public Task NavigateToAlterarEmail(object o)
         {
-            throw new System.NotImplementedException();
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarEmail(o));
         }
         public void SetLoginMainPage()
         {
             App.Current.MainPage = new NavigationPage(new Login());
         }
-        public Task NavigateToAlterarEndereco()
+        public Task NavigateToAlterarEndereco(object o)
         {
             throw new System.NotImplementedException();
         }
-
         public Task NavigateToAlterarSenha(object o)
         {
             return App.Current.MainPage.Navigation.PushAsync(new AlterarSenha(o));
         }
-
-        public Task NavigateToAlterarTelefone()
+        public Task NavigateToAlterarTelefone(object o)
         {
-            throw new System.NotImplementedException();
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarTelefone(o));
         }
     }
 }

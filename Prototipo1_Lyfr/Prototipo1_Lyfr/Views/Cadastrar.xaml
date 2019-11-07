@@ -366,10 +366,10 @@
                                        HorizontalOptions="FillAndExpand"
                                        VerticalOptions="FillAndExpand"
                                        Margin="0,-5,0,-25">
-                                <Entry.Effects>
-                                    <ef:FocusEffect/>
-                                </Entry.Effects>
-                                <Entry.Behaviors>
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                    <Entry.Behaviors>
                                         <behaviorPack:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
                                     </Entry.Behaviors>
                                 </Entry>

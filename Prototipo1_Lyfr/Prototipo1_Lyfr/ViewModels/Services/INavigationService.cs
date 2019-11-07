@@ -7,8 +7,8 @@ namespace Prototipo1_Lyfr.ViewModels.Services
         Task GoBack();
         void SetLoginMainPage();
         Task NavigateToAlterarSenha(object o);
-        Task NavigateToAlterarEmail();
-        Task NavigateToAlterarTelefone();
-        Task NavigateToAlterarEndereco();
+        Task NavigateToAlterarEmail(object o);
+        Task NavigateToAlterarTelefone(object o);
+        Task NavigateToAlterarEndereco(object o);
     }
 }

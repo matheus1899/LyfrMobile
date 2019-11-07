@@ -19,6 +19,7 @@ namespace Prototipo1_Lyfr
             {
                 InitializeComponent();
                 DependencyService.Register<INavigationService, NavigationService>();
+                DependencyService.Register<IMessageService, MessageService>();
 
                 MainPage = new NavigationPage(new Views.Introducao());
                 //MainPage = new NavigationPage(new Views.MainPage());

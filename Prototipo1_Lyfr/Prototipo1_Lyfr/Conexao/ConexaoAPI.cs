@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prototipo1_Lyfr.Conexao.Classes
+namespace Prototipo1_Lyfr.Conexao
 {
     public class ConexaoAPI
     {

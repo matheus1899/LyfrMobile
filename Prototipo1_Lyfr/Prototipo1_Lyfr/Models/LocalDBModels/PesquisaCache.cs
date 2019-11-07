@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prototipo1_Lyfr.Models.SQLiteModels
+namespace Prototipo1_Lyfr.Models.LocalDBModels
 {
     [Table("Pequisa")]
     public class PesquisaCache

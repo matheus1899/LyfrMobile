@@ -141,15 +141,10 @@
     <AndroidResource Include="Resources\drawable\cover_example.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\book_stack.png" />
     <AndroidResource Include="Resources\drawable\artedaguerra.jpg" />
-    <Content Include="Resources\drawable\cover_example2.jpg" />
     <AndroidResource Include="Resources\drawable\Logo_Lyfr.png" />
-    <AndroidResource Include="Resources\drawable\man.png" />
     <AndroidResource Include="Resources\drawable\settings.png" />
     <AndroidResource Include="Resources\drawable\Logo_Lyfr2.png" />
-    <AndroidResource Include="Resources\drawable\goldenaxe.jpg" />
-    <AndroidResource Include="Resources\drawable\insignia.png" />
     <AndroidResource Include="Resources\drawable\timeleft.png" />
     <AndroidResource Include="Resources\drawable\user.png" />
   </ItemGroup>

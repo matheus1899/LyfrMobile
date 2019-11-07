@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Models.SQLiteModels;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 using System;
 using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prototipo1_Lyfr.Conexao.Classes
+namespace Prototipo1_Lyfr.Conexao
 {
     public class GerarToken:IDisposable
     {

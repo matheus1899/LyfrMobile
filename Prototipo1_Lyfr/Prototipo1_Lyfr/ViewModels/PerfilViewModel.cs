@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao.Classes;
+﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;

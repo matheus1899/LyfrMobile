@@ -1,11 +1,11 @@
-﻿using Prototipo1_Lyfr.Conexao.Interfaces;
-using Prototipo1_Lyfr.Models.SQLiteModels;
+﻿using Prototipo1_Lyfr.Interfaces;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Prototipo1_Lyfr.Conexao.Classes
+namespace Prototipo1_Lyfr.Conexao
 {
     public class Cache:IDisposable
     {

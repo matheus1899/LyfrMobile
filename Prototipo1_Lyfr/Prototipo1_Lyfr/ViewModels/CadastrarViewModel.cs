@@ -1,4 +1,4 @@
-﻿using Prototipo1_Lyfr.Conexao.Classes;
+﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using System;
@@ -100,7 +100,7 @@ namespace Prototipo1_Lyfr.ViewModels
                         Data_Cadastro = DateTime.Now.ToString()
                     };
 
-                    var conexao = new Conexao.Classes.ConexaoAPI();
+                    var conexao = new ConexaoAPI();
                     Lazy<GerarToken> gerarToken = new Lazy<GerarToken>();
 
                     try

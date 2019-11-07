@@ -57,10 +57,32 @@ namespace Prototipo1_Lyfr
                             @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
                             RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50));
         }
-        //protected bool SenhaIsValid(string s)
-        //{
-        //    return Regex.IsMatch(s, @"", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(50));
-        //}
+        protected bool TelefoneIsValid(string t)
+        {
+            return Regex.IsMatch(t, @"(\(\d{2}\)\s)(\d{4,5}\-\d{4})$");
+        }
+        protected bool SenhaIsValid(string s)
+        {
+            bool Valido;
+            if (!Regex.IsMatch(s, @"[A-Z]"))
+            {
+                Valido = false;
+            }
+            else if (!Regex.IsMatch(s, @"[@#%&_!?]"))
+            {
+                Valido = false;
+            }
+            else if (s.Length < 8)
+            {
+                Valido = false;
+            }
+            else
+            {
+                Valido = true;
+            }
+
+            return Valido;
+        }
         protected async void ShakeShake(VisualElement v)
         {
             await v.TranslateTo(25, 0, 30, Easing.Linear);

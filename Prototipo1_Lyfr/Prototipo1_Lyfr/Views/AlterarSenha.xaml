@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
+             xmlns:tri="clr-namespace:Prototipo1_Lyfr.TriggersAction"
              xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
@@ -81,9 +82,11 @@
                                    VerticalOptions="FillAndExpand"
                                    Placeholder="Nova senha"
                                    Margin="-5,-5,0,-25">
-                                <Entry.Behaviors>
-                                    <behaviorPack:PasswordValidationBehavior />
-                                </Entry.Behaviors>
+                                <Entry.Triggers>
+                                    <EventTrigger Event="TextChanged">
+                                        <tri:PasswordValidationTriggerAction/>
+                                    </EventTrigger>
+                                </Entry.Triggers>
                                 <Entry.Effects>
                                     <ef:FocusEffect/>
                                 </Entry.Effects>
@@ -123,9 +126,11 @@
                                    VerticalOptions="FillAndExpand"
                                    Placeholder="Confirmar nova senha"
                                    Margin="-5,-5,0,-25">
-                                <Entry.Behaviors>
-                                    <behaviorPack:PasswordValidationBehavior />
-                                </Entry.Behaviors>
+                                <Entry.Triggers>
+                                    <EventTrigger Event="TextChanged">
+                                        <tri:PasswordValidationTriggerAction/>
+                                    </EventTrigger>
+                                </Entry.Triggers>
                                 <Entry.Effects>
                                     <ef:FocusEffect/>
                                 </Entry.Effects>
