@@ -7,15 +7,19 @@
              x:Class="Prototipo1_Lyfr.Views.AlterarEmail"
              xmlns:ef="clr-namespace:Prototipo1_Lyfr.Effects"
              xmlns:tri="clr-namespace:Prototipo1_Lyfr.TriggersAction"
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              xmlns:controls="clr-namespace:Prototipo1_Lyfr.Controls"
              xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
     <NavigationPage.HasBackButton>
         <x:Boolean>True</x:Boolean>
     </NavigationPage.HasBackButton>
+    <ContentPage.BindingContext>
+        <vm:AlterarEmailViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="DefaultTextColor">White</Color>
+            <Color x:Key="DefaultTextColor">Black</Color>
             <Color x:Key="Variant_Primary_Color">#212121</Color>
             <Style TargetType="StackLayout" x:Key="Filho_Frame">
                 <Setter Property="Padding" Value="7,-10,7,10"/>

@@ -1,17 +1,19 @@
-﻿using Prototipo1_Lyfr.Models;
-using System;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels;
 
 namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlterarTelefone : ContentPage
     {
-        public AlterarTelefone(object o)
+        public AlterarTelefone(Cliente c)
         {
             InitializeComponent();
-            var a = BindingContext as AlterarTelefone;
+            var b = BindingContext as AlterarTelefoneViewModel;
+            b.cliente = c;
         }
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {

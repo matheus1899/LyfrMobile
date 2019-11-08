@@ -9,11 +9,11 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlterarEmail : ContentPage
     {
-        public AlterarEmail(object o)
+        public AlterarEmail(Cliente c)
         {
             InitializeComponent();
             var b = BindingContext as AlterarEmailViewModel;
-            b.cliente = o as Cliente;
+            b.cliente = c;
         }
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {

@@ -1,19 +1,19 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Prototipo1_Lyfr.ViewModels;
 using Prototipo1_Lyfr.Models;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prototipo1_Lyfr.ViewModels;
+using System;
 
 namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlterarSenha : ContentPage
+    public partial class AlterarEndereco : ContentPage
     {
-        public AlterarSenha(Cliente c)
+        public AlterarEndereco(Cliente c)
         {
             InitializeComponent();
-            var b = BindingContext as AlterarSenhaViewModel;
-            b.OldCliente = c;
+            var b = BindingContext as AlterarEnderecoViewModel;
+            b.cliente = c;
         }
         private void Lbl_Apagar_Entry(object sender, EventArgs e)
         {
@@ -69,23 +69,17 @@ namespace Prototipo1_Lyfr.Views
             var a = sender as Entry;
             var b = a.Parent as StackLayout;
             var c = b.Children[1] as Label;
+
             c.IsEnabled = false;
             c.IsVisible = false;
         }
-        private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
-        {
-            var a = sender as ImageButton;
-            await a.ScaleTo(1.3, 100, Easing.SpringIn);
-            var pai = a.Parent as StackLayout;
-            var ent = pai.Children[0] as Entry;
-            ent.IsPassword = !ent.IsPassword;
-            await a.ScaleTo(1, 100, Easing.BounceIn);
-        }
+
         private void Senha_Ent_Unfocused(object sender, FocusEventArgs e)
         {
             var a = sender as Entry;
             var b = a.Parent as StackLayout;
             var c = b.Children[1] as Label;
+
             c.IsEnabled = false;
             c.IsVisible = false;
         }

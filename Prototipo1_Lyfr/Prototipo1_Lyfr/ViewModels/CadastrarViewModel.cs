@@ -27,63 +27,72 @@ namespace Prototipo1_Lyfr.ViewModels
             Estado = string.Empty;
             DataNasc = DateTime.Now;
 
-            Cadastrar_Clicked = new Command(async () =>
+            Cadastrar_Clicked = new Command(async (e) =>
             {
+                var g = e as Grid;
                 if (string.IsNullOrEmpty(Nome))
                 {
+                    ShakeShake(g.Children[2]);
                     MostrarMensagem.Mostrar("Prencha o campo do nome");
                     return;
                 }
-                
                 else if (string.IsNullOrEmpty(Email))
                 {
+                    ShakeShake(g.Children[3]);
                     MostrarMensagem.Mostrar("Preencha o campo do e-mail");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Senha))
                 {
+                    ShakeShake(g.Children[4]);
                     MostrarMensagem.Mostrar("Preencha o campo da senha");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cpf))
                 {
+                    ShakeShake(g.Children[5]);
                     MostrarMensagem.Mostrar("Preencha o campo do CPF");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cep))
                 {
+                    ShakeShake(g.Children[6]);
                     MostrarMensagem.Mostrar("Preencha o campo do CEP");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Telefone))
                 {
+                    ShakeShake(g.Children[7]);
                     MostrarMensagem.Mostrar("Preencha o campo do telefone");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Rua))
                 {
+                    ShakeShake(g.Children[9]);
                     MostrarMensagem.Mostrar("Preencha o campo da rua");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Numero))
                 {
+                    ShakeShake(g.Children[9]);
                     MostrarMensagem.Mostrar("Preencha o campo do número");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Cidade))
                 {
+                    ShakeShake(g.Children[10]);
                     MostrarMensagem.Mostrar("Preencha o campo da cidade");
                     return;
                 }
                 else if (string.IsNullOrEmpty(Estado))
                 {
+                    ShakeShake(g.Children[10]);
                     MostrarMensagem.Mostrar("Preencha o campo do estado");
                     return;
                 }
                 else
                 {
                     Act_Indicator = true;
-
                     Cliente cliente = new Cliente()
                     {
                         Nome = this.Nome.Trim(),
@@ -166,9 +175,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 }
             });
         }
-
         #region Propertys
-        private string _Plano;
         private string _Nome;
         private string _Cpf;
         private string _Email;
@@ -181,182 +188,77 @@ namespace Prototipo1_Lyfr.ViewModels
         private string _Senha;
         private string _Telefone;
         private string _Data_Cadastro;
-        //private Style _Botao_Gratis;
-        //private Style _Botao_Pago;
 
         private bool _Act_Indicator;
 
         #endregion
-
         #region Get_Set
         
         public string Nome
         {
-            get
-            {
-                return (string)_Nome;
-            }
-            set
-            {
-                SetProperty<string>(ref _Nome, value, nameof(Nome));
-            }
+            get =>(string)_Nome;
+            set => SetProperty<string>(ref _Nome, value, nameof(Nome));
         }
         public string Cpf
         {
-            get
-            {
-                return (string)_Cpf;
-            }
-            set
-            {
-                SetProperty<string>(ref _Cpf, value, nameof(Cpf));
-            }
+            get=>(string)_Cpf;
+            set=>SetProperty<string>(ref _Cpf, value, nameof(Cpf));
         }
         public string Email
         {
-            get
-            {
-                return (string)_Email;
-            }
-            set
-            {
-                SetProperty<string>(ref _Email, value, nameof(Email));
-            }
+            get=>(string)_Email;
+            set=>SetProperty<string>(ref _Email, value, nameof(Email));
         }
         public string Rua
         {
-            get
-            {
-                return (string)_Rua;
-            }
-            set
-            {
-                SetProperty<string>(ref _Rua, value, nameof(Rua));
-            }
+            get=>(string)_Rua;
+            set=>SetProperty<string>(ref _Rua, value, nameof(Rua));
         }
         public string Numero
         {
-            get
-            {
-                return (string)_Numero;
-            }
-            set
-            {
-                SetProperty<string>(ref _Numero, value, nameof(Numero));
-            }
+            get=>(string)_Numero;
+            set=>SetProperty<string>(ref _Numero, value, nameof(Numero));
         }
         public string Cep
         {
-            get
-            {
-                return (string)_Cep;
-            }
-            set
-            {
-                SetProperty<string>(ref _Cep, value, nameof(Cep));
-            }
+            get=>(string)_Cep;
+            set=>SetProperty<string>(ref _Cep, value, nameof(Cep));
         }
         public string Cidade
         {
-            get
-            {
-                return (string)_Cidade;
-            }
-            set
-            {
-                SetProperty<string>(ref _Cidade, value, nameof(Cidade));
-            }
+            get=>(string)_Cidade;
+            set=>SetProperty<string>(ref _Cidade, value, nameof(Cidade));
         }
         public string Estado
         {
-            get
-            {
-                return (string)_Estado;
-            }
-            set
-            {
-                SetProperty<string>(ref _Estado, value, nameof(Estado));
-            }
+            get=>(string)_Estado;
+            set=>SetProperty<string>(ref _Estado, value, nameof(Estado));
         }
         public DateTime DataNasc
         {
-            get
-            {
-                return DateTime.Parse(_DataNasc);
-            }
-            set
-            {
-                SetProperty<string>(ref _DataNasc, value.ToString(), nameof(DataNasc));
-            }
+            get=>DateTime.Parse(_DataNasc);
+            set=>SetProperty<string>(ref _DataNasc, value.ToString(), nameof(DataNasc));
         }
         public string Senha
         {
-            get
-            {
-                return (string)_Senha;
-            }
-            set
-            {
-                SetProperty<string>(ref _Senha, value, nameof(Senha));
-            }
+            get=>(string)_Senha;
+            set=>SetProperty<string>(ref _Senha, value, nameof(Senha));
         }
         public string Telefone
         {
-            get
-            {
-                return (string)_Telefone;
-            }
-            set
-            {
-                SetProperty<string>(ref _Telefone, value, nameof(Telefone));
-            }
+            get=>(string)_Telefone;
+            set=>SetProperty<string>(ref _Telefone, value, nameof(Telefone));
         }
         public DateTime Data_Cadastro
         {
-            get
-            {
-                return DateTime.Parse(_Data_Cadastro);
-            }
-            set
-            {
-                SetProperty<string>(ref _Data_Cadastro, value.ToString(), nameof(Data_Cadastro));
-            }
+            get=>DateTime.Parse(_Data_Cadastro);
+            set=>SetProperty<string>(ref _Data_Cadastro, value.ToString(), nameof(Data_Cadastro));
         }
-        //public Style Botao_Pago
-        //{
-        //    //get
-        //    //{
-        //    //    //return (Style)_Botao_Pago;
-        //    //}
-        //    //set
-        //    //{
-        //    //    //SetProperty<Style>(ref _Botao_Pago, value, nameof(Botao_Pago));
-        //    //}
-        //}
-        //public Style Botao_Gratis
-        //{
-        //    ////get
-        //    //{
-        //    //    //return (Style)_Botao_Gratis;
-        //    //}
-        //    //set
-        //    //{
-        //    //    //SetProperty<Style>(ref _Botao_Gratis, value, nameof(Botao_Gratis));
-        //    //}
-        //}
-
         public bool Act_Indicator
         {
-            get
-            {
-                return (bool)_Act_Indicator;
-            }
-            set
-            {
-                SetProperty<bool>(ref _Act_Indicator, value, nameof(Act_Indicator));
-            }
+            get=>(bool)_Act_Indicator;
+            set=>SetProperty<bool>(ref _Act_Indicator, value, nameof(Act_Indicator));
         }
         #endregion
-
     }
 }

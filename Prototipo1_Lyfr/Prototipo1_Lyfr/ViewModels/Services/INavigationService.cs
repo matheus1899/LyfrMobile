@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Prototipo1_Lyfr.Models;
+using System.Threading.Tasks;
 
 namespace Prototipo1_Lyfr.ViewModels.Services
 {
@@ -6,9 +7,9 @@ namespace Prototipo1_Lyfr.ViewModels.Services
     {
         Task GoBack();
         void SetLoginMainPage();
-        Task NavigateToAlterarSenha(object o);
-        Task NavigateToAlterarEmail(object o);
-        Task NavigateToAlterarTelefone(object o);
-        Task NavigateToAlterarEndereco(object o);
+        Task NavigateToAlterarSenha(Cliente c);
+        Task NavigateToAlterarEmail(Cliente c);
+        Task NavigateToAlterarTelefone(Cliente c);
+        Task NavigateToAlterarEndereco(Cliente c);
     }
 }

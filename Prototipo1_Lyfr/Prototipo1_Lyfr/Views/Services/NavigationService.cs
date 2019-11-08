@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels;
 using Prototipo1_Lyfr.ViewModels.Services;
 using Xamarin.Forms;
 
@@ -10,25 +12,25 @@ namespace Prototipo1_Lyfr.Views.Services
         {
             return App.Current.MainPage.Navigation.PopAsync();
         }
-        public Task NavigateToAlterarEmail(object o)
+        public Task NavigateToAlterarEmail(Cliente c)
         {
-            return App.Current.MainPage.Navigation.PushAsync(new AlterarEmail(o));
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarEmail(c));
         }
         public void SetLoginMainPage()
         {
             App.Current.MainPage = new NavigationPage(new Login());
         }
-        public Task NavigateToAlterarEndereco(object o)
+        public Task NavigateToAlterarEndereco(Cliente c)
         {
-            throw new System.NotImplementedException();
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarEndereco(c));
         }
-        public Task NavigateToAlterarSenha(object o)
+        public Task NavigateToAlterarSenha(Cliente c)
         {
-            return App.Current.MainPage.Navigation.PushAsync(new AlterarSenha(o));
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarSenha(c));
         }
-        public Task NavigateToAlterarTelefone(object o)
+        public Task NavigateToAlterarTelefone(Cliente c)
         {
-            return App.Current.MainPage.Navigation.PushAsync(new AlterarTelefone(o));
+            return App.Current.MainPage.Navigation.PushAsync(new AlterarTelefone(c));
         }
     }
 }

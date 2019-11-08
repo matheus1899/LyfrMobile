@@ -63,7 +63,7 @@
                         <ColumnDefinition Width="1.428*"/>
                     </Grid.ColumnDefinitions>
                     <!-- Row 0 -->
-                
+
                     <!-- Logo -->
                     <!-- Row 1 -->
                     <Image Source="Logo_Lyfr2.png" 
@@ -82,7 +82,7 @@
                                    Color="{DynamicResource Secondary_Color}"/>
                     <!-- Row 2 -->
                     <!-- Empty -->
-                
+
                     <!-- Nome -->
                     <!-- Row 3 -->
                     <StackLayout Orientation="Vertical"  
@@ -90,9 +90,9 @@
                              Grid.Column="0" 
                              Grid.ColumnSpan="7">
                         <controls:NewFrame Style="{x:StaticResource Frame_Pai}">
-                        <StackLayout Style="{x:StaticResource Filho_Frame}"
+                            <StackLayout Style="{x:StaticResource Filho_Frame}"
                                      Padding="0,-16,0,-16">
-                            <Entry x:Name="ent_Nome_Usuario"
+                                <Entry x:Name="ent_Nome_Usuario"
                                    TextChanged="Entry_TextChanged"
                                    HorizontalOptions="FillAndExpand"
                                    Focused="Entry_Focused"
@@ -103,11 +103,11 @@
                                    Unfocused="Entry_Unfocused"
                                    Text="{Binding Nome}"
                                    TextColor="{DynamicResource DefaultTextColor}">
-                                <Entry.Effects>
-                                    <ef:FocusEffect/>
-                                </Entry.Effects>
-                            </Entry>
-                            <Label Text=" X " 
+                                    <Entry.Effects>
+                                        <ef:FocusEffect/>
+                                    </Entry.Effects>
+                                </Entry>
+                                <Label Text=" X " 
                                    x:Name="Lbl_X_Nome" 
                                    TextColor="{DynamicResource DefaultTextColor}"
                                    IsEnabled="False"
@@ -116,13 +116,13 @@
                                    Margin="0,0,5,0"
                                    VerticalTextAlignment="Center"
                                    VerticalOptions="FillAndExpand">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Lbl_Apagar_Entry" 
                                                       NumberOfTapsRequired="1"/>
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </StackLayout>
-                    </controls:NewFrame>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </controls:NewFrame>
                     </StackLayout>
                     <!-- Email -->
                     <!-- Row 4 -->
@@ -148,7 +148,7 @@
                                        Keyboard="Email">
                                     <Entry.Behaviors>
                                         <behaviorPack:EmailValidationBehavior />
-                                   </Entry.Behaviors>
+                                    </Entry.Behaviors>
                                     <Entry.Effects>
                                         <ef:FocusEffect/>
                                     </Entry.Effects>
@@ -589,28 +589,10 @@
                         </StackLayout>
                     </StackLayout>
                 </Grid>
-                <!-- Buttons Plano -->
                 <StackLayout Margin="0,20,0,0"
                              Spacing="15"
                              HorizontalOptions="CenterAndExpand" 
                              VerticalOptions="End">
-                    <!--<StackLayout Orientation="Horizontal" 
-                                 Margin="0,15,0,0"
-                                 Spacing="20"
-                                 HorizontalOptions="CenterAndExpand">
-                        <Button x:Name="btn_gratis" 
-                                    Text="Grátis &#10; Com anúncios " 
-                                    Command="{Binding Btn_Gratis_Clicked}"
-                                    Style="{Binding Botao_Gratis}" 
-                                    HorizontalOptions="FillAndExpand"
-                                    CommandParameter="{x:Reference Grid_}"/>
-                        <Button x:Name="btn_pago" 
-                                    Text="R$ 4,99 &#10; Leia à Vontade " 
-                                    Command="{Binding Btn_Pago_Clicked}"
-                                    Style="{Binding Botao_Pago}" 
-                                    HorizontalOptions="FillAndExpand"
-                                    CommandParameter="{x:Reference Grid_}"/>
-                    </StackLayout>-->
                     <StackLayout Orientation="Horizontal" 
                                  HorizontalOptions="FillAndExpand">
                         <BoxView HorizontalOptions="FillAndExpand" 
@@ -621,6 +603,7 @@
                                 BackgroundColor="{DynamicResource Secondary_Color}" 
                                 TextColor="{DynamicResource Primary_Color}" 
                                 Command="{Binding Cadastrar_Clicked}"
+                                CommandParameter="{x:Reference Grid_}"
                                 CornerRadius="3" 
                                 Margin="0,0,0,20"/>
                         <BoxView HorizontalOptions="FillAndExpand" 

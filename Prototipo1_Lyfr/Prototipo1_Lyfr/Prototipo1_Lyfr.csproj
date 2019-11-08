@@ -64,10 +64,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AlterarDados.xaml">
+    <EmbeddedResource Update="Views\AlterarEmail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AlterarEmail.xaml">
+    <EmbeddedResource Update="Views\AlterarEndereco.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AlterarSenha.xaml">
