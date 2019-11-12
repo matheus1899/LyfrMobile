@@ -324,6 +324,143 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
+
+        public async Task<List<Livros>> GetLivrosByGenero(string Genero, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var content = new StringContent("\"" + Genero + "\"", Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Livros/GetLivrosByGenero/", content);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+                        List<Livros> livros = JsonConvert.DeserializeObject<List<Livros>>(mensagem);
+                        return livros;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        public async Task<List<Livros>> SearchLivros(string Titulo, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.GetAsync("Livros/Search/" + Titulo);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+                        List<Livros> livros = JsonConvert.DeserializeObject<List<Livros>>(mensagem);
+                        return livros;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        public async Task<Autores> GetAutorByNome(string Nome, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    var json = JsonConvert.SerializeObject(Nome);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+
+                    HttpResponseMessage response = await client.PostAsync("Autores/GetAutorByNome/", content);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+                        Autores autores = JsonConvert.DeserializeObject<Autores>(mensagem);
+                        return autores;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        public async Task AddToMyList(Favoritos favorito, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    var json = JsonConvert.SerializeObject(favorito);
+
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.PostAsync("Favoritos/Insert/", content);
+                    await response.Content.ReadAsStringAsync();
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode && mensagem == "Favoritos cadastrado com sucesso!")
+                    {
+                        return;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+
     }
 }
 

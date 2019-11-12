@@ -10,21 +10,12 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : Xamarin.Forms.TabbedPage
     {
-        public MainPage()
-        {
-            InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
-            this.Children.Add(new Downloads());
-            this.Children.Add(new Home());
-            this.Children.Add(new Perfil());
-            CurrentPage = this.Children[1];
-        }
         public MainPage(Cliente cliente)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             this.Children.Add(new Downloads());
-            this.Children.Add(new Home());
+            this.Children.Add(new Home(cliente));
             this.Children.Add(new Perfil(cliente));
             CurrentPage = this.Children[1];
         }

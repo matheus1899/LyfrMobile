@@ -9,16 +9,19 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoLivro : ContentPage
     {
+        private Cliente _cliente;
         public InfoLivro()
         {
             InitializeComponent();
             SetLayout(this.Width, this.Height);
         }
-        public InfoLivro(Livros livro)
+        public InfoLivro(Livros livro, Cliente cliente)
         {
             InitializeComponent();
             var a = this.BindingContext as InfoLivroViewModel;
             a.Livro = livro;
+            _cliente = cliente;
+            a.Cliente = cliente;
         }
 
         private void ContentPage_SizeChanged(object sender, EventArgs e)

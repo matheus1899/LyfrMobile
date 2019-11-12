@@ -3,13 +3,15 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
+using Prototipo1_Lyfr.Models;
 
 namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
-        public Home()
+        private Cliente _cliente;
+        public Home(Cliente c)
         {
             InitializeComponent();
             sb_home.TranslateTo(0, -60, 100, Easing.Linear);
@@ -30,8 +32,8 @@ namespace Prototipo1_Lyfr.Views
         {
             try
             {
-                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Models.Livros;
-                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado));
+                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Livros;
+                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado,_cliente ));
             }
             catch (Exception exception)
             {

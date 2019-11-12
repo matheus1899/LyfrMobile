@@ -63,7 +63,8 @@
                 <StackLayout x:Name="stc_BtnActionLivro"
                              Margin="15,0,15,10"
                              HorizontalOptions="FillAndExpand">
-                    <Button Text="adicionar"
+                    <Button Text="{Binding IsAddOrRemoveFromMyListText}"
+                            Command="{Binding AddLivroToMyList}"
                             HorizontalOptions="FillAndExpand" 
                             CornerRadius="3" 
                             BorderColor="{DynamicResource Variant_Primary_Color}" 

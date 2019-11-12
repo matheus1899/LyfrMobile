@@ -56,7 +56,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 {
                     PesquisaCache p = new PesquisaCache {
                         ItemPesquisado = SearchBar_Text,
-                        DataPesquisa = DateTime.Now.ToString() 
+                        DataPesquisa = DateTime.Now.ToString("dd/MM/yyyy") 
                     };
 
                     cache.Value.InserirPequisaCache(p);
