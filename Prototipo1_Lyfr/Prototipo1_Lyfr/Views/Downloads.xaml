@@ -11,7 +11,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Variant_Primary_Color">#212121</Color>
+            <Color x:Key="Variant_Primary_Color">#313131</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 

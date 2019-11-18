@@ -13,7 +13,7 @@
             <OnPlatform x:Key="FontAwesome" x:TypeArguments="x:String">
                 <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
             </OnPlatform>
-            <Color x:Key="Variant_Primary_Color">#212121</Color>
+            <Color x:Key="Variant_Primary_Color">#313131</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>

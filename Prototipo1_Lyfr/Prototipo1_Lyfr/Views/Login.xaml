@@ -10,7 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="DefaultTextColor">#436477</Color>
-            <Color x:Key="Variant_Primary_Color">#212121</Color>
+            <Color x:Key="Variant_Primary_Color">#313131</Color>
             <Style TargetType="Label" x:Key="Lbl_Titulo_Entry">
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextColor" Value="{DynamicResource Secondary_Color}"/>
