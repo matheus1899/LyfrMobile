@@ -23,24 +23,16 @@ namespace Prototipo1_Lyfr.ViewModels
         private async void SetList()
         {
             LivrosNovos = await LivrosNovosViewModelAsync();
-            ContinueLendo =  ContinueLendoViewModel();
+            ContinueLendo = await ContinueLendoViewModel();
         }
 
         public async Task<List<Livros>> LivrosNovosViewModelAsync()
         {
             return await con.Value.GetAllLivros(GerarToken.GetTokenFromCache(), 0);          
         }
-        public List<Livros> ContinueLendoViewModel()
+        public async Task<List<Livros>> ContinueLendoViewModel()
         {
-            return new List<Livros>
-            {
-                new Livros { Titulo = "Como as Democracias Morrem", Capa = "http://www.lyfrapi.com.br/Livros/Capas/lyfr_cover24_10_2019_17_15_39.jpg"},
-                new Livros { Titulo = "A tolice da inteligência brasileira: ou como o país se deixa manipular pela elite", Capa = "http://www.lyfrapi.com.br/Livros/Capas/lyfr_cover24_10_2019_17_15_39.jpg" },
-                new Livros { Titulo = "Noturno", Capa = "cover_example.jpg" },
-                new Livros { Titulo = "A Queda", Capa="cover_example.jpg" },
-                new Livros { Titulo = "Noite Eterna", Capa = "cover_example.jpg" },
-                new Livros { Titulo = "Encontro com Rama", Capa="cover_example.jpg" }
-            };
+            return await con.Value.GetLivrosByCliente(GerarToken.GetTokenFromCache());
         }
 
         private List<Livros> _LivrosNovos;
