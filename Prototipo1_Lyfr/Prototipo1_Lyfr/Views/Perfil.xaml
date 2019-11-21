@@ -58,7 +58,7 @@
                             </Span.FontFamily>
                         </Span>
                         <Span Text="   "/>
-                        <Span Text="Matheus Tenorio"/>
+                        <Span Text="{Binding Nome}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

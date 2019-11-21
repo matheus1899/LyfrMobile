@@ -4,13 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Prototipo1_Lyfr.Leitor">
-    <StackLayout VerticalOptions="FillAndExpand">
-        <StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand">
-            <WebView x:Name="web" 
-                     BackgroundColor="White"
-                     VerticalOptions="FillAndExpand">
-            </WebView>
+             x:Class="Prototipo1_Lyfr.Views.CapaLivro">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-    </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

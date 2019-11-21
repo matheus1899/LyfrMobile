@@ -28,7 +28,7 @@
                              HorizontalOptions="Start" 
                              IsVisible="False"
                              Margin="15,0,15,0"/>
-                    <Image Source="cover_example.jpg"
+                    <Image Source="{Binding Livro.Capa}"
                            WidthRequest="120"
                            HeightRequest="180"
                            HorizontalOptions="Center"
@@ -37,7 +37,7 @@
                     <StackLayout VerticalOptions="StartAndExpand"
                                  Margin="0,25,0,0"
                                  HorizontalOptions="FillAndExpand">
-                        <Label Text="A construção social da subcidadania: para uma sociologia política da modernidade periférica"
+                        <Label Text="{Binding Livro.Titulo}"
                                 MaxLines="4"
                                 FontSize="Large"
                                 FontAttributes="Bold"
@@ -46,7 +46,7 @@
                                 HorizontalTextAlignment="Start"
                                 LineBreakMode="TailTruncation"
                                 Margin="4,0,0,0"/>
-                        <Label Text="Machadão de Assis" 
+                        <Label Text="{Binding Livro.FkAutor}" 
                                MaxLines="1"
                                TextColor="{DynamicResource Secondary_Color}"
                                LineBreakMode="TailTruncation"
@@ -63,7 +63,7 @@
                 <StackLayout x:Name="stc_BtnActionLivro"
                              Margin="15,0,15,10"
                              HorizontalOptions="FillAndExpand">
-                    <Button Text="{Binding IsAddOrRemoveFromMyListText}"
+                    <Button Text="Adicionar livro à lista"
                             Command="{Binding AddLivroToMyList}"
                             HorizontalOptions="FillAndExpand" 
                             CornerRadius="3" 
@@ -71,6 +71,7 @@
                             BackgroundColor="White"
                             BorderWidth="1"/>
                     <Button Text="ler" 
+                            Command="{Binding GoToReadBook}"
                             CornerRadius="3" 
                             BorderColor="{DynamicResource Variant_Primary_Color}" 
                             BackgroundColor="White"

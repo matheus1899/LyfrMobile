@@ -32,5 +32,10 @@ namespace Prototipo1_Lyfr.Views.Services
         {
             return App.Current.MainPage.Navigation.PushAsync(new AlterarTelefone(c));
         }
+
+        public Task NavigateToMenuCapitulos(string titulo)
+        {
+            return App.Current.MainPage.Navigation.PushAsync(new MenuCapitulos(titulo));
+        }
     }
 }

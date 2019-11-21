@@ -23,30 +23,37 @@ namespace Prototipo1_Lyfr.ViewModels
         private async void SetList()
         {
             LivrosNovos = await LivrosNovosViewModelAsync();
-            ContinueLendo = await ContinueLendoViewModel();
+            MinhaLista = await MinhaListaViewModelAsync();
         }
 
         public async Task<List<Livros>> LivrosNovosViewModelAsync()
         {
             return await con.Value.GetAllLivros(GerarToken.GetTokenFromCache(), 0);          
         }
-        public async Task<List<Livros>> ContinueLendoViewModel()
+        public async Task<List<Livros>> MinhaListaViewModelAsync()
         {
-            return await con.Value.GetLivrosByCliente(GerarToken.GetTokenFromCache());
+            return await con.Value.GetLivrosByCliente(Cliente.IdCliente, GerarToken.GetTokenFromCache()); 
         }
 
         private List<Livros> _LivrosNovos;
-        private List<Livros> _ContinueLendo;
+        private List<Livros> _MinhaLista;
+        private Cliente _cliente;
+
+        public Cliente Cliente
+        {
+            get => _cliente;
+            set => SetProperty(ref _cliente, value, nameof(Cliente));
+        }
 
         public List<Livros> LivrosNovos
         {
             get => _LivrosNovos;
             set => SetProperty(ref _LivrosNovos, value, nameof(LivrosNovos));
         }
-        public List<Livros> ContinueLendo
+        public List<Livros> MinhaLista
         {
-            get => _ContinueLendo;
-            set => SetProperty(ref _ContinueLendo, value, nameof(ContinueLendo));
+            get => _MinhaLista;
+            set => SetProperty(ref _MinhaLista, value, nameof(MinhaLista));
         }
 
 

@@ -144,14 +144,14 @@
                                BackgroundColor="{DynamicResource Primary_Color}">
                             <StackLayout Orientation="Vertical">
                                 <Label TextColor="{DynamicResource Secondary_Color}" 
-                                       Text="Continue lendo"
+                                       Text="Minha lista"
                                        Margin="0,5"
                                        FontAttributes="Bold"
                                        HorizontalOptions="FillAndExpand" 
                                        FontSize="Medium"/>
                                 <CollectionView x:Name="lista2" 
                                                 HeightRequest="200" 
-                                                ItemsSource="{Binding ContinueLendo}"
+                                                ItemsSource="{Binding MinhaLista}"
                                                 SelectionMode="Single" 
                                                 SelectionChanged="CollectionView2_SelectionChanged">
                                     <CollectionView.ItemsLayout>

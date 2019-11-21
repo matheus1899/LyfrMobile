@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels;
 
 namespace Prototipo1_Lyfr.Views
 {
@@ -11,10 +12,13 @@ namespace Prototipo1_Lyfr.Views
     public partial class Home : ContentPage
     {
         private Cliente _cliente;
+        private HomeViewModel bind;
         public Home(Cliente c)
         {
             InitializeComponent();
             sb_home.TranslateTo(0, -60, 100, Easing.Linear);
+            bind = this.BindingContext as HomeViewModel;
+            bind.Cliente = c;
         }
         protected override bool OnBackButtonPressed()
         {
@@ -33,7 +37,7 @@ namespace Prototipo1_Lyfr.Views
             try
             {
                 var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Livros;
-                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado,_cliente ));
+                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado,bind.Cliente ));
             }
             catch (Exception exception)
             {

@@ -55,7 +55,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 }
                 catch (Exception ex)
                 {
-
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             });

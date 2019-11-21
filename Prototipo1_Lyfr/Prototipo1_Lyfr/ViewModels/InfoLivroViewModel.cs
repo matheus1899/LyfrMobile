@@ -1,6 +1,7 @@
 ﻿using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels.Services;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -40,8 +41,13 @@ namespace Prototipo1_Lyfr.ViewModels
                     MostrarMensagem.Mostrar(ex.Message);
                 }
             });
-        }
 
+            GoToReadBook = new Command(GoToLerLivro);
+        }
+        private void GoToLerLivro()
+        {
+            DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(_livro.Titulo);
+        }
         public Livros Livro
         {
             get => _livro;
