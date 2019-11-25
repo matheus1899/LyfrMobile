@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="#313131"
+             x:Class="Prototipo1_Lyfr.Views.Generos">
+    <ContentPage.IconImageSource>
+        <FontImageSource Glyph="&#xf02d;">
+            <FontImageSource.FontFamily>
+                <OnPlatform x:TypeArguments="x:String" 
+                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+            </FontImageSource.FontFamily>
+        </FontImageSource>
+    </ContentPage.IconImageSource>
+    <ContentPage.Content>
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                    <x:String>http://www.lyfrapi.com.br/Generos/Fotos/lyfr_gender_23_10_2019_00_43_25.jpg</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding .}"
+                               Aspect="AspectFit" 
+                               HorizontalOptions="CenterAndExpand"
+                               Grid.Row="0" 
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"/>
+                        <Label Text="Ação"
+                               TextColor="Black"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               Grid.Row="0" 
+                               Grid.ColumnSpan="3"
+                               Grid.Column="0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
