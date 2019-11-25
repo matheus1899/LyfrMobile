@@ -8,6 +8,7 @@ namespace Prototipo1_Lyfr.ViewModels
     {
 
         private string _email;
+        private string _senha;
         public string Email
         {
             get
@@ -19,8 +20,6 @@ namespace Prototipo1_Lyfr.ViewModels
                 SetProperty<string>(ref _email, value, nameof(Email));
             }
         }
-
-        private string _senha;
         public string Senha
         {
             get

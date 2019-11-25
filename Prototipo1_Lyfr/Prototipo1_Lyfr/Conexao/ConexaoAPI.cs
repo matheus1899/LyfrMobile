@@ -53,7 +53,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<Cliente> SelectOne(Cliente cliente, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -82,10 +81,15 @@ namespace Prototipo1_Lyfr.Conexao
 
                     throw new Exception(response.StatusCode.ToString());
                 }
+                catch (TimeoutException ex)
+                {
+                    throw new TimeoutException(ex.Message);
+                }
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
                 }
+                
             }
         }
         public async Task<Cliente> SelectOneWithoutPassword(Cliente cliente, string Token)
@@ -122,7 +126,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<string> EnviarEmail(RecoveryPassword recovery, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -156,7 +159,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<string> Update(Cliente cliente, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -191,7 +193,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<string> SendSugestao(Sugestao sugestao, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -226,7 +227,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<List<Livros>> GetSixLivros(string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -258,7 +258,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<List<Livros>> GetAllLivros(string Token,short n_livros)
         {
             using (HttpClient client = new HttpClient())
@@ -290,7 +289,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<Livros> GetLivroByTitulo(string Titulo, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -324,7 +322,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<List<Livros>> GetLivrosByGenero(string Genero, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -357,7 +354,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<Autores> GetAutorByNome(string Nome, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -391,7 +387,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<List<Livros>> SearchLivros(string Titulo, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -522,8 +517,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
-
     }
 }
 

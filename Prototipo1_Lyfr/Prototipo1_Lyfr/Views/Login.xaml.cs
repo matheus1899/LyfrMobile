@@ -34,7 +34,7 @@ namespace Prototipo1_Lyfr.Views
         }
         protected override bool OnBackButtonPressed()
         {
-            return false;
+            return true;
         }
         private async void ChamarPagCadastrar(object sender, EventArgs e)
         {
@@ -72,7 +72,11 @@ namespace Prototipo1_Lyfr.Views
                 }
 
             }
-
+            catch (TimeoutException ex)
+            {
+                MostrarMensagem.Mostrar("Não é possivel fds");
+                return;
+            }
             catch (Exception ex)
             {
                 SetActivityIndicatorState(false);

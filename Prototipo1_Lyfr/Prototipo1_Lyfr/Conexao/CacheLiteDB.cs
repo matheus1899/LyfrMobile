@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using LiteDB;
 using Prototipo1_Lyfr.Interfaces;
@@ -65,6 +67,32 @@ namespace Prototipo1_Lyfr.Conexao
         {
             return Capas.FindAll().ToList();
         }
+
+        public static string GetLivroFromCache(string arquivo, string titulo)
+        {
+            LiteDatabase _dataBase;
+            string caminho;
+            byte[] arquivoConvert = Encoding.ASCII.GetBytes(arquivo);
+            LiteFileInfo livro;
+            _dataBase = new LiteDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Banco.db"));
+            if (!_dataBase.FileStorage.Exists(titulo))
+            {
+                var diretorio = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                File.WriteAllBytes(Path.Combine(diretorio, titulo), arquivoConvert);
+                FileStream fileStream = File.Open(Path.Combine(diretorio, titulo), System.IO.FileMode.Open);
+                _dataBase.FileStorage.Upload(titulo, titulo, fileStream);
+                livro = _dataBase.FileStorage.FindById(titulo);
+                livro.SaveAs(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo));
+              
+                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo);
+            }
+            else
+            {
+                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo);
+            }
+            return caminho;
+        }
+
         public void Dispose()
         {
             Dispose(true);

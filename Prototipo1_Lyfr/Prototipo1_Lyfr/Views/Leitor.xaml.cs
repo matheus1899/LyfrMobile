@@ -1,4 +1,5 @@
 ﻿using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,12 +10,12 @@ namespace Prototipo1_Lyfr
     public partial class Leitor : ContentPage
     {
         string _titulo;
-        public Leitor(string Titulo)
+        public Leitor(Livros l)
         {
             InitializeComponent();
-            this._titulo = Titulo;
+            this._titulo = l.Titulo;
 
-            ManagerEpub epub = new ManagerEpub(MenuCapitulos.titulo);
+            ManagerEpub epub = new ManagerEpub(l);
             web.Source = epub.LoadBook(MenuCapitulos.Capitulo);
         }
 

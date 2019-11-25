@@ -5,6 +5,9 @@ using VersFx.Formats.Text.Epub;
 using System.Text;
 using Prototipo1_Lyfr.Models;
 using Xamarin.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 
 namespace Prototipo1_Lyfr.Conexao
 {
@@ -17,15 +20,27 @@ namespace Prototipo1_Lyfr.Conexao
         HtmlWebViewSource htmlWeb = new HtmlWebViewSource();
 
         public static string capitulo;
-        string _titulo;
+        Livros _livro;
 
-        public ManagerEpub(string Titulo)
+        public  ManagerEpub(Livros Livro)
         {
-            this._titulo = Titulo;
-            var livro = conexao.GetLivroByTitulo(Titulo, GerarToken.GetTokenFromCache()).Result;
-            FileStream fs = File.Open(livro.Arquivo, FileMode.Open);
+            this._livro = Livro;
+            GetLivroFromCache();
+        }
+
+        public async void GetLivroFromCache()
+        {
+            var livro = await GetLivro(_livro.Titulo);
+            string caminho = CacheLiteDB.GetLivroFromCache(livro.Arquivo, _livro.Titulo);
+            FileStream fs = File.Open(caminho, FileMode.Open);
             epubBook = EpubReader.ReadBook(fs);
             bookContent = epubBook.Content;
+        }
+
+        public async Task<Livros> GetLivro(string titulo)
+        {
+            Livros l = await conexao.GetLivroByTitulo(titulo, GerarToken.GetTokenFromCache());
+            return l;
         }
 
         public List<Capitulos> LoadChapter()

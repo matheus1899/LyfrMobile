@@ -18,11 +18,11 @@ namespace Prototipo1_Lyfr.Views
         public static string titulo;
 
         ManagerEpub epub;
-        public MenuCapitulos(string Titulo)
+        public MenuCapitulos(Livros l)
         {
             InitializeComponent();
-            epub = new ManagerEpub(Titulo);
-            titulo = Titulo;
+            epub = new ManagerEpub(l);
+            titulo = l.Titulo;
             Detail = new NavigationPage(new CapaLivro());
             listCap.ItemsSource = epub.LoadChapter();
         }

@@ -12,7 +12,7 @@ namespace Prototipo1_Lyfr.ViewModels
     {
         private Livros _livro;
         private Cliente _cliente;
-
+        ConexaoAPI conexao = new ConexaoAPI();
         public Cliente Cliente
         {
             get => _cliente;
@@ -45,8 +45,8 @@ namespace Prototipo1_Lyfr.ViewModels
             GoToReadBook = new Command(GoToLerLivro);
         }
         private void GoToLerLivro()
-        {
-            DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(_livro.Titulo);
+        {            
+            DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(Livro);          
         }
         public Livros Livro
         {

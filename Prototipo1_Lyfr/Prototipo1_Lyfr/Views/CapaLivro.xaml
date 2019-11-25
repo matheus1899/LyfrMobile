@@ -6,10 +6,11 @@
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Views.CapaLivro">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+        <StackLayout BackgroundColor="Black">
+            <Label Text="Livro"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
