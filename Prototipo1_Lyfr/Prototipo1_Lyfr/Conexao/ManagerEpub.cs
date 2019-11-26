@@ -25,26 +25,29 @@ namespace Prototipo1_Lyfr.Conexao
         public  ManagerEpub(Livros Livro)
         {
             this._livro = Livro;
+            
             GetLivroFromCache();
         }
 
-        public async void GetLivroFromCache()
+        public void GetLivroFromCache()
         {
-            var livro = await GetLivro(_livro.Titulo);
-            string caminho = CacheLiteDB.GetLivroFromCache(livro.Arquivo, _livro.Titulo);
+            //var livro = await conexao.GetLivroByTitulo(_livro.Titulo, GerarToken.GetTokenFromCache());
+            string caminho = CacheLiteDB.GetLivroFromCache(_livro.Arquivo, _livro.Titulo);
             FileStream fs = File.Open(caminho, FileMode.Open);
             epubBook = EpubReader.ReadBook(fs);
             bookContent = epubBook.Content;
         }
 
-        public async Task<Livros> GetLivro(string titulo)
-        {
-            Livros l = await conexao.GetLivroByTitulo(titulo, GerarToken.GetTokenFromCache());
-            return l;
-        }
+        //public async Task<Livros> GetLivro(string titulo)
+        //{
+        //    Livros l = await conexao.GetLivroByTitulo(titulo, GerarToken.GetTokenFromCache());
+        //    return l;
+            
+        //}
 
         public List<Capitulos> LoadChapter()
         {
+            list_capitulos = new List<Capitulos>();
             foreach (EpubChapter chapter in epubBook.Chapters)
             {
                 list_capitulos.Add(new Capitulos() { Title = chapter.Title, TargetType = typeof(Leitor)});

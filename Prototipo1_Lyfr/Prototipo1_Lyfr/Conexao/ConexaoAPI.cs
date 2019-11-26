@@ -2,6 +2,7 @@
 using Prototipo1_Lyfr.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -296,16 +297,19 @@ namespace Prototipo1_Lyfr.Conexao
                 try
                 {
                     client.BaseAddress = uri;
-                    var json = JsonConvert.SerializeObject(Titulo);
-                    var content = new StringContent(json, Encoding.UTF8, "application/json");
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
 
-                    HttpResponseMessage response = await client.PostAsync("/Livros/GetLivroByTitulo/", content);
-                    string mensagem = await response.Content.ReadAsStringAsync();
+                    var json = JsonConvert.SerializeObject(Titulo);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
 
+                    HttpResponseMessage response = await client.PostAsync("Livros/GetLivroByTitulo/", content);
+                    Debug.WriteLine("LIVRO =>" + response);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine("LIVRO =>" + mensagem);
                     if (response.IsSuccessStatusCode == true)
                     {
                         Livros livro = JsonConvert.DeserializeObject<Livros>(mensagem);
+                        Debug.WriteLine("LIVRO =>" + livro.Sinopse);
                         return livro;
                     }
 

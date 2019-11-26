@@ -70,27 +70,31 @@ namespace Prototipo1_Lyfr.Conexao
 
         public static string GetLivroFromCache(string arquivo, string titulo)
         {
-            LiteDatabase _dataBase;
+            //LiteDatabase _dataBase;
             string caminho;
             byte[] arquivoConvert = Encoding.ASCII.GetBytes(arquivo);
-            LiteFileInfo livro;
-            _dataBase = new LiteDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Banco.db"));
-            if (!_dataBase.FileStorage.Exists(titulo))
+            //LiteFileInfo livro;
+            //_dataBase = new LiteDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Banco.db"));
+            //var diretorio = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/ComoasDemocraciasMorrem.epub";
+            return diretorio;
+            if (!diretorio.Contains(Path.Combine(diretorio, "ComoasDemocraciasMorrem.epub")))
             {
-                var diretorio = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                File.WriteAllBytes(Path.Combine(diretorio, titulo), arquivoConvert);
-                FileStream fileStream = File.Open(Path.Combine(diretorio, titulo), System.IO.FileMode.Open);
-                _dataBase.FileStorage.Upload(titulo, titulo, fileStream);
-                livro = _dataBase.FileStorage.FindById(titulo);
-                livro.SaveAs(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo));
+                //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), arquivoConvert);
+                //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), arquivoConvert);
+
+                //FileStream fileStream = File.Open(Path.Combine(diretorio, titulo), System.IO.FileMode.Open);
+                //_dataBase.FileStorage.Upload(titulo, titulo, fileStream);
+                //livro = _dataBase.FileStorage.FindById(titulo);
+                //livro.SaveAs(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo));
               
-                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo);
+                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "ComoasDemocraciasMorrem.epub");
             }
             else
             {
-                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo);
+                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "ComoasDemocraciasMorrem.epub");
             }
-            return caminho;
+            return diretorio;
         }
 
         public void Dispose()

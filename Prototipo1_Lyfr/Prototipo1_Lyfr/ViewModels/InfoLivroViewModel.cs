@@ -44,9 +44,10 @@ namespace Prototipo1_Lyfr.ViewModels
 
             GoToReadBook = new Command(GoToLerLivro);
         }
-        private void GoToLerLivro()
-        {            
-            DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(Livro);          
+        private async void GoToLerLivro()
+        {
+            var livro = await conexao.GetLivroByTitulo(Livro.Titulo, GerarToken.GetTokenFromCache());
+            DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(livro);          
         }
         public Livros Livro
         {
