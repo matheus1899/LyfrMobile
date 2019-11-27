@@ -15,10 +15,10 @@ namespace Prototipo1_Lyfr.Conexao
     {
         ConexaoAPI conexao = new ConexaoAPI();
         public List<Capitulos> list_capitulos{ get; set; }
-        EpubBook epubBook;
-        EpubContent bookContent;
-        HtmlWebViewSource htmlWeb = new HtmlWebViewSource();
 
+        public static EpubBook epubBook;
+        EpubContent bookContent;
+        
         public static string capitulo;
         Livros _livro;
 
@@ -31,19 +31,11 @@ namespace Prototipo1_Lyfr.Conexao
 
         public void GetLivroFromCache()
         {
-            //var livro = await conexao.GetLivroByTitulo(_livro.Titulo, GerarToken.GetTokenFromCache());
             string caminho = CacheLiteDB.GetLivroFromCache(_livro.Arquivo, _livro.Titulo);
             FileStream fs = File.Open(caminho, FileMode.Open);
             epubBook = EpubReader.ReadBook(fs);
             bookContent = epubBook.Content;
         }
-
-        //public async Task<Livros> GetLivro(string titulo)
-        //{
-        //    Livros l = await conexao.GetLivroByTitulo(titulo, GerarToken.GetTokenFromCache());
-        //    return l;
-            
-        //}
 
         public List<Capitulos> LoadChapter()
         {
@@ -55,8 +47,9 @@ namespace Prototipo1_Lyfr.Conexao
             return list_capitulos;
         }
 
-        public HtmlWebViewSource LoadBook(string capitulo)
+        public static HtmlWebViewSource LoadBook(string capitulo)
         {
+            HtmlWebViewSource htmlWeb = new HtmlWebViewSource();
             foreach (EpubChapter chapter in epubBook.Chapters)
             {
                 string htmlcontent = chapter.HtmlContent;

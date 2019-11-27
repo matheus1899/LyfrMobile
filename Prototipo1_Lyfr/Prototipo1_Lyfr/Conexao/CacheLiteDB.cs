@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Java.IO;
 using LiteDB;
 using Prototipo1_Lyfr.Interfaces;
 
@@ -70,31 +71,39 @@ namespace Prototipo1_Lyfr.Conexao
 
         public static string GetLivroFromCache(string arquivo, string titulo)
         {
-            //LiteDatabase _dataBase;
+            //Com arquivo convertido
             string caminho;
-            byte[] arquivoConvert = Encoding.ASCII.GetBytes(arquivo);
-            //LiteFileInfo livro;
-            //_dataBase = new LiteDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("Banco.db"));
-            //var diretorio = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
-            var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/ComoasDemocraciasMorrem.epub";
-            return diretorio;
-            if (!diretorio.Contains(Path.Combine(diretorio, "ComoasDemocraciasMorrem.epub")))
-            {
-                //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), arquivoConvert);
-                //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), arquivoConvert);
+            //byte[] arquivoConvert = Encoding.ASCII.GetBytes(arquivo);
+            var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/";
 
-                //FileStream fileStream = File.Open(Path.Combine(diretorio, titulo), System.IO.FileMode.Open);
-                //_dataBase.FileStorage.Upload(titulo, titulo, fileStream);
-                //livro = _dataBase.FileStorage.FindById(titulo);
-                //livro.SaveAs(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), titulo));
-              
-                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "ComoasDemocraciasMorrem.epub");
+            if (!Directory.Exists(Path.Combine(diretorio, titulo + ".epub")))
+            {
+                //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), Convert.FromBase64String(arquivo));
+                byte[] b = Convert.FromBase64String(arquivo);
+                using (FileStream file = new FileStream(Path.Combine(diretorio, titulo + ".epub"), System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                {
+                    MemoryStream ms = new MemoryStream();
+                    ms.Read(b, 0, (int)ms.Length);
+                    file.Write(b, 0, b.Length);
+                    ms.Close();
+                }
+                caminho = Path.Combine(diretorio, titulo + ".epub");
             }
             else
             {
-                caminho = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData), "ComoasDemocraciasMorrem.epub");
+                caminho = Path.Combine(Path.Combine(diretorio, titulo + ".epub"));
             }
-            return diretorio;
+            return caminho;
+
+            //Teste Download
+            //var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/" + titulo.Replace(" ","") + ".epub";
+            //string url = "http://www.lyfrapi.com.br/Livros/Epubs/lyfr_book22_10_2019_16_04_42.epub";
+
+            //System.Net.WebClient client = new System.Net.WebClient();
+            //client.DownloadFile(url, diretorio);
+            //return diretorio;
+
+            //return "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/teste.epub";
         }
 
         public void Dispose()

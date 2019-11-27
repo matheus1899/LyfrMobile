@@ -9,14 +9,14 @@ namespace Prototipo1_Lyfr
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Leitor : ContentPage
     {
-        string _titulo;
-        public Leitor(Livros l)
+        //string _titulo;
+        public Leitor()
         {
             InitializeComponent();
-            this._titulo = l.Titulo;
+            //this._titulo = l.Titulo;
 
-            ManagerEpub epub = new ManagerEpub(l);
-            web.Source = epub.LoadBook(MenuCapitulos.Capitulo);
+            //ManagerEpub epub = new ManagerEpub(l);
+            web.Source = ManagerEpub.LoadBook(MenuCapitulos.Capitulo);
         }
 
         private void Left_Direction_Swiped(object sender, SwipedEventArgs e)
