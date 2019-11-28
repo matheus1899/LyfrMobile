@@ -37,5 +37,9 @@ namespace Prototipo1_Lyfr.Views.Services
         {
             return App.Current.MainPage.Navigation.PushAsync(new MenuCapitulos(l));
         }
+        public Task GoBackModal()
+        {
+            return App.Current.MainPage.Navigation.PopModalAsync();
+        }
     }
 }

@@ -22,8 +22,8 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
             epub = new ManagerEpub(l);
-            titulo = l.Titulo;
-            Detail = new NavigationPage(new CapaLivro());
+            lblTitulo.Text = l.Titulo;
+            Detail = new NavigationPage(new CapaLivro(l));
             listCap.ItemsSource = epub.LoadChapter();
         }
 

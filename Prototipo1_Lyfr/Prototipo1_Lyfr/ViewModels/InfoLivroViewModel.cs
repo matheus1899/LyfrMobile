@@ -46,7 +46,8 @@ namespace Prototipo1_Lyfr.ViewModels
         }
         private async void GoToLerLivro()
         {
-            var livro = await conexao.GetLivroByTitulo(Livro.Titulo, GerarToken.GetTokenFromCache());
+            var livro = await conexao.GetLivroByTituloWithoutFile(Livro.Titulo, GerarToken.GetTokenFromCache());
+            DependencyService.Get<INavigationService>().GoBackModal();
             DependencyService.Get<INavigationService>().NavigateToMenuCapitulos(livro);          
         }
         public Livros Livro

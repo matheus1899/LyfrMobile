@@ -303,9 +303,44 @@ namespace Prototipo1_Lyfr.Conexao
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync("Livros/GetLivroByTitulo/", content);
-                    Debug.WriteLine("LIVRO =>" + response);
                     string mensagem = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine("LIVRO =>" + mensagem);
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+                        Livros livro = JsonConvert.DeserializeObject<Livros>(mensagem);
+                        Debug.WriteLine("LIVRO =>" + livro.Sinopse);
+                        return livro;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
+        public async Task<Livros> GetLivroByTituloWithoutFile(string Titulo, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    var json = JsonConvert.SerializeObject(Titulo);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = await client.PostAsync("Livros/GetLivroByTituloWithoutFile/", content);
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
                     if (response.IsSuccessStatusCode == true)
                     {
                         Livros livro = JsonConvert.DeserializeObject<Livros>(mensagem);

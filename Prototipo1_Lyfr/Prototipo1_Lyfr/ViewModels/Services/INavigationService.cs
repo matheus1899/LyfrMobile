@@ -6,6 +6,7 @@ namespace Prototipo1_Lyfr.ViewModels.Services
     public interface INavigationService
     {
         Task GoBack();
+        Task GoBackModal();
         void SetLoginMainPage();
         Task NavigateToAlterarSenha(Cliente c);
         Task NavigateToAlterarEmail(Cliente c);

@@ -5,12 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Views.CapaLivro">
-    <ContentPage.Content>
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Livros.Titulo}" TextColor="White"/>
+    </NavigationPage.TitleView>
+    <NavigationPage.HasNavigationBar>
+        <x:Boolean>False</x:Boolean>
+    </NavigationPage.HasNavigationBar>
+        
         <StackLayout BackgroundColor="Black">
-            <Label Text="Livro"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                TextColor="White"/>
+            <Image Source="{Binding Livros.Capa}"
+                   Aspect="AspectFit"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>
