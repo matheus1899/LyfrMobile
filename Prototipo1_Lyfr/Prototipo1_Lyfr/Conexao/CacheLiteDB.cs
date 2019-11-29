@@ -69,39 +69,6 @@ namespace Prototipo1_Lyfr.Conexao
             return Capas.FindAll().ToList();
         }
 
-        public static string GetLivroFromCache(string link, string titulo)
-        {
-            //Com arquivo convertido
-            string caminho;
-            //byte[] arquivoConvert = Encoding.ASCII.GetBytes(arquivo);
-            //var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/";
-
-            //if (!Directory.Exists(Path.Combine(diretorio, titulo + ".epub")))
-            //{
-            //    //File.WriteAllBytes(Path.Combine(diretorio, titulo + ".epub"), Convert.FromBase64String(arquivo));
-            //    byte[] b = Convert.FromBase64String(arquivo);
-            //    using (FileStream file = new FileStream(Path.Combine(diretorio, titulo + ".epub"), System.IO.FileMode.Create, System.IO.FileAccess.Write))
-            //    {
-            //        MemoryStream ms = new MemoryStream();
-            //        ms.Read(b, 0, (int)ms.Length);
-            //        file.Write(b, 0, b.Length);
-            //        ms.Close();
-            //    }
-            //    caminho = Path.Combine(diretorio, titulo + ".epub");
-            //}
-            //else
-            //{
-            //    caminho = Path.Combine(Path.Combine(diretorio, titulo + ".epub"));
-            //}
-            //return caminho;
-
-            //Teste Download
-            var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/" + titulo.Replace(" ", "") + ".epub";
-            System.Net.WebClient client = new System.Net.WebClient();
-            client.DownloadFile(link, diretorio);
-
-            return diretorio;
-        }
 
         public void Dispose()
         {

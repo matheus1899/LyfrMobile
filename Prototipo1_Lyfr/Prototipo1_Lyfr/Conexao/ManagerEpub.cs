@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
+using Prototipo1_Lyfr.Controls;
 
 namespace Prototipo1_Lyfr.Conexao
 {
@@ -31,10 +32,26 @@ namespace Prototipo1_Lyfr.Conexao
 
         public void GetLivroFromCache()
         {
-            string caminho = CacheLiteDB.GetLivroFromCache(_livro.Arquivo, _livro.Titulo);
+            string caminho = GetLivroCache(_livro.Arquivo, _livro.Titulo);
             FileStream fs = File.Open(caminho, FileMode.Open);
-            epubBook = EpubReader.ReadBook(fs);
+
+            epubBook =  EpubReader.ReadBook(fs);
             bookContent = epubBook.Content;
+        }
+
+        public static string GetLivroCache(string link, string titulo)
+        {
+            var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/" + titulo.Replace(" ", "") + ".epub";
+            if (!Directory.Exists(diretorio))
+            {
+                System.Net.WebClient client = new System.Net.WebClient();
+                client.DownloadFile(link, diretorio);
+                return diretorio;
+            }
+            else
+            {
+                return diretorio;
+            }
         }
 
         public List<Capitulos> LoadChapter()

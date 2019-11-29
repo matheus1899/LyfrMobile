@@ -8,14 +8,10 @@
     <NavigationPage.TitleView>
         <Label Text="{Binding Livros.Titulo}" TextColor="White"/>
     </NavigationPage.TitleView>
-    <NavigationPage.HasNavigationBar>
-        <x:Boolean>False</x:Boolean>
-    </NavigationPage.HasNavigationBar>
-        
-        <StackLayout BackgroundColor="Black">
+    <StackLayout BackgroundColor="Black">
             <Image Source="{Binding Livros.Capa}"
                    Aspect="AspectFit"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand"/>
-        </StackLayout>
+    </StackLayout>
 </ContentPage>

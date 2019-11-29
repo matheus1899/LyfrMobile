@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="CardsView" Version="2.2.0" />
+    <PackageReference Include="epubReader" Version="1.0.0" />
     <PackageReference Include="EpubReader.Cross" Version="1.0.3" />
     <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.5.0" />
