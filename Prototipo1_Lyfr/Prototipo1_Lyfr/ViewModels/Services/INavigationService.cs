@@ -13,6 +13,7 @@ namespace Prototipo1_Lyfr.ViewModels.Services
         Task NavigateToAlterarTelefone(Cliente c);
         Task NavigateToAlterarEndereco(Cliente c);
         Task NavigateToMenuCapitulos(Livros l);
+        Task NavigateToInfoLivro(Livros l, Cliente c);
     }
 }
 

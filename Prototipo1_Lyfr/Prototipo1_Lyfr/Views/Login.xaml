@@ -28,8 +28,8 @@
     <ContentPage.BindingContext>
         <vm:LoginViewModel/>
     </ContentPage.BindingContext>
-    
-    
+
+
     <ScrollView>
         <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
@@ -171,7 +171,7 @@
                             HorizontalOptions="CenterAndExpand"
                             FontSize="Small"
                             TextDecorations="Underline"
-                            Margin="0,10,0,0"
+                            Margin="0,15,0,15"
                             TextColor="{DynamicResource Secondary_Color}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="Esqueceu_Senha_Tapped" 
@@ -217,7 +217,7 @@
                                TextColor="{DynamicResource Secondary_Color}" 
                                HorizontalOptions="Center"
                                Style="{DynamicResource Style_Label}" 
-                               Margin="0,5,0,5">
+                               Margin="0,10,0,10">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="ChamarPagCadastrar" 
                                                     NumberOfTapsRequired="1"/>

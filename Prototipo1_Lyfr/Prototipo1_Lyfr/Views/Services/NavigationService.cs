@@ -1,8 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Xamarin.Forms;
 using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.ViewModels;
+using System.Threading.Tasks;
 using Prototipo1_Lyfr.ViewModels.Services;
-using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.Views.Services
 {
@@ -36,6 +35,10 @@ namespace Prototipo1_Lyfr.Views.Services
         public Task NavigateToMenuCapitulos(Livros l)
         {
             return App.Current.MainPage.Navigation.PushAsync(new MenuCapitulos(l));
+        }
+        public Task NavigateToInfoLivro(Livros l, Cliente c)
+        {
+            return App.Current.MainPage.Navigation.PushAsync(new InfoLivro(l, c));
         }
         public Task GoBackModal()
         {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Prototipo1_Lyfr.Models
+﻿namespace Prototipo1_Lyfr.Models
 {
     public class Autores
     {

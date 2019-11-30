@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using Prototipo1_Lyfr.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System;
 using System.Text;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using Prototipo1_Lyfr.Models;
+using System.Net.Http.Headers;
+using System.Collections.Generic;
 
 namespace Prototipo1_Lyfr.Conexao
 {
@@ -325,7 +325,6 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-
         public async Task<Livros> GetLivroByTituloWithoutFile(string Titulo, string Token)
         {
             using (HttpClient client = new HttpClient())
@@ -549,6 +548,37 @@ namespace Prototipo1_Lyfr.Conexao
 
                     throw new Exception(response.StatusCode.ToString());
 
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+        public async Task<List<Genero>> GetAllGeneros(string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.GetAsync("Genero/GetAllGeneros");
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode == true)
+                    {
+                        List<Genero> generos = JsonConvert.DeserializeObject<List<Genero>>(mensagem);
+                        return generos;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
                 }
                 catch (Exception ex)
                 {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Threading.Tasks;
 using Prototipo1_Lyfr.Models;
@@ -19,6 +17,7 @@ namespace Prototipo1_Lyfr.Views
             sb_home.TranslateTo(0, -60, 100, Easing.Linear);
             bind = this.BindingContext as HomeViewModel;
             bind.Cliente = c;
+            bind.SetList();
         }
         protected override bool OnBackButtonPressed()
         {
@@ -31,51 +30,22 @@ namespace Prototipo1_Lyfr.Views
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-        }
-        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Livros;
-                await Navigation.PushModalAsync(new InfoLivro(livro_Selecionado,bind.Cliente ));
-            }
-            catch (Exception exception)
-            {
-                await DisplayAlert("Aviso", "-> " + exception.Message, "OK");
-                return;
-            }
-        }
-        private async void CollectionView2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                var livro_Selecionado = e.CurrentSelection.FirstOrDefault() as Models.Livro;
-            }
-            catch (Exception exception)
-            {
-                await DisplayAlert("Aviso", "-> " + exception.Message, "OK");
-                return;
-            }
-
+            bind.SetAllListSelectedItems();
         }
         double height = 0;
         private void ScrollView_Scrolled(object sender, ScrolledEventArgs e)
         {
-            if(e.ScrollY == 0)
+            if (e.ScrollY == 0)
             {
                 sb_home.TranslateTo(0, -60, 500, Easing.Linear);
             }
             else if (height > e.ScrollY)
             {
-                //sb_home_template.IsVisible = true;
-                sb_home.TranslateTo(0,0,450,Easing.Linear);
+                sb_home.TranslateTo(0, 0, 450, Easing.Linear);
             }
             else
             {
-
-                sb_home.TranslateTo(0,-60,450,Easing.Linear);
-                //sb_home_template.IsVisible = false;
-                
+                sb_home.TranslateTo(0, -60, 450, Easing.Linear);
             }
             height = e.ScrollY;
         }
@@ -86,8 +56,8 @@ namespace Prototipo1_Lyfr.Views
         {
             var search = sender as SearchBar;
             search.Unfocus();
-            await Task.Delay(100);   
-            await Navigation.PushAsync(new ListaPesquisa());
+            await Task.Delay(100);
+            await Navigation.PushAsync(new ListaPesquisa(_cliente));
 
             //list.IsVisible = true;
             //await list.ScaleTo(1, 350, Easing.Linear);
