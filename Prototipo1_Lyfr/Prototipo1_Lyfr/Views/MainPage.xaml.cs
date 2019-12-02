@@ -14,7 +14,7 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            this.Children.Add(new Generos());
+            this.Children.Add(new Generos(cliente));
             this.Children.Add(new Home(cliente));
             this.Children.Add(new Perfil(cliente));
             CurrentPage = this.Children[1];

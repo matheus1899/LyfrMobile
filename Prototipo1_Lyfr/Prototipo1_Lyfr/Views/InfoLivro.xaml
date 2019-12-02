@@ -46,7 +46,7 @@
                                 HorizontalTextAlignment="Start"
                                 LineBreakMode="TailTruncation"
                                 Margin="4,0,0,0"/>
-                        <Label Text="{Binding Livro.FkAutor}" 
+                        <Label Text="{Binding Livro.Autor.Nome}" 
                                MaxLines="1"
                                TextColor="{DynamicResource Secondary_Color}"
                                LineBreakMode="TailTruncation"
@@ -79,20 +79,20 @@
                             BorderWidth="1"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="SOBRE"
+                    <Label Text="SINOPSE"
                            Margin="10,20,0,0"
                            FontSize="Medium"
                            TextColor="{DynamicResource Secondary_Color}"
                            FontAttributes="Bold"
                            HorizontalOptions="FillAndExpand"/>
-                    <Frame Margin="10,0,10,0">
+                    <Frame Margin="10,0,10,0" BackgroundColor="#404040">
                         <Label Text="{Binding Livro.Sinopse}"
-                               MaxLines="5" 
-                               FontSize="Medium" 
                                Margin="-10"
-                               TextColor="{DynamicResource Primary_Color}"
-                               BackgroundColor="Transparent"
-                               LineBreakMode="TailTruncation"/>
+                               MaxLines="300"
+                               FontSize="Medium" 
+                               TextColor="{DynamicResource Secondary_Color}"
+                               LineBreakMode="TailTruncation"
+                               BackgroundColor="Transparent"/>
                     </Frame>
                     <Label Margin="10,10,0,0"
                            FontSize="Medium"
@@ -103,14 +103,16 @@
                             <FormattedString>
                                 <Span Text="SOBRE" />
                                 <Span Text="&#10;"/>
-                                <Span Text="Machadão de Assis" FontSize="Large"/>
+                                <Span Text="{Binding Livro.Autor.Nome}" FontSize="Large"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <Frame Margin="10,0,10,0">
+                    <Frame Margin="10,0,10,0" BackgroundColor="#404040">
                         <StackLayout Margin="-10">
-                            <Label Text="{Binding Livro.SobreAutor}"
-                                   TextColor="{DynamicResource Primary_Color}"
+                            <Label Text="{Binding Livro.Autor.Bio}"
+                                   MaxLines="300"
+                                   TextColor="{DynamicResource Secondary_Color}"
+                                   LineBreakMode="TailTruncation"
                                    FontSize="Medium"/>
                         </StackLayout>
                     </Frame>

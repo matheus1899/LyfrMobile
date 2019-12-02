@@ -179,9 +179,10 @@
                             </Label.GestureRecognizers>
                         </Label>
                         <!--Lembrar senha?-->
-                        <!--<StackLayout HorizontalOptions="Center" 
-                                            Orientation="Horizontal"
-                                            Margin="10" IsVisible="False">
+                        <StackLayout HorizontalOptions="Center" 
+                                     Orientation="Horizontal"
+                                     Margin="10" 
+                                     IsVisible="True">
                             <CheckBox Color="{DynamicResource Secondary_Color}" 
                                     x:Name="cbx_LembrarSenha" />
                             <Label Text="Lembrar senha?" 
@@ -193,7 +194,7 @@
                                                         NumberOfTapsRequired="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
-                        </StackLayout>-->
+                        </StackLayout>
                     </StackLayout>
                     <StackLayout VerticalOptions="CenterAndExpand" 
                                  Grid.Row="5" 

@@ -16,7 +16,7 @@ namespace Prototipo1_Lyfr.Conexao
         public string dataExpiracao;
         private bool Disposed;
 
-        public async Task<Token> GenerateToken()
+        public static async Task<Token> GenerateToken()
         {
             using (HttpClient client = new HttpClient())
             {
@@ -56,10 +56,10 @@ namespace Prototipo1_Lyfr.Conexao
             }
         }
 
-        public async void GuardarCache()
+        public static async void GuardarCache()
         {
             var token = await GenerateToken();
-
+            Cache cache = new Cache();
             TokenCache tokenCache = new TokenCache()
             {
                 TokenString = token.TokenString,
@@ -69,8 +69,9 @@ namespace Prototipo1_Lyfr.Conexao
             cache.InserirTokenCache(tokenCache);
         }
 
-        public bool Expirou()
+        public static bool Expirou()
         {
+            Cache cache = new Cache();
             DateTime now = DateTime.Now;
             DateTime expiration = DateTime.ParseExact(cache.GetTokenCache().HoraExpiracao, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
@@ -84,6 +85,7 @@ namespace Prototipo1_Lyfr.Conexao
 
         public void ChecarCache()
         {
+            Cache cache = new Cache();
             if (cache.IsTableNull() == true || Expirou() == true)
             {
                 GuardarCache();
@@ -92,12 +94,17 @@ namespace Prototipo1_Lyfr.Conexao
 
         public static string GetTokenFromCache()
         {
-            GerarToken gerar = new GerarToken();
-            gerar.ChecarCache();
-            using (Cache cache = new Cache())
+            Cache cache = new Cache();
+            if (cache.IsTableNull() == true || Expirou() == true)
+            {
+                GuardarCache();
+                return cache.GetTokenCache().TokenString;
+            }
+            else
             {
                 return cache.GetTokenCache().TokenString;
             }
+            
         }
 
         public void Dispose()

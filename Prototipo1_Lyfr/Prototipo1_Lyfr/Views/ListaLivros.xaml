@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Prototipo1_Lyfr.Views.ListaLivros">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="FontAwesome" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid"/>
+            </OnPlatform>
+            <Color x:Key="Variant_Primary_Color">#313131</Color>
+            <Style TargetType="Image" x:Key="Style_ImageLivro">
+                <Setter Property="Source" Value="{Binding Capa}"/>
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="166"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding ListaLivros}"
+                            SelectionChangedCommand="{Binding SelectionChangedOnLivros_Command}"
+                            SelectedItem="{Binding ItemSelected}"
+                            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1" 
+                                     Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Style="{DynamicResource Style_ImageLivro}"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Titulo}" 
+                                           TextColor="White" 
+                                           FontSize="Large"/>
+                            <Label Text="{Binding Autor.Nome}" 
+                                           TextColor="White" 
+                                           FontSize="Large"/>
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

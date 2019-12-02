@@ -83,7 +83,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 try
                 {
                     var con = new ConexaoAPI();
-                    Livros livro = await con.GetLivroByTitulo("Arte da Guerra", GerarToken.GetTokenFromCache());
+                    Livros livro = await con.GetLivroByTituloWithoutFile("Arte da Guerra", GerarToken.GetTokenFromCache());
                     await DependencyService.Get<INavigationService>().NavigateToInfoLivro(livro, Cliente);
                 }
                 catch (Exception ex)

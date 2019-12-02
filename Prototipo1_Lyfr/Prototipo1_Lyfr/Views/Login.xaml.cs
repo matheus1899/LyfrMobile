@@ -47,18 +47,18 @@ namespace Prototipo1_Lyfr.Views
             {
                 SetActivityIndicatorState(true);
 
-                if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
-                {
-                    MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
-                    SetActivityIndicatorState(false);
-                }
-                else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text))
-                {
-                    MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
-                    SetActivityIndicatorState(false);
-                }
-                else
-                {
+                //if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
+                //{
+                //    MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
+                //    SetActivityIndicatorState(false);
+                //}
+                //else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text))
+                //{
+                //    MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
+                //    SetActivityIndicatorState(false);
+                //}
+                //else
+                //{
                     Cliente cliente = new Cliente()
                     {
                         Email = ent_Email_Usuario.Text,
@@ -69,7 +69,7 @@ namespace Prototipo1_Lyfr.Views
                     SetActivityIndicatorState(false);
 
                     App.Current.MainPage = new NavigationPage(new MainPage(usuario));
-                }
+                //}
 
             }
             catch (TimeoutException ex)

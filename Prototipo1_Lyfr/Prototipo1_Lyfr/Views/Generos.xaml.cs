@@ -1,23 +1,24 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prototipo1_Lyfr.Conexao;
-using System;
+using Prototipo1_Lyfr.ViewModels;
+using Prototipo1_Lyfr.Models;
 
 namespace Prototipo1_Lyfr.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Generos : ContentPage
     {
-        Lazy<ConexaoAPI> con = new Lazy<ConexaoAPI>();
-        public Generos()
+        private GenerosViewModel bind;
+        public Generos(Cliente cliente)
         {
             InitializeComponent();
-            SetList();
+            bind = this.BindingContext as GenerosViewModel;
+            bind.Cliente = cliente;
         }
-        private async void SetList()
+        protected override void OnDisappearing()
         {
-
-            //lista.ItemsSource = await con.Value.GetAllGeneros(GerarToken.GetTokenFromCache());
+            base.OnDisappearing();
+            bind.SetSelectedItemToNull();
         }
     }
 }

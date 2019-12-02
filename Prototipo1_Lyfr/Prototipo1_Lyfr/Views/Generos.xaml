@@ -4,8 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              BackgroundColor="#313131"
              x:Class="Prototipo1_Lyfr.Views.Generos">
+    <ContentPage.BindingContext>
+        <vm:GenerosViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.IconImageSource>
         <FontImageSource Glyph="&#xf02d;">
             <FontImageSource.FontFamily>
@@ -15,7 +19,10 @@
         </FontImageSource>
     </ContentPage.IconImageSource>
     <ContentPage.Content>
-        <CollectionView x:Name="lista">
+        <CollectionView SelectedItem="{Binding ItemSelected}"
+                        ItemsSource="{Binding ListaGeneros}"
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding SelectedItemOnListaCommand}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Span="2" 
                                  Orientation="Vertical"/>
@@ -27,25 +34,21 @@
                             <RowDefinition Height="150"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="16.66*"/>
+                            <ColumnDefinition Width="16.66*"/>
+                            <ColumnDefinition Width="16.66*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding Foto}"
-                               Aspect="AspectFit" 
-                               HorizontalOptions="CenterAndExpand"
-                               Grid.Row="0" 
-                               Grid.ColumnSpan="3"
-                               Grid.Column="0"/>
                         <Label Text="{Binding Nome}"
                                TextColor="White"
+                               BackgroundColor="#404040"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="Center"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
                                FontAttributes="Bold"
                                FontSize="Large"
                                Grid.Row="0" 
+                               Margin="7"
                                Grid.ColumnSpan="3"
                                Grid.Column="0"/>
                     </Grid>
