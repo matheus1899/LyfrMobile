@@ -38,6 +38,15 @@
                                 <ViewCell>
                                     <StackLayout Padding="15,10">
                                         <Label Text="{Binding Title}" TextColor="White" VerticalTextAlignment="Center"/>
+                                        <ListView BackgroundColor="Black" x:Name="listCap" ItemSelected="ListMenu_ItemSelected">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <Label Text="{Binding SubChapters}" TextColor="White" VerticalTextAlignment="Center"/>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
