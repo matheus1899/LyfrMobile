@@ -21,8 +21,6 @@ namespace Prototipo1_Lyfr.Views
             bind=this.BindingContext as InfoLivroViewModel;
             bind.Livro = livro;
             bind.Cliente = c;
-            bind.SinopseLivro = livro.Sinopse;
-            bind.SobreAutorLivro = livro.Autor.Bio;
         }
 
         private void ContentPage_SizeChanged(object sender, EventArgs e)

@@ -4,7 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="#313131"
+             xmlns:vm="clr-namespace:Prototipo1_Lyfr.ViewModels"
              x:Class="Prototipo1_Lyfr.Views.ListaLivros">
+    <NavigationPage.TitleView>
+        <Label BackgroundColor="Transparent" 
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"
+               FontSize="Large"
+               HorizontalOptions="StartAndExpand"
+               TextColor="{DynamicResource Secondary_Color}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="        " />
+                    <Span Text="{Binding NomeGenero}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </NavigationPage.TitleView>
+    <ContentPage.BindingContext>
+        <vm:ListaLivrosViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <OnPlatform x:Key="FontAwesome" x:TypeArguments="x:String">
@@ -30,20 +50,35 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Image Style="{DynamicResource Style_ImageLivro}"/>
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="{Binding Titulo}" 
-                                           TextColor="White" 
-                                           FontSize="Large"/>
-                            <Label Text="{Binding Autor.Nome}" 
-                                           TextColor="White" 
-                                           FontSize="Large"/>
-
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="10">
+                            <Image Style="{DynamicResource Style_ImageLivro}"/>
+                            <StackLayout Orientation="Vertical"
+                                         Margin="15,20">
+                                <Label Text="{Binding Titulo}"
+                                       TextColor="White"
+                                       FontSize="Large"/>
+                                <Label Text="{Binding Autor.Nome}" 
+                                       TextColor="White" 
+                                       FontSize="Large"/>
+                                <Label TextColor="White" 
+                                       FontSize="Large">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Lançamento: "/>
+                                            <Span Text="{Binding Ano_Lanc}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
+                        <BoxView HeightRequest="1"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="20,0"
+                                 BackgroundColor="{DynamicResource Secondary_Color}"/>
                     </StackLayout>
-
+                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

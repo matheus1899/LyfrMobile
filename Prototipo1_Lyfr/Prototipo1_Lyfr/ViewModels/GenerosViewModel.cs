@@ -48,7 +48,7 @@ namespace Prototipo1_Lyfr.ViewModels
             else
             {
                 List<Livros> lista = await con.Value.GetLivrosByGenero(ItemSelected.Nome,GerarToken.GetTokenFromCache());
-                App.Current.MainPage.Navigation.PushAsync(new ListaLivros(lista, Cliente));
+                App.Current.MainPage.Navigation.PushAsync(new ListaLivros(lista, Cliente, ItemSelected.Nome));
             }
         }
         private async void SetListaGeneros()

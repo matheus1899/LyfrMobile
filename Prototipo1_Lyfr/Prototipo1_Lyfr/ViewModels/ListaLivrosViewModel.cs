@@ -11,13 +11,18 @@ namespace Prototipo1_Lyfr.ViewModels
         private List<Livros> _lista;
         private Livros _itemSelected;
         private Cliente _cliente;
+        private string _NomeGenero;
 
         public List<Livros> ListaLivros
         {
             get => _lista;
             set => SetProperty(ref _lista, value, nameof(ListaLivros));
         }
-
+        public string NomeGenero
+        {
+            get => _NomeGenero;
+            set => SetProperty(ref _NomeGenero, value, nameof(NomeGenero));
+        }
         public Livros ItemSelected
         {
             get => _itemSelected;
@@ -42,7 +47,16 @@ namespace Prototipo1_Lyfr.ViewModels
         }
         private void OpenInfoLivro()
         {
-            DependencyService.Get<INavigationService>().NavigateToInfoLivro(ItemSelected, Cliente);
+            if(ItemSelected != null)
+            {
+                DependencyService.Get<INavigationService>().NavigateToInfoLivro(ItemSelected, Cliente);
+            }
+            return;
+        }
+
+        public void SetSelectedItemToNull()
+        {
+            ItemSelected = null;
         }
     }
 }

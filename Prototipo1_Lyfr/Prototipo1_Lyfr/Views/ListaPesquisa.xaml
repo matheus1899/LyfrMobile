@@ -88,20 +88,34 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-
-                        <StackLayout Orientation="Horizontal">
-                            <Image Style="{DynamicResource Style_ImageLivro}"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label Text="{Binding Titulo}" 
-                                           TextColor="White" 
-                                           FontSize="Large"/>
-                                <Label Text="{Binding Autor.Nome}" 
-                                           TextColor="White" 
-                                           FontSize="Large"/>
-
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" 
+                                     Margin="10">
+                                <Image Style="{DynamicResource Style_ImageLivro}"/>
+                                <StackLayout Orientation="Vertical"
+                                         Margin="15,20">
+                                    <Label Text="{Binding Titulo}"
+                                       TextColor="White"
+                                       FontSize="Large"/>
+                                    <Label Text="{Binding Autor.Nome}" 
+                                       TextColor="White" 
+                                       FontSize="Large"/>
+                                    <Label TextColor="White" 
+                                       FontSize="Large">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Lançamento: "/>
+                                                <Span Text="{Binding Ano_Lanc}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
                             </StackLayout>
+                            <BoxView HeightRequest="1"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="20,0"
+                                 BackgroundColor="{DynamicResource Secondary_Color}"/>
                         </StackLayout>
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
