@@ -29,12 +29,11 @@ namespace Prototipo1_Lyfr.Conexao
             GetLivroFromCache();
         }
 
-        public async void GetLivroFromCache()
+        public void GetLivroFromCache()
         {
             string caminho = GetLivroCache(_livro.Arquivo, _livro.Titulo);
             FileStream fs = File.Open(caminho, FileMode.Open);
-
-            epubBook = await  EpubReader.ReadBookAsync(fs);
+            epubBook = EpubReader.ReadBook(fs);
             bookContent = epubBook.Content;
         }
 
@@ -43,7 +42,10 @@ namespace Prototipo1_Lyfr.Conexao
             var diretorio = "storage/emulated/0/Android/data/com.the_endeavour.lyfr/files/" + titulo.Replace(" ", "") + ".epub";
             if (!Directory.Exists(diretorio))
             {
-                DownloadFile(link, diretorio);
+                using (System.Net.WebClient client = new System.Net.WebClient())
+                {
+                    client.DownloadFile(link, diretorio);
+                };
                 return diretorio;
             }
             else
@@ -79,6 +81,14 @@ namespace Prototipo1_Lyfr.Conexao
                 if (chapter.Title == capitulo)
                 {
                     htmlWeb.Html += htmlcontent;
+                }
+                if (chapter.SubChapters.Count > 0)
+                {
+                    for (short i = 0; i <= chapter.SubChapters.Count; i++)
+                    {
+                        htmlWeb.Html += chapter.SubChapters[i].HtmlContent;
+
+                    }
                 }
             }
             return htmlWeb;
