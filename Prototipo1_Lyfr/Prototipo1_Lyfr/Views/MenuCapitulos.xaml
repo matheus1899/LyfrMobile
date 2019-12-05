@@ -32,7 +32,7 @@
                           FontSize="Large"/>
                     </Grid>
 
-                    <ListView BackgroundColor="Black" x:Name="listCap" HasUnevenRows="True" VerticalOptions="FillAndExpand" ItemSelected="ListMenu_ItemSelected">
+                    <ListView BackgroundColor="Black" x:Name="listCap" SeparatorColor="White" SeparatorVisibility="Default" HasUnevenRows="True" VerticalOptions="FillAndExpand" ItemSelected="ListMenu_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -40,17 +40,18 @@
                                         <Label Text="{Binding Title}" 
                                                TextColor="White" 
                                                VerticalTextAlignment="Center"/>
-                                        <ListView BackgroundColor="Black" 
+                                        <!--<ListView BackgroundColor="Black" 
                                                   HasUnevenRows="True"
-                                                  ItemsSource="{Binding SubChapters}">
+                                                  ItemsSource="{Binding SubChapters}"
+                                                  ItemSelected="ListMenu_ItemSelectedSub">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <ViewCell>
-                                                        <Label Text="{Binding Title}" TextColor="White" VerticalTextAlignment="Center"/>
+                                                        <Label Text="{Binding Title}" TextColor="White" VerticalTextAlignment="Center" Margin="15,5,0,5"/>
                                                     </ViewCell>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
-                                        </ListView>
+                                        </ListView>-->
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

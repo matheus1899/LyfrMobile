@@ -13,11 +13,12 @@ namespace Prototipo1_Lyfr.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CapaLivro : ContentPage
     {
-        Livros _livro;
+
         public CapaLivro(Livros l)
         {
             InitializeComponent();
-            this._livro = l;
+            titleView.Text = l.Titulo;
+            image.Source = l.Capa;
         }
     }
 }

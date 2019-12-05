@@ -6,11 +6,11 @@
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Views.CapaLivro">
     <NavigationPage.TitleView>
-        <Label Text="{Binding Livros.Titulo}" TextColor="White"/>
+        <Label x:Name="titleView" TextColor="White"/>
     </NavigationPage.TitleView>
     <StackLayout BackgroundColor="Black">
-            <Image Source="{Binding Livros.Capa}"
-                   Aspect="AspectFit"
+            <Image x:Name="image"
+                Aspect="AspectFit"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand"/>
     </StackLayout>

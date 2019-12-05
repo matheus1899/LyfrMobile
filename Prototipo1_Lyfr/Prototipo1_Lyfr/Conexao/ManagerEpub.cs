@@ -19,13 +19,14 @@ namespace Prototipo1_Lyfr.Conexao
 
         public static EpubBook epubBook;
         EpubContent bookContent;
-        
+
         public static string capitulo;
         Livros _livro;
 
         public ManagerEpub(Livros Livro)
         {
-            this._livro = Livro;       
+            this._livro = Livro;
+            
             GetLivroFromCache();
         }
 
@@ -66,7 +67,7 @@ namespace Prototipo1_Lyfr.Conexao
             list_capitulos = new List<Capitulos>();
             foreach (EpubChapter chapter in epubBook.Chapters)
             {
-                list_capitulos.Add(new Capitulos() { Title = chapter.Title, TargetType = typeof(Leitor), SubChapters = chapter.SubChapters});
+                list_capitulos.Add(new Capitulos() { Title = chapter.Title, TargetType = typeof(Leitor), SubChapters = chapter.SubChapters });
             }
             return list_capitulos;
         }
@@ -74,6 +75,7 @@ namespace Prototipo1_Lyfr.Conexao
         public static HtmlWebViewSource LoadBook(string capitulo)
         {
             HtmlWebViewSource htmlWeb = new HtmlWebViewSource();
+            int i = 0;
             foreach (EpubChapter chapter in epubBook.Chapters)
             {
                 string htmlcontent = chapter.HtmlContent;
@@ -84,16 +86,26 @@ namespace Prototipo1_Lyfr.Conexao
                 }
                 if (chapter.SubChapters.Count > 0)
                 {
-                    for (short i = 0; i <= chapter.SubChapters.Count; i++)
+                    while (i < chapter.SubChapters.Count)
                     {
                         htmlWeb.Html += chapter.SubChapters[i].HtmlContent;
-
+                        i++;
                     }
                 }
             }
             return htmlWeb;
         }
 
-    
+        //public static HtmlWebViewSource LoadBookSubChapter(int index)
+        //{
+        //    HtmlWebViewSource htmlWeb = new HtmlWebViewSource();
+
+        //    foreach (EpubChapter chapter in epubBook.Chapters)
+        //    {
+        //        string htmlcontent = chapter.HtmlContent;
+        //        htmlWeb.Html += chapter.SubChapters[index].HtmlContent;
+        //    }
+        //    return htmlWeb;
+        //}
     }
 }
