@@ -456,7 +456,7 @@ namespace Prototipo1_Lyfr.Conexao
                 }
             }
         }
-        public async Task DeleteFavorito(Favoritos objeto, string Token)
+        public async Task RemoveFromMyList(Favoritos objeto, string Token)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -472,38 +472,6 @@ namespace Prototipo1_Lyfr.Conexao
                     if (response.IsSuccessStatusCode && mensagem == "O livro de id " + objeto.FkIdLivro + " foi deletado com sucesso da sua lista")
                     {
                         return;
-                    }
-
-                    if (!string.IsNullOrWhiteSpace(mensagem))
-                    {
-                        throw new Exception(mensagem);
-                    }
-
-                    throw new Exception(response.StatusCode.ToString());
-
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-            }
-        }
-        public async Task<List<Livros>> GetLivrosByCliente(int idCliente, string Token)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.BaseAddress = uri;
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-
-                    HttpResponseMessage response = await client.GetAsync("Favoritos/GetFavoritosByUsuario/" + idCliente);
-                    await response.Content.ReadAsStringAsync();
-                    string mensagem = await response.Content.ReadAsStringAsync();
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return JsonConvert.DeserializeObject<List<Livros>>(mensagem);
                     }
 
                     if (!string.IsNullOrWhiteSpace(mensagem))
@@ -539,6 +507,38 @@ namespace Prototipo1_Lyfr.Conexao
                     if (response.IsSuccessStatusCode && mensagem == "Favoritos cadastrado com sucesso!")
                     {
                         return;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(mensagem))
+                    {
+                        throw new Exception(mensagem);
+                    }
+
+                    throw new Exception(response.StatusCode.ToString());
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+        public async Task<List<Livros>> GetLivrosByCliente(int idCliente, string Token)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = uri;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+
+                    HttpResponseMessage response = await client.GetAsync("Favoritos/GetFavoritosByUsuario/" + idCliente);
+                    await response.Content.ReadAsStringAsync();
+                    string mensagem = await response.Content.ReadAsStringAsync();
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return JsonConvert.DeserializeObject<List<Livros>>(mensagem);
                     }
 
                     if (!string.IsNullOrWhiteSpace(mensagem))
