@@ -63,7 +63,7 @@
                 <StackLayout x:Name="stc_BtnActionLivro"
                              Margin="15,0,15,10"
                              HorizontalOptions="FillAndExpand">
-                    <Button Text="Adicionar livro à lista"
+                    <Button Text="{Binding AddRemoveMinhaListaText}"
                             Command="{Binding AddLivroToMyList}"
                             HorizontalOptions="FillAndExpand" 
                             CornerRadius="3" 
