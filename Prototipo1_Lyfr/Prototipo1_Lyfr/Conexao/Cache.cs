@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Prototipo1_Lyfr.Conexao
 {
-    public class Cache:IDisposable
+    public class Cache : IDisposable
     {
         private SQLiteConnection _conexao;
         private bool Disposed;
@@ -19,6 +19,33 @@ namespace Prototipo1_Lyfr.Conexao
             _conexao = new SQLiteConnection(caminho);
             _conexao.CreateTable<TokenCache>();
             _conexao.CreateTable<PesquisaCache>();
+            _conexao.CreateTable<ClienteLocal>();
+        }
+  
+        public void InserirClienteLocal(ClienteLocal clienteLocal)
+        {
+            _conexao.DeleteAll<ClienteLocal>();
+            //Inserindo informações no banco
+            _conexao.Insert(clienteLocal);
+        }
+
+        public ClienteLocal GetClienteLocal()
+        {
+            return _conexao.Table<ClienteLocal>().FirstOrDefault();
+        }
+
+        public void DeleteClienteLocal()
+        {
+            _conexao.DeleteAll<ClienteLocal>();
+        }
+        public bool IsTableClienteNull()
+        {
+            if (_conexao.Table<ClienteLocal>().Count() == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
         public void InserirTokenCache(TokenCache tokenCache)
         {

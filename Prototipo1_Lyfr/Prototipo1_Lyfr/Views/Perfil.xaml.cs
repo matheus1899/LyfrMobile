@@ -1,4 +1,5 @@
-﻿using Prototipo1_Lyfr.Models;
+﻿using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.ViewModels;
 using Prototipo1_Lyfr.ViewModels.Services;
 using System;
@@ -11,6 +12,7 @@ namespace Prototipo1_Lyfr.Views
     public partial class Perfil : ContentPage
     {
         Cliente _cliente;
+        Cache cache = new Cache();
 
         public Perfil()
         {
@@ -41,6 +43,7 @@ namespace Prototipo1_Lyfr.Views
         }
         private void GoTo_LoginPage(object sender, EventArgs e)
         {
+            cache.DeleteClienteLocal();
             DependencyService.Get<INavigationService>().SetLoginMainPage();
         }
     }

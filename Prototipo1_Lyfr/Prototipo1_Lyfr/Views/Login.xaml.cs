@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Text;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 
 namespace Prototipo1_Lyfr.Views
 {
@@ -17,6 +18,7 @@ namespace Prototipo1_Lyfr.Views
     {
         GerarToken gerarToken = new GerarToken();
         ConexaoAPI conexao = new ConexaoAPI();
+        Cache cache = new Cache();
 
         public Login()
         {
@@ -64,17 +66,28 @@ namespace Prototipo1_Lyfr.Views
                         Email = ent_Email_Usuario.Text,
                         Senha = ent_Senha_Usuario.Text
                     };
-
                     var usuario = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
                     SetActivityIndicatorState(false);
-
-                    App.Current.MainPage = new NavigationPage(new MainPage(usuario));
+                    if (cbx_LembrarSenha.IsChecked == true)
+                    {
+                        cache.InserirClienteLocal(new ClienteLocal { IdCliente = usuario.IdCliente,
+                            Nome = usuario.Nome, Senha = usuario.Senha, Email = usuario.Email,
+                            Cpf = usuario.Cpf, Cep = usuario.Cep, Cidade = usuario.Cidade,
+                            DataNasc = usuario.DataNasc, Data_Cadastro = usuario.Data_Cadastro,
+                            Estado = usuario.Estado, Numero = usuario.Numero, Rua = usuario.Rua, Telefone = usuario.Telefone });
+                        App.Current.MainPage = new NavigationPage(new MainPage(usuario));
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new NavigationPage(new MainPage(usuario));
+                    }
+                
                 //}
 
             }
             catch (TimeoutException ex)
             {
-                MostrarMensagem.Mostrar("Não é possivel fds");
+                MostrarMensagem.Mostrar("Não é possivel se comunicar com a base de dados!");
                 return;
             }
             catch (Exception ex)

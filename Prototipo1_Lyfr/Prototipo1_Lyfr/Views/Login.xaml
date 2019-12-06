@@ -128,11 +128,6 @@
                                            Placeholder="Senha"
                                            Text="{Binding Senha, Mode=TwoWay}"
                                            TextColor="{DynamicResource DefaultTextColor}">
-                                        <Entry.Triggers>
-                                            <EventTrigger Event="TextChanged">
-                                                <tri:PasswordValidationTriggerAction/>
-                                            </EventTrigger>
-                                        </Entry.Triggers>
                                         <Entry.Effects>
                                             <ef:FocusEffect/>
                                         </Entry.Effects>
@@ -185,7 +180,7 @@
                                      IsVisible="True">
                             <CheckBox Color="{DynamicResource Secondary_Color}" 
                                     x:Name="cbx_LembrarSenha" />
-                            <Label Text="Lembrar senha?" 
+                            <Label Text="Manter Conectado" 
                                 FontSize="16" 
                                 VerticalOptions="Center"
                                 TextColor="{DynamicResource Secondary_Color}">

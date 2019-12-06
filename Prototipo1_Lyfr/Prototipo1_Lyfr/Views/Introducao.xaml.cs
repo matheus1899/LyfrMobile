@@ -23,7 +23,7 @@ namespace Prototipo1_Lyfr.Views
         }
         protected override bool OnBackButtonPressed()
         {
-            return false;
+            return true;
         }
         private void ChamarPagCadastrar(object sender, EventArgs e){
             btn_Cadastrar.IsEnabled = false;
