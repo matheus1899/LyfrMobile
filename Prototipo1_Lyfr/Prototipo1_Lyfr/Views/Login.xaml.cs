@@ -110,9 +110,9 @@ namespace Prototipo1_Lyfr.Views
             ent_Senha_Usuario.IsPassword = !ent_Senha_Usuario.IsPassword;
             await a.ScaleTo(1, 100, Easing.BounceIn);
         }
-        private void Esqueceu_Senha_Tapped(object sender, EventArgs e)
+        private async void Esqueceu_Senha_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EsqueciSenha());
+            await Navigation.PushAsync(new EsqueciSenha());
         }
         private void EntryEmail_TextChanged(object sender, TextChangedEventArgs e)
         {

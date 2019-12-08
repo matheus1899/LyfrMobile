@@ -22,14 +22,11 @@ namespace Prototipo1_Lyfr.Views
             bind=this.BindingContext as InfoLivroViewModel;
             bind.Livro = livro;
             bind.Cliente = c;
+            bind.SetMinhaLista();
         }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            bind.SetMinhaLista();
-            Task.Delay(3000);
-            bind.SetHasAddOrRemoveFromMyList();
         }
 
         private void ContentPage_SizeChanged(object sender, EventArgs e)

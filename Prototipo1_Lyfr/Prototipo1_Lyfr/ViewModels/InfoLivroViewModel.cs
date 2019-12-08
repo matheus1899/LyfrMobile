@@ -14,7 +14,7 @@ namespace Prototipo1_Lyfr.ViewModels
     public class InfoLivroViewModel:BaseViewModel
     {
         private Livros _livro;
-        List<Livros> minha_lista;
+        private List<Livros> _minha_lista;
         private Cliente _cliente;
         private string _AddRemoveMinhaListaText;
         Lazy<ConexaoAPI> conexao = new Lazy<ConexaoAPI>();
@@ -37,6 +37,15 @@ namespace Prototipo1_Lyfr.ViewModels
             get => _livro;
             set => SetProperty<Livros>(ref _livro, value, nameof(Livro));
         }
+        private List<Livros> MinhaLista
+        {
+            get => _minha_lista;
+            set
+            {
+                SetProperty(ref _minha_lista, value, nameof(MinhaLista));
+                SetHasAddOrRemoveFromMyList();
+            }
+        }
         public InfoLivroViewModel()
         {
             AddLivroToMyList = new Command(AddRemoveToMinhaLista);
@@ -44,7 +53,7 @@ namespace Prototipo1_Lyfr.ViewModels
         }
         public async void SetMinhaLista()
         {
-            minha_lista = await conexao.Value.GetLivrosByCliente(Cliente.IdCliente, GerarToken.GetTokenFromCache());
+            MinhaLista = await conexao.Value.GetLivrosByCliente(Cliente.IdCliente, GerarToken.GetTokenFromCache());
         }
         private async void GoToLerLivro()
         {
@@ -56,25 +65,35 @@ namespace Prototipo1_Lyfr.ViewModels
         {
             try
             {
-                int c = minha_lista.Where(x => x.Titulo == Livro.Titulo).Count();
-                Favoritos favoritos = new Favoritos()
+                await Task.Delay(1000);
+                Favoritos favoritos = new Favoritos() { FkIdLivro = Livro.IdLivro, FkIdCliente = Cliente.IdCliente };
+                if (MinhaLista == null)
                 {
-                    FkIdLivro = Livro.IdLivro,
-                    FkIdCliente = Cliente.IdCliente
-                };
+                    List<Livros> v = new List<Livros>();
+                    v = MinhaLista;
+                    v.Add(Livro);
+                    MinhaLista = v;
+                    MostrarMensagem.Mostrar("Livro adicionado na sua lista!");
+                    await conexao.Value.AddToMyList(favoritos, GerarToken.GetTokenFromCache());
+                }
+                int c = MinhaLista.Where(x => x.Titulo == Livro.Titulo).Count();
                 if (c > 0)
                 {
-                    minha_lista.Remove(Livro);
+                    List<Livros> v = new List<Livros>();
+                    v = MinhaLista;
+                    v.Remove(Livro);
+                    MinhaLista = v;
                     MostrarMensagem.Mostrar("Livro removido da sua lista!");
-                    AddRemoveMinhaListaText = "Adicionar a minha lista";
                     await conexao.Value.RemoveFromMyList(favoritos, GerarToken.GetTokenFromCache());
                 }
                 else
                 {
-                    await conexao.Value.AddToMyList(favoritos, GerarToken.GetTokenFromCache());
-                    minha_lista.Add(Livro);
+                    List<Livros> v = new List<Livros>();
+                    v = MinhaLista;
+                    v.Add(Livro);
+                    MinhaLista = v;
                     MostrarMensagem.Mostrar("Livro adicionado na sua lista!");
-                    AddRemoveMinhaListaText = "Remover da minha lista";
+                    await conexao.Value.AddToMyList(favoritos, GerarToken.GetTokenFromCache());
                 }
             }
             catch (Exception ex)
@@ -84,12 +103,12 @@ namespace Prototipo1_Lyfr.ViewModels
         }
         public void SetHasAddOrRemoveFromMyList()
         {
-            if (minha_lista==null)
+            if (MinhaLista==null)
             {
                 AddRemoveMinhaListaText = "Adicionar a minha lista";
                 return;
             }
-            int c = minha_lista.Where(x => x.Titulo == Livro.Titulo).Count();
+            int c = MinhaLista.Where(x => x.Titulo == Livro.Titulo).Count();
             if (c > 0)
             {
                 AddRemoveMinhaListaText = "Remover da minha lista";

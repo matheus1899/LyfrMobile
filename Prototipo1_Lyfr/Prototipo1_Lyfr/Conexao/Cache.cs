@@ -1,9 +1,9 @@
-﻿using Prototipo1_Lyfr.Interfaces;
-using Prototipo1_Lyfr.Models.LocalDBModels;
-using SQLite;
+﻿using SQLite;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
+using Prototipo1_Lyfr.Interfaces;
+using System.Collections.Generic;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 
 namespace Prototipo1_Lyfr.Conexao
 {
@@ -20,8 +20,36 @@ namespace Prototipo1_Lyfr.Conexao
             _conexao.CreateTable<TokenCache>();
             _conexao.CreateTable<PesquisaCache>();
             _conexao.CreateTable<ClienteLocal>();
+            _conexao.CreateTable<PrimeiraVez>();
         }
-  
+        #region PrimeiraVez
+        public void InserirPrimeiraVez(PrimeiraVez p)
+        {
+            _conexao.DeleteAll<PrimeiraVez>();
+            //Inserindo informações no banco
+            _conexao.Insert(p);
+        }
+
+        public PrimeiraVez GetPrimeiraVez()
+        {
+            return _conexao.Table<PrimeiraVez>().FirstOrDefault();
+        }
+
+        public void DeletePrimeiraVez()
+        {
+            _conexao.DeleteAll<PrimeiraVez>();
+        }
+        public bool IsTablePrimeiraVezNull()
+        {
+            if (_conexao.Table<PrimeiraVez>().Count() == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+        #region ClienteLocal
         public void InserirClienteLocal(ClienteLocal clienteLocal)
         {
             _conexao.DeleteAll<ClienteLocal>();
@@ -47,6 +75,8 @@ namespace Prototipo1_Lyfr.Conexao
 
             return false;
         }
+        #endregion
+        #region TokenCache
         public void InserirTokenCache(TokenCache tokenCache)
         {
             _conexao.DeleteAll<TokenCache>();
@@ -74,6 +104,7 @@ namespace Prototipo1_Lyfr.Conexao
         {
             return _conexao.Table<PesquisaCache>().ToList();
         }
+        #endregion
         public void Dispose()
         {
             Dispose(true);

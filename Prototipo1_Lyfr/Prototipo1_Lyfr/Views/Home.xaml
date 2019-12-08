@@ -161,6 +161,16 @@
                                                 ItemsSource="{Binding MinhaLista}"
                                                 SelectedItem="{Binding MinhaListaItemSelected}"
                                                 SelectionChangedCommand="{Binding MinhaListaSelectedChanged_Command}">
+                                    <CollectionView.EmptyView>
+                                        <Label Text="{Binding TextMinhaListaEmpty}"
+                                               TextColor="{DynamicResource Secondary_Color}"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               MaxLines="2"
+                                               FontSize="Large"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="FillAndExpand"/>
+                                    </CollectionView.EmptyView>
                                     <CollectionView.ItemsLayout>
                                         <GridItemsLayout Orientation="Horizontal" Span="1"/>
                                     </CollectionView.ItemsLayout>

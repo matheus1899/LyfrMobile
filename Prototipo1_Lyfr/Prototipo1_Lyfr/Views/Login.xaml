@@ -180,7 +180,7 @@
                                      IsVisible="True">
                             <CheckBox Color="{DynamicResource Secondary_Color}" 
                                     x:Name="cbx_LembrarSenha" />
-                            <Label Text="Manter Conectado" 
+                            <Label Text="Manter conectado?" 
                                 FontSize="16" 
                                 VerticalOptions="Center"
                                 TextColor="{DynamicResource Secondary_Color}">

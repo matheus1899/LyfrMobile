@@ -19,6 +19,7 @@ namespace Prototipo1_Lyfr.ViewModels
         Lazy<CacheLiteDB> _cacheLite = new Lazy<CacheLiteDB>();
         Lazy<ConexaoAPI> con = new Lazy<ConexaoAPI>();
 
+
         #region Propertys
         private Cliente _cliente;
         private List<Livros> _MinhaLista;
@@ -27,7 +28,12 @@ namespace Prototipo1_Lyfr.ViewModels
         private Livros _MinhaListaItemSelected;
         private Livros _LivrosNovosItemSelected;
         private Livros _LivrosAventuraItemSelected;
-
+        private string _TextMinhaListaEmpty; 
+        public string TextMinhaListaEmpty
+        {
+            get => _TextMinhaListaEmpty;
+            set => SetProperty(ref _TextMinhaListaEmpty, value, nameof(TextMinhaListaEmpty));
+        }
         public Cliente Cliente
         {
             get => _cliente;
@@ -75,6 +81,7 @@ namespace Prototipo1_Lyfr.ViewModels
 
         public HomeViewModel()
         {
+            TextMinhaListaEmpty = "Não há itens na Sua Lista \nEscolha um livro e adicione";
             MinhaListaSelectedChanged_Command = new Command(SelectedLivroOnMinhaLista);
             LivrosNovosSelectedChanged_Command = new Command(SelectedLivroOnLivroNovos);
             ListaAventuraSelectedChanged_Command = new Command(SelectedLivroOnListaAventura);

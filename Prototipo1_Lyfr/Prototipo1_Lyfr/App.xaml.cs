@@ -9,6 +9,7 @@ using Prototipo1_Lyfr.ViewModels.Services;
 using Prototipo1_Lyfr.Views.Services;
 using Prototipo1_Lyfr.Views;
 using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Models.LocalDBModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Prototipo1_Lyfr
@@ -31,11 +32,10 @@ namespace Prototipo1_Lyfr
                 }
                 else
                 {
-                    bool t = Application.Current.Properties.ContainsKey("IsFirst");
-                    if (t)
+                    if (!cache.IsTablePrimeiraVezNull())
                     {
-                        var isfirst = (bool)Application.Current.Properties["IsFirst"];
-                        if (!isfirst)
+                        var p = cache.GetPrimeiraVez();
+                        if (!p.IsFirst)
                         {
                             MainPage = new NavigationPage(new Login());
                         }
@@ -60,7 +60,10 @@ namespace Prototipo1_Lyfr
         }
         protected override void OnStart()
         {
-            App.Current.Resources.Add("IsFirst", false);
+            using(Cache c = new Cache())
+            {
+                c.InserirPrimeiraVez(new PrimeiraVez() { IsFirst = false });
+            }
             //AppCenter.Start("android=5af831f0-b735-4a30-a1ff-a33d62146c66;", typeof(Analytics), typeof(Crashes));
         }
         protected override void OnSleep()
