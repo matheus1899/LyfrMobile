@@ -38,6 +38,7 @@ namespace Prototipo1_Lyfr.ViewModels
                     Act_State = true;
                     var a = e as StackLayout;
                     var b = a.Children[2] as StackLayout;
+                    HasNavigationBar.SetHasNavigationBar("");
                     if (!EmailIsValid(NovoEmail))
                     {
                         ShakeShake(b);

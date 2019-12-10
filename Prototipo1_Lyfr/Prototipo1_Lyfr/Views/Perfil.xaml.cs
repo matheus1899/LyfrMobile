@@ -1,4 +1,5 @@
 ﻿using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Controls;
 using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.ViewModels;
 using Prototipo1_Lyfr.ViewModels.Services;
@@ -37,6 +38,11 @@ namespace Prototipo1_Lyfr.Views
         {
             cache.DeleteClienteLocal();
             DependencyService.Get<INavigationService>().SetLoginMainPage();
+        }
+
+        private void edt_Unfocused(object sender, FocusEventArgs e)
+        {
+            HasNavigationBar.SetHasNavigationBar("");
         }
     }
 }

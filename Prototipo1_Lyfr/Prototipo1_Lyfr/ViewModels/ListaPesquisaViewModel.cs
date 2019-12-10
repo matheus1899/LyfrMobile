@@ -53,7 +53,7 @@ namespace Prototipo1_Lyfr.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MostrarMensagem.Mostrar("ERRO > " + ex.Message);
+                    MostrarMensagem.Mostrar("ERRO -> " + ex.Message);
                 }
             }
         }
@@ -105,12 +105,17 @@ namespace Prototipo1_Lyfr.ViewModels
         {
             try
             {
-                PesquisaCache p = new PesquisaCache
+                List<PesquisaCache> lp = new List<PesquisaCache>();
+                lp = cache.Value.GetPesquisaCache();
+                if (lp.Where(x => x.ItemPesquisado == SearchBar_Text).Count()==0)
                 {
-                    ItemPesquisado = SearchBar_Text,
-                    DataPesquisa = DateTime.Now.ToString("dd/MM/yyyy")
-                };
-                cache.Value.InserirPequisaCache(p);
+                    PesquisaCache p = new PesquisaCache
+                    {
+                        ItemPesquisado = SearchBar_Text,
+                        DataPesquisa = DateTime.Now.ToString("dd/MM/yyyy")
+                    };
+                    cache.Value.InserirPequisaCache(p);
+                }
                 ListaPesquisaIsVisible = false;
                 ResultadoPesquisaIsVisible = true;
                 Lazy<ConexaoAPI> con = new Lazy<ConexaoAPI>();

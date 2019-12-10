@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prototipo1_Lyfr.Models;
 using Prototipo1_Lyfr.ViewModels;
-using System.Threading.Tasks;
 
 namespace Prototipo1_Lyfr.Views
 {
@@ -20,8 +19,8 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
             bind=this.BindingContext as InfoLivroViewModel;
-            bind.Livro = livro;
             bind.Cliente = c;
+            bind.Livro = livro;
             bind.SetMinhaLista();
         }
         protected override void OnAppearing()

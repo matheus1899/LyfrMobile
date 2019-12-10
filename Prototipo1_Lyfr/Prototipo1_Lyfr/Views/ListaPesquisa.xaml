@@ -40,6 +40,7 @@
                            BackgroundColor="Transparent"
                            Text="{Binding SearchBar_Text}"
                            HorizontalOptions="FillAndExpand" 
+                           Unfocused="ent_Unfocused"
                            SearchCommand="{Binding SearchBar_Command}"
                            TextColor="{DynamicResource Secondary_Color}"
                            PlaceholderColor="{DynamicResource Secondary_Color}" 

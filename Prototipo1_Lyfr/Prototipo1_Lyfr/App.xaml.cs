@@ -48,9 +48,6 @@ namespace Prototipo1_Lyfr
                         MainPage = new NavigationPage(new Views.Introducao());
                     }
                 }
-                //MainPage = new NavigationPage(new Views.MainPage());
-                //MainPage = new Views.MainPage();
-                //MainPage = new Views.InfoLivro();
             }
             catch(Exception ex)
             {

@@ -42,7 +42,7 @@ namespace Prototipo1_Lyfr.Views
             try
             {
                 SetActivityIndicatorState(true);
-                
+                HasNavigationBar.SetHasNavigationBar("");
                 Cliente cliente = new Cliente()
                 {
                     Email = ent_Email_Usuario.Text,

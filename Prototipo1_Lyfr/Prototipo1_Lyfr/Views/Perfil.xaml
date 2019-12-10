@@ -67,7 +67,7 @@
                        HasUnevenRows="True"
                        Margin="3,20,3,0" 
                        Grid.Row="1"
-                       Grid.RowSpan="3"
+                       Grid.RowSpan="5"
                        Grid.Column="0" 
                        Grid.ColumnSpan="6">
                 <TableRoot>
@@ -142,6 +142,7 @@
                                                      CornerRadius="10">
                                     <Editor Margin="15,20,15,5"
                                             AutoSize="TextChanges"
+                                            Unfocused="edt_Unfocused"
                                             BackgroundColor="{DynamicResource Secondary_Color}" 
                                             TextColor="{DynamicResource Primary_Color}"
                                             HorizontalOptions="FillAndExpand"

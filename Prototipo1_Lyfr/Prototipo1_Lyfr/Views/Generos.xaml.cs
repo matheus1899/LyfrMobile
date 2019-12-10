@@ -20,5 +20,10 @@ namespace Prototipo1_Lyfr.Views
             base.OnDisappearing();
             bind.SetSelectedItemToNull();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            bind.SetSelectedItemToNull();
+        }
     }
 }

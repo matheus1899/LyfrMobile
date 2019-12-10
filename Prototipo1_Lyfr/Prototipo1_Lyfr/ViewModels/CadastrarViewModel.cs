@@ -57,7 +57,7 @@ namespace Prototipo1_Lyfr.ViewModels
                         Cpf = this.Cpf,
                         Data_Cadastro = DateTime.Now.ToString()
                     };
-
+                    HasNavigationBar.SetHasNavigationBar("");
                     var conexao = new ConexaoAPI();
                     Lazy<GerarToken> gerarToken = new Lazy<GerarToken>();
 

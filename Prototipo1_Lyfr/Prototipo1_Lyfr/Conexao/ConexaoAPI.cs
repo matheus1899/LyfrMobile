@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Prototipo1_Lyfr.Models;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
+using Plugin.Connectivity;
 
 namespace Prototipo1_Lyfr.Conexao
 {
@@ -19,9 +20,16 @@ namespace Prototipo1_Lyfr.Conexao
         {
             uri = new Uri("http://www.lyfrapi.com.br/api/");
         }
-
+        private bool HasInternet()
+        {
+            return CrossConnectivity.Current.IsConnected;
+        }
         public async Task<string> Add(Cliente cliente, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -56,6 +64,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<Cliente> SelectOne(Cliente cliente, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -88,13 +100,24 @@ namespace Prototipo1_Lyfr.Conexao
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.Message);
+                    if(ex.Message == "BadRequest")
+                    {
+                        throw new Exception("Email ou senha inválidos. \nTente novamente...");
+                    }
+                    else
+                    {
+                        throw new Exception(ex.Message);
+                    }
                 }
                 
             }
         }
         public async Task<Cliente> SelectOneWithoutPassword(Cliente cliente, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -129,6 +152,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<string> EnviarEmail(RecoveryPassword recovery, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -162,6 +189,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<string> Update(Cliente cliente, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -196,6 +227,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<string> SendSugestao(Sugestao sugestao, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -230,6 +265,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Livros>> GetSixLivros(string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -261,6 +300,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Livros>> GetAllLivros(string Token,short n_livros)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -292,6 +335,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<Livros> GetLivroByTitulo(string Titulo, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -327,6 +374,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<Livros> GetLivroByTituloWithoutFile(string Titulo, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -362,6 +413,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Livros>> GetLivrosByGenero(string Genero, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -394,6 +449,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<Autores> GetAutorByNome(string Nome, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -427,6 +486,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Livros>> SearchLivros(string Titulo, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -458,6 +521,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task RemoveFromMyList(Favoritos objeto, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -490,6 +557,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task AddToMyList(Favoritos favorito, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -525,6 +596,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Livros>> GetLivrosByCliente(int idCliente, string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -557,6 +632,10 @@ namespace Prototipo1_Lyfr.Conexao
         }
         public async Task<List<Genero>> GetAllGeneros(string Token)
         {
+            if (!HasInternet())
+            {
+                throw new Exception("Verifique sua conexão e \ntente novamente mais tarde");
+            }
             using (HttpClient client = new HttpClient())
             {
                 try

@@ -23,6 +23,7 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.151-beta" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Forms.BehaviorValidationPack" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.1.8" />

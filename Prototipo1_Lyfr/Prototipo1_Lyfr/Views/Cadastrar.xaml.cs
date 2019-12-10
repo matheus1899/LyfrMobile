@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
+using Prototipo1_Lyfr.Controls;
+
 namespace Prototipo1_Lyfr
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -84,7 +86,7 @@ namespace Prototipo1_Lyfr
             var a = sender as Entry;
             var b = a.Parent as StackLayout;
             var c = b.Children[1] as Label;
-
+            HasNavigationBar.SetHasNavigationBar("");
             c.IsEnabled = false;
             c.IsVisible = false;
         }

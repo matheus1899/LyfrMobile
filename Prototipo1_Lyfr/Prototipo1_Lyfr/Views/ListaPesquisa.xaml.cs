@@ -38,5 +38,9 @@ namespace Prototipo1_Lyfr.Views
         {
             lista_Pesquisa.ItemsSource = cache.GetPesquisaCache();
         }
+        private void ent_Unfocused(object sender, FocusEventArgs e)
+        {
+            HasNavigationBar.SetHasNavigationBar("");
+        }
     }
 }

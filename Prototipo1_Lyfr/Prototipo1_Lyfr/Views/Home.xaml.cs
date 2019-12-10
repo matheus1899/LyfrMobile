@@ -15,6 +15,7 @@ namespace Prototipo1_Lyfr.Views
         {
             InitializeComponent();
             sb_home.TranslateTo(0, -60, 100, Easing.Linear);
+            _cliente = c;
             bind = this.BindingContext as HomeViewModel;
             bind.Cliente = c;
             bind.SetList();

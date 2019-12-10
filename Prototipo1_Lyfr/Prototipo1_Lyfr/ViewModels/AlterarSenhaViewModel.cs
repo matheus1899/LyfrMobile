@@ -64,6 +64,7 @@ namespace Prototipo1_Lyfr.ViewModels
             AlterarSenhaCommand = new Command(async (e) => {
                 try
                 {
+                    HasNavigationBar.SetHasNavigationBar("");
                     if (IsNullOrWhiteSpaceOrEmpty(NovaSenha, ConfirmarNovaSenha))
                     {
                         var a = e as StackLayout;

@@ -159,7 +159,7 @@ namespace Prototipo1_Lyfr.ViewModels
 
         public async Task<List<Livros>> LivrosNovosViewModelAsync()
         {
-            return await con.Value.GetAllLivros(GerarToken.GetTokenFromCache(), 0);
+            return await con.Value.GetAllLivros(GerarToken.GetTokenFromCache(), 7);
         }
         public async Task<List<Livros>> MinhaListaViewModelAsync()
         {
