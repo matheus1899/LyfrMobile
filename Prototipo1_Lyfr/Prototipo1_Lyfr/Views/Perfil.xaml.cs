@@ -33,14 +33,6 @@ namespace Prototipo1_Lyfr.Views
         {
             DependencyService.Get<INavigationService>().NavigateToAlterarSenha(_cliente);
         }
-        private void GoTo_AlterTelefone(object sender, EventArgs e)
-        {
-            DependencyService.Get<INavigationService>().NavigateToAlterarTelefone(_cliente);
-        }
-        private void GoTo_AlterEndereco(object sender, EventArgs e)
-        {
-            DependencyService.Get<INavigationService>().NavigateToAlterarEndereco(_cliente);
-        }
         private void GoTo_LoginPage(object sender, EventArgs e)
         {
             cache.DeleteClienteLocal();

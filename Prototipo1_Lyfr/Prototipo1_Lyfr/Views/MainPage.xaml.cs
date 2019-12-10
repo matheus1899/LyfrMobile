@@ -3,8 +3,8 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using Xamarin.Forms.Xaml;
 using Prototipo1_Lyfr.Models;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Prototipo1_Lyfr.Models.LocalDBModels;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace Prototipo1_Lyfr.Views
 {
@@ -30,14 +30,7 @@ namespace Prototipo1_Lyfr.Views
                 Senha = usuario.Senha,
                 Email = usuario.Email,
                 Cpf = usuario.Cpf,
-                Cep = usuario.Cep,
-                Cidade = usuario.Cidade,
-                DataNasc = usuario.DataNasc,
-                Data_Cadastro = usuario.Data_Cadastro,
-                Estado = usuario.Estado,
-                Numero = usuario.Numero,
-                Rua = usuario.Rua,
-                Telefone = usuario.Telefone
+                Data_Cadastro = usuario.Data_Cadastro
             };
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

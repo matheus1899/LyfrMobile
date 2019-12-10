@@ -6,9 +6,20 @@
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Views.CapaLivro">
     <NavigationPage.TitleView>
-        <Label x:Name="titleView" TextColor="White"/>
+        <StackLayout>
+            <Label x:Name="titleView" 
+                   HorizontalOptions="StartAndExpand"
+                   TextColor="White"/>
+            <ImageButton Source="close.png" 
+                   HorizontalOptions="End"
+                   Aspect="AspectFit" 
+                         BackgroundColor="Transparent"
+                         Clicked="ToolbarClose_Clicked"
+                   HeightRequest="20"
+                   Margin="0,-23,10,0" />
+        </StackLayout>
     </NavigationPage.TitleView>
-    <StackLayout BackgroundColor="Black">
+    <StackLayout BackgroundColor="White">
             <Image x:Name="image"
                 Aspect="AspectFit"
                    HorizontalOptions="FillAndExpand"

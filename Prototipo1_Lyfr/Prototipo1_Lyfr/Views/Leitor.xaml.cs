@@ -1,8 +1,7 @@
-﻿using Prototipo1_Lyfr.Conexao;
-using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Views;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prototipo1_Lyfr.ViewModels.Services;
 
 namespace Prototipo1_Lyfr
 {
@@ -16,15 +15,9 @@ namespace Prototipo1_Lyfr
             this._html = html;
             web.Source = _html;
         }
-
-        private void Left_Direction_Swiped(object sender, SwipedEventArgs e)
+        private void ToolbarClose_Clicked(object sender, EventArgs e)
         {
-            
-        }
-
-        private void Right_Direction_Swiped(object sender, SwipedEventArgs e)
-        {
-            
+            DependencyService.Get<INavigationService>().GoBack();
         }
     }
 }

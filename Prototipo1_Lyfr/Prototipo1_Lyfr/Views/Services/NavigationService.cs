@@ -19,19 +19,10 @@ namespace Prototipo1_Lyfr.Views.Services
         {
             App.Current.MainPage = new NavigationPage(new Login());
         }
-        public Task NavigateToAlterarEndereco(Cliente c)
-        {
-            return App.Current.MainPage.Navigation.PushAsync(new AlterarEndereco(c));
-        }
         public Task NavigateToAlterarSenha(Cliente c)
         {
             return App.Current.MainPage.Navigation.PushAsync(new AlterarSenha(c));
         }
-        public Task NavigateToAlterarTelefone(Cliente c)
-        {
-            return App.Current.MainPage.Navigation.PushAsync(new AlterarTelefone(c));
-        }
-
         public Task NavigateToMenuCapitulos(Livros l)
         {
             return App.Current.MainPage.Navigation.PushAsync(new MenuCapitulos(l));

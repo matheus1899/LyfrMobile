@@ -35,7 +35,7 @@
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
             <StackLayout>
                 <Grid HorizontalOptions="FillAndExpand" 
-                    VerticalOptions="FillAndExpand">
+                        VerticalOptions="CenterAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="225"/>

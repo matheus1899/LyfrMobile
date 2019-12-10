@@ -67,7 +67,19 @@ namespace Prototipo1_Lyfr.Conexao
             list_capitulos = new List<Capitulos>();
             foreach (EpubChapter chapter in epubBook.Chapters)
             {
-                list_capitulos.Add(new Capitulos() { Title = chapter.Title, TargetType = typeof(Leitor), SubChapters = chapter.SubChapters });
+                Capitulos c = new Capitulos();
+                c.Title = chapter.Title;
+
+                if (chapter.SubChapters.Count > 0)
+                {
+                    c.HasSubchapters = true;
+                    c.SubChapters = chapter.SubChapters;
+                }
+                else
+                {
+                    c.HasSubchapters = false;
+                }
+                list_capitulos.Add(c);
             }
             return list_capitulos;
         }

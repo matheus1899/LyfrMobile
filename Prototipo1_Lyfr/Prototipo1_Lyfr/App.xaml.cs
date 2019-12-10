@@ -18,7 +18,6 @@ namespace Prototipo1_Lyfr
     {
         public App()
         {
-
             try
             {
                 InitializeComponent();

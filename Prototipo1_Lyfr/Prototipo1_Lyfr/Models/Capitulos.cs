@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using VersFx.Formats.Text.Epub;
+using System.Collections.Generic;
 
 namespace Prototipo1_Lyfr.Models
 {
@@ -10,5 +9,6 @@ namespace Prototipo1_Lyfr.Models
         public string Title { get; set; }
         public List<EpubChapter> SubChapters { get; set; }
         public Type TargetType { get; set; }
+        public bool HasSubchapters { get; set; }
     }
 }

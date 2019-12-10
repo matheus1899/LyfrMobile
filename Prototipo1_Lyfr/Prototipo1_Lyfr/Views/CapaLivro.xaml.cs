@@ -1,4 +1,5 @@
 ﻿using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.ViewModels.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,10 @@ namespace Prototipo1_Lyfr.Views
             InitializeComponent();
             titleView.Text = l.Titulo;
             image.Source = l.Capa;
+        }
+        private void ToolbarClose_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<INavigationService>().GoBack();
         }
     }
 }

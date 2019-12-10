@@ -35,9 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Cadastrar.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
     <Compile Update="Views\EsqueciSenha.xaml.cs">
       <DependentUpon>EsqueciSenha.xaml</DependentUpon>
     </Compile>
@@ -68,13 +65,7 @@
     <EmbeddedResource Update="Views\AlterarEmail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AlterarEndereco.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\AlterarSenha.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\AlterarTelefone.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CapaLivro.xaml">

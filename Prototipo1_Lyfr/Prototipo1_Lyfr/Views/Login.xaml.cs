@@ -1,22 +1,16 @@
-﻿using Prototipo1_Lyfr.Conexao;
-using Prototipo1_Lyfr.Controls;
-using Prototipo1_Lyfr.Interfaces;
-using Prototipo1_Lyfr.Models;
-using Prototipo1_Lyfr.Views;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System;
 using Xamarin.Forms;
-using System.Text;
+using Prototipo1_Lyfr.Models;
+using Prototipo1_Lyfr.Conexao;
+using Prototipo1_Lyfr.Controls;
+using System.Text.RegularExpressions;
 using Prototipo1_Lyfr.Models.LocalDBModels;
+using Android.OS;
 
 namespace Prototipo1_Lyfr.Views
 {
     public partial class Login : ContentPage
     {
-        GerarToken gerarToken = new GerarToken();
         ConexaoAPI conexao = new ConexaoAPI();
         Cache cache = new Cache();
 
@@ -48,42 +42,31 @@ namespace Prototipo1_Lyfr.Views
             try
             {
                 SetActivityIndicatorState(true);
-
-                //if (string.IsNullOrEmpty(ent_Email_Usuario.Text))
-                //{
-                //    MostrarMensagem.Mostrar("Preencha o campo do e-mail corretamente");
-                //    SetActivityIndicatorState(false);
-                //}
-                //else if (string.IsNullOrEmpty(ent_Senha_Usuario.Text))
-                //{
-                //    MostrarMensagem.Mostrar("Preencha o campo da senha corretamente!");
-                //    SetActivityIndicatorState(false);
-                //}
-                //else
-                //{
-                    Cliente cliente = new Cliente()
-                    {
-                        Email = ent_Email_Usuario.Text,
-                        Senha = ent_Senha_Usuario.Text
-                    };
-                    var usuario = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
-                    SetActivityIndicatorState(false);
-                    if (cbx_LembrarSenha.IsChecked == true)
-                    {
-                        cache.InserirClienteLocal(new ClienteLocal { IdCliente = usuario.IdCliente,
-                            Nome = usuario.Nome, Senha = usuario.Senha, Email = usuario.Email,
-                            Cpf = usuario.Cpf, Cep = usuario.Cep, Cidade = usuario.Cidade,
-                            DataNasc = usuario.DataNasc, Data_Cadastro = usuario.Data_Cadastro,
-                            Estado = usuario.Estado, Numero = usuario.Numero, Rua = usuario.Rua, Telefone = usuario.Telefone });
-                        App.Current.MainPage = new NavigationPage(new MainPage(usuario));
-                    }
-                    else
-                    {
-                        App.Current.MainPage = new NavigationPage(new MainPage(usuario));
-                    }
                 
-                //}
-
+                Cliente cliente = new Cliente()
+                {
+                    Email = ent_Email_Usuario.Text,
+                    Senha = ent_Senha_Usuario.Text
+                };
+                var usuario = await conexao.SelectOne(cliente, GerarToken.GetTokenFromCache());
+                SetActivityIndicatorState(false);
+                if (cbx_LembrarSenha.IsChecked == true)
+                {
+                    cache.InserirClienteLocal(new ClienteLocal 
+                    { 
+                        Cpf = usuario.Cpf,
+                        Nome = usuario.Nome, 
+                        Email = usuario.Email,
+                        Senha = usuario.Senha, 
+                        IdCliente = usuario.IdCliente,
+                        Data_Cadastro = usuario.Data_Cadastro
+                    });
+                    App.Current.MainPage = new NavigationPage(new MainPage(usuario));
+                }
+                else
+                {
+                    App.Current.MainPage = new NavigationPage(new MainPage(usuario));
+                }
             }
             catch (TimeoutException ex)
             {
@@ -93,6 +76,7 @@ namespace Prototipo1_Lyfr.Views
             catch (Exception ex)
             {
                 SetActivityIndicatorState(false);
+                System.Diagnostics.Debug.WriteLine(ex.Message +" - "+ex.InnerException);
                 MostrarMensagem.Mostrar(ex.Message);
                 return;
             }

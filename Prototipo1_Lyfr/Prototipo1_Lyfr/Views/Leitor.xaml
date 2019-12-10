@@ -5,6 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Prototipo1_Lyfr.Leitor">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="ToolbarClose_Clicked" 
+                     IconImageSource="close.png" />
+    </ContentPage.ToolbarItems>
     <StackLayout VerticalOptions="FillAndExpand">
         <StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand">
             <WebView x:Name="web" 

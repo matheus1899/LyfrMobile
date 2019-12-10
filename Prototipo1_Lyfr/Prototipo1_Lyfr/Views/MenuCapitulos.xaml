@@ -12,7 +12,8 @@
         <ContentPage Title="Menu" Padding="0">
             <ContentPage.Content>
                 <StackLayout>
-                    <Grid BackgroundColor="Black">
+                    <Grid BackgroundColor="Black"
+                          VerticalOptions="FillAndExpand">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="*"/>
@@ -20,9 +21,10 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
-                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Label
                           Grid.Column="1"
@@ -31,22 +33,39 @@
                           TextColor="White" 
                           FontSize="Large"/>
                     </Grid>
-
-                    <ListView BackgroundColor="Black" x:Name="listCap" SeparatorColor="White" SeparatorVisibility="Default" HasUnevenRows="True" VerticalOptions="FillAndExpand" ItemSelected="ListMenu_ItemSelected">
+                    <ListView Grid.Row="4" 
+                              Grid.Column="0" 
+                              Grid.ColumnSpan="3" 
+                              BackgroundColor="Black" 
+                              x:Name="listCap"
+                              HasUnevenRows="True"
+                              SeparatorColor="White" 
+                              SeparatorVisibility="Default"
+                              VerticalOptions="FillAndExpand"
+                              ItemSelected="ListMenu_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Padding="15,10">
+                                    <StackLayout >
                                         <Label Text="{Binding Title}" 
                                                TextColor="White" 
+                                               Margin="15,8,5,8"
+                                               FontSize="Medium"
                                                VerticalTextAlignment="Center"/>
                                         <ListView BackgroundColor="Black" 
+                                                  IsVisible="{Binding HasSubchapters}"
                                                   ItemsSource="{Binding SubChapters}"
+                                                  HasUnevenRows="True"
+                                                  SeparatorColor="White"
+                                                  SeparatorVisibility="Default"
                                                   ItemSelected="ListMenu_ItemSelectedSub">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <ViewCell>
-                                                        <Label Text="{Binding Title}" TextColor="White" VerticalTextAlignment="Center" Margin="15,5,0,5"/>
+                                                        <Label Text="{Binding Title}" 
+                                                               VerticalTextAlignment="Center" 
+                                                               TextColor="White" 
+                                                               Margin="35,7,0,7"/>
                                                     </ViewCell>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
