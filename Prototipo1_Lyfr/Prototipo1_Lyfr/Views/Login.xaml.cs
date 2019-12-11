@@ -34,11 +34,17 @@ namespace Prototipo1_Lyfr.Views
         }
         private async void ChamarPagCadastrar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Cadastrar());
+            try
+            {
+                await Navigation.PushAsync(new Cadastrar());
+            }
+            catch(Exception ex)
+            {
+                await Navigation.PushAsync(new Cadastrar());
+            }
         }
         private async void Logar_Clicked(object sender, EventArgs e)
-        {
-
+        { 
             try
             {
                 SetActivityIndicatorState(true);
@@ -70,6 +76,7 @@ namespace Prototipo1_Lyfr.Views
             }
             catch (TimeoutException ex)
             {
+                btn_Login.IsEnabled = true;
                 MostrarMensagem.Mostrar("Não é possivel se comunicar com a base de dados!");
                 return;
             }
@@ -81,6 +88,17 @@ namespace Prototipo1_Lyfr.Views
                 return;
             }
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            btn_Login.IsEnabled = true;
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            btn_Login.IsEnabled = false;
+        }
+
         private void SetActivityIndicatorState(bool state)
         {
             act_ind_Login.IsVisible = state;

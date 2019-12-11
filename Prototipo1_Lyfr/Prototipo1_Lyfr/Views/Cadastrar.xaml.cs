@@ -16,15 +16,14 @@ namespace Prototipo1_Lyfr
         }
         private void BackToLogin()
         {
-            App.Current.MainPage = new Views.Login();
+            //Navigation.PopAsync();
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
         }
         protected override bool OnBackButtonPressed(){
-            BackToLogin();
-            return true;
+            return  base.OnBackButtonPressed(); 
         }
         private async void Esconde_Exibe_Senha_Clicked(object sender, EventArgs e)
         {

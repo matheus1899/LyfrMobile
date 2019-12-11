@@ -48,7 +48,8 @@
         <pancake:PancakeView BackgroundGradientStartColor="{DynamicResource Primary_Color}"
                              BackgroundGradientEndColor="{DynamicResource Variant_Primary_Color}">
             <AbsoluteLayout>
-                <ScrollView VerticalOptions="FillAndExpand" 
+                
+                    <ScrollView VerticalOptions="FillAndExpand" 
                             Scrolled="ScrollView_Scrolled" 
                             AbsoluteLayout.LayoutBounds="0,0,1,1" 
                             AbsoluteLayout.LayoutFlags="All">
@@ -237,6 +238,7 @@
                         </Frame>
                     </StackLayout>
                 </ScrollView>
+                
                 <SearchBar Placeholder="Pesquisar livros ou autores..." 
                            Focused="SearchBar_Focused"
                            BackgroundColor="Black"

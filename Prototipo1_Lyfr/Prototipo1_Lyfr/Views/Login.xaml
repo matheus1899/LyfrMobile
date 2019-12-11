@@ -201,6 +201,7 @@
                             <!--Botão de Login-->
                             <BoxView HorizontalOptions="FillAndExpand"/>
                             <Button Text="Login" 
+                                    x:Name="btn_Login"
                                     HorizontalOptions="FillAndExpand" 
                                     BackgroundColor="{DynamicResource Secondary_Color}" 
                                     TextColor="{DynamicResource Primary_Color}" 

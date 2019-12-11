@@ -27,6 +27,7 @@ namespace Prototipo1_Lyfr.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            bind.SetList();
         }
         protected override void OnDisappearing()
         {

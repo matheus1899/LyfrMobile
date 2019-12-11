@@ -73,7 +73,7 @@ namespace Prototipo1_Lyfr
         }
         protected override bool OnBackButtonPressed()
         {
-            Navigation.PopAsync();
+            //Navigation.PopAsync();
             return base.OnBackButtonPressed();
         }
     }

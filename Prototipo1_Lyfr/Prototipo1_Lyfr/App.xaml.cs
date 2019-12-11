@@ -1,9 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-//using Microsoft.AppCenter;
-//using Microsoft.AppCenter.Analytics;
-//using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using System.Diagnostics;
 using Prototipo1_Lyfr.ViewModels.Services;
 using Prototipo1_Lyfr.Views.Services;
@@ -60,7 +60,7 @@ namespace Prototipo1_Lyfr
             {
                 c.InserirPrimeiraVez(new PrimeiraVez() { IsFirst = false });
             }
-            //AppCenter.Start("android=5af831f0-b735-4a30-a1ff-a33d62146c66;", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("android=5af831f0-b735-4a30-a1ff-a33d62146c66;", typeof(Analytics), typeof(Crashes));
         }
         protected override void OnSleep()
         {

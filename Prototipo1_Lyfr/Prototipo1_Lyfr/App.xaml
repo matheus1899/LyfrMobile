@@ -8,14 +8,14 @@
             <Color x:Key="TextColor_Alert">Red</Color>
             <!--<Color x:Key="Primary_Color">#EEDBAA</Color>-->
             <!--<Color x:Key="Secondary_Color">#436477</Color>-->
-            <Color x:Key="Primary_Color">#303030</Color>
+            <Color x:Key="Primary_Color">#212121</Color>
             <Color x:Key="Secondary_Color">#FFFFFF</Color>
             <Color x:Key="Tertiary_Color">#FFFFFF</Color>
 
             <Style x:Key="Style_Label" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="Medium"/>
             </Style>
 
             <Style x:Key="Style_Button_Ativo" TargetType="Button">
