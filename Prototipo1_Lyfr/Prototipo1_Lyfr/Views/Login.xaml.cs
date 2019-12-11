@@ -5,7 +5,6 @@ using Prototipo1_Lyfr.Conexao;
 using Prototipo1_Lyfr.Controls;
 using System.Text.RegularExpressions;
 using Prototipo1_Lyfr.Models.LocalDBModels;
-using Android.OS;
 
 namespace Prototipo1_Lyfr.Views
 {

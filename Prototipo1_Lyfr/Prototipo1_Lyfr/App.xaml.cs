@@ -64,6 +64,7 @@ namespace Prototipo1_Lyfr
         }
         protected override void OnSleep()
         {
+
         }
         protected override void OnResume()
         {
